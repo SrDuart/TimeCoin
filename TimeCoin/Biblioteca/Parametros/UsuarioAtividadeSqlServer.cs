@@ -95,7 +95,38 @@ namespace Biblioteca.Parametros
 
         public void Delete(UsuarioAtividade usuarioAtividade)
         {
-            throw new NotImplementedException();
+            try
+            {
+                #region abrir conexão
+                this.abrirConexao();
+                string sql = "DELETE from UsuarioAtividade where Id = @id";
+                #endregion
+
+                #region instrução a ser passada
+                SqlCommand cmd = new SqlCommand(sql, this.sqlConexao);
+                #endregion
+
+                #region passando parametros
+                cmd.Parameters.Add("@id", SqlDbType.Int);
+                cmd.Parameters["@id"].Value = usuarioAtividade.id;
+                #endregion
+
+                #region executando a instrução
+                cmd.ExecuteNonQuery();
+                #endregion  
+
+                #region liberando a memoria 
+                cmd.Dispose();
+                #endregion
+
+                #region fechando a conexao
+                this.fecharConexao();
+                #endregion
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Erro ao excluir UsuarioAtividade. " + e.Message);
+            }
         }
 
         public List<UsuarioAtividade> Select(UsuarioAtividade filtro)
