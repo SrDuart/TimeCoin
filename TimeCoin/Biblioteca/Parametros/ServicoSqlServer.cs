@@ -37,18 +37,15 @@ namespace Biblioteca.Parametros
                 cmd.ExecuteNonQuery();
                 #endregion
 
-                #region liberando a memoria 
+                #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
                 this.fecharConexao();
+                #endregion
             }
             catch (Exception ex)
             {
                 throw new Exception("Erro ao conectar e inserir o serviço. " + ex.Message);
-            }
-            #endregion
+            }            
         }
 
         public void Update(Servico servico)

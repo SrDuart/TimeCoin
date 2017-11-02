@@ -8,7 +8,6 @@ namespace Biblioteca.RegraNegocio
 {
     public class TipoUsuarioRN : ITipoUsuario
     {
-
         private void ValidarDadosBasicos(TipoUsuario tipoUsuario)
         {
             if (tipoUsuario == null)
@@ -41,7 +40,6 @@ namespace Biblioteca.RegraNegocio
 
         public void Insert(TipoUsuario tipoUsuario)
         {
-
             ValidarDadosBasicos(tipoUsuario);
 
             if (this.VerificaDuplicidade(tipoUsuario))

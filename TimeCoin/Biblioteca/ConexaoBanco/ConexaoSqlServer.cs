@@ -8,10 +8,10 @@ namespace Biblioteca.ConexaoBanco
         #region Variáveis
         public SqlConnection sqlConexao;
 
-        private const String usuario = "sr.duart";
-        private const String senha = "123456";
+        private const String usuario = "aluno";
+        private const String senha = "aluno";
         private const String banco = "TimeCoin";
-        private const String localhost = "SrDuart";
+        private const String localhost = "localhost";
         #endregion
 
         #region String de Conexão

@@ -8,6 +8,14 @@ namespace Biblioteca.RegraNegocio
 {
     public class RecebeRN : IRecebe
     {
+        private void ValidarDadosBasicos(Recebe recebe)
+        {
+            if (recebe == null)
+            {
+                throw new Exception("Erro! Campo nulo. Favor instanciar serviço recebido pelo usuário.");
+            }
+        }
+
         public void Delete(Recebe recebe)
         {
             if (recebe == null)
@@ -21,15 +29,11 @@ namespace Biblioteca.RegraNegocio
 
         public void Insert(Recebe recebe)
         {
+            ValidarDadosBasicos(recebe);
 
-            if (recebe == null)
+            if (this.VerificaDuplicidade(recebe))
             {
-                throw new Exception("Favor, informar o serviço recebido pelo usuário.");
-            }
-
-            if (this.VerificaDuplicidade(recebe) == true)
-            {
-                throw new Exception("O serviço recebido pelo usuário já existe.");
+                throw new Exception("Erro! Serviço recebido pelo usuário já existente.");
             }
 
             RecebeSqlServer dados = new RecebeSqlServer();
@@ -44,14 +48,11 @@ namespace Biblioteca.RegraNegocio
 
         public void Update(Recebe recebe)
         {
-            if (recebe == null)
-            {
-                throw new Exception("Favor, instanciar serviço recebido pelo usuário.");
-            }            
+            ValidarDadosBasicos(recebe);
 
-            if (this.VerificaDuplicidade(recebe))
+            if (this.VerificaDuplicidade(recebe) == true)
             {
-                throw new Exception("O serviço recebido pelo usuário já existe.");
+                throw new Exception("Erro! Serviço recebido pelo usuário já existente.");
             }
 
             RecebeSqlServer dados = new RecebeSqlServer();
@@ -62,7 +63,7 @@ namespace Biblioteca.RegraNegocio
         {
             if (recebe == null)
             {
-                throw new Exception("Favor, informar serviço recebido pelo usuário.");
+                throw new Exception("Erro! Campo nulo. Favor instanciar serviço recebido pelo usuário.");
             }
 
             RecebeSqlServer dados = new RecebeSqlServer();

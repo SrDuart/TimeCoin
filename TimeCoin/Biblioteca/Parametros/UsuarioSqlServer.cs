@@ -16,9 +16,9 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "insert into Usuario (nome , userName, cpf_cnpj, telefoneFixo, telefoneCelular, ";
-                sql += " estado, cidade, bairro, email, senha, descricao, Id_Situacao, Id_TipoUsuario) values (@nome , @userName, @cpf_cnpj, ";
-                sql += "  @telefoneFixo, @telefoneCelular, @estado, @cidade, @bairro, @email, @senha, @descricao, @Id_Situacao, @Id_TipoUsuario)";               
+                string sql = "insert into Usuario (nome, userName, cpf_cnpj, telefoneFixo, telefoneCelular, ";
+                sql += "estado, cidade, bairro, email, senha, descricao, Id_Situacao, Id_TipoUsuario) values (@nome , @userName, @cpf_cnpj, ";
+                sql += "@telefoneFixo, @telefoneCelular, @estado, @cidade, @bairro, @email, @senha, @descricao, @Id_Situacao, @Id_TipoUsuario)";               
                 #endregion
 
                 #region instrucao a ser executada
@@ -70,11 +70,8 @@ namespace Biblioteca.Parametros
                 cmd.ExecuteNonQuery();
                 #endregion
 
-                #region liberando a memoria 
+                #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
                 this.fecharConexao();
                 #endregion
             }
@@ -206,8 +203,8 @@ namespace Biblioteca.Parametros
 
                 #region instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, sqlConexao);
-
                 #endregion
+
                 #region passar parametros
                 cmd.Parameters.Add("@userName", SqlDbType.VarChar);
                 cmd.Parameters["@userName"].Value = usuario.userName;

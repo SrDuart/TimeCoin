@@ -32,18 +32,15 @@ namespace Biblioteca.Parametros
                 cmd.ExecuteNonQuery();
                 #endregion
 
-                #region liberando a memoria 
+                #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
+                this.fecharConexao();            
                 #endregion
-
-                #region fechando a conexao
-                this.fecharConexao();
             }
             catch (Exception ex)
             {
                 throw new Exception("Erro ao conectar e inserir Tipo de usuário. " + ex.Message);
             }
-            #endregion
         }
 
         public void Update(TipoUsuario tipoUsuario)
@@ -105,11 +102,8 @@ namespace Biblioteca.Parametros
                 cmd.ExecuteNonQuery();
                 #endregion
 
-                #region liberando a memoria 
+                #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
                 this.fecharConexao();
                 #endregion
             }
@@ -152,11 +146,8 @@ namespace Biblioteca.Parametros
                 DbReader.Close();
                 #endregion
 
-                #region liberando a memoria 
+                #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
                 this.fecharConexao();
                 #endregion
             }
@@ -174,7 +165,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();                
-                string sql = "SELECT * from TipoUsuario ";
+                string sql = "SELECT * from TipoUsuario";
                 #endregion
 
                 SqlCommand cmd = new SqlCommand(sql, sqlConexao);                
