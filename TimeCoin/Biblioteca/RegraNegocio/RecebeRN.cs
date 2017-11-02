@@ -12,7 +12,17 @@ namespace Biblioteca.RegraNegocio
         {
             if (recebe == null)
             {
-                throw new Exception("Erro! Campo nulo. Favor instanciar serviço recebido pelo usuário.");
+                throw new Exception("Erro! Campo nulo. Favor, instanciar serviço recebido pelo usuário.");
+            }
+
+            if (recebe.quantidadeHora == 0) //CONFIRMAR SE ISSO ESTÁ CERTO
+            {
+                throw new Exception("Erro! Número de horas vazio. Favor, instanciar a quantidade de horas paga pelo serviço recebido.");
+            }
+
+            if (recebe.avaliacao == 0) //CONFIRMAR SE ISSO ESTÁ CERTO
+            {
+                throw new Exception("Erro! Avaliação não realizada. Favor, instanciar a avaliação do serviço recebido.");
             }
         }
 
@@ -20,14 +30,14 @@ namespace Biblioteca.RegraNegocio
         {
             if (recebe == null)
             {
-                throw new Exception("Favor, instanciar serviço recebido pelo usuário.");
+                throw new Exception("Erro! Campo nulo. Favor, instanciar serviço recebido pelo usuário.");
             }
 
             RecebeSqlServer dados = new RecebeSqlServer();
             dados.Delete(recebe);
         }
 
-        public void Insert(Recebe recebe)
+        public void Insert(Recebe recebe)   
         {
             ValidarDadosBasicos(recebe);
 
@@ -65,7 +75,7 @@ namespace Biblioteca.RegraNegocio
             {
                 throw new Exception("Erro! Campo nulo. Favor instanciar serviço recebido pelo usuário.");
             }
-
+            
             RecebeSqlServer dados = new RecebeSqlServer();
             return dados.VerificaDuplicidade(recebe);
         }

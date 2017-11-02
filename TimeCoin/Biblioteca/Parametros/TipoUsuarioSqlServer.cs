@@ -125,9 +125,9 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region instrucao a ser executada
-                SqlCommand cmd = new SqlCommand(sql, sqlConexao);
-                
+                SqlCommand cmd = new SqlCommand(sql, sqlConexao);                
                 #endregion
+
                 #region passar parametros
                 cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
                 cmd.Parameters["@descricao"].Value = tipoUsuario.descricao;                
@@ -153,7 +153,7 @@ namespace Biblioteca.Parametros
             }
             catch (Exception ex)
 			{
-				throw new Exception("Erro! Este tipo de usuário já existente. " + ex.Message);
+				throw new Exception("Erro! Este tipo de usuário já existe." + ex.Message);
 			}
 			return retorno;
         }

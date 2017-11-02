@@ -22,16 +22,15 @@ namespace Biblioteca.RegraNegocio
 
             if (tipoUsuario.descricao.Trim().Length < 1 || tipoUsuario.descricao.Trim().Length > 15)
             {
-                throw new Exception("Erro! número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 15.");
+                throw new Exception("Erro! Número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 15.");
             }
         }
 
         public void Delete(TipoUsuario tipoUsuario)
         {
-
             if (tipoUsuario == null)
             {
-                throw new Exception("Erro! Campo nulo. Favor instanciar um Tipo de usuário.");
+                throw new Exception("Erro! Campo nulo. Favor, instanciar um Tipo de usuário.");
             }
 
             TipoUsuarioSqlServer dados = new TipoUsuarioSqlServer();
@@ -74,12 +73,12 @@ namespace Biblioteca.RegraNegocio
         {
             if (tipoUsuario == null)
             {
-                throw new Exception("Erro! Campo nulo. Favor instanciar um Tipo de usuário.");
+                throw new Exception("Erro! Campo nulo. Favor, instanciar um Tipo de usuário.");
             }
 
             if (tipoUsuario.descricao == null)
             {
-                throw new Exception("Erro! Campo nulo. Favor instanciar uma descrição do Tipo de usuário.");
+                throw new Exception("Erro! Campo nulo. Favor, instanciar uma descrição do Tipo de usuário.");
             }
 
             TipoUsuarioSqlServer dados = new TipoUsuarioSqlServer();

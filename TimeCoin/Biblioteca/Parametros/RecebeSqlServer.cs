@@ -130,21 +130,27 @@ namespace Biblioteca.Parametros
             }
         }
 
+        //CONFIRMAR SE ISSO ESTÁ CORRETO
         public bool VerificaDuplicidade(Recebe recebe)
         {
             bool retorno = false;
             try
             {
+                //CONFIRMAR SE ISSO ESTÁ CORRETO
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "SELECT avaliacao from Recebe where Id_usuario = @Id_usuario and Id_servico = @Id_servico";
+                string sql = "SELECT quantidadeHora and avaliacao from Recebe where Id_usuario = @Id_usuario and Id_servico = @Id_servico";
                 #endregion
 
                 #region instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, sqlConexao);
                 #endregion
 
+                //CONFIRMAR SE ISSO ESTÁ CORRETO
                 #region passar parametros
+                cmd.Parameters.Add("@quantidadeHora", SqlDbType.Int);
+                cmd.Parameters["@quantidadeHora"].Value = recebe.quantidadeHora;
+
                 cmd.Parameters.Add("@avaliacao", SqlDbType.Decimal);
                 cmd.Parameters["@avaliacao"].Value = recebe.avaliacao;
 
@@ -175,7 +181,7 @@ namespace Biblioteca.Parametros
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro! Este serviço recebido pelo usuário já existente. " + ex.Message);
+                throw new Exception("Erro! Este serviço recebido pelo usuário já existe." + ex.Message);
             }
             return retorno;
         }
