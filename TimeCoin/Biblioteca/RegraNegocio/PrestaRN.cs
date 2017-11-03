@@ -15,12 +15,12 @@ namespace Biblioteca.RegraNegocio
                 throw new Exception("Erro! Campo nulo. Favor, instanciar serviço prestado pelo usuário.");
             }
 
-            if (presta.quantidadeHora == 0) //CONFIRMAR SE ISSO ESTÁ CERTO
+            if (presta.quantidadeHora == 0)
             {
                 throw new Exception("Erro! Número de horas vazio. Favor, instanciar a quantidade de horas recebidas pelo serviço prestado.");
             }
 
-            if (presta.avaliacao == 0) //CONFIRMAR SE ISSO ESTÁ CERTO
+            if (presta.avaliacao == 0)
             {
                 throw new Exception("Erro! Avaliação não realizada. Favor, instanciar a avaliação do serviço prestado.");
             }

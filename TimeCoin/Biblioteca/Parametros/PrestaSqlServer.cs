@@ -130,24 +130,21 @@ namespace Biblioteca.Parametros
                 throw new Exception("Erro ao conectar e excluir serviço prestado pelo usuário." + ex.Message);
             }
         }
-
-        //CONFIRMAR SE ISSO ESTÁ CORRETO
+        
         public bool VerificaDuplicidade(Presta presta)
         {
             bool retorno = false;
             try
             {
-                //CONFIRMAR SE ISSO ESTÁ CORRETO
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "SELECT quantidadeHora and avaliacao from Presta where Id_usuario = @Id_usuario and Id_servico = @Id_servico";
+                string sql = "SELECT quantidadeHora, avaliacao from Presta where Id_usuario = @Id_usuario and Id_servico = @Id_servico";
                 #endregion
 
                 #region instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, sqlConexao);
                 #endregion
-
-                //CONFIRMAR SE ISSO ESTÁ CORRETO
+                
                 #region passar parametros
                 cmd.Parameters.Add("@quantidadeHora", SqlDbType.Int);
                 cmd.Parameters["@quantidadeHora"].Value = presta.quantidadeHora;

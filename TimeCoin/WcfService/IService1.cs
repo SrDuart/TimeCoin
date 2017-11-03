@@ -20,8 +20,8 @@ namespace WcfService
 
     // Use um contrato de dados como ilustrado no exemplo abaixo para adicionar tipos compostos a operações de serviço.
     [DataContract]
-    public class CompositeType
-    {
+    public class CompositeType 
+    { 
         bool boolValue = true;
         string stringValue = "Hello ";
 

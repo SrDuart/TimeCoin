@@ -15,12 +15,12 @@ namespace Biblioteca.RegraNegocio
                 throw new Exception("Erro! Campo nulo. Favor, instanciar serviço recebido pelo usuário.");
             }
 
-            if (recebe.quantidadeHora == 0) //CONFIRMAR SE ISSO ESTÁ CERTO
+            if (recebe.quantidadeHora == 0)
             {
                 throw new Exception("Erro! Número de horas vazio. Favor, instanciar a quantidade de horas paga pelo serviço recebido.");
             }
 
-            if (recebe.avaliacao == 0) //CONFIRMAR SE ISSO ESTÁ CERTO
+            if (recebe.avaliacao == 0)
             {
                 throw new Exception("Erro! Avaliação não realizada. Favor, instanciar a avaliação do serviço recebido.");
             }
@@ -70,7 +70,7 @@ namespace Biblioteca.RegraNegocio
         }
 
         public bool VerificaDuplicidade(Recebe recebe)
-        {
+        {        
             if (recebe == null)
             {
                 throw new Exception("Erro! Campo nulo. Favor instanciar serviço recebido pelo usuário.");
