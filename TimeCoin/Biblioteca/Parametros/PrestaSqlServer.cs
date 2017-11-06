@@ -16,7 +16,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "insert into Presta (id_usuario, id_servico, quantidadeHora, avaliacao) values (@id_usuario, @id_servico, @quantidadeHora, @avaliacao)";
+                string sql = "insert into Presta (Id_usuario, Id_servico, quantidadeHora, avaliacao) values (@Id_usuario, @Id_servico, @quantidadeHora, @avaliacao)";
                 #endregion
 
                 #region instrucao a ser executada
@@ -41,18 +41,15 @@ namespace Biblioteca.Parametros
                 cmd.ExecuteNonQuery();
                 #endregion
 
-                #region liberando a memoria 
+                #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
                 this.fecharConexao();
+                #endregion
             }
             catch (Exception ex)
             {
                 throw new Exception("Erro ao conectar e inserir serviço prestado pelo usuário. " + ex.Message);
             }
-            #endregion
         }
 
         public void Update(Presta presta)
@@ -61,7 +58,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "update Presta set quantidadeHora = @quantidadeHora and avaliacao = @avaliacao where id_usuario = @id_usuario and id_servico = @id_servico";
+                string sql = "update Presta set quantidadeHora = @quantidadeHora and avaliacao = @avaliacao where Id_usuario = @Id_usuario and Id_servico = @Id_servico";
                 #endregion
 
                 #region instrucao a ser executada
@@ -69,11 +66,11 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passar parametros
-                cmd.Parameters.Add("@id_usuario", SqlDbType.Int);
-                cmd.Parameters["@id_usuario"].Value = presta.usuario.id;
+                cmd.Parameters.Add("@Id_usuario", SqlDbType.Int);
+                cmd.Parameters["@Id_usuario"].Value = presta.usuario.id;
 
-                cmd.Parameters.Add("@id_servico", SqlDbType.Int);
-                cmd.Parameters["@id_servico"].Value = presta.servico.id;
+                cmd.Parameters.Add("@Id_servico", SqlDbType.Int);
+                cmd.Parameters["@Id_servico"].Value = presta.servico.id;
 
                 cmd.Parameters.Add("@quantidadeHora", SqlDbType.Int);
                 cmd.Parameters["@quantidadeHora"].Value = presta.quantidadeHora;
@@ -86,27 +83,24 @@ namespace Biblioteca.Parametros
                 cmd.ExecuteNonQuery();
                 #endregion
 
-                #region liberando a memoria 
+                #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
                 this.fecharConexao();
+                #endregion
             }
             catch (Exception ex)
             {
                 throw new Exception("Erro ao conectar e alterar serviço prestado pelo usuário." + ex.Message);
             }
-            #endregion
         }
-
+            
         public void Delete(Presta presta)
         {
             try
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "delete from Presta where id_usuario = @id_usuario and id_servico = @id_servico";
+                string sql = "delete from Presta where Id_usuario = @Id_usuario and Id_servico = @Id_servico";
                 #endregion
 
                 #region instrucao a ser executada
@@ -114,59 +108,80 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passar parametros
-                cmd.Parameters.Add("@id_usuario", SqlDbType.Int);
-                cmd.Parameters["@id_usuario"].Value = presta.usuario.id;
+                cmd.Parameters.Add("@Id_usuario", SqlDbType.Int);
+                cmd.Parameters["@Id_usuario"].Value = presta.usuario.id;
 
-                cmd.Parameters.Add("@id_servico", SqlDbType.Int);
-                cmd.Parameters["@id_servico"].Value = presta.servico.id;
+                cmd.Parameters.Add("@Id_servico", SqlDbType.Int);
+                cmd.Parameters["@Id_servico"].Value = presta.servico.id;
                 #endregion
 
                 #region executando a instrucao 
                 cmd.ExecuteNonQuery();
                 #endregion
 
-                #region liberando a memoria 
+                #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
+                this.fecharConexao();
                 #endregion
 
-                #region fechando a conexao
-                this.fecharConexao();
             }
             catch (Exception ex)
             {
                 throw new Exception("Erro ao conectar e excluir serviço prestado pelo usuário." + ex.Message);
             }
-            #endregion
         }
-
+        
         public bool VerificaDuplicidade(Presta presta)
         {
             bool retorno = false;
-            //try
-            //{
-            //    this.abrirConexao();
-            //    //instrucao a ser executada
-            //    string sql = "SELECT nome, descricao from atividade where nome = " + atividade.nome;
-            //    SqlCommand cmd = new SqlCommand(sql, sqlConexao);
-            //    //executando a instrucao e colocando o resultado em um leitor
-            //    SqlDataReader DbReader = cmd.ExecuteReader();
-            //    //lendo o resultado da consulta
-            //    while (DbReader.Read())
-            //    {
-            //        retorno = true;
-            //        break;
-            //    }
-            //    //fechando o leitor de resultados
-            //    DbReader.Close();
-            //    //liberando a memoria 
-            //    cmd.Dispose();
-            //    //fechando a conexao
-            //    this.fecharConexao();
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw new Exception("Erro ao conectar e selecionar serviço prestado pelo usuário. " + ex.Message);
-            //}
+            try
+            {
+                #region abrir a conexão
+                this.abrirConexao();
+                string sql = "SELECT quantidadeHora, avaliacao from Presta where Id_usuario = @Id_usuario and Id_servico = @Id_servico";
+                #endregion
+
+                #region instrucao a ser executada
+                SqlCommand cmd = new SqlCommand(sql, sqlConexao);
+                #endregion
+                
+                #region passar parametros
+                cmd.Parameters.Add("@quantidadeHora", SqlDbType.Int);
+                cmd.Parameters["@quantidadeHora"].Value = presta.quantidadeHora;
+
+                cmd.Parameters.Add("@avaliacao", SqlDbType.Decimal);
+                cmd.Parameters["@avaliacao"].Value = presta.avaliacao;
+
+                cmd.Parameters.Add("@Id_usuario", SqlDbType.Int);
+                cmd.Parameters["@Id_usuario"].Value = presta.usuario.id;
+
+                cmd.Parameters.Add("@Id_servico", SqlDbType.Int);
+                cmd.Parameters["@Id_servico"].Value = presta.servico.id;
+                #endregion
+
+                #region instrucao a ser executada
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                #endregion
+
+                #region executando a instrucao
+                while (DbReader.Read())
+                {
+                    retorno = true;
+                    break;
+                }
+                DbReader.Close();
+                #endregion
+
+                #region liberando a memoria e fechando a conexao
+                cmd.Dispose();
+                this.fecharConexao();
+                #endregion
+            }
+
+            catch (Exception ex)
+            {
+                throw new Exception("Erro! Este serviço prestado pelo usuário já existe." + ex.Message);
+            }
             return retorno;
         }
 
@@ -175,63 +190,36 @@ namespace Biblioteca.Parametros
             List<Presta> retorno = new List<Presta>();
             try
             {
+                #region instrucao a ser executada
                 this.abrirConexao();
-                //instrucao a ser executada
-                string sql = "SELECT id_usuario, id_servico, quantidadeHora, avaliacao from Presta";
-
-                string where = string.Empty; 
-                if (filtro.usuario.id > 0)
-                {
-                    where += " id_usuario = @id_usuario ";
-                }
-                if (filtro.servico.id > 0)
-                {
-                    if (!string.IsNullOrEmpty(where))
-                    {
-                        where += " and ";
-                    }
-                    where += " id_servico = @id_servico ";
-                }
-
-                if (!string.IsNullOrEmpty(where))
-                {
-                    sql = " where " + where;
-                }
-
-                SqlCommand cmd = new SqlCommand(sql, sqlConexao);
-
-                #region passar parametros
-                if (filtro.usuario.id > 0)
-                {
-                    cmd.Parameters.Add("@id_usuario", SqlDbType.Int);
-                    cmd.Parameters["@id_usuario"].Value = filtro.usuario.id;
-                }
-                if (filtro.servico.id > 0)
-                {
-                    cmd.Parameters.Add("@id_servico", SqlDbType.Int);
-                    cmd.Parameters["@id_servico"].Value = filtro.servico.id;
-                }
+                string sql = "SELECT * from Presta";
                 #endregion
 
-                //executando a instrucao e colocando o resultado em um leitor
+                #region executando instrucao e colocando o resultado em um leitor e lendo o resultado da consulta
+                SqlCommand cmd = new SqlCommand(sql, sqlConexao);
                 SqlDataReader DbReader = cmd.ExecuteReader();
-                //lendo o resultado da consulta
                 while (DbReader.Read())
+                #endregion
+
                 {
+                    #region acessando os valores das colunas do resultado
                     Presta presta = new Presta();
-                    //acessando os valores das colunas do resultado
-                    presta.usuario.id = DbReader.GetInt32(DbReader.GetOrdinal("id_usuario"));
-                    presta.servico.id = DbReader.GetInt32(DbReader.GetOrdinal("id_servico"));
+                    presta.usuario.id = DbReader.GetInt32(DbReader.GetOrdinal("Id_usuario"));
+                    presta.servico.id = DbReader.GetInt32(DbReader.GetOrdinal("Id_servico"));
                     presta.quantidadeHora = DbReader.GetInt32(DbReader.GetOrdinal("quantidadeHora"));
                     presta.avaliacao = DbReader.GetDouble(DbReader.GetOrdinal("avaliacao"));
                     retorno.Add(presta);
+                    #endregion
                 }
-                //fechando o leitor de resultados
+
+                #region fechando o leitor de resultados
                 DbReader.Close();
-                //liberando a memoria 
+                #endregion
+
+                #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
-                //fechando a conexao
                 this.fecharConexao();
+                #endregion
             }
             catch (Exception ex)
             {

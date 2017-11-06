@@ -16,7 +16,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "insert into Recebe (id_usuario, id_servico, quantidadeHora, avaliacao) values (@id_usuario, @id_servico, @quantidadeHora, @avaliacao)";
+                string sql = "insert into Recebe (Id_usuario, Id_servico, quantidadeHora, avaliacao) values (@Id_usuario, @Id_servico, @quantidadeHora, @avaliacao)";
                 #endregion
 
                 #region instrucao a ser executada
@@ -24,16 +24,16 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passar parametros
-                cmd.Parameters.Add("@id_usuario", SqlDbType.VarChar);
+                cmd.Parameters.Add("@id_usuario", SqlDbType.Int);
                 cmd.Parameters["@id_usuario"].Value = recebe.usuario.id;
 
-                cmd.Parameters.Add("@id_servico", SqlDbType.VarChar);
+                cmd.Parameters.Add("@id_servico", SqlDbType.Int);
                 cmd.Parameters["@id_servico"].Value = recebe.servico.id;
 
-                cmd.Parameters.Add("@quantidadeHora", SqlDbType.VarChar);
+                cmd.Parameters.Add("@quantidadeHora", SqlDbType.Int);
                 cmd.Parameters["@quantidadeHora"].Value = recebe.quantidadeHora;
 
-                cmd.Parameters.Add("@avaliacao", SqlDbType.VarChar);
+                cmd.Parameters.Add("@avaliacao", SqlDbType.Decimal);
                 cmd.Parameters["@avaliacao"].Value = recebe.avaliacao;
                 #endregion
 
@@ -41,18 +41,15 @@ namespace Biblioteca.Parametros
                 cmd.ExecuteNonQuery();
                 #endregion
 
-                #region liberando a memoria 
+                #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
                 this.fecharConexao();
+                #endregion
             }
             catch (Exception ex)
             {
                 throw new Exception("Erro ao conectar e inserir serviço recebido pelo usuário." + ex.Message);
             }
-            #endregion
         }
 
         public void Update(Recebe recebe)
@@ -61,7 +58,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "update Recebe set quantidadeHora = @quantidadeHora and avaliacao = @avaliacao where servico = @servico";
+                string sql = "update Recebe set quantidadeHora = @quantidadeHora and avaliacao = @avaliacao where Id_usuario = @Id_usuario and Id_servico = @Id_servico";
                 #endregion
 
                 #region instrucao a ser executada
@@ -69,13 +66,16 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passar parametros
-                cmd.Parameters.Add("@servico", SqlDbType.Int);
-                cmd.Parameters["@servico"].Value = recebe.servico.id;
+                cmd.Parameters.Add("@Id_usuario", SqlDbType.Int);
+                cmd.Parameters["@Id_usuario"].Value = recebe.servico.id;
+
+                cmd.Parameters.Add("@Id_servico", SqlDbType.Int);
+                cmd.Parameters["@Id_servico"].Value = recebe.servico.id;
 
                 cmd.Parameters.Add("@quantidadeHora", SqlDbType.Int);
                 cmd.Parameters["@quantidadeHora"].Value = recebe.quantidadeHora;
 
-                cmd.Parameters.Add("@avaliacao", SqlDbType.VarChar);
+                cmd.Parameters.Add("@avaliacao", SqlDbType.Decimal);
                 cmd.Parameters["@avaliacao"].Value = recebe.avaliacao;
                 #endregion
 
@@ -83,18 +83,15 @@ namespace Biblioteca.Parametros
                 cmd.ExecuteNonQuery();
                 #endregion
 
-                #region liberando a memoria 
+                #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
                 this.fecharConexao();
+                #endregion
             }
             catch (Exception ex)
             {
                 throw new Exception("Erro ao conectar e alterar serviço recebido pelo usuário. " + ex.Message);
             }
-            #endregion
         }
 
         public void Delete(Recebe recebe)
@@ -103,7 +100,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "delete from Recebe where servico = @servico";
+                string sql = "delete from Recebe where Id_usuario = @Id_usuario and Id_servico = @Id_servico";
                 #endregion
 
                 #region instrucao a ser executada
@@ -111,56 +108,78 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passar parametros
-                cmd.Parameters.Add("@servico", SqlDbType.Int);
-                cmd.Parameters["@servico"].Value = recebe.servico.id;
+                cmd.Parameters.Add("@Id_usuario", SqlDbType.Int);
+                cmd.Parameters["@Id_usuario"].Value = recebe.servico.id;
+
+                cmd.Parameters.Add("@Id_servico", SqlDbType.Int);
+                cmd.Parameters["@Id_servico"].Value = recebe.servico.id;
                 #endregion
 
                 #region executando a instrucao 
                 cmd.ExecuteNonQuery();
                 #endregion
 
-                #region liberando a memoria 
+                #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
                 this.fecharConexao();
+                #endregion
             }
             catch (Exception ex)
             {
                 throw new Exception("Erro ao conectar e excluir serviço recebido pelo usuário." + ex.Message);
             }
-            #endregion
         }
-
+        
         public bool VerificaDuplicidade(Recebe recebe)
         {
             bool retorno = false;
-            //try
-            //{
-            //    this.abrirConexao();
-            //    //instrucao a ser executada
-            //    string sql = "SELECT nome, descricao from atividade where nome = " + atividade.nome;
-            //    SqlCommand cmd = new SqlCommand(sql, sqlConexao);
-            //    //executando a instrucao e colocando o resultado em um leitor
-            //    SqlDataReader DbReader = cmd.ExecuteReader();
-            //    //lendo o resultado da consulta
-            //    while (DbReader.Read())
-            //    {
-            //        retorno = true;
-            //        break;
-            //    }
-            //    //fechando o leitor de resultados
-            //    DbReader.Close();
-            //    //liberando a memoria 
-            //    cmd.Dispose();
-            //    //fechando a conexao
-            //    this.fecharConexao();
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw new Exception("Erro ao conectar e selecionar serviço recebido pelo usuário. " + ex.Message);
-            //}
+            try
+            {
+                #region abrir a conexão
+                this.abrirConexao();
+                string sql = "SELECT quantidadeHora, avaliacao from Recebe where Id_usuario = @Id_usuario and Id_servico = @Id_servico";
+                #endregion
+
+                #region instrucao a ser executada
+                SqlCommand cmd = new SqlCommand(sql, sqlConexao);
+                #endregion
+                
+                #region passar parametros
+                cmd.Parameters.Add("@quantidadeHora", SqlDbType.Int);
+                cmd.Parameters["@quantidadeHora"].Value = recebe.quantidadeHora;
+
+                cmd.Parameters.Add("@avaliacao", SqlDbType.Decimal);
+                cmd.Parameters["@avaliacao"].Value = recebe.avaliacao;
+
+                cmd.Parameters.Add("@Id_usuario", SqlDbType.Int);
+                cmd.Parameters["@Id_usuario"].Value = recebe.usuario.id;
+
+                cmd.Parameters.Add("@Id_servico", SqlDbType.Int);
+                cmd.Parameters["@Id_servico"].Value = recebe.servico.id;
+                #endregion
+
+                #region instrucao a ser executada
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                #endregion
+
+                #region executando a instrucao
+                while (DbReader.Read())
+                {
+                    retorno = true;
+                    break;
+                }
+                DbReader.Close();
+                #endregion
+
+                #region liberando a memoria e fechando a conexao
+                cmd.Dispose();
+                this.fecharConexao();
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro! Este serviço recebido pelo usuário já existe." + ex.Message);
+            }
             return retorno;
         }
 
@@ -169,30 +188,36 @@ namespace Biblioteca.Parametros
             List<Recebe> retorno = new List<Recebe>();
             try
             {
-                this.abrirConexao();
-                //instrucao a ser executada
-                string sql = "SELECT id_usuario, id_servico, quantidadeHora, avaliacao from Recebe";
-                                
-                SqlCommand cmd = new SqlCommand(sql, sqlConexao);
-                //executando a instrucao e colocando o resultado em um leitor
+                #region instrucao a ser executada
+                this.abrirConexao();              
+                string sql = "SELECT * from Recebe";
+                #endregion
+
+                #region executando instrucao e colocando o resultado em um leitor e lendo o resultado da consulta
+                SqlCommand cmd = new SqlCommand(sql, sqlConexao);                
                 SqlDataReader DbReader = cmd.ExecuteReader();
-                //lendo o resultado da consulta
                 while (DbReader.Read())
+                #endregion
+
                 {
-                    Recebe recebe = new Recebe();
-                    //acessando os valores das colunas do resultado
-                    recebe.usuario.id = DbReader.GetInt32(DbReader.GetOrdinal("id_usuario"));
-                    recebe.servico.id = DbReader.GetInt32(DbReader.GetOrdinal("id_servico"));
+                    #region acessando os valores das colunas do resultado
+                    Recebe recebe = new Recebe();                    
+                    recebe.usuario.id = DbReader.GetInt32(DbReader.GetOrdinal("Id_usuario"));
+                    recebe.servico.id = DbReader.GetInt32(DbReader.GetOrdinal("Id_servico"));
                     recebe.quantidadeHora = DbReader.GetInt32(DbReader.GetOrdinal("quantidadeHora"));
                     recebe.avaliacao = DbReader.GetDouble(DbReader.GetOrdinal("avaliacao"));
                     retorno.Add(recebe);
+                    #endregion
                 }
-                //fechando o leitor de resultados
+
+                #region fechando o leitor de resultados
                 DbReader.Close();
-                //liberando a memoria 
+                #endregion
+
+                #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
-                //fechando a conexao
                 this.fecharConexao();
+                #endregion
             }
             catch (Exception ex)
             {
