@@ -1,42 +1,135 @@
-﻿using System.Runtime.Serialization;
-using System.ServiceModel;
-
+﻿using System.ServiceModel;
+using Biblioteca.ClassesBasicas;
+using System.Collections.Generic;
 namespace WcfService
 {
-    // OBSERVAÇÃO: Você pode usar o comando "Renomear" no menu "Refatorar" para alterar o nome da interface "IService1" no arquivo de código e configuração ao mesmo tempo.
     [ServiceContract]
     public interface IService1
     {
+        //TipoUsuario
+        #region TipoUsuario
+        [OperationContract]
+        void TipoUsuarioInsert(TipoUsuario tipoUsuario);
 
         [OperationContract]
-        string GetData(int value);
+        void TipoUsuarioUpdate(TipoUsuario tipoUsuario);
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        void TipoUsuarioDelete(TipoUsuario tipoUsuario);
 
-        // TODO: Adicione suas operações de serviço aqui
-    }
+        [OperationContract]
+        List<TipoUsuario> TipoUsuarioSelect(TipoUsuario filtro);
 
+        [OperationContract]
+        bool TipoUsuarioVerificaDuplicidade(TipoUsuario filtro);
+        #endregion
 
-    // Use um contrato de dados como ilustrado no exemplo abaixo para adicionar tipos compostos a operações de serviço.
-    [DataContract]
-    public class CompositeType 
-    { 
-        bool boolValue = true;
-        string stringValue = "Hello ";
+        //Situacao
+        #region Situacao
+        [OperationContract]
+        void SituacaoInsert(Situacao situacao);
 
-        [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
+        [OperationContract]
+        void SituacaoUpdate(Situacao situacao);
 
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        [OperationContract]
+        void SituacaoDelete(Situacao situacao);
+
+        [OperationContract]
+        List<Situacao> SituacaoSelect(Situacao filtro);
+
+        //[OperationContract]
+        //bool SituacaoVerificaDuplicidade(Situacao situacao);
+        #endregion
+
+        //Usuario
+        #region Usuario
+        [OperationContract]
+        void UsuarioInsert(Usuario usuario);
+
+        [OperationContract]
+        void UsuarioUpdate(Usuario usuario);
+
+        [OperationContract]
+        void UsuarioDelete(Usuario usuario);
+
+        [OperationContract]
+        List<Usuario> UsuarioSelect(Usuario filtro);
+
+        //[OperationContract]
+        //bool UsuarioVerificaDuplicidade(Usuario usuario);
+        #endregion
+
+        //Servico
+        #region Servico
+        [OperationContract]
+        void ServicoInsert(Servico servico);
+
+        [OperationContract]
+        void ServicoUpdate(Servico servico);
+
+        [OperationContract]
+        void ServicoDelete(Servico servico);
+
+        [OperationContract]
+        List<Servico> ServicoSelect(Servico filtro);
+
+        //[OperationContract]
+        //bool ServicoVerificaDuplicidade(Servico servico);
+        #endregion
+
+        //Atividade
+        #region Atividade
+        [OperationContract]
+        void AtividadeInsert(Atividade atividade);
+
+        [OperationContract]
+        void AtividadeUpdate(Atividade atividade);
+
+        [OperationContract]
+        void AtividadeDelete(Atividade atividade);
+
+        [OperationContract]
+        List<Atividade> AtividadeSelect(Atividade atividade);
+
+        //[OperationContract]
+        //bool AtividadeVerificaDuplicidade(Atividade atividade);
+        #endregion
+
+        //Presta
+        #region Presta
+        [OperationContract]
+        void PrestaInsert(Presta presta);
+
+        [OperationContract]
+        void PrestaUpdate(Presta presta);
+
+        [OperationContract]
+        void PrestaDelete(Presta presta);
+
+        [OperationContract]
+        List<Presta> PrestaSelect(Presta presta);
+
+        //[OperationContract]
+        //bool PrestaVerificaDuplicidade(Presta presta);
+        #endregion
+
+        //Recebe
+        #region Recebe
+        [OperationContract]
+        void RecebeInsert(Recebe recebe);
+
+        [OperationContract]
+        void RecebeUpdate(Recebe recebe);
+
+        [OperationContract]
+        void RecebeDelete(Recebe recebe);
+
+        [OperationContract]
+        List<Recebe> RecebeSelect(Recebe recebe);
+
+        //[OperationContract]
+        //bool RecebeVerificaDuplicidade(Recebe recebe);
+        #endregion       
     }
 }
