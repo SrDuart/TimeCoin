@@ -92,8 +92,8 @@ namespace WcfService
         [OperationContract]
         List<Atividade> AtividadeSelect(Atividade atividade);
 
-        //[OperationContract]
-        //bool AtividadeVerificaDuplicidade(Atividade atividade);
+        [OperationContract]
+        bool AtividadeVerificaDuplicidade(Atividade atividade);
         #endregion
 
         //Presta
@@ -110,8 +110,8 @@ namespace WcfService
         [OperationContract]
         List<Presta> PrestaSelect(Presta presta);
 
-        //[OperationContract]
-        //bool PrestaVerificaDuplicidade(Presta presta);
+        [OperationContract]
+        bool PrestaVerificaDuplicidade(Presta presta);
         #endregion
 
         //Recebe
@@ -128,8 +128,8 @@ namespace WcfService
         [OperationContract]
         List<Recebe> RecebeSelect(Recebe recebe);
 
-        //[OperationContract]
-        //bool RecebeVerificaDuplicidade(Recebe recebe);
+        [OperationContract]
+        bool RecebeVerificaDuplicidade(Recebe recebe);
         #endregion       
     }
 }
