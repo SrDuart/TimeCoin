@@ -26,7 +26,7 @@ namespace Biblioteca.Parametros
 
                 #region passar parametros
                 cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
-                cmd.Parameters["@descricao"].Value = servico.descricao;
+                cmd.Parameters["@descricao"].Value = servico.nome;
                 //cmd.Parameters.Add("@data", SqlDbType.Date);
                 //cmd.Parameters["@data"].Value = servico.descricao;
                 cmd.Parameters.Add("@situacao", SqlDbType.VarChar);
@@ -66,7 +66,7 @@ namespace Biblioteca.Parametros
                 cmd.Parameters["@id"].Value = servico.id;
 
                 cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
-                cmd.Parameters["@descricao"].Value = servico.descricao;
+                cmd.Parameters["@descricao"].Value = servico.nome;
                 #endregion
 
                 #region executando a instrucao 
@@ -137,9 +137,9 @@ namespace Biblioteca.Parametros
                 this.abrirConexao();
                 string sql = "SELECT id, descricao, data, situacao from Servico";
 
-                if (filtro.descricao != null && !filtro.descricao.Trim().Equals(""))
+                if (filtro.nome != null && !filtro.nome.Trim().Equals(""))
                 {
-                    sql += " and descricao like '%" + filtro.descricao + "%'";
+                    sql += " and descricao like '%" + filtro.nome + "%'";
                 }
 
                 SqlCommand cmd = new SqlCommand(sql, sqlConexao);
@@ -148,8 +148,7 @@ namespace Biblioteca.Parametros
                 {
                     Servico servico = new Servico();
                     servico.id = DbReader.GetInt32(DbReader.GetOrdinal("id"));
-                    servico.descricao = DbReader.GetString(DbReader.GetOrdinal("descricao"));
-                    servico.date = DbReader.GetDateTime(DbReader.GetOrdinal("date"));
+                    servico.nome = DbReader.GetString(DbReader.GetOrdinal("descricao"));
                     servico.situacao.id = DbReader.GetChar(DbReader.GetOrdinal("situacao"));
                     retorno.Add(servico);
                 }
