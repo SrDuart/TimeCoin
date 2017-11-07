@@ -26,16 +26,11 @@ namespace Biblioteca.RegraNegocio
                 throw new Exception("Favor, instanciar o serviço.");
             }
 
-            if (servico.descricao == null || servico.descricao.Trim().Equals("") || servico.descricao.Trim().Length < 60)
+            if (servico.nome == null || servico.nome.Trim().Equals("") || servico.nome.Trim().Length < 60)
             {
                 throw new Exception("Favor, informar o descrição do serviço.");
             }
-
-            if (servico.date == null)
-            {
-                throw new Exception("Favor, informar a data do serviço.");
-            }
-
+            
             if (this.VerificaDuplicidade(servico))
             {
                 throw new Exception("Tipo de serviço já existente.");
@@ -58,14 +53,9 @@ namespace Biblioteca.RegraNegocio
                 throw new Exception("Favor, instanciar o serviço.");
             }
 
-            if (servico.descricao == null || servico.descricao.Trim().Equals("") || servico.descricao.Trim().Length < 60)
+            if (servico.nome == null || servico.nome.Trim().Equals("") || servico.nome.Trim().Length < 60)
             {
                 throw new Exception("Favor, informar o serviço.");
-            }
-
-            if (servico.date == null )
-            {
-                throw new Exception("Favor, informar a data do serviço.");
             }
 
             if (this.VerificaDuplicidade(servico))
@@ -83,7 +73,7 @@ namespace Biblioteca.RegraNegocio
             {
                 throw new Exception("Favor, instanciar o serviço.");
             }
-            if (servico.descricao != null)
+            if (servico.nome != null)
             {
                 throw new Exception("Favor, informar a descrição do serviço.");
             }

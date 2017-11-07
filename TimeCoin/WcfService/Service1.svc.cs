@@ -152,7 +152,11 @@ namespace WcfService
             return regra.Select(filtro);
         }
 
-        //bool AtividadeVerificaDuplicidade(Atividade atividade);
+        public bool AtividadeVerificaDuplicidade(Atividade atividade)
+        {
+            AtividadeRN regra = new AtividadeRN();
+            return regra.VerificaDuplicidade(atividade);
+        }
         #endregion
 
         //Presta
@@ -181,7 +185,11 @@ namespace WcfService
             return regra.Select(filtro);
         }
 
-        //bool PrestaVerificaDuplicidade(Presta presta);
+        public bool PrestaVerificaDuplicidade(Presta presta)
+        {
+            PrestaRN regra = new PrestaRN();
+            return regra.VerificaDuplicidade(presta);
+        }
         #endregion
 
         //Recebe
@@ -210,7 +218,11 @@ namespace WcfService
             return regra.Select(filtro);
         }
 
-        //bool RecebeVerificaDuplicidade(Recebe recebe);
+        public bool RecebeVerificaDuplicidade(Recebe recebe)
+        {
+            RecebeRN regra = new RecebeRN();
+            return regra.VerificaDuplicidade(recebe);
+        }
         #endregion  
     }
 }

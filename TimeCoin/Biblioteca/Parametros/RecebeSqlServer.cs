@@ -16,7 +16,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "insert into Recebe (Id_usuario, Id_servico, quantidadeHora, avaliacao) values (@Id_usuario, @Id_servico, @quantidadeHora, @avaliacao)";
+                string sql = "insert into Recebe (Id_usuario, Id_servico, quantidadeHora, avaliacao, data) values (@Id_usuario, @Id_servico, @quantidadeHora, @avaliacao, @data)";
                 #endregion
 
                 #region instrucao a ser executada
@@ -33,8 +33,11 @@ namespace Biblioteca.Parametros
                 cmd.Parameters.Add("@quantidadeHora", SqlDbType.Int);
                 cmd.Parameters["@quantidadeHora"].Value = recebe.quantidadeHora;
 
-                cmd.Parameters.Add("@avaliacao", SqlDbType.Decimal);
+                cmd.Parameters.Add("@avaliacao", SqlDbType.DateTime);
                 cmd.Parameters["@avaliacao"].Value = recebe.avaliacao;
+
+                cmd.Parameters.Add("@data", SqlDbType.DateTime);
+                cmd.Parameters["@data"].Value = recebe.data;
                 #endregion
 
                 #region executando a instrucao 
@@ -58,7 +61,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "update Recebe set quantidadeHora = @quantidadeHora and avaliacao = @avaliacao where Id_usuario = @Id_usuario and Id_servico = @Id_servico";
+                string sql = "update Recebe set quantidadeHora = @quantidadeHora and avaliacao = @avaliacao and data = @data where Id_usuario = @Id_usuario and Id_servico = @Id_servico";
                 #endregion
 
                 #region instrucao a ser executada
@@ -77,6 +80,9 @@ namespace Biblioteca.Parametros
 
                 cmd.Parameters.Add("@avaliacao", SqlDbType.Decimal);
                 cmd.Parameters["@avaliacao"].Value = recebe.avaliacao;
+
+                cmd.Parameters.Add("@data", SqlDbType.DateTime);
+                cmd.Parameters["@data"].Value = recebe.data;
                 #endregion
 
                 #region executando a instrucao 
@@ -137,7 +143,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "SELECT quantidadeHora, avaliacao from Recebe where Id_usuario = @Id_usuario and Id_servico = @Id_servico";
+                string sql = "SELECT quantidadeHora, avaliacao, data from Recebe where Id_usuario = @Id_usuario and Id_servico = @Id_servico";
                 #endregion
 
                 #region instrucao a ser executada
@@ -156,6 +162,9 @@ namespace Biblioteca.Parametros
 
                 cmd.Parameters.Add("@Id_servico", SqlDbType.Int);
                 cmd.Parameters["@Id_servico"].Value = recebe.servico.id;
+
+                cmd.Parameters.Add("@data", SqlDbType.DateTime);
+                cmd.Parameters["@data"].Value = recebe.data;
                 #endregion
 
                 #region instrucao a ser executada
@@ -206,6 +215,7 @@ namespace Biblioteca.Parametros
                     recebe.servico.id = DbReader.GetInt32(DbReader.GetOrdinal("Id_servico"));
                     recebe.quantidadeHora = DbReader.GetInt32(DbReader.GetOrdinal("quantidadeHora"));
                     recebe.avaliacao = DbReader.GetDouble(DbReader.GetOrdinal("avaliacao"));
+                    recebe.data = DbReader.GetDateTime(DbReader.GetOrdinal("data"));
                     retorno.Add(recebe);
                     #endregion
                 }
