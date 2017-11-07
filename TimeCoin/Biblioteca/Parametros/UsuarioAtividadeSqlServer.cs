@@ -145,10 +145,10 @@ namespace Biblioteca.Parametros
                 #endregion
                 #region passar parametros
                 cmd.Parameters.Add("@id_usuario", SqlDbType.Int);
-                cmd.Parameters["@id_usuario"].Value = usuarioAtividade.usuario;
+                cmd.Parameters["@id_usuario"].Value = usuarioAtividade.usuario.id;
 
                 cmd.Parameters.Add("@id_atividade", SqlDbType.Int);
-                cmd.Parameters["@id_atividade"].Value = usuarioAtividade.atividade;
+                cmd.Parameters["@id_atividade"].Value = usuarioAtividade.atividade.id;
                 #endregion
 
                 #region instrucao a ser executada
@@ -181,7 +181,31 @@ namespace Biblioteca.Parametros
 
         public List<UsuarioAtividade> Select(UsuarioAtividade filtro)
         {
-            throw new NotImplementedException();
+            List<UsuarioAtividade> retorno = new List<UsuarioAtividade>();
+            try
+            {
+                this.abrirConexao();
+         
+                string sql = "SELECT id, usuario, atividade from UsuarioAtividade";
+                SqlCommand cmd = new SqlCommand(sql, sqlConexao);
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                while (DbReader.Read())
+                {
+                    UsuarioAtividade usuarioAtividade = new UsuarioAtividade();
+                    usuarioAtividade.id = DbReader.GetInt32(DbReader.GetOrdinal("id"));
+                    usuarioAtividade.usuario.id = DbReader.GetInt32(DbReader.GetOrdinal("usuario"));
+                    usuarioAtividade.atividade.id = DbReader.GetInt32(DbReader.GetOrdinal("atividade"));
+                    retorno.Add(usuarioAtividade);
+                }
+                DbReader.Close();
+                cmd.Dispose();
+                this.fecharConexao();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao conectar e selecionar o serviço." + ex.Message);
+            }
+            return retorno;
         }
     }
 }
