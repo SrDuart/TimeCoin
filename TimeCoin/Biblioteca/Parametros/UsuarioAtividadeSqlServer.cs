@@ -129,12 +129,57 @@ namespace Biblioteca.Parametros
             }
         }
 
-        public List<UsuarioAtividade> Select(UsuarioAtividade filtro)
+        public bool VerificaDuplicidade(UsuarioAtividade usuarioAtividade)
         {
-            throw new NotImplementedException();
+            bool retorno = false;
+            try
+            {
+                #region abrir a conexão
+                this.abrirConexao();
+                string sql = "SELECT Id_Usuario, Id_Atividade from usuarioAtividade where Id_Usuario = @id_usuario and Id_Atividade = @id_atividade";
+                #endregion
+
+                #region instrucao a ser executada
+                SqlCommand cmd = new SqlCommand(sql, sqlConexao);
+
+                #endregion
+                #region passar parametros
+                cmd.Parameters.Add("@id_usuario", SqlDbType.Int);
+                cmd.Parameters["@id_usuario"].Value = usuarioAtividade.usuario;
+
+                cmd.Parameters.Add("@id_atividade", SqlDbType.Int);
+                cmd.Parameters["@id_atividade"].Value = usuarioAtividade.atividade;
+                #endregion
+
+                #region instrucao a ser executada
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                #endregion
+
+                #region executando a instrucao 
+                while (DbReader.Read())
+                {
+                    retorno = true;
+                    break;
+                }
+                DbReader.Close();
+                #endregion
+
+                #region liberando a memoria 
+                cmd.Dispose();
+                #endregion
+
+                #region fechando a conexao
+                this.fecharConexao();
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro! Este tipo de usuário já existente. " + ex.Message);
+            }
+            return retorno;
         }
 
-        public bool VerificaDuplicidade(UsuarioAtividade usuarioAtividade)
+        public List<UsuarioAtividade> Select(UsuarioAtividade filtro)
         {
             throw new NotImplementedException();
         }
