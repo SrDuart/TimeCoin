@@ -23,7 +23,7 @@ namespace Biblioteca.ClassesBasicas
         //[DataMember(IsRequired = true)]
         public string telefoneCelular { get; set; }
         //[DataMember(IsRequired = true)]
-        public string estado { get; set; }
+        public string uf { get; set; }
         //[DataMember(IsRequired = true)]
         public string cidade { get; set; }
         //[DataMember(IsRequired = true)]

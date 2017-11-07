@@ -35,7 +35,7 @@ namespace Biblioteca.RegraNegocio
                 throw new Exception("Erro! Campo vazio. Favor informar o telefone celular do usuário.");
             }
 
-            if (String.IsNullOrEmpty(usuario.estado) == true || String.IsNullOrWhiteSpace(usuario.estado) == true)
+            if (String.IsNullOrEmpty(usuario.uf) == true || String.IsNullOrWhiteSpace(usuario.uf) == true)
             {
                 throw new Exception("Erro! Campo vazio. Favor informar o Estado do usuário.");
             }
@@ -90,7 +90,7 @@ namespace Biblioteca.RegraNegocio
                 throw new Exception("Erro! número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 10.");
             }
 
-            if (usuario.estado.Trim().Length < 1 || usuario.estado.Trim().Length > 25)
+            if (usuario.uf.Trim().Length < 1 || usuario.uf.Trim().Length > 25)
             {
                 throw new Exception("Erro! número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 25.");
             }
