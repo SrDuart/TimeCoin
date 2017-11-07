@@ -8,28 +8,42 @@ namespace Biblioteca.RegraNegocio
 {
     public class RecebeRN : IRecebe
     {
+        private void ValidarDadosBasicos(Recebe recebe)
+        {
+            if (recebe == null)
+            {
+                throw new Exception("Erro! Campo nulo. Favor, instanciar serviço recebido pelo usuário.");
+            }
+
+            if (recebe.quantidadeHora == 0)
+            {
+                throw new Exception("Erro! Número de horas vazio. Favor, instanciar a quantidade de horas paga pelo serviço recebido.");
+            }
+
+            if (recebe.avaliacao == 0)
+            {
+                throw new Exception("Erro! Avaliação não realizada. Favor, instanciar a avaliação do serviço recebido.");
+            }
+        }
+
         public void Delete(Recebe recebe)
         {
             if (recebe == null)
             {
-                throw new Exception("Favor, instanciar serviço recebido pelo usuário.");
+                throw new Exception("Erro! Campo nulo. Favor, instanciar serviço recebido pelo usuário.");
             }
 
             RecebeSqlServer dados = new RecebeSqlServer();
             dados.Delete(recebe);
         }
 
-        public void Insert(Recebe recebe)
+        public void Insert(Recebe recebe)   
         {
+            ValidarDadosBasicos(recebe);
 
-            if (recebe == null)
+            if (this.VerificaDuplicidade(recebe))
             {
-                throw new Exception("Favor, informar o serviço recebido pelo usuário.");
-            }
-
-            if (this.VerificaDuplicidade(recebe) == true)
-            {
-                throw new Exception("O serviço recebido pelo usuário já existe.");
+                throw new Exception("Erro! Serviço recebido pelo usuário já existente.");
             }
 
             RecebeSqlServer dados = new RecebeSqlServer();
@@ -44,14 +58,11 @@ namespace Biblioteca.RegraNegocio
 
         public void Update(Recebe recebe)
         {
-            if (recebe == null)
-            {
-                throw new Exception("Favor, instanciar serviço recebido pelo usuário.");
-            }            
+            ValidarDadosBasicos(recebe);
 
-            if (this.VerificaDuplicidade(recebe))
+            if (this.VerificaDuplicidade(recebe) == true)
             {
-                throw new Exception("O serviço recebido pelo usuário já existe.");
+                throw new Exception("Erro! Serviço recebido pelo usuário já existente.");
             }
 
             RecebeSqlServer dados = new RecebeSqlServer();
@@ -59,12 +70,12 @@ namespace Biblioteca.RegraNegocio
         }
 
         public bool VerificaDuplicidade(Recebe recebe)
-        {
+        {        
             if (recebe == null)
             {
-                throw new Exception("Favor, informar serviço recebido pelo usuário.");
+                throw new Exception("Erro! Campo nulo. Favor instanciar serviço recebido pelo usuário.");
             }
-
+            
             RecebeSqlServer dados = new RecebeSqlServer();
             return dados.VerificaDuplicidade(recebe);
         }

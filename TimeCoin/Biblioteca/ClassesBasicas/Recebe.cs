@@ -1,4 +1,6 @@
-﻿namespace Biblioteca.ClassesBasicas
+﻿using System;
+
+namespace Biblioteca.ClassesBasicas
 {
     public class Recebe
 	{
@@ -6,5 +8,6 @@
 		public Servico servico { get; set; }
 		public int quantidadeHora { get; set; }
 		public double avaliacao { get; set; }
+        public DateTime data { get; set; }
 	}
 }
