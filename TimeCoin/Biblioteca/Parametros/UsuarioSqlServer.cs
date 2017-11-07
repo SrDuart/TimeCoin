@@ -42,7 +42,7 @@ namespace Biblioteca.Parametros
                 cmd.Parameters["@telefoneCelular"].Value = usuario.telefoneCelular;
 
                 cmd.Parameters.Add("@estado", SqlDbType.VarChar);
-                cmd.Parameters["@estado"].Value = usuario.estado;
+                cmd.Parameters["@estado"].Value = usuario.uf;
 
                 cmd.Parameters.Add("@cidade", SqlDbType.VarChar);
                 cmd.Parameters["@cidade"].Value = usuario.cidade;
@@ -118,7 +118,7 @@ namespace Biblioteca.Parametros
                 cmd.Parameters["@telefoneCelular"].Value = usuario.telefoneCelular;
 
                 cmd.Parameters.Add("@estado", SqlDbType.VarChar);
-                cmd.Parameters["@estado"].Value = usuario.estado;
+                cmd.Parameters["@estado"].Value = usuario.uf;
 
                 cmd.Parameters.Add("@cidade", SqlDbType.VarChar);
                 cmd.Parameters["@cidade"].Value = usuario.cidade;
@@ -263,7 +263,7 @@ namespace Biblioteca.Parametros
                     usuario.cpf_cnpj = DbReader.GetString(DbReader.GetOrdinal("cpf_cnpj"));
                     usuario.telefoneFixo = DbReader.GetString(DbReader.GetOrdinal("telefoneFixo"));
                     usuario.telefoneCelular = DbReader.GetString(DbReader.GetOrdinal("telefoneCelular"));
-                    usuario.estado = DbReader.GetString(DbReader.GetOrdinal("estado"));
+                    usuario.uf = DbReader.GetString(DbReader.GetOrdinal("estado"));
                     usuario.cidade = DbReader.GetString(DbReader.GetOrdinal("cidade"));
                     usuario.bairro = DbReader.GetString(DbReader.GetOrdinal("bairro"));
                     usuario.email = DbReader.GetString(DbReader.GetOrdinal("email"));

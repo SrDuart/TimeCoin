@@ -127,14 +127,12 @@ namespace Biblioteca.Parametros
             }
             #endregion
         }
-
-        //CONFIRMAR SE ISSO ESTÁ CORRETO
+        
         public bool VerificaDuplicidade(Atividade atividade)
         {
             bool retorno = false;
             try
             {
-                //CONFIRMAR SE ISSO ESTÁ CORRETO
                 #region abrir a conexão
                 this.abrirConexao();
                 string sql = "SELECT nome, descricao from Atividade where nome = @nome and descricao = @descricao";
@@ -143,8 +141,7 @@ namespace Biblioteca.Parametros
                 #region instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, sqlConexao);
                 #endregion
-
-                //CONFIRMAR SE ISSO ESTÁ CORRETO
+                
                 #region passar parametros
                 cmd.Parameters.Add("@nome", SqlDbType.VarChar);
                 cmd.Parameters["@nome"].Value = atividade.nome;

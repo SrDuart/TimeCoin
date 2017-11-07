@@ -7,9 +7,9 @@ namespace Biblioteca.ClassesBasicas
     [Serializable]
     public class TipoUsuario
 	{
-        //[DataMember (IsRequired = true)]
+        [DataMember (IsRequired = true)]
         public int id { get; set; }
-        //[DataMember(IsRequired = true)]
+        [DataMember(IsRequired = true)]
         public string descricao { get; set; }
 	}
 }

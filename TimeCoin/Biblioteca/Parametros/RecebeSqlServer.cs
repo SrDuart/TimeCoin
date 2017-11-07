@@ -143,20 +143,14 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "SELECT quantidadeHora, avaliacao, data from Recebe where Id_usuario = @Id_usuario and Id_servico = @Id_servico";
+                string sql = "SELECT data, Id_servico, Id_usuario from Recebe where Id_usuario = @Id_usuario and Id_servico = @Id_servico";
                 #endregion
 
                 #region instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, sqlConexao);
                 #endregion
-                
+
                 #region passar parametros
-                cmd.Parameters.Add("@quantidadeHora", SqlDbType.Int);
-                cmd.Parameters["@quantidadeHora"].Value = recebe.quantidadeHora;
-
-                cmd.Parameters.Add("@avaliacao", SqlDbType.Decimal);
-                cmd.Parameters["@avaliacao"].Value = recebe.avaliacao;
-
                 cmd.Parameters.Add("@Id_usuario", SqlDbType.Int);
                 cmd.Parameters["@Id_usuario"].Value = recebe.usuario.id;
 

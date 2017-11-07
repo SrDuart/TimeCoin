@@ -75,7 +75,22 @@ namespace Biblioteca.RegraNegocio
             {
                 throw new Exception("Erro! Campo nulo. Favor, instanciar serviço prestado pelo usuário.");
             }
-            
+
+            if (presta.data == null)
+            {
+                throw new Exception("Erro! Campo nulo. Favor preencher a data.");
+            }
+
+            if (presta.usuario.id < 1)
+            {
+                throw new Exception("Erro! Campo nulo. Favor preencher o id do usuário.");
+            }
+
+            if (presta.servico.id < 1)
+            {
+                throw new Exception("Erro! Campo nulo. Favor preencher o id de serviço.");
+            }
+
             PrestaSqlServer dados = new PrestaSqlServer();
             return dados.VerificaDuplicidade(presta);
         }
