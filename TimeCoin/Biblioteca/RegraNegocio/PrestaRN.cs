@@ -27,7 +27,7 @@ namespace Biblioteca.RegraNegocio
 
             if (presta.avaliacao < 0 || presta.avaliacao > 5)
             {
-                throw new Exception("Erro! Avaliação inválida. Favor, avaliar entre 0 e 5.");
+                throw new Exception("Erro! Avaliação inválida. Favor, avaliar entre 0 e 5 estrelas.");
             }
         }
 
@@ -49,6 +49,11 @@ namespace Biblioteca.RegraNegocio
             if (this.VerificaDuplicidade(presta))
             {
                 throw new Exception("Erro! Serviço prestado pelo usuário já existente.");
+            }
+
+            if (presta.quantidadeHora > 0)
+            {
+                throw new Exception("Erro! Valor de horas não depositado. Favor, depositar horas por serviço prestado pelo usuário.");
             }
 
             PrestaSqlServer dados = new PrestaSqlServer();
@@ -78,7 +83,7 @@ namespace Biblioteca.RegraNegocio
         {
             if (presta == null)
             {
-                throw new Exception("Erro! Campo nulo. Favor, instanciar serviço prestado pelo usuário.");
+                throw new Exception("Erro! Favor, instanciar serviço prestado pelo usuário.");
             }
 
             if (presta.data == null)

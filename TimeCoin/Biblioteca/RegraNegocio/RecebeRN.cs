@@ -12,7 +12,7 @@ namespace Biblioteca.RegraNegocio
         {
             if (recebe == null)
             {
-                throw new Exception("Erro! Campo nulo. Favor, instanciar serviço recebido pelo usuário.");
+                throw new Exception("Erro! Favor, instanciar serviço recebido pelo usuário.");
             }
 
             if (recebe.quantidadeHora == 0)
@@ -27,7 +27,7 @@ namespace Biblioteca.RegraNegocio
 
             if (recebe.avaliacao < 0 || recebe.avaliacao > 5)
             {
-                throw new Exception("Erro! Avaliação inválida. Favor, avaliar entre 0 e 5.");
+                throw new Exception("Erro! Avaliação inválida. Favor, avaliar entre 0 e 5 estrelas.");
             }
         }
 
@@ -35,7 +35,7 @@ namespace Biblioteca.RegraNegocio
         {
             if (recebe == null)
             {
-                throw new Exception("Erro! Campo nulo. Favor, instanciar serviço recebido pelo usuário.");
+                throw new Exception("Erro! Favor, instanciar serviço recebido pelo usuário.");
             }
 
             RecebeSqlServer dados = new RecebeSqlServer();
@@ -69,7 +69,7 @@ namespace Biblioteca.RegraNegocio
             {
                 throw new Exception("Erro! Serviço recebido pelo usuário já existente.");
             }
-
+            
             RecebeSqlServer dados = new RecebeSqlServer();
             dados.Update(recebe);
         }

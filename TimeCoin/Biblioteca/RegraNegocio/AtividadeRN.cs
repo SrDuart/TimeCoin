@@ -12,7 +12,7 @@ namespace Biblioteca.RegraNegocio
         {
             if (atividade == null)
             {
-                throw new Exception("Erro! Campo nulo. Favor, instanciar atividade do usuário.");
+                throw new Exception("Erro! Favor, instanciar atividade do usuário.");
             }
 
             if (String.IsNullOrEmpty(atividade.nome) == true || String.IsNullOrWhiteSpace(atividade.nome) == true)
@@ -40,7 +40,7 @@ namespace Biblioteca.RegraNegocio
         {
             if (atividade == null)
             {
-                throw new Exception("Erro! Campo nulo. Favor, instanciar a atividade do usuário.");
+                throw new Exception("Erro! Favor, instanciar a atividade do usuário.");
             }
 
             AtividadeSqlServer dados = new AtividadeSqlServer();
@@ -83,7 +83,7 @@ namespace Biblioteca.RegraNegocio
         {
             if (atividade == null)
             {
-                throw new Exception("Erro! Campo nulo. Favor, instanciar a atividade do usuário.");
+                throw new Exception("Erro! Favor, instanciar a atividade do usuário.");
             }
             if (atividade.nome == null)
             {

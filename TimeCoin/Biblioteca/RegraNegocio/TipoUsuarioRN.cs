@@ -30,7 +30,7 @@ namespace Biblioteca.RegraNegocio
         {
             if (tipoUsuario == null)
             {
-                throw new Exception("Erro! Campo nulo. Favor, instanciar um Tipo de usuário.");
+                throw new Exception("Erro! Favor, instanciar um Tipo de usuário.");
             }
 
             TipoUsuarioSqlServer dados = new TipoUsuarioSqlServer();
