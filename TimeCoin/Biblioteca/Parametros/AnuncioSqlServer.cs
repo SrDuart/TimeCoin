@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Biblioteca.ClassesBasicas;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Biblioteca.Parametros
 {
@@ -13,12 +15,50 @@ namespace Biblioteca.Parametros
     {
         public void Delete(Anuncio anuncio)
         {
-            throw new NotImplementedException();
+            try
+            {
+                #region abrir conexao
+                this.abrirConexao();
+                string sql = "DELETE from Anuncio where Id = @id";
+                #endregion
+
+                #region instrucao a ser passada
+                SqlCommand cmd = new SqlCommand(sql, this.sqlConexao);
+                #endregion
+
+                #region passando parametros
+                cmd.Parameters.Add("@id", SqlDbType.Int);
+                cmd.Parameters["@id"].Value = anuncio.id;
+                #endregion
+
+                #region executando instrucao
+                cmd.ExecuteNonQuery();
+                #endregion
+
+                #region liberando a memoria 
+                cmd.Dispose();
+                #endregion
+
+                #region fechando a conexao
+                this.fecharConexao();
+                #endregion
+            }
+            catch(Exception e)
+            {
+                throw new Exception("Erro ao excluir o Anuncio. " + e.Message);
+            }
         }
 
         public void Insert(Anuncio anuncio)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
         }
 
         public List<Anuncio> Select(Anuncio filtro)
