@@ -16,9 +16,9 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "insert into Usuario (nome , userName, cpf_cnpj, telefoneFixo, telefoneCelular, ";
-                sql += " estado, cidade, bairro, email, senha, descricao, Id_Situacao, Id_TipoUsuario) values (@nome , @userName, @cpf_cnpj, ";
-                sql += "  @telefoneFixo, @telefoneCelular, @estado, @cidade, @bairro, @email, @senha, @descricao, @Id_Situacao, @Id_TipoUsuario)";               
+                string sql = "insert into Usuario (nome, userName, cpf_cnpj, telefoneFixo, telefoneCelular, ";
+                sql += "estado, cidade, bairro, email, senha, descricao, Id_Situacao, Id_TipoUsuario) values (@nome , @userName, @cpf_cnpj, ";
+                sql += "@telefoneFixo, @telefoneCelular, @estado, @cidade, @bairro, @email, @senha, @descricao, @Id_Situacao, @Id_TipoUsuario)";               
                 #endregion
 
                 #region instrucao a ser executada
@@ -42,7 +42,7 @@ namespace Biblioteca.Parametros
                 cmd.Parameters["@telefoneCelular"].Value = usuario.telefoneCelular;
 
                 cmd.Parameters.Add("@estado", SqlDbType.VarChar);
-                cmd.Parameters["@estado"].Value = usuario.estado;
+                cmd.Parameters["@estado"].Value = usuario.uf;
 
                 cmd.Parameters.Add("@cidade", SqlDbType.VarChar);
                 cmd.Parameters["@cidade"].Value = usuario.cidade;
@@ -70,11 +70,8 @@ namespace Biblioteca.Parametros
                 cmd.ExecuteNonQuery();
                 #endregion
 
-                #region liberando a memoria 
+                #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
                 this.fecharConexao();
                 #endregion
             }
@@ -121,7 +118,7 @@ namespace Biblioteca.Parametros
                 cmd.Parameters["@telefoneCelular"].Value = usuario.telefoneCelular;
 
                 cmd.Parameters.Add("@estado", SqlDbType.VarChar);
-                cmd.Parameters["@estado"].Value = usuario.estado;
+                cmd.Parameters["@estado"].Value = usuario.uf;
 
                 cmd.Parameters.Add("@cidade", SqlDbType.VarChar);
                 cmd.Parameters["@cidade"].Value = usuario.cidade;
@@ -206,8 +203,8 @@ namespace Biblioteca.Parametros
 
                 #region instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, sqlConexao);
-
                 #endregion
+
                 #region passar parametros
                 cmd.Parameters.Add("@userName", SqlDbType.VarChar);
                 cmd.Parameters["@userName"].Value = usuario.userName;
@@ -266,7 +263,7 @@ namespace Biblioteca.Parametros
                     usuario.cpf_cnpj = DbReader.GetString(DbReader.GetOrdinal("cpf_cnpj"));
                     usuario.telefoneFixo = DbReader.GetString(DbReader.GetOrdinal("telefoneFixo"));
                     usuario.telefoneCelular = DbReader.GetString(DbReader.GetOrdinal("telefoneCelular"));
-                    usuario.estado = DbReader.GetString(DbReader.GetOrdinal("estado"));
+                    usuario.uf = DbReader.GetString(DbReader.GetOrdinal("estado"));
                     usuario.cidade = DbReader.GetString(DbReader.GetOrdinal("cidade"));
                     usuario.bairro = DbReader.GetString(DbReader.GetOrdinal("bairro"));
                     usuario.email = DbReader.GetString(DbReader.GetOrdinal("email"));
