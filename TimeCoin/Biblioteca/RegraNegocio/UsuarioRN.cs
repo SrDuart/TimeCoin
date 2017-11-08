@@ -78,7 +78,7 @@ namespace Biblioteca.RegraNegocio
             if (usuario.cpf_cnpj.Trim().Length < 1 || usuario.cpf_cnpj.Trim().Length > 14)
             {
                 throw new Exception("Erro! número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 14.");
-            }            
+            }
 
             if (usuario.telefoneCelular.Trim().Length < 1 || usuario.telefoneCelular.Trim().Length > 10)
             {
@@ -119,8 +119,8 @@ namespace Biblioteca.RegraNegocio
             {
                 throw new Exception("Erro! número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 144.");
             }
-        }
-
+        }           
+        
         public void Delete(Usuario usuario)
         {
             if (usuario == null)
@@ -155,12 +155,8 @@ namespace Biblioteca.RegraNegocio
         {
             ValidarDadosBasicos(usuario);
 
-            if (this.VerificaDuplicidade(usuario) == true)
-            {
-                throw new Exception("Erro! Usuário já existente.");
-            }
-
             UsuarioSqlServer dados = new UsuarioSqlServer();
+            dados.abrirConexao();            
             dados.Update(usuario);
         }
 
