@@ -24,6 +24,11 @@ namespace Biblioteca.RegraNegocio
             {
                 throw new Exception("Erro! Avaliação não realizada. Favor, instanciar a avaliação do serviço recebido.");
             }
+
+            if (recebe.avaliacao < 0 || recebe.avaliacao > 5)
+            {
+                throw new Exception("Erro! Avaliação inválida. Favor, avaliar entre 0 e 5.");
+            }
         }
 
         public void Delete(Recebe recebe)

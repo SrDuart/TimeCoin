@@ -19,10 +19,15 @@ namespace Biblioteca.RegraNegocio
             {
                 throw new Exception("Erro! Número de horas vazio. Favor, instanciar a quantidade de horas recebidas pelo serviço prestado.");
             }
-
+            
             if (presta.avaliacao == 0)
             {
                 throw new Exception("Erro! Avaliação não realizada. Favor, instanciar a avaliação do serviço prestado.");
+            }
+
+            if (presta.avaliacao < 0 || presta.avaliacao > 5)
+            {
+                throw new Exception("Erro! Avaliação inválida. Favor, avaliar entre 0 e 5.");
             }
         }
 
