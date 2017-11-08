@@ -17,8 +17,8 @@ namespace Biblioteca.Parametros
                 #region abrir a conexão
                 this.abrirConexao();
                 string sql = "insert into Usuario (nome, userName, cpf_cnpj, telefoneFixo, telefoneCelular, ";
-                sql += "estado, cidade, bairro, email, senha, descricao, Id_Situacao, Id_TipoUsuario) values (@nome , @userName, @cpf_cnpj, ";
-                sql += "@telefoneFixo, @telefoneCelular, @estado, @cidade, @bairro, @email, @senha, @descricao, @Id_Situacao, @Id_TipoUsuario)";               
+                sql += "uf, cidade, bairro, email, senha, descricao, Id_Situacao, Id_TipoUsuario) values (@nome , @userName, @cpf_cnpj, ";
+                sql += "@telefoneFixo, @telefoneCelular, @uf, @cidade, @bairro, @email, @senha, @descricao, @Id_Situacao, @Id_TipoUsuario)";               
                 #endregion
 
                 #region instrucao a ser executada
@@ -41,8 +41,8 @@ namespace Biblioteca.Parametros
                 cmd.Parameters.Add("@telefoneCelular", SqlDbType.VarChar);
                 cmd.Parameters["@telefoneCelular"].Value = usuario.telefoneCelular;
 
-                cmd.Parameters.Add("@estado", SqlDbType.VarChar);
-                cmd.Parameters["@estado"].Value = usuario.uf;
+                cmd.Parameters.Add("@uf", SqlDbType.VarChar);
+                cmd.Parameters["@uf"].Value = usuario.uf;
 
                 cmd.Parameters.Add("@cidade", SqlDbType.VarChar);
                 cmd.Parameters["@cidade"].Value = usuario.cidade;
@@ -87,8 +87,8 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "update Usuario set nome = @nome, userName = #userName, cpf_cnpj = @cpf_cnpj, ";
-                sql += " telefoneFixo = @telefonefixo, telefoneCelular = @telefoneCelular, estado = @estado, ";
+                string sql = "update Usuario set nome = @nome, userName = @userName, cpf_cnpj = @cpf_cnpj, ";
+                sql += " telefoneFixo = @telefonefixo, telefoneCelular = @telefoneCelular, uf = @uf, ";
                 sql += " cidade = @cidade, bairro = @bairro, email = @email, senha = @senha, descricao = @descricao ";
                 sql += " where id = @id";
                 #endregion
@@ -117,8 +117,8 @@ namespace Biblioteca.Parametros
                 cmd.Parameters.Add("@telefoneCelular", SqlDbType.VarChar);
                 cmd.Parameters["@telefoneCelular"].Value = usuario.telefoneCelular;
 
-                cmd.Parameters.Add("@estado", SqlDbType.VarChar);
-                cmd.Parameters["@estado"].Value = usuario.uf;
+                cmd.Parameters.Add("@uf", SqlDbType.VarChar);
+                cmd.Parameters["@uf"].Value = usuario.uf;
 
                 cmd.Parameters.Add("@cidade", SqlDbType.VarChar);
                 cmd.Parameters["@cidade"].Value = usuario.cidade;
@@ -194,11 +194,12 @@ namespace Biblioteca.Parametros
         public bool VerificaDuplicidade(Usuario usuario)
         {
             bool retorno = false;
+
             try
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "SELECT userName, telefoneCelular, email from Usuario where userName = @userName";
+                string sql = "SELECT userName, telefoneCelular, email FROM Usuario where userName = @userName";
                 #endregion
 
                 #region instrucao a ser executada
@@ -250,7 +251,7 @@ namespace Biblioteca.Parametros
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT * FROM usuario where userName = userName ";                
+                string sql = "SELECT * FROM usuario where userName = @userName ";                
                 
                 SqlCommand cmd = new SqlCommand(sql, sqlConexao);              
                 SqlDataReader DbReader = cmd.ExecuteReader();
