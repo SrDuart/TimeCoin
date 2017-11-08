@@ -29,6 +29,11 @@ namespace Biblioteca.RegraNegocio
             {
                 throw new Exception("Erro! Avaliação inválida. Favor, avaliar entre 0 e 5 estrelas.");
             }
+
+            if (recebe.data == null)
+            {
+                throw new Exception("Erro! Campo nulo. Favor, preencher a data.");
+            }
         }
 
         public void Delete(Recebe recebe)
@@ -78,28 +83,26 @@ namespace Biblioteca.RegraNegocio
         {        
             if (recebe == null)
             {
-                throw new Exception("Erro! Favor instanciar serviço recebido pelo usuário.");
+                throw new Exception("Erro! Favor, instanciar serviço recebido pelo usuário.");
             }
 
             if (recebe.data == null)
             {
-                throw new Exception("Erro! Campo nulo. Favor preencher a data.");
+                throw new Exception("Erro! Campo nulo. Favor, preencher a data.");
             }
 
             if (recebe.usuario.id < 1)
             {
-                throw new Exception("Erro! Campo nulo. Favor preencher o id do usuário.");
+                throw new Exception("Erro! Campo nulo. Favor, preencher o id do usuário.");
             }
 
             if (recebe.servico.id < 1)
             {
-                throw new Exception("Erro! Campo nulo. Favor preencher o id de serviço.");
+                throw new Exception("Erro! Campo nulo. Favor, preencher o id de serviço.");
             }
 
             RecebeSqlServer dados = new RecebeSqlServer();
             return dados.VerificaDuplicidade(recebe);
-
-
         }
     }
 }
