@@ -16,9 +16,11 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "insert into Usuario (nome, userName, cpf_cnpj, telefoneFixo, telefoneCelular, ";
-                sql += "uf, cidade, bairro, email, senha, descricao, Id_Situacao, Id_TipoUsuario) values (@nome , @userName, @cpf_cnpj, ";
-                sql += "@telefoneFixo, @telefoneCelular, @uf, @cidade, @bairro, @email, @senha, @descricao, @Id_Situacao, @Id_TipoUsuario)";               
+                string sql = "INSERT INTO Usuario (nome, userName, cpf_cnpj, telefoneFixo, telefoneCelular, ";
+                sql += "uf, cidade, bairro, email, senha, descricao, dataCadastro, qtdHoraTrabalhada, qtdHoraDisponivel, Id_Situacao, Id_TipoUsuario) VALUES ";
+                sql += "(@nome , @userName, @cpf_cnpj, @telefoneFixo, @telefoneCelular, @uf, @cidade, @bairro, @email, @senha, @descricao, @dataCadastro,";
+                sql += "@qtdHoraTrabalhada, @qtdHoraDisponivel, @Id_Situacao, @Id_TipoUsuario) ";
+
                 #endregion
 
                 #region instrucao a ser executada
@@ -57,7 +59,24 @@ namespace Biblioteca.Parametros
                 cmd.Parameters["@senha"].Value = usuario.senha;
 
                 cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
-                cmd.Parameters["@descricao"].Value = usuario.descricao;                
+                cmd.Parameters["@descricao"].Value = usuario.descricao;
+
+                cmd.Parameters.Add("@dataCadastro", SqlDbType.DateTime);
+                cmd.Parameters["@dataCadastro"].Value = DateTime.Now;
+
+                cmd.Parameters.Add("@qtdHoraTrabalhada", SqlDbType.Int);
+                cmd.Parameters["@qtdHoraTrabalhada"].Value = 0;
+
+                if (usuario.tipoUsuario.descricao == "Voluntário")
+                {
+                    cmd.Parameters.Add("@qtdHoraDisponivel", SqlDbType.Int);
+                    cmd.Parameters["@qtdHoraDisponivel"].Value = 0;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@qtdHoraDisponivel", SqlDbType.Int);
+                    cmd.Parameters["@qtdHoraDisponivel"].Value = 1000;
+                }
 
                 cmd.Parameters.Add("@Id_Situacao", SqlDbType.Int);
                 cmd.Parameters["@Id_Situacao"].Value = usuario.situacao.id;
@@ -87,13 +106,13 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "update Usuario set nome = @nome, userName = @userName, cpf_cnpj = @cpf_cnpj, ";
+                string sql = "UPDATE Usuario SET nome = @nome, userName = @userName, cpf_cnpj = @cpf_cnpj, ";
                 sql += " telefoneFixo = @telefonefixo, telefoneCelular = @telefoneCelular, uf = @uf, ";
-                sql += " cidade = @cidade, bairro = @bairro, email = @email, senha = @senha, descricao = @descricao ";
-                sql += " where id = @id";
+                sql += " cidade = @cidade, bairro = @bairro, email = @email, senha = @senha, descricao = @descricao, qtdHoraTrabalhada = @qtdHoraTrabalhada ";
+                sql += " WHERE id = @id";
                 #endregion
 
-                #region instrucao a ser executada
+                #region instrução a ser executada
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConexao);
                 #endregion
 
@@ -140,11 +159,8 @@ namespace Biblioteca.Parametros
                 cmd.ExecuteNonQuery();
                 #endregion
 
-                #region liberando a memoria 
+                #region liberando a memoria e fechando conexão
                 cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
                 this.fecharConexao();
                 #endregion
             }
@@ -161,7 +177,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "delete from TipoUsuario where userName = @userName";
+                string sql = "DELETE FROM TipoUsuario WHERE id = @id";
                 #endregion
 
                 #region instrucao a ser executada
@@ -169,19 +185,16 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passar parametros
-                cmd.Parameters.Add("@userName", SqlDbType.VarChar);
-                cmd.Parameters["@userName"].Value = usuario.userName;
+                cmd.Parameters.Add("@id", SqlDbType.Int);
+                cmd.Parameters["@id"].Value = usuario.id;
                 #endregion
 
                 #region executando a instrucao 
                 cmd.ExecuteNonQuery();
                 #endregion
 
-                #region liberando a memoria 
+                #region liberando a memoria e fechando conexão
                 cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
                 this.fecharConexao();
                 #endregion
             }
@@ -194,12 +207,11 @@ namespace Biblioteca.Parametros
         public bool VerificaDuplicidade(Usuario usuario)
         {
             bool retorno = false;
-
             try
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "SELECT userName, telefoneCelular, email FROM Usuario where userName = @userName";
+                string sql = "SELECT userName, cpf_cnpj, email FROM Usuario WHERE id = @id";
                 #endregion
 
                 #region instrucao a ser executada
@@ -210,8 +222,8 @@ namespace Biblioteca.Parametros
                 cmd.Parameters.Add("@userName", SqlDbType.VarChar);
                 cmd.Parameters["@userName"].Value = usuario.userName;
 
-                cmd.Parameters.Add("@telefoneCelular", SqlDbType.VarChar);
-                cmd.Parameters["@telefoneCelular"].Value = usuario.telefoneCelular;
+                cmd.Parameters.Add("@cpf_cnpj", SqlDbType.VarChar);
+                cmd.Parameters["@cpf_cnpj"].Value = usuario.cpf_cnpj;
 
                 cmd.Parameters.Add("@email", SqlDbType.VarChar);
                 cmd.Parameters["@email"].Value = usuario.email;
@@ -230,11 +242,8 @@ namespace Biblioteca.Parametros
                 DbReader.Close();
                 #endregion
 
-                #region liberando a memoria 
+                #region liberando a memoria e fechando conexão
                 cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
                 this.fecharConexao();
                 #endregion
             }
@@ -251,7 +260,7 @@ namespace Biblioteca.Parametros
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT * FROM usuario where userName = @userName ";                
+                string sql = "SELECT * FROM usuario";                
                 
                 SqlCommand cmd = new SqlCommand(sql, sqlConexao);              
                 SqlDataReader DbReader = cmd.ExecuteReader();
@@ -264,15 +273,15 @@ namespace Biblioteca.Parametros
                     usuario.cpf_cnpj = DbReader.GetString(DbReader.GetOrdinal("cpf_cnpj"));
                     usuario.telefoneFixo = DbReader.GetString(DbReader.GetOrdinal("telefoneFixo"));
                     usuario.telefoneCelular = DbReader.GetString(DbReader.GetOrdinal("telefoneCelular"));
-                    usuario.uf = DbReader.GetString(DbReader.GetOrdinal("estado"));
+                    usuario.uf = DbReader.GetString(DbReader.GetOrdinal("uf"));
                     usuario.cidade = DbReader.GetString(DbReader.GetOrdinal("cidade"));
                     usuario.bairro = DbReader.GetString(DbReader.GetOrdinal("bairro"));
                     usuario.email = DbReader.GetString(DbReader.GetOrdinal("email"));
                     usuario.dataCadastro = DbReader.GetDateTime(DbReader.GetOrdinal("dataCadastro"));
                     usuario.senha = DbReader.GetString(DbReader.GetOrdinal("senha"));
                     usuario.email = DbReader.GetString(DbReader.GetOrdinal("email"));
-                    usuario.quantidadeHoraTrabalhada = DbReader.GetInt32(DbReader.GetOrdinal("quantidadeHoraTrabalhada"));
-                    usuario.quantidadeHoraDisponivel = DbReader.GetInt32(DbReader.GetOrdinal("quantidadeHoraDisponivel"));
+                    usuario.qtdHoraTrabalhada = DbReader.GetInt32(DbReader.GetOrdinal("qtdHoraTrabalhada"));
+                    usuario.qtdHoraDisponivel = DbReader.GetInt32(DbReader.GetOrdinal("qtdHoraDisponivel"));
                     usuario.descricao = DbReader.GetString(DbReader.GetOrdinal("descricao"));
                     retorno.Add(usuario);
                 }

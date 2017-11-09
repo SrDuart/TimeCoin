@@ -35,9 +35,9 @@ namespace Biblioteca.ClassesBasicas
         [DataMember(IsRequired = true)]
         public string senha { get; set; }
         [DataMember(IsRequired = true)]
-        public int quantidadeHoraTrabalhada { get; set; }
+        public int qtdHoraTrabalhada { get; set; }
         [DataMember(IsRequired = true)]
-        public int quantidadeHoraDisponivel { get; set; }
+        public int qtdHoraDisponivel { get; set; }
         [DataMember(IsRequired = true)]
         public string descricao { get; set; }
 	}

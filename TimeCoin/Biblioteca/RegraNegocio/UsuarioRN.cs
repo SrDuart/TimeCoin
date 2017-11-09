@@ -155,9 +155,17 @@ namespace Biblioteca.RegraNegocio
         {
             ValidarDadosBasicos(usuario);
 
-            UsuarioSqlServer dados = new UsuarioSqlServer();
-            dados.abrirConexao();            
-            dados.Update(usuario);
+            if (this.VerificaDuplicidade(usuario) == true)
+            {
+                UsuarioSqlServer dados = new UsuarioSqlServer();
+                dados.Update(usuario);
+            }
+            else
+            {
+                 throw new Exception("Erro! Usuário já existente.");
+            }
+
+            
         }
 
         public bool VerificaDuplicidade(Usuario usuario)
