@@ -12,7 +12,7 @@ namespace Biblioteca.RegraNegocio
         {
             if (usuario == null)
             {
-                throw new Exception("Erro! Campo nulo. Favor instanciar um usuário.");
+                throw new Exception("Erro! Favor instanciar um usuário.");
             }
 
             if (String.IsNullOrEmpty(usuario.nome) == true || String.IsNullOrWhiteSpace(usuario.nome) == true)
@@ -125,7 +125,7 @@ namespace Biblioteca.RegraNegocio
         {
             if (usuario == null)
             {
-                throw new Exception("Erro! Campo nulo. Favor instanciar um usuário.");
+                throw new Exception("Erro! Favor instanciar um usuário.");
             }
 
             UsuarioSqlServer dados = new UsuarioSqlServer();
@@ -163,9 +163,7 @@ namespace Biblioteca.RegraNegocio
             else
             {
                  throw new Exception("Erro! Usuário já existente.");
-            }
-
-            
+            }                        
         }
 
         public bool VerificaDuplicidade(Usuario usuario)

@@ -15,7 +15,7 @@ namespace Biblioteca.RegraNegocio
                 throw new Exception("Erro! Favor, instanciar serviço recebido pelo usuário.");
             }
 
-            if (recebe.quantidadeHora == 0)
+            if (recebe.qtdHora == 0)
             {
                 throw new Exception("Erro! Número de horas vazio. Favor, instanciar a quantidade de horas paga pelo serviço recebido.");
             }
@@ -35,6 +35,17 @@ namespace Biblioteca.RegraNegocio
                 throw new Exception("Erro! Campo nulo. Favor, preencher a data.");
             }
         }
+        
+        public void Insert(Recebe recebe)   
+        {
+            if (recebe == null)
+            {
+                throw new Exception("Erro! Favor, instanciar serviço recebido pelo usuário.");
+            }
+
+            RecebeSqlServer dados = new RecebeSqlServer();
+            dados.Insert(recebe);
+        }
 
         public void Delete(Recebe recebe)
         {
@@ -47,62 +58,10 @@ namespace Biblioteca.RegraNegocio
             dados.Delete(recebe);
         }
 
-        public void Insert(Recebe recebe)   
-        {
-            ValidarDadosBasicos(recebe);
-
-            if (this.VerificaDuplicidade(recebe))
-            {
-                throw new Exception("Erro! Serviço recebido pelo usuário já existente.");
-            }
-
-            RecebeSqlServer dados = new RecebeSqlServer();
-            dados.Insert(recebe);
-        }
-
         public List<Recebe> Select(Recebe filtro)
         {
             RecebeSqlServer dados = new RecebeSqlServer();
             return dados.Select(filtro);
-        }
-
-        public void Update(Recebe recebe)
-        {
-            ValidarDadosBasicos(recebe);
-
-            if (this.VerificaDuplicidade(recebe) == true)
-            {
-                throw new Exception("Erro! Serviço recebido pelo usuário já existente.");
-            }
-            
-            RecebeSqlServer dados = new RecebeSqlServer();
-            dados.Update(recebe);
-        }
-
-        public bool VerificaDuplicidade(Recebe recebe)
-        {        
-            if (recebe == null)
-            {
-                throw new Exception("Erro! Favor, instanciar serviço recebido pelo usuário.");
-            }
-
-            if (recebe.data == null)
-            {
-                throw new Exception("Erro! Campo nulo. Favor, preencher a data.");
-            }
-
-            if (recebe.usuario.id < 1)
-            {
-                throw new Exception("Erro! Campo nulo. Favor, preencher o id do usuário.");
-            }
-
-            if (recebe.servico.id < 1)
-            {
-                throw new Exception("Erro! Campo nulo. Favor, preencher o id de serviço.");
-            }
-
-            RecebeSqlServer dados = new RecebeSqlServer();
-            return dados.VerificaDuplicidade(recebe);
-        }
+        }        
     }
 }

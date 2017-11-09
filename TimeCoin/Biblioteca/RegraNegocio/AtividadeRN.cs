@@ -20,9 +20,9 @@ namespace Biblioteca.RegraNegocio
                 throw new Exception("Erro! Campo vazio. Favor, informar nome da atividade do usuário.");
             }
 
-            if (atividade.nome.Trim().Length < 1 || atividade.nome.Trim().Length > 20)
+            if (atividade.nome.Trim().Length < 1 || atividade.nome.Trim().Length > 30)
             {
-                throw new Exception("Erro! Número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 20.");
+                throw new Exception("Erro! Número de caracteres não compatível. A descrição deve conter mais de 1 caracter e no máximo 30.");
             }
 
             if (String.IsNullOrEmpty(atividade.descricao) == true || String.IsNullOrWhiteSpace(atividade.descricao) == true)
@@ -36,6 +36,28 @@ namespace Biblioteca.RegraNegocio
             }
         }
 
+        public void Insert(Atividade atividade)
+        {
+            if (atividade == null)
+            {
+                throw new Exception("Erro! Atividade não criada.");
+            }
+
+            AtividadeSqlServer dados = new AtividadeSqlServer();
+            dados.Insert(atividade);
+        }
+        
+        public void Update(Atividade atividade)
+        {
+            if (atividade == null)
+            {
+                throw new Exception("Erro! Tipo de usuário já existente.");
+            }
+
+            AtividadeSqlServer dados = new AtividadeSqlServer();
+            dados.Update(atividade);
+        }
+
         public void Delete(Atividade atividade)
         {
             if (atividade == null)
@@ -47,55 +69,10 @@ namespace Biblioteca.RegraNegocio
             dados.Delete(atividade);
         }
 
-        public void Insert(Atividade atividade)
-        {
-            ValidarDadosBasicos(atividade);
-
-            if (this.VerificaDuplicidade(atividade))
-            {
-                throw new Exception("Erro! Atividade do usuário já existente.");
-            }
-
-            AtividadeSqlServer dados = new AtividadeSqlServer();
-            dados.Insert(atividade);
-        }
-
         public List<Atividade> Select(Atividade filtro)
         {
             AtividadeSqlServer dados = new AtividadeSqlServer();
             return dados.Select(filtro);
-        }
-
-        public void Update(Atividade atividade)
-        {
-            ValidarDadosBasicos(atividade);
-
-            if (this.VerificaDuplicidade(atividade) == true)
-            {
-                throw new Exception("Erro! Atividade do usuário já existente.");
-            }
-
-            AtividadeSqlServer dados = new AtividadeSqlServer();
-            dados.Update(atividade);
-        }
-
-        public bool VerificaDuplicidade(Atividade atividade)
-        {
-            if (atividade == null)
-            {
-                throw new Exception("Erro! Favor, instanciar a atividade do usuário.");
-            }
-            if (atividade.nome == null)
-            {
-                throw new Exception("Erro! Campo nulo. Favor, informar o nome da atividade do usuário.");
-            }
-            if (atividade.descricao == null)
-            {
-                throw new Exception("Erro! Campo nulo. Favor, informar a descrição da atividade do usuário.");
-            }
-
-            AtividadeSqlServer dados = new AtividadeSqlServer();
-            return dados.VerificaDuplicidade(atividade);
         }
     }
 }
