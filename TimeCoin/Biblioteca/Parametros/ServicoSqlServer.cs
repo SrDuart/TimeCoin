@@ -16,8 +16,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                //string sql = "insert into Servico (descricao, data, situacao) values(@descricao, @data, @situacao)";
-                string sql = "insert into Servico (descricao, situacao) values(@descricao, @situacao)";
+                string sql = "INSERT INTO Servico (nome, Id_Situacao) VALUES (@nome, @Id_Situacao)";
                 #endregion
 
                 #region instrucao a ser executada
@@ -25,12 +24,83 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passar parametros
-                cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
-                cmd.Parameters["@descricao"].Value = servico.nome;
-                //cmd.Parameters.Add("@data", SqlDbType.Date);
-                //cmd.Parameters["@data"].Value = servico.descricao;
-                cmd.Parameters.Add("@situacao", SqlDbType.VarChar);
-                cmd.Parameters["@situacao"].Value = servico.situacao;
+                cmd.Parameters.Add("@nome", SqlDbType.VarChar);
+                cmd.Parameters["@nome"].Value = servico.nome;
+
+                cmd.Parameters.Add("@Id_Situacao", SqlDbType.Int);
+                cmd.Parameters["@Id_Situacao"].Value = servico.situacao.id;
+                #endregion
+
+                #region executando a instrucao 
+                cmd.ExecuteNonQuery();
+                #endregion
+
+                #region liberando a memoria e  fechando a conexão
+                cmd.Dispose();
+                this.fecharConexao();
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao conectar e inserir um serviço. " + ex.Message);
+            }
+        }
+
+        public void Update(Servico servico)
+        {
+            try
+            {
+                #region abrir a conexão
+                this.abrirConexao();
+                string sql = "UPDATE Servico SET nome = @nome, Id_Situacao = @Id_Situacao WHERE id = @id";
+                #endregion
+
+                #region instrucao a ser executada
+                SqlCommand cmd = new SqlCommand(sql, this.sqlConexao);
+                #endregion
+
+                #region passar parametros
+                cmd.Parameters.Add("@id", SqlDbType.Int);
+                cmd.Parameters["@id"].Value = servico.id;
+
+                cmd.Parameters.Add("@nome", SqlDbType.VarChar);
+                cmd.Parameters["@nome"].Value = servico.nome;
+
+                cmd.Parameters.Add("@Id_Situacao", SqlDbType.VarChar);
+                cmd.Parameters["@Id_Situacao"].Value = servico.situacao.id;
+                #endregion
+
+                #region executando a instrucao 
+                cmd.ExecuteNonQuery();
+                #endregion
+
+                #region liberando a memoria e  fechando a conexão
+                cmd.Dispose();
+                this.fecharConexao();
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao conectar e alterar um serviço. " + ex.Message);
+            }
+        }
+
+        public void Delete(Servico servico)
+        {
+            try
+            {
+                #region abrir a conexão
+                this.abrirConexao();
+                string sql = "DELETE FROM Servico WHERE id = @id";
+                #endregion
+
+                #region instrucao a ser executada
+                SqlCommand cmd = new SqlCommand(sql, this.sqlConexao);
+                #endregion
+
+                #region passar parametros
+                cmd.Parameters.Add("@id", SqlDbType.Int);
+                cmd.Parameters["@id"].Value = servico.id;
                 #endregion
 
                 #region executando a instrucao 
@@ -44,88 +114,54 @@ namespace Biblioteca.Parametros
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conectar e inserir o serviço. " + ex.Message);
-            }            
-        }
-
-        public void Update(Servico servico)
-        {
-            try
-            {
-                #region abrir a conexão
-                this.abrirConexao();
-                string sql = "update Servico set descricao = @descricao where id = @id";
-                #endregion
-
-                #region instrucao a ser executada
-                SqlCommand cmd = new SqlCommand(sql, this.sqlConexao);
-                #endregion
-
-                #region passar parametros
-                cmd.Parameters.Add("@id", SqlDbType.Int);
-                cmd.Parameters["@id"].Value = servico.id;
-
-                cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
-                cmd.Parameters["@descricao"].Value = servico.nome;
-                #endregion
-
-                #region executando a instrucao 
-                cmd.ExecuteNonQuery();
-                #endregion
-
-                #region liberando a memoria 
-                cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
-                this.fecharConexao();
+                throw new Exception("Erro ao conectar e excluir um serviço. " + ex.Message);
             }
-            catch (Exception ex)
-            {
-                throw new Exception("Erro ao conectar e alterar o serviço. " + ex.Message);
-            }
-            #endregion
-        }
-
-        public void Delete(Servico servico)
-        {
-            try
-            {
-                #region abrir a conexão
-                this.abrirConexao();
-                string sql = "delete from Servico where id = @id";
-                #endregion
-
-                #region instrucao a ser executada
-                SqlCommand cmd = new SqlCommand(sql, this.sqlConexao);
-                #endregion
-
-                #region passar parametros
-                cmd.Parameters.Add("@id", SqlDbType.Int);
-                cmd.Parameters["@id"].Value = servico.id;
-                #endregion
-
-                #region executando a instrucao 
-                cmd.ExecuteNonQuery();
-                #endregion
-
-                #region liberando a memoria 
-                cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
-                this.fecharConexao();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Erro ao conectar e excluir o serviço." + ex.Message);
-            }
-            #endregion
         }
 
         public bool VerificaDuplicidade(Servico servico)
         {
-            bool retorno = false;            
+            bool retorno = false;
+            try
+            {
+                #region abrir a conexão
+                this.abrirConexao();
+                string sql = "SELECT nome FROM Servico WHERE id = @id";
+                #endregion
+
+                #region instrucao a ser executada
+                SqlCommand cmd = new SqlCommand(sql, sqlConexao);
+                #endregion
+
+                #region passar parametros
+                cmd.Parameters.Add("@id", SqlDbType.Int);
+                cmd.Parameters["@id"].Value = servico.id;
+
+                cmd.Parameters.Add("@nome", SqlDbType.VarChar);
+                cmd.Parameters["@nome"].Value = servico.nome;                
+                #endregion
+
+                #region instrucao a ser executada
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                #endregion
+
+                #region executando a instrucao 
+                while (DbReader.Read())
+                {
+                    retorno = true;
+                    break;
+                }
+                DbReader.Close();
+                #endregion
+
+                #region liberando a memoria e fechando a conexao
+                cmd.Dispose();
+                this.fecharConexao();
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro! Este tipo de serviço já existe." + ex.Message);
+            }
             return retorno;
         }
 
@@ -135,12 +171,7 @@ namespace Biblioteca.Parametros
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT id, descricao, data, situacao from Servico";
-
-                if (filtro.nome != null && !filtro.nome.Trim().Equals(""))
-                {
-                    sql += " and descricao like '%" + filtro.nome + "%'";
-                }
+                string sql = "SELECT * FROM Servico";
 
                 SqlCommand cmd = new SqlCommand(sql, sqlConexao);
                 SqlDataReader DbReader = cmd.ExecuteReader();
@@ -148,8 +179,8 @@ namespace Biblioteca.Parametros
                 {
                     Servico servico = new Servico();
                     servico.id = DbReader.GetInt32(DbReader.GetOrdinal("id"));
-                    servico.nome = DbReader.GetString(DbReader.GetOrdinal("descricao"));
-                    servico.situacao.id = DbReader.GetChar(DbReader.GetOrdinal("situacao"));
+                    servico.nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
+                    servico.situacao.id = DbReader.GetInt32(DbReader.GetOrdinal("Id_Situacao"));
                     retorno.Add(servico);
                 }
                 DbReader.Close();
@@ -158,7 +189,7 @@ namespace Biblioteca.Parametros
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conectar e selecionar o serviço." + ex.Message);
+                throw new Exception("Erro ao conectar e selecionar um serviço." + ex.Message);
             }
             return retorno;
         }

@@ -16,7 +16,7 @@ namespace Biblioteca.Parametros
             { 
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "insert into TipoUsuario (descricao) values (@descricao)";
+                string sql = "INSERT INTO TipoUsuario (descricao) VALUES (@descricao)";
                 #endregion
 
                 #region instrucao a ser executada
@@ -49,7 +49,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "update TipoUsuario set descricao = @descricao where id = @id";
+                string sql = "UPDATE TipoUsuario SET descricao = @descricao WHERE id = @id";
                 #endregion
 
                 #region instrucao a ser executada
@@ -75,7 +75,7 @@ namespace Biblioteca.Parametros
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conectar e alterar Tipo de usuário. " + ex.Message);
+                throw new Exception("Erro ao conectar e atualizar Tipo de usuário. " + ex.Message);
             }
             
         }
@@ -86,7 +86,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "delete from TipoUsuario where descricao = @descricao";
+                string sql = "DELETE FROM TipoUsuario WHERE id = @id";
                 #endregion
 
                 #region instrucao a ser executada
@@ -94,8 +94,8 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passar parametros
-                cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
-                cmd.Parameters["@descricao"].Value = tipoUsuario.descricao;
+                cmd.Parameters.Add("@id", SqlDbType.Int);
+                cmd.Parameters["@id"].Value = tipoUsuario.id;
                 #endregion
 
                 #region executando a instrucao 
@@ -105,7 +105,9 @@ namespace Biblioteca.Parametros
                 #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
                 this.fecharConexao();
-                #endregion
+                #endregion             
+
+
             }
             catch (Exception ex)
             {
@@ -121,7 +123,7 @@ namespace Biblioteca.Parametros
 			{
                 #region abrir a conexão
                 this.abrirConexao();				
-				string sql = "SELECT descricao from TipoUsuario where descricao = @descricao";
+				string sql = "SELECT descricao FROM TipoUsuario WHERE id = @id";
                 #endregion
 
                 #region instrucao a ser executada
@@ -129,8 +131,8 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passar parametros
-                cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
-                cmd.Parameters["@descricao"].Value = tipoUsuario.descricao;                
+                cmd.Parameters.Add("@id", SqlDbType.Int);
+                cmd.Parameters["@id"].Value = tipoUsuario.id;                
                 #endregion
 
                 #region instrucao a ser executada
@@ -165,9 +167,9 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();                
-                string sql = "SELECT * from TipoUsuario";
+                string sql = "SELECT * FROM TipoUsuario";
                 #endregion
-
+                
                 SqlCommand cmd = new SqlCommand(sql, sqlConexao);                
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 

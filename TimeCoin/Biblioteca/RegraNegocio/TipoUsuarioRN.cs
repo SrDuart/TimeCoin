@@ -12,7 +12,7 @@ namespace Biblioteca.RegraNegocio
         {
             if (tipoUsuario == null)
             {
-                throw new Exception("Erro! Favor instanciar um Tipo de usuário.");
+                throw new Exception("Erro! Favor informar um Tipo de usuário.");
             }
 
             if (String.IsNullOrEmpty(tipoUsuario.descricao) == true || String.IsNullOrWhiteSpace(tipoUsuario.descricao) == true)

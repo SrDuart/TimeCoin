@@ -9,6 +9,6 @@ namespace Biblioteca.Interfaces
         void Update(Situacao situacao);
         void Delete(Situacao situacao);
         bool VerificaDuplicidade(Situacao situacao);
-        List<Situacao> Select(Situacao situacao);
+        List<Situacao> Select(Situacao filtro);
     }
 }
