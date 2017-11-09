@@ -11,7 +11,7 @@ namespace Biblioteca.ClassesBasicas
         [DataMember(IsRequired = true)]
         public Servico servico { get; set; }
         [DataMember(IsRequired = true)]
-        public int quantidadeHora { get; set; }
+        public int qtdHora { get; set; }
         [DataMember(IsRequired = true)]
         public double avaliacao { get; set; }
         [DataMember(IsRequired = true)]

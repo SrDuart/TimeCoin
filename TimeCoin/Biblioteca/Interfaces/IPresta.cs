@@ -5,10 +5,8 @@ namespace Biblioteca.Interfaces
 {
     public interface IPresta
 	{
-        void Insert(Presta presta);
-        void Update(Presta presta);
-        void Delete(Presta presta);
-        bool VerificaDuplicidade(Presta presta);
+        void Insert(Presta presta);        
+        void Delete(Presta presta);        
         List<Presta> Select(Presta filtro);
     }
 }
