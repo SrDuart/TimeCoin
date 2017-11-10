@@ -128,25 +128,25 @@ namespace WcfService
 
         //Atividade
         #region Atividade
-        public void AtividadeInsert(Atividade atividade)
+        public void AtividadeInsert(Habilidade atividade)
         {
             AtividadeRN regra = new AtividadeRN();
             regra.Insert(atividade);
         }
 
-        public void AtividadeUpdate(Atividade atividade)
+        public void AtividadeUpdate(Habilidade atividade)
         {
             AtividadeRN regra = new AtividadeRN();
             regra.Update(atividade);
         }
 
-        public void AtividadeDelete(Atividade atividade)
+        public void AtividadeDelete(Habilidade atividade)
         {
             AtividadeRN regra = new AtividadeRN();
             regra.Delete(atividade);
         }
 
-        public List<Atividade> AtividadeSelect(Atividade filtro)
+        public List<Habilidade> AtividadeSelect(Habilidade filtro)
         {
             AtividadeRN regra = new AtividadeRN();
             return regra.Select(filtro);

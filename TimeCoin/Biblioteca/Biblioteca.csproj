@@ -43,25 +43,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassesBasicas\Anuncio.cs" />
-    <Compile Include="ClassesBasicas\Atividade.cs" />
+    <Compile Include="ClassesBasicas\Habilidade.cs" />
     <Compile Include="ClassesBasicas\Presta.cs" />
     <Compile Include="ClassesBasicas\Recebe.cs" />
     <Compile Include="ClassesBasicas\Servico.cs" />
     <Compile Include="ClassesBasicas\Situacao.cs" />
     <Compile Include="ClassesBasicas\TipoUsuario.cs" />
     <Compile Include="ClassesBasicas\Usuario.cs" />
-    <Compile Include="ClassesBasicas\UsuarioAtividade.cs" />
+    <Compile Include="ClassesBasicas\UsuarioHabilidade.cs" />
     <Compile Include="ConexaoBanco\ConexaoSqlServer.cs" />
     <Compile Include="Interfaces\IAnuncio.cs" />
-    <Compile Include="Interfaces\IAtividade.cs" />
+    <Compile Include="Interfaces\IHabilidade.cs" />
     <Compile Include="Interfaces\IPresta.cs" />
     <Compile Include="Interfaces\IRecebe.cs" />
     <Compile Include="Interfaces\IServico.cs" />
     <Compile Include="Interfaces\ISituacao.cs" />
     <Compile Include="Interfaces\ITipoUsuario.cs" />
     <Compile Include="Interfaces\IUsuario.cs" />
-    <Compile Include="Interfaces\IUsuarioAtividade.cs" />
-    <Compile Include="Parametros\AtividadeSqlServer.cs" />
+    <Compile Include="Interfaces\IUsuarioHabilidade.cs" />
+    <Compile Include="Parametros\HabilidadeSqlServer.cs" />
     <Compile Include="Parametros\UsuarioAtividadeSqlServer.cs" />
     <Compile Include="Parametros\PrestaSqlServer.cs" />
     <Compile Include="Parametros\RecebeSqlServer.cs" />
