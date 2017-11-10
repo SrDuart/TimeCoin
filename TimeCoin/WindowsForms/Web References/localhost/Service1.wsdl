@@ -4,35 +4,335 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:26254/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:26254/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:26254/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfService" />
+      <xsd:import schemaLocation="http://localhost:26254/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IService1_GetData_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetData" />
+  <wsdl:message name="IService1_TipoUsuarioInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipoUsuarioInsert" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetData_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  <wsdl:message name="IService1_TipoUsuarioInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipoUsuarioInsertResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetDataUsingDataContract_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  <wsdl:message name="IService1_TipoUsuarioUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipoUsuarioUpdate" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetDataUsingDataContract_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  <wsdl:message name="IService1_TipoUsuarioUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipoUsuarioUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TipoUsuarioDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipoUsuarioDelete" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TipoUsuarioDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipoUsuarioDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TipoUsuarioSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipoUsuarioSelect" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TipoUsuarioSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipoUsuarioSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TipoUsuarioVerificaDuplicidade_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipoUsuarioVerificaDuplicidade" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TipoUsuarioVerificaDuplicidade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipoUsuarioVerificaDuplicidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SituacaoInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:SituacaoInsert" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SituacaoInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SituacaoInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SituacaoUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SituacaoUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SituacaoUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SituacaoUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SituacaoDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:SituacaoDelete" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SituacaoDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SituacaoDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SituacaoSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:SituacaoSelect" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SituacaoSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SituacaoSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioInsert" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioDelete" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioSelect" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ServicoInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:ServicoInsert" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ServicoInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ServicoInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ServicoUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:ServicoUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ServicoUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ServicoUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ServicoDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:ServicoDelete" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ServicoDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ServicoDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ServicoSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:ServicoSelect" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ServicoSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ServicoSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AtividadeInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtividadeInsert" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AtividadeInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtividadeInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AtividadeUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtividadeUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AtividadeUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtividadeUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AtividadeDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtividadeDelete" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AtividadeDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtividadeDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AtividadeSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtividadeSelect" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AtividadeSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtividadeSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AtividadeVerificaDuplicidade_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtividadeVerificaDuplicidade" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AtividadeVerificaDuplicidade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtividadeVerificaDuplicidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PrestaInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrestaInsert" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PrestaInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrestaInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PrestaUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrestaUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PrestaUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrestaUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PrestaDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrestaDelete" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PrestaDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrestaDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PrestaSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrestaSelect" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PrestaSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrestaSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PrestaVerificaDuplicidade_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrestaVerificaDuplicidade" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PrestaVerificaDuplicidade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrestaVerificaDuplicidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RecebeInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecebeInsert" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RecebeInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecebeInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RecebeUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecebeUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RecebeUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecebeUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RecebeDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecebeDelete" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RecebeDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecebeDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RecebeSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecebeSelect" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RecebeSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecebeSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RecebeVerificaDuplicidade_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecebeVerificaDuplicidade" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RecebeVerificaDuplicidade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecebeVerificaDuplicidadeResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
-    <wsdl:operation name="GetData">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataResponse" message="tns:IService1_GetData_OutputMessage" />
+    <wsdl:operation name="TipoUsuarioInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/TipoUsuarioInsert" message="tns:IService1_TipoUsuarioInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TipoUsuarioInsertResponse" message="tns:IService1_TipoUsuarioInsert_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetDataUsingDataContract">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract" message="tns:IService1_GetDataUsingDataContract_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContractResponse" message="tns:IService1_GetDataUsingDataContract_OutputMessage" />
+    <wsdl:operation name="TipoUsuarioUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/TipoUsuarioUpdate" message="tns:IService1_TipoUsuarioUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TipoUsuarioUpdateResponse" message="tns:IService1_TipoUsuarioUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoUsuarioDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/TipoUsuarioDelete" message="tns:IService1_TipoUsuarioDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TipoUsuarioDeleteResponse" message="tns:IService1_TipoUsuarioDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoUsuarioSelect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/TipoUsuarioSelect" message="tns:IService1_TipoUsuarioSelect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TipoUsuarioSelectResponse" message="tns:IService1_TipoUsuarioSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoUsuarioVerificaDuplicidade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/TipoUsuarioVerificaDuplicidade" message="tns:IService1_TipoUsuarioVerificaDuplicidade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TipoUsuarioVerificaDuplicidadeResponse" message="tns:IService1_TipoUsuarioVerificaDuplicidade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SituacaoInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SituacaoInsert" message="tns:IService1_SituacaoInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SituacaoInsertResponse" message="tns:IService1_SituacaoInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SituacaoUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SituacaoUpdate" message="tns:IService1_SituacaoUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SituacaoUpdateResponse" message="tns:IService1_SituacaoUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SituacaoDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SituacaoDelete" message="tns:IService1_SituacaoDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SituacaoDeleteResponse" message="tns:IService1_SituacaoDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SituacaoSelect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SituacaoSelect" message="tns:IService1_SituacaoSelect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SituacaoSelectResponse" message="tns:IService1_SituacaoSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioInsert" message="tns:IService1_UsuarioInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsuarioInsertResponse" message="tns:IService1_UsuarioInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioUpdate" message="tns:IService1_UsuarioUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsuarioUpdateResponse" message="tns:IService1_UsuarioUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioDelete" message="tns:IService1_UsuarioDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsuarioDeleteResponse" message="tns:IService1_UsuarioDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioSelect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioSelect" message="tns:IService1_UsuarioSelect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsuarioSelectResponse" message="tns:IService1_UsuarioSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ServicoInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ServicoInsert" message="tns:IService1_ServicoInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ServicoInsertResponse" message="tns:IService1_ServicoInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ServicoUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ServicoUpdate" message="tns:IService1_ServicoUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ServicoUpdateResponse" message="tns:IService1_ServicoUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ServicoDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ServicoDelete" message="tns:IService1_ServicoDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ServicoDeleteResponse" message="tns:IService1_ServicoDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ServicoSelect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ServicoSelect" message="tns:IService1_ServicoSelect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ServicoSelectResponse" message="tns:IService1_ServicoSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtividadeInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AtividadeInsert" message="tns:IService1_AtividadeInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AtividadeInsertResponse" message="tns:IService1_AtividadeInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtividadeUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AtividadeUpdate" message="tns:IService1_AtividadeUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AtividadeUpdateResponse" message="tns:IService1_AtividadeUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtividadeDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AtividadeDelete" message="tns:IService1_AtividadeDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AtividadeDeleteResponse" message="tns:IService1_AtividadeDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtividadeSelect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AtividadeSelect" message="tns:IService1_AtividadeSelect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AtividadeSelectResponse" message="tns:IService1_AtividadeSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtividadeVerificaDuplicidade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AtividadeVerificaDuplicidade" message="tns:IService1_AtividadeVerificaDuplicidade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AtividadeVerificaDuplicidadeResponse" message="tns:IService1_AtividadeVerificaDuplicidade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrestaInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PrestaInsert" message="tns:IService1_PrestaInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PrestaInsertResponse" message="tns:IService1_PrestaInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrestaUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PrestaUpdate" message="tns:IService1_PrestaUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PrestaUpdateResponse" message="tns:IService1_PrestaUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrestaDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PrestaDelete" message="tns:IService1_PrestaDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PrestaDeleteResponse" message="tns:IService1_PrestaDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrestaSelect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PrestaSelect" message="tns:IService1_PrestaSelect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PrestaSelectResponse" message="tns:IService1_PrestaSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrestaVerificaDuplicidade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PrestaVerificaDuplicidade" message="tns:IService1_PrestaVerificaDuplicidade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PrestaVerificaDuplicidadeResponse" message="tns:IService1_PrestaVerificaDuplicidade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecebeInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RecebeInsert" message="tns:IService1_RecebeInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RecebeInsertResponse" message="tns:IService1_RecebeInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecebeUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RecebeUpdate" message="tns:IService1_RecebeUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RecebeUpdateResponse" message="tns:IService1_RecebeUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecebeDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RecebeDelete" message="tns:IService1_RecebeDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RecebeDeleteResponse" message="tns:IService1_RecebeDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecebeSelect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RecebeSelect" message="tns:IService1_RecebeSelect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RecebeSelectResponse" message="tns:IService1_RecebeSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecebeVerificaDuplicidade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RecebeVerificaDuplicidade" message="tns:IService1_RecebeVerificaDuplicidade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RecebeVerificaDuplicidadeResponse" message="tns:IService1_RecebeVerificaDuplicidade_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetData">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetData" style="document" />
+    <wsdl:operation name="TipoUsuarioInsert">
+      <soap:operation soapAction="http://tempuri.org/IService1/TipoUsuarioInsert" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -40,8 +340,278 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetDataUsingDataContract">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetDataUsingDataContract" style="document" />
+    <wsdl:operation name="TipoUsuarioUpdate">
+      <soap:operation soapAction="http://tempuri.org/IService1/TipoUsuarioUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoUsuarioDelete">
+      <soap:operation soapAction="http://tempuri.org/IService1/TipoUsuarioDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoUsuarioSelect">
+      <soap:operation soapAction="http://tempuri.org/IService1/TipoUsuarioSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoUsuarioVerificaDuplicidade">
+      <soap:operation soapAction="http://tempuri.org/IService1/TipoUsuarioVerificaDuplicidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SituacaoInsert">
+      <soap:operation soapAction="http://tempuri.org/IService1/SituacaoInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SituacaoUpdate">
+      <soap:operation soapAction="http://tempuri.org/IService1/SituacaoUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SituacaoDelete">
+      <soap:operation soapAction="http://tempuri.org/IService1/SituacaoDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SituacaoSelect">
+      <soap:operation soapAction="http://tempuri.org/IService1/SituacaoSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioInsert">
+      <soap:operation soapAction="http://tempuri.org/IService1/UsuarioInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioUpdate">
+      <soap:operation soapAction="http://tempuri.org/IService1/UsuarioUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioDelete">
+      <soap:operation soapAction="http://tempuri.org/IService1/UsuarioDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioSelect">
+      <soap:operation soapAction="http://tempuri.org/IService1/UsuarioSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ServicoInsert">
+      <soap:operation soapAction="http://tempuri.org/IService1/ServicoInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ServicoUpdate">
+      <soap:operation soapAction="http://tempuri.org/IService1/ServicoUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ServicoDelete">
+      <soap:operation soapAction="http://tempuri.org/IService1/ServicoDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ServicoSelect">
+      <soap:operation soapAction="http://tempuri.org/IService1/ServicoSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtividadeInsert">
+      <soap:operation soapAction="http://tempuri.org/IService1/AtividadeInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtividadeUpdate">
+      <soap:operation soapAction="http://tempuri.org/IService1/AtividadeUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtividadeDelete">
+      <soap:operation soapAction="http://tempuri.org/IService1/AtividadeDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtividadeSelect">
+      <soap:operation soapAction="http://tempuri.org/IService1/AtividadeSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtividadeVerificaDuplicidade">
+      <soap:operation soapAction="http://tempuri.org/IService1/AtividadeVerificaDuplicidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrestaInsert">
+      <soap:operation soapAction="http://tempuri.org/IService1/PrestaInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrestaUpdate">
+      <soap:operation soapAction="http://tempuri.org/IService1/PrestaUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrestaDelete">
+      <soap:operation soapAction="http://tempuri.org/IService1/PrestaDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrestaSelect">
+      <soap:operation soapAction="http://tempuri.org/IService1/PrestaSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrestaVerificaDuplicidade">
+      <soap:operation soapAction="http://tempuri.org/IService1/PrestaVerificaDuplicidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecebeInsert">
+      <soap:operation soapAction="http://tempuri.org/IService1/RecebeInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecebeUpdate">
+      <soap:operation soapAction="http://tempuri.org/IService1/RecebeUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecebeDelete">
+      <soap:operation soapAction="http://tempuri.org/IService1/RecebeDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecebeSelect">
+      <soap:operation soapAction="http://tempuri.org/IService1/RecebeSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecebeVerificaDuplicidade">
+      <soap:operation soapAction="http://tempuri.org/IService1/RecebeVerificaDuplicidade" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

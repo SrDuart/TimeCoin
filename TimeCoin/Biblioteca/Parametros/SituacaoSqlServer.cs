@@ -19,7 +19,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "delete from Situacao where id = @id";
+                string sql = "DELETE FROM Situacao WHERE id = @id";
                 #endregion
 
                 #region instrucao a ser executada
@@ -52,7 +52,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "insert into Situacao (nome, descricao) values (@nome, @descricao)";
+                string sql = "INSERT INTO Situacao (nome, descricao) VALUES (@nome, @descricao)";
                 #endregion
 
                 #region instrucao a ser executada
@@ -71,11 +71,8 @@ namespace Biblioteca.Parametros
                 cmd.ExecuteNonQuery();
                 #endregion
 
-                #region liberando a memoria 
-                cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
+                #region liberando a memoria e  fechando a conexão
+                cmd.Dispose();                
                 this.fecharConexao();
                 #endregion
             }
@@ -90,36 +87,26 @@ namespace Biblioteca.Parametros
             List<Situacao> retorno = new List<Situacao>();
             try
             {
-                #region abrir a conexão
                 this.abrirConexao();
-                string sql = "SELECT id, nome, descricao from Situacao ";
-                #endregion
-                
-                if (filtro.descricao != null && !filtro.descricao.Trim().Equals(""))
-                {
-                    sql += " and descricao like '%" + filtro.descricao + "%'";
-                }
+                string sql = "SELECT * FROM situacao";
 
-                SqlCommand cmd = new SqlCommand(sql, sqlConexao);                
+                SqlCommand cmd = new SqlCommand(sql, sqlConexao);
                 SqlDataReader DbReader = cmd.ExecuteReader();
-                
                 while (DbReader.Read())
                 {
-                    Situacao situacao = new Situacao();                    
+                    Situacao situacao = new Situacao();
                     situacao.id = DbReader.GetInt32(DbReader.GetOrdinal("id"));
-                    situacao.status = DbReader.GetString(DbReader.GetOrdinal("nome"));
-                    situacao.descricao = DbReader.GetString(DbReader.GetOrdinal("descricao"));
+                    situacao.status = DbReader.GetString(DbReader.GetOrdinal("status"));
+                    situacao.descricao = DbReader.GetString(DbReader.GetOrdinal("descricao"));                    
                     retorno.Add(situacao);
                 }
-                
                 DbReader.Close();
-
                 cmd.Dispose();
                 this.fecharConexao();
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conectar e selecionar a situação." + ex.Message);
+                throw new Exception("Erro ao conectar e selecionar uma situação." + ex.Message);
             }
             return retorno;
         }
@@ -130,7 +117,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "update Situacao set descricao = @descricao where id = @id";
+                string sql = "UPDATE Situacao SET status = @status, descricao = @descricao WHERE id = @id";
                 #endregion
 
                 #region instrucao a ser executada
@@ -141,8 +128,8 @@ namespace Biblioteca.Parametros
                 cmd.Parameters.Add("@id", SqlDbType.Int);
                 cmd.Parameters["@id"].Value = situacao.id;
 
-                cmd.Parameters.Add("@nome", SqlDbType.VarChar);
-                cmd.Parameters["@nome"].Value = situacao.status;
+                cmd.Parameters.Add("@status", SqlDbType.VarChar);
+                cmd.Parameters["@status"].Value = situacao.status;
 
                 cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
                 cmd.Parameters["@descricao"].Value = situacao.descricao;
@@ -152,11 +139,8 @@ namespace Biblioteca.Parametros
                 cmd.ExecuteNonQuery();
                 #endregion
 
-                #region liberando a memoria 
+                #region liberando a memoria e  fechando a conexão
                 cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
                 this.fecharConexao();
                 #endregion
             }
@@ -173,11 +157,25 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "SELECT id, nome, descricao from Situacao where nome = " + situacao.descricao;
+                string sql = "SELECT status, descricao FROM Situacao WHERE id = @id";
                 #endregion
 
                 #region instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, sqlConexao);
+                #endregion
+
+                #region passar parametros
+                cmd.Parameters.Add("@id", SqlDbType.Int);
+                cmd.Parameters["@id"].Value = situacao.id;
+
+                cmd.Parameters.Add("@status", SqlDbType.VarChar);
+                cmd.Parameters["@status"].Value = situacao.status;
+
+                cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
+                cmd.Parameters["@descricao"].Value = situacao.descricao;
+                #endregion
+
+                #region instrucao a ser executada
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 #endregion
 
@@ -190,19 +188,16 @@ namespace Biblioteca.Parametros
                 DbReader.Close();
                 #endregion
 
-                #region liberando a memoria 
+                #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
                 this.fecharConexao();
                 #endregion
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conectar e selecionar a situacao. " + ex.Message);
+                throw new Exception("Erro! Este tipo de situação já existe." + ex.Message);
             }
             return retorno;
-        }
+        }            
     }
 }

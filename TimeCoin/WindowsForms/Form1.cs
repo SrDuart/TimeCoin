@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsForms.localhost;
 
 namespace WindowsForms
 {
@@ -15,6 +9,18 @@ namespace WindowsForms
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            /*+9 * localhost.Usuario; tipousuario = new localhost.Usuario();
+            localhost.Service1 sv = new localhost.Service1();
+
+            TipoUsuario.nomek__BackingField = "Fernando";
+            tipousuario.cpf_cnpjk__BackingField = "12345677897";
+            tipousuario.userNamek__BackingField = "jf";
+            sv.UsuarioUpdate(tipousuario);*/
+            
         }
     }
 }

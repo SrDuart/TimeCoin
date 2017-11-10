@@ -4,13 +4,13 @@ using System.Runtime.Serialization;
 namespace Biblioteca.ClassesBasicas
 {
     [Serializable]
-    public class Situacao
-    {
+    public class Habilidade
+	{
         [DataMember(IsRequired = true)]
         public int id { get; set; }
         [DataMember(IsRequired = true)]
-        public string status { get; set; }
+        public string nome { get; set; }
         [DataMember(IsRequired = true)]
         public string descricao { get; set; }
-    }
+	}
 }

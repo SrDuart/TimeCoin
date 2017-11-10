@@ -29,9 +29,69 @@ namespace WindowsForms.localhost {
     [System.Web.Services.WebServiceBindingAttribute(Name="BasicHttpBinding_IService1", Namespace="http://tempuri.org/")]
     public partial class Service1 : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback GetDataOperationCompleted;
+        private System.Threading.SendOrPostCallback TipoUsuarioInsertOperationCompleted;
         
-        private System.Threading.SendOrPostCallback GetDataUsingDataContractOperationCompleted;
+        private System.Threading.SendOrPostCallback TipoUsuarioUpdateOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback TipoUsuarioDeleteOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback TipoUsuarioSelectOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback TipoUsuarioVerificaDuplicidadeOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SituacaoInsertOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SituacaoUpdateOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SituacaoDeleteOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SituacaoSelectOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback UsuarioInsertOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback UsuarioUpdateOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback UsuarioDeleteOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback UsuarioSelectOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ServicoInsertOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ServicoUpdateOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ServicoDeleteOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ServicoSelectOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AtividadeInsertOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AtividadeUpdateOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AtividadeDeleteOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AtividadeSelectOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AtividadeVerificaDuplicidadeOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback PrestaInsertOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback PrestaUpdateOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback PrestaDeleteOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback PrestaSelectOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback PrestaVerificaDuplicidadeOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback RecebeInsertOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback RecebeUpdateOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback RecebeDeleteOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback RecebeSelectOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback RecebeVerificaDuplicidadeOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -72,70 +132,1023 @@ namespace WindowsForms.localhost {
         }
         
         /// <remarks/>
-        public event GetDataCompletedEventHandler GetDataCompleted;
+        public event TipoUsuarioInsertCompletedEventHandler TipoUsuarioInsertCompleted;
         
         /// <remarks/>
-        public event GetDataUsingDataContractCompletedEventHandler GetDataUsingDataContractCompleted;
+        public event TipoUsuarioUpdateCompletedEventHandler TipoUsuarioUpdateCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/GetData", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string GetData(int value, [System.Xml.Serialization.XmlIgnoreAttribute()] bool valueSpecified) {
-            object[] results = this.Invoke("GetData", new object[] {
-                        value,
-                        valueSpecified});
-            return ((string)(results[0]));
+        public event TipoUsuarioDeleteCompletedEventHandler TipoUsuarioDeleteCompleted;
+        
+        /// <remarks/>
+        public event TipoUsuarioSelectCompletedEventHandler TipoUsuarioSelectCompleted;
+        
+        /// <remarks/>
+        public event TipoUsuarioVerificaDuplicidadeCompletedEventHandler TipoUsuarioVerificaDuplicidadeCompleted;
+        
+        /// <remarks/>
+        public event SituacaoInsertCompletedEventHandler SituacaoInsertCompleted;
+        
+        /// <remarks/>
+        public event SituacaoUpdateCompletedEventHandler SituacaoUpdateCompleted;
+        
+        /// <remarks/>
+        public event SituacaoDeleteCompletedEventHandler SituacaoDeleteCompleted;
+        
+        /// <remarks/>
+        public event SituacaoSelectCompletedEventHandler SituacaoSelectCompleted;
+        
+        /// <remarks/>
+        public event UsuarioInsertCompletedEventHandler UsuarioInsertCompleted;
+        
+        /// <remarks/>
+        public event UsuarioUpdateCompletedEventHandler UsuarioUpdateCompleted;
+        
+        /// <remarks/>
+        public event UsuarioDeleteCompletedEventHandler UsuarioDeleteCompleted;
+        
+        /// <remarks/>
+        public event UsuarioSelectCompletedEventHandler UsuarioSelectCompleted;
+        
+        /// <remarks/>
+        public event ServicoInsertCompletedEventHandler ServicoInsertCompleted;
+        
+        /// <remarks/>
+        public event ServicoUpdateCompletedEventHandler ServicoUpdateCompleted;
+        
+        /// <remarks/>
+        public event ServicoDeleteCompletedEventHandler ServicoDeleteCompleted;
+        
+        /// <remarks/>
+        public event ServicoSelectCompletedEventHandler ServicoSelectCompleted;
+        
+        /// <remarks/>
+        public event AtividadeInsertCompletedEventHandler AtividadeInsertCompleted;
+        
+        /// <remarks/>
+        public event AtividadeUpdateCompletedEventHandler AtividadeUpdateCompleted;
+        
+        /// <remarks/>
+        public event AtividadeDeleteCompletedEventHandler AtividadeDeleteCompleted;
+        
+        /// <remarks/>
+        public event AtividadeSelectCompletedEventHandler AtividadeSelectCompleted;
+        
+        /// <remarks/>
+        public event AtividadeVerificaDuplicidadeCompletedEventHandler AtividadeVerificaDuplicidadeCompleted;
+        
+        /// <remarks/>
+        public event PrestaInsertCompletedEventHandler PrestaInsertCompleted;
+        
+        /// <remarks/>
+        public event PrestaUpdateCompletedEventHandler PrestaUpdateCompleted;
+        
+        /// <remarks/>
+        public event PrestaDeleteCompletedEventHandler PrestaDeleteCompleted;
+        
+        /// <remarks/>
+        public event PrestaSelectCompletedEventHandler PrestaSelectCompleted;
+        
+        /// <remarks/>
+        public event PrestaVerificaDuplicidadeCompletedEventHandler PrestaVerificaDuplicidadeCompleted;
+        
+        /// <remarks/>
+        public event RecebeInsertCompletedEventHandler RecebeInsertCompleted;
+        
+        /// <remarks/>
+        public event RecebeUpdateCompletedEventHandler RecebeUpdateCompleted;
+        
+        /// <remarks/>
+        public event RecebeDeleteCompletedEventHandler RecebeDeleteCompleted;
+        
+        /// <remarks/>
+        public event RecebeSelectCompletedEventHandler RecebeSelectCompleted;
+        
+        /// <remarks/>
+        public event RecebeVerificaDuplicidadeCompletedEventHandler RecebeVerificaDuplicidadeCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/TipoUsuarioInsert", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void TipoUsuarioInsert([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] TipoUsuario tipoUsuario) {
+            this.Invoke("TipoUsuarioInsert", new object[] {
+                        tipoUsuario});
         }
         
         /// <remarks/>
-        public void GetDataAsync(int value, bool valueSpecified) {
-            this.GetDataAsync(value, valueSpecified, null);
+        public void TipoUsuarioInsertAsync(TipoUsuario tipoUsuario) {
+            this.TipoUsuarioInsertAsync(tipoUsuario, null);
         }
         
         /// <remarks/>
-        public void GetDataAsync(int value, bool valueSpecified, object userState) {
-            if ((this.GetDataOperationCompleted == null)) {
-                this.GetDataOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetDataOperationCompleted);
+        public void TipoUsuarioInsertAsync(TipoUsuario tipoUsuario, object userState) {
+            if ((this.TipoUsuarioInsertOperationCompleted == null)) {
+                this.TipoUsuarioInsertOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTipoUsuarioInsertOperationCompleted);
             }
-            this.InvokeAsync("GetData", new object[] {
-                        value,
-                        valueSpecified}, this.GetDataOperationCompleted, userState);
+            this.InvokeAsync("TipoUsuarioInsert", new object[] {
+                        tipoUsuario}, this.TipoUsuarioInsertOperationCompleted, userState);
         }
         
-        private void OnGetDataOperationCompleted(object arg) {
-            if ((this.GetDataCompleted != null)) {
+        private void OnTipoUsuarioInsertOperationCompleted(object arg) {
+            if ((this.TipoUsuarioInsertCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.GetDataCompleted(this, new GetDataCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.TipoUsuarioInsertCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/GetDataUsingDataContract", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public CompositeType GetDataUsingDataContract([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] CompositeType composite) {
-            object[] results = this.Invoke("GetDataUsingDataContract", new object[] {
-                        composite});
-            return ((CompositeType)(results[0]));
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/TipoUsuarioUpdate", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void TipoUsuarioUpdate([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] TipoUsuario tipoUsuario) {
+            this.Invoke("TipoUsuarioUpdate", new object[] {
+                        tipoUsuario});
         }
         
         /// <remarks/>
-        public void GetDataUsingDataContractAsync(CompositeType composite) {
-            this.GetDataUsingDataContractAsync(composite, null);
+        public void TipoUsuarioUpdateAsync(TipoUsuario tipoUsuario) {
+            this.TipoUsuarioUpdateAsync(tipoUsuario, null);
         }
         
         /// <remarks/>
-        public void GetDataUsingDataContractAsync(CompositeType composite, object userState) {
-            if ((this.GetDataUsingDataContractOperationCompleted == null)) {
-                this.GetDataUsingDataContractOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetDataUsingDataContractOperationCompleted);
+        public void TipoUsuarioUpdateAsync(TipoUsuario tipoUsuario, object userState) {
+            if ((this.TipoUsuarioUpdateOperationCompleted == null)) {
+                this.TipoUsuarioUpdateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTipoUsuarioUpdateOperationCompleted);
             }
-            this.InvokeAsync("GetDataUsingDataContract", new object[] {
-                        composite}, this.GetDataUsingDataContractOperationCompleted, userState);
+            this.InvokeAsync("TipoUsuarioUpdate", new object[] {
+                        tipoUsuario}, this.TipoUsuarioUpdateOperationCompleted, userState);
         }
         
-        private void OnGetDataUsingDataContractOperationCompleted(object arg) {
-            if ((this.GetDataUsingDataContractCompleted != null)) {
+        private void OnTipoUsuarioUpdateOperationCompleted(object arg) {
+            if ((this.TipoUsuarioUpdateCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.GetDataUsingDataContractCompleted(this, new GetDataUsingDataContractCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.TipoUsuarioUpdateCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/TipoUsuarioDelete", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void TipoUsuarioDelete([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] TipoUsuario tipoUsuario) {
+            this.Invoke("TipoUsuarioDelete", new object[] {
+                        tipoUsuario});
+        }
+        
+        /// <remarks/>
+        public void TipoUsuarioDeleteAsync(TipoUsuario tipoUsuario) {
+            this.TipoUsuarioDeleteAsync(tipoUsuario, null);
+        }
+        
+        /// <remarks/>
+        public void TipoUsuarioDeleteAsync(TipoUsuario tipoUsuario, object userState) {
+            if ((this.TipoUsuarioDeleteOperationCompleted == null)) {
+                this.TipoUsuarioDeleteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTipoUsuarioDeleteOperationCompleted);
+            }
+            this.InvokeAsync("TipoUsuarioDelete", new object[] {
+                        tipoUsuario}, this.TipoUsuarioDeleteOperationCompleted, userState);
+        }
+        
+        private void OnTipoUsuarioDeleteOperationCompleted(object arg) {
+            if ((this.TipoUsuarioDeleteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.TipoUsuarioDeleteCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/TipoUsuarioSelect", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas")]
+        public TipoUsuario[] TipoUsuarioSelect([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] TipoUsuario filtro) {
+            object[] results = this.Invoke("TipoUsuarioSelect", new object[] {
+                        filtro});
+            return ((TipoUsuario[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void TipoUsuarioSelectAsync(TipoUsuario filtro) {
+            this.TipoUsuarioSelectAsync(filtro, null);
+        }
+        
+        /// <remarks/>
+        public void TipoUsuarioSelectAsync(TipoUsuario filtro, object userState) {
+            if ((this.TipoUsuarioSelectOperationCompleted == null)) {
+                this.TipoUsuarioSelectOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTipoUsuarioSelectOperationCompleted);
+            }
+            this.InvokeAsync("TipoUsuarioSelect", new object[] {
+                        filtro}, this.TipoUsuarioSelectOperationCompleted, userState);
+        }
+        
+        private void OnTipoUsuarioSelectOperationCompleted(object arg) {
+            if ((this.TipoUsuarioSelectCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.TipoUsuarioSelectCompleted(this, new TipoUsuarioSelectCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/TipoUsuarioVerificaDuplicidade", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void TipoUsuarioVerificaDuplicidade([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] TipoUsuario filtro, out bool TipoUsuarioVerificaDuplicidadeResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool TipoUsuarioVerificaDuplicidadeResultSpecified) {
+            object[] results = this.Invoke("TipoUsuarioVerificaDuplicidade", new object[] {
+                        filtro});
+            TipoUsuarioVerificaDuplicidadeResult = ((bool)(results[0]));
+            TipoUsuarioVerificaDuplicidadeResultSpecified = ((bool)(results[1]));
+        }
+        
+        /// <remarks/>
+        public void TipoUsuarioVerificaDuplicidadeAsync(TipoUsuario filtro) {
+            this.TipoUsuarioVerificaDuplicidadeAsync(filtro, null);
+        }
+        
+        /// <remarks/>
+        public void TipoUsuarioVerificaDuplicidadeAsync(TipoUsuario filtro, object userState) {
+            if ((this.TipoUsuarioVerificaDuplicidadeOperationCompleted == null)) {
+                this.TipoUsuarioVerificaDuplicidadeOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTipoUsuarioVerificaDuplicidadeOperationCompleted);
+            }
+            this.InvokeAsync("TipoUsuarioVerificaDuplicidade", new object[] {
+                        filtro}, this.TipoUsuarioVerificaDuplicidadeOperationCompleted, userState);
+        }
+        
+        private void OnTipoUsuarioVerificaDuplicidadeOperationCompleted(object arg) {
+            if ((this.TipoUsuarioVerificaDuplicidadeCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.TipoUsuarioVerificaDuplicidadeCompleted(this, new TipoUsuarioVerificaDuplicidadeCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/SituacaoInsert", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void SituacaoInsert([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Situacao situacao) {
+            this.Invoke("SituacaoInsert", new object[] {
+                        situacao});
+        }
+        
+        /// <remarks/>
+        public void SituacaoInsertAsync(Situacao situacao) {
+            this.SituacaoInsertAsync(situacao, null);
+        }
+        
+        /// <remarks/>
+        public void SituacaoInsertAsync(Situacao situacao, object userState) {
+            if ((this.SituacaoInsertOperationCompleted == null)) {
+                this.SituacaoInsertOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSituacaoInsertOperationCompleted);
+            }
+            this.InvokeAsync("SituacaoInsert", new object[] {
+                        situacao}, this.SituacaoInsertOperationCompleted, userState);
+        }
+        
+        private void OnSituacaoInsertOperationCompleted(object arg) {
+            if ((this.SituacaoInsertCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SituacaoInsertCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/SituacaoUpdate", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void SituacaoUpdate([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Situacao situacao) {
+            this.Invoke("SituacaoUpdate", new object[] {
+                        situacao});
+        }
+        
+        /// <remarks/>
+        public void SituacaoUpdateAsync(Situacao situacao) {
+            this.SituacaoUpdateAsync(situacao, null);
+        }
+        
+        /// <remarks/>
+        public void SituacaoUpdateAsync(Situacao situacao, object userState) {
+            if ((this.SituacaoUpdateOperationCompleted == null)) {
+                this.SituacaoUpdateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSituacaoUpdateOperationCompleted);
+            }
+            this.InvokeAsync("SituacaoUpdate", new object[] {
+                        situacao}, this.SituacaoUpdateOperationCompleted, userState);
+        }
+        
+        private void OnSituacaoUpdateOperationCompleted(object arg) {
+            if ((this.SituacaoUpdateCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SituacaoUpdateCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/SituacaoDelete", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void SituacaoDelete([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Situacao situacao) {
+            this.Invoke("SituacaoDelete", new object[] {
+                        situacao});
+        }
+        
+        /// <remarks/>
+        public void SituacaoDeleteAsync(Situacao situacao) {
+            this.SituacaoDeleteAsync(situacao, null);
+        }
+        
+        /// <remarks/>
+        public void SituacaoDeleteAsync(Situacao situacao, object userState) {
+            if ((this.SituacaoDeleteOperationCompleted == null)) {
+                this.SituacaoDeleteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSituacaoDeleteOperationCompleted);
+            }
+            this.InvokeAsync("SituacaoDelete", new object[] {
+                        situacao}, this.SituacaoDeleteOperationCompleted, userState);
+        }
+        
+        private void OnSituacaoDeleteOperationCompleted(object arg) {
+            if ((this.SituacaoDeleteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SituacaoDeleteCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/SituacaoSelect", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas")]
+        public Situacao[] SituacaoSelect([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Situacao filtro) {
+            object[] results = this.Invoke("SituacaoSelect", new object[] {
+                        filtro});
+            return ((Situacao[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SituacaoSelectAsync(Situacao filtro) {
+            this.SituacaoSelectAsync(filtro, null);
+        }
+        
+        /// <remarks/>
+        public void SituacaoSelectAsync(Situacao filtro, object userState) {
+            if ((this.SituacaoSelectOperationCompleted == null)) {
+                this.SituacaoSelectOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSituacaoSelectOperationCompleted);
+            }
+            this.InvokeAsync("SituacaoSelect", new object[] {
+                        filtro}, this.SituacaoSelectOperationCompleted, userState);
+        }
+        
+        private void OnSituacaoSelectOperationCompleted(object arg) {
+            if ((this.SituacaoSelectCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SituacaoSelectCompleted(this, new SituacaoSelectCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/UsuarioInsert", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void UsuarioInsert([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Usuario usuario) {
+            this.Invoke("UsuarioInsert", new object[] {
+                        usuario});
+        }
+        
+        /// <remarks/>
+        public void UsuarioInsertAsync(Usuario usuario) {
+            this.UsuarioInsertAsync(usuario, null);
+        }
+        
+        /// <remarks/>
+        public void UsuarioInsertAsync(Usuario usuario, object userState) {
+            if ((this.UsuarioInsertOperationCompleted == null)) {
+                this.UsuarioInsertOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUsuarioInsertOperationCompleted);
+            }
+            this.InvokeAsync("UsuarioInsert", new object[] {
+                        usuario}, this.UsuarioInsertOperationCompleted, userState);
+        }
+        
+        private void OnUsuarioInsertOperationCompleted(object arg) {
+            if ((this.UsuarioInsertCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UsuarioInsertCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/UsuarioUpdate", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void UsuarioUpdate([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Usuario usuario) {
+            this.Invoke("UsuarioUpdate", new object[] {
+                        usuario});
+        }
+        
+        /// <remarks/>
+        public void UsuarioUpdateAsync(Usuario usuario) {
+            this.UsuarioUpdateAsync(usuario, null);
+        }
+        
+        /// <remarks/>
+        public void UsuarioUpdateAsync(Usuario usuario, object userState) {
+            if ((this.UsuarioUpdateOperationCompleted == null)) {
+                this.UsuarioUpdateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUsuarioUpdateOperationCompleted);
+            }
+            this.InvokeAsync("UsuarioUpdate", new object[] {
+                        usuario}, this.UsuarioUpdateOperationCompleted, userState);
+        }
+        
+        private void OnUsuarioUpdateOperationCompleted(object arg) {
+            if ((this.UsuarioUpdateCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UsuarioUpdateCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/UsuarioDelete", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void UsuarioDelete([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Usuario usuario) {
+            this.Invoke("UsuarioDelete", new object[] {
+                        usuario});
+        }
+        
+        /// <remarks/>
+        public void UsuarioDeleteAsync(Usuario usuario) {
+            this.UsuarioDeleteAsync(usuario, null);
+        }
+        
+        /// <remarks/>
+        public void UsuarioDeleteAsync(Usuario usuario, object userState) {
+            if ((this.UsuarioDeleteOperationCompleted == null)) {
+                this.UsuarioDeleteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUsuarioDeleteOperationCompleted);
+            }
+            this.InvokeAsync("UsuarioDelete", new object[] {
+                        usuario}, this.UsuarioDeleteOperationCompleted, userState);
+        }
+        
+        private void OnUsuarioDeleteOperationCompleted(object arg) {
+            if ((this.UsuarioDeleteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UsuarioDeleteCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/UsuarioSelect", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas")]
+        public Usuario[] UsuarioSelect([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Usuario filtro) {
+            object[] results = this.Invoke("UsuarioSelect", new object[] {
+                        filtro});
+            return ((Usuario[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UsuarioSelectAsync(Usuario filtro) {
+            this.UsuarioSelectAsync(filtro, null);
+        }
+        
+        /// <remarks/>
+        public void UsuarioSelectAsync(Usuario filtro, object userState) {
+            if ((this.UsuarioSelectOperationCompleted == null)) {
+                this.UsuarioSelectOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUsuarioSelectOperationCompleted);
+            }
+            this.InvokeAsync("UsuarioSelect", new object[] {
+                        filtro}, this.UsuarioSelectOperationCompleted, userState);
+        }
+        
+        private void OnUsuarioSelectOperationCompleted(object arg) {
+            if ((this.UsuarioSelectCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UsuarioSelectCompleted(this, new UsuarioSelectCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ServicoInsert", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void ServicoInsert([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Servico servico) {
+            this.Invoke("ServicoInsert", new object[] {
+                        servico});
+        }
+        
+        /// <remarks/>
+        public void ServicoInsertAsync(Servico servico) {
+            this.ServicoInsertAsync(servico, null);
+        }
+        
+        /// <remarks/>
+        public void ServicoInsertAsync(Servico servico, object userState) {
+            if ((this.ServicoInsertOperationCompleted == null)) {
+                this.ServicoInsertOperationCompleted = new System.Threading.SendOrPostCallback(this.OnServicoInsertOperationCompleted);
+            }
+            this.InvokeAsync("ServicoInsert", new object[] {
+                        servico}, this.ServicoInsertOperationCompleted, userState);
+        }
+        
+        private void OnServicoInsertOperationCompleted(object arg) {
+            if ((this.ServicoInsertCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ServicoInsertCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ServicoUpdate", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void ServicoUpdate([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Servico servico) {
+            this.Invoke("ServicoUpdate", new object[] {
+                        servico});
+        }
+        
+        /// <remarks/>
+        public void ServicoUpdateAsync(Servico servico) {
+            this.ServicoUpdateAsync(servico, null);
+        }
+        
+        /// <remarks/>
+        public void ServicoUpdateAsync(Servico servico, object userState) {
+            if ((this.ServicoUpdateOperationCompleted == null)) {
+                this.ServicoUpdateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnServicoUpdateOperationCompleted);
+            }
+            this.InvokeAsync("ServicoUpdate", new object[] {
+                        servico}, this.ServicoUpdateOperationCompleted, userState);
+        }
+        
+        private void OnServicoUpdateOperationCompleted(object arg) {
+            if ((this.ServicoUpdateCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ServicoUpdateCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ServicoDelete", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void ServicoDelete([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Servico servico) {
+            this.Invoke("ServicoDelete", new object[] {
+                        servico});
+        }
+        
+        /// <remarks/>
+        public void ServicoDeleteAsync(Servico servico) {
+            this.ServicoDeleteAsync(servico, null);
+        }
+        
+        /// <remarks/>
+        public void ServicoDeleteAsync(Servico servico, object userState) {
+            if ((this.ServicoDeleteOperationCompleted == null)) {
+                this.ServicoDeleteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnServicoDeleteOperationCompleted);
+            }
+            this.InvokeAsync("ServicoDelete", new object[] {
+                        servico}, this.ServicoDeleteOperationCompleted, userState);
+        }
+        
+        private void OnServicoDeleteOperationCompleted(object arg) {
+            if ((this.ServicoDeleteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ServicoDeleteCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ServicoSelect", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas")]
+        public Servico[] ServicoSelect([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Servico filtro) {
+            object[] results = this.Invoke("ServicoSelect", new object[] {
+                        filtro});
+            return ((Servico[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ServicoSelectAsync(Servico filtro) {
+            this.ServicoSelectAsync(filtro, null);
+        }
+        
+        /// <remarks/>
+        public void ServicoSelectAsync(Servico filtro, object userState) {
+            if ((this.ServicoSelectOperationCompleted == null)) {
+                this.ServicoSelectOperationCompleted = new System.Threading.SendOrPostCallback(this.OnServicoSelectOperationCompleted);
+            }
+            this.InvokeAsync("ServicoSelect", new object[] {
+                        filtro}, this.ServicoSelectOperationCompleted, userState);
+        }
+        
+        private void OnServicoSelectOperationCompleted(object arg) {
+            if ((this.ServicoSelectCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ServicoSelectCompleted(this, new ServicoSelectCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AtividadeInsert", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AtividadeInsert([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Atividade atividade) {
+            this.Invoke("AtividadeInsert", new object[] {
+                        atividade});
+        }
+        
+        /// <remarks/>
+        public void AtividadeInsertAsync(Atividade atividade) {
+            this.AtividadeInsertAsync(atividade, null);
+        }
+        
+        /// <remarks/>
+        public void AtividadeInsertAsync(Atividade atividade, object userState) {
+            if ((this.AtividadeInsertOperationCompleted == null)) {
+                this.AtividadeInsertOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAtividadeInsertOperationCompleted);
+            }
+            this.InvokeAsync("AtividadeInsert", new object[] {
+                        atividade}, this.AtividadeInsertOperationCompleted, userState);
+        }
+        
+        private void OnAtividadeInsertOperationCompleted(object arg) {
+            if ((this.AtividadeInsertCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AtividadeInsertCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AtividadeUpdate", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AtividadeUpdate([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Atividade atividade) {
+            this.Invoke("AtividadeUpdate", new object[] {
+                        atividade});
+        }
+        
+        /// <remarks/>
+        public void AtividadeUpdateAsync(Atividade atividade) {
+            this.AtividadeUpdateAsync(atividade, null);
+        }
+        
+        /// <remarks/>
+        public void AtividadeUpdateAsync(Atividade atividade, object userState) {
+            if ((this.AtividadeUpdateOperationCompleted == null)) {
+                this.AtividadeUpdateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAtividadeUpdateOperationCompleted);
+            }
+            this.InvokeAsync("AtividadeUpdate", new object[] {
+                        atividade}, this.AtividadeUpdateOperationCompleted, userState);
+        }
+        
+        private void OnAtividadeUpdateOperationCompleted(object arg) {
+            if ((this.AtividadeUpdateCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AtividadeUpdateCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AtividadeDelete", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AtividadeDelete([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Atividade atividade) {
+            this.Invoke("AtividadeDelete", new object[] {
+                        atividade});
+        }
+        
+        /// <remarks/>
+        public void AtividadeDeleteAsync(Atividade atividade) {
+            this.AtividadeDeleteAsync(atividade, null);
+        }
+        
+        /// <remarks/>
+        public void AtividadeDeleteAsync(Atividade atividade, object userState) {
+            if ((this.AtividadeDeleteOperationCompleted == null)) {
+                this.AtividadeDeleteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAtividadeDeleteOperationCompleted);
+            }
+            this.InvokeAsync("AtividadeDelete", new object[] {
+                        atividade}, this.AtividadeDeleteOperationCompleted, userState);
+        }
+        
+        private void OnAtividadeDeleteOperationCompleted(object arg) {
+            if ((this.AtividadeDeleteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AtividadeDeleteCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AtividadeSelect", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas")]
+        public Atividade[] AtividadeSelect([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Atividade atividade) {
+            object[] results = this.Invoke("AtividadeSelect", new object[] {
+                        atividade});
+            return ((Atividade[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AtividadeSelectAsync(Atividade atividade) {
+            this.AtividadeSelectAsync(atividade, null);
+        }
+        
+        /// <remarks/>
+        public void AtividadeSelectAsync(Atividade atividade, object userState) {
+            if ((this.AtividadeSelectOperationCompleted == null)) {
+                this.AtividadeSelectOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAtividadeSelectOperationCompleted);
+            }
+            this.InvokeAsync("AtividadeSelect", new object[] {
+                        atividade}, this.AtividadeSelectOperationCompleted, userState);
+        }
+        
+        private void OnAtividadeSelectOperationCompleted(object arg) {
+            if ((this.AtividadeSelectCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AtividadeSelectCompleted(this, new AtividadeSelectCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AtividadeVerificaDuplicidade", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AtividadeVerificaDuplicidade([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Atividade atividade, out bool AtividadeVerificaDuplicidadeResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool AtividadeVerificaDuplicidadeResultSpecified) {
+            object[] results = this.Invoke("AtividadeVerificaDuplicidade", new object[] {
+                        atividade});
+            AtividadeVerificaDuplicidadeResult = ((bool)(results[0]));
+            AtividadeVerificaDuplicidadeResultSpecified = ((bool)(results[1]));
+        }
+        
+        /// <remarks/>
+        public void AtividadeVerificaDuplicidadeAsync(Atividade atividade) {
+            this.AtividadeVerificaDuplicidadeAsync(atividade, null);
+        }
+        
+        /// <remarks/>
+        public void AtividadeVerificaDuplicidadeAsync(Atividade atividade, object userState) {
+            if ((this.AtividadeVerificaDuplicidadeOperationCompleted == null)) {
+                this.AtividadeVerificaDuplicidadeOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAtividadeVerificaDuplicidadeOperationCompleted);
+            }
+            this.InvokeAsync("AtividadeVerificaDuplicidade", new object[] {
+                        atividade}, this.AtividadeVerificaDuplicidadeOperationCompleted, userState);
+        }
+        
+        private void OnAtividadeVerificaDuplicidadeOperationCompleted(object arg) {
+            if ((this.AtividadeVerificaDuplicidadeCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AtividadeVerificaDuplicidadeCompleted(this, new AtividadeVerificaDuplicidadeCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/PrestaInsert", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void PrestaInsert([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Presta presta) {
+            this.Invoke("PrestaInsert", new object[] {
+                        presta});
+        }
+        
+        /// <remarks/>
+        public void PrestaInsertAsync(Presta presta) {
+            this.PrestaInsertAsync(presta, null);
+        }
+        
+        /// <remarks/>
+        public void PrestaInsertAsync(Presta presta, object userState) {
+            if ((this.PrestaInsertOperationCompleted == null)) {
+                this.PrestaInsertOperationCompleted = new System.Threading.SendOrPostCallback(this.OnPrestaInsertOperationCompleted);
+            }
+            this.InvokeAsync("PrestaInsert", new object[] {
+                        presta}, this.PrestaInsertOperationCompleted, userState);
+        }
+        
+        private void OnPrestaInsertOperationCompleted(object arg) {
+            if ((this.PrestaInsertCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.PrestaInsertCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/PrestaUpdate", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void PrestaUpdate([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Presta presta) {
+            this.Invoke("PrestaUpdate", new object[] {
+                        presta});
+        }
+        
+        /// <remarks/>
+        public void PrestaUpdateAsync(Presta presta) {
+            this.PrestaUpdateAsync(presta, null);
+        }
+        
+        /// <remarks/>
+        public void PrestaUpdateAsync(Presta presta, object userState) {
+            if ((this.PrestaUpdateOperationCompleted == null)) {
+                this.PrestaUpdateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnPrestaUpdateOperationCompleted);
+            }
+            this.InvokeAsync("PrestaUpdate", new object[] {
+                        presta}, this.PrestaUpdateOperationCompleted, userState);
+        }
+        
+        private void OnPrestaUpdateOperationCompleted(object arg) {
+            if ((this.PrestaUpdateCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.PrestaUpdateCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/PrestaDelete", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void PrestaDelete([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Presta presta) {
+            this.Invoke("PrestaDelete", new object[] {
+                        presta});
+        }
+        
+        /// <remarks/>
+        public void PrestaDeleteAsync(Presta presta) {
+            this.PrestaDeleteAsync(presta, null);
+        }
+        
+        /// <remarks/>
+        public void PrestaDeleteAsync(Presta presta, object userState) {
+            if ((this.PrestaDeleteOperationCompleted == null)) {
+                this.PrestaDeleteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnPrestaDeleteOperationCompleted);
+            }
+            this.InvokeAsync("PrestaDelete", new object[] {
+                        presta}, this.PrestaDeleteOperationCompleted, userState);
+        }
+        
+        private void OnPrestaDeleteOperationCompleted(object arg) {
+            if ((this.PrestaDeleteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.PrestaDeleteCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/PrestaSelect", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas")]
+        public Presta[] PrestaSelect([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Presta presta) {
+            object[] results = this.Invoke("PrestaSelect", new object[] {
+                        presta});
+            return ((Presta[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void PrestaSelectAsync(Presta presta) {
+            this.PrestaSelectAsync(presta, null);
+        }
+        
+        /// <remarks/>
+        public void PrestaSelectAsync(Presta presta, object userState) {
+            if ((this.PrestaSelectOperationCompleted == null)) {
+                this.PrestaSelectOperationCompleted = new System.Threading.SendOrPostCallback(this.OnPrestaSelectOperationCompleted);
+            }
+            this.InvokeAsync("PrestaSelect", new object[] {
+                        presta}, this.PrestaSelectOperationCompleted, userState);
+        }
+        
+        private void OnPrestaSelectOperationCompleted(object arg) {
+            if ((this.PrestaSelectCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.PrestaSelectCompleted(this, new PrestaSelectCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/PrestaVerificaDuplicidade", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void PrestaVerificaDuplicidade([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Presta presta, out bool PrestaVerificaDuplicidadeResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool PrestaVerificaDuplicidadeResultSpecified) {
+            object[] results = this.Invoke("PrestaVerificaDuplicidade", new object[] {
+                        presta});
+            PrestaVerificaDuplicidadeResult = ((bool)(results[0]));
+            PrestaVerificaDuplicidadeResultSpecified = ((bool)(results[1]));
+        }
+        
+        /// <remarks/>
+        public void PrestaVerificaDuplicidadeAsync(Presta presta) {
+            this.PrestaVerificaDuplicidadeAsync(presta, null);
+        }
+        
+        /// <remarks/>
+        public void PrestaVerificaDuplicidadeAsync(Presta presta, object userState) {
+            if ((this.PrestaVerificaDuplicidadeOperationCompleted == null)) {
+                this.PrestaVerificaDuplicidadeOperationCompleted = new System.Threading.SendOrPostCallback(this.OnPrestaVerificaDuplicidadeOperationCompleted);
+            }
+            this.InvokeAsync("PrestaVerificaDuplicidade", new object[] {
+                        presta}, this.PrestaVerificaDuplicidadeOperationCompleted, userState);
+        }
+        
+        private void OnPrestaVerificaDuplicidadeOperationCompleted(object arg) {
+            if ((this.PrestaVerificaDuplicidadeCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.PrestaVerificaDuplicidadeCompleted(this, new PrestaVerificaDuplicidadeCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/RecebeInsert", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void RecebeInsert([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Recebe recebe) {
+            this.Invoke("RecebeInsert", new object[] {
+                        recebe});
+        }
+        
+        /// <remarks/>
+        public void RecebeInsertAsync(Recebe recebe) {
+            this.RecebeInsertAsync(recebe, null);
+        }
+        
+        /// <remarks/>
+        public void RecebeInsertAsync(Recebe recebe, object userState) {
+            if ((this.RecebeInsertOperationCompleted == null)) {
+                this.RecebeInsertOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRecebeInsertOperationCompleted);
+            }
+            this.InvokeAsync("RecebeInsert", new object[] {
+                        recebe}, this.RecebeInsertOperationCompleted, userState);
+        }
+        
+        private void OnRecebeInsertOperationCompleted(object arg) {
+            if ((this.RecebeInsertCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.RecebeInsertCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/RecebeUpdate", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void RecebeUpdate([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Recebe recebe) {
+            this.Invoke("RecebeUpdate", new object[] {
+                        recebe});
+        }
+        
+        /// <remarks/>
+        public void RecebeUpdateAsync(Recebe recebe) {
+            this.RecebeUpdateAsync(recebe, null);
+        }
+        
+        /// <remarks/>
+        public void RecebeUpdateAsync(Recebe recebe, object userState) {
+            if ((this.RecebeUpdateOperationCompleted == null)) {
+                this.RecebeUpdateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRecebeUpdateOperationCompleted);
+            }
+            this.InvokeAsync("RecebeUpdate", new object[] {
+                        recebe}, this.RecebeUpdateOperationCompleted, userState);
+        }
+        
+        private void OnRecebeUpdateOperationCompleted(object arg) {
+            if ((this.RecebeUpdateCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.RecebeUpdateCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/RecebeDelete", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void RecebeDelete([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Recebe recebe) {
+            this.Invoke("RecebeDelete", new object[] {
+                        recebe});
+        }
+        
+        /// <remarks/>
+        public void RecebeDeleteAsync(Recebe recebe) {
+            this.RecebeDeleteAsync(recebe, null);
+        }
+        
+        /// <remarks/>
+        public void RecebeDeleteAsync(Recebe recebe, object userState) {
+            if ((this.RecebeDeleteOperationCompleted == null)) {
+                this.RecebeDeleteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRecebeDeleteOperationCompleted);
+            }
+            this.InvokeAsync("RecebeDelete", new object[] {
+                        recebe}, this.RecebeDeleteOperationCompleted, userState);
+        }
+        
+        private void OnRecebeDeleteOperationCompleted(object arg) {
+            if ((this.RecebeDeleteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.RecebeDeleteCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/RecebeSelect", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas")]
+        public Recebe[] RecebeSelect([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Recebe recebe) {
+            object[] results = this.Invoke("RecebeSelect", new object[] {
+                        recebe});
+            return ((Recebe[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void RecebeSelectAsync(Recebe recebe) {
+            this.RecebeSelectAsync(recebe, null);
+        }
+        
+        /// <remarks/>
+        public void RecebeSelectAsync(Recebe recebe, object userState) {
+            if ((this.RecebeSelectOperationCompleted == null)) {
+                this.RecebeSelectOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRecebeSelectOperationCompleted);
+            }
+            this.InvokeAsync("RecebeSelect", new object[] {
+                        recebe}, this.RecebeSelectOperationCompleted, userState);
+        }
+        
+        private void OnRecebeSelectOperationCompleted(object arg) {
+            if ((this.RecebeSelectCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.RecebeSelectCompleted(this, new RecebeSelectCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/RecebeVerificaDuplicidade", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void RecebeVerificaDuplicidade([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Recebe recebe, out bool RecebeVerificaDuplicidadeResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool RecebeVerificaDuplicidadeResultSpecified) {
+            object[] results = this.Invoke("RecebeVerificaDuplicidade", new object[] {
+                        recebe});
+            RecebeVerificaDuplicidadeResult = ((bool)(results[0]));
+            RecebeVerificaDuplicidadeResultSpecified = ((bool)(results[1]));
+        }
+        
+        /// <remarks/>
+        public void RecebeVerificaDuplicidadeAsync(Recebe recebe) {
+            this.RecebeVerificaDuplicidadeAsync(recebe, null);
+        }
+        
+        /// <remarks/>
+        public void RecebeVerificaDuplicidadeAsync(Recebe recebe, object userState) {
+            if ((this.RecebeVerificaDuplicidadeOperationCompleted == null)) {
+                this.RecebeVerificaDuplicidadeOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRecebeVerificaDuplicidadeOperationCompleted);
+            }
+            this.InvokeAsync("RecebeVerificaDuplicidade", new object[] {
+                        recebe}, this.RecebeVerificaDuplicidadeOperationCompleted, userState);
+        }
+        
+        private void OnRecebeVerificaDuplicidadeOperationCompleted(object arg) {
+            if ((this.RecebeVerificaDuplicidadeCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.RecebeVerificaDuplicidadeCompleted(this, new RecebeVerificaDuplicidadeCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -163,96 +1176,980 @@ namespace WindowsForms.localhost {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
-    public partial class CompositeType {
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas")]
+    public partial class TipoUsuario {
         
-        private bool boolValueField;
+        private string descricaok__BackingFieldField;
         
-        private bool boolValueFieldSpecified;
-        
-        private string stringValueField;
+        private int idk__BackingFieldField;
         
         /// <remarks/>
-        public bool BoolValue {
+        [System.Xml.Serialization.XmlElementAttribute("<descricao>k__BackingField", IsNullable=true)]
+        public string descricaok__BackingField {
             get {
-                return this.boolValueField;
+                return this.descricaok__BackingFieldField;
             }
             set {
-                this.boolValueField = value;
+                this.descricaok__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<id>k__BackingField")]
+        public int idk__BackingField {
+            get {
+                return this.idk__BackingFieldField;
+            }
+            set {
+                this.idk__BackingFieldField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas")]
+    public partial class Recebe {
+        
+        private double avaliacaok__BackingFieldField;
+        
+        private System.DateTime datak__BackingFieldField;
+        
+        private int quantidadeHorak__BackingFieldField;
+        
+        private Servico servicok__BackingFieldField;
+        
+        private Usuario usuariok__BackingFieldField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<avaliacao>k__BackingField")]
+        public double avaliacaok__BackingField {
+            get {
+                return this.avaliacaok__BackingFieldField;
+            }
+            set {
+                this.avaliacaok__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<data>k__BackingField")]
+        public System.DateTime datak__BackingField {
+            get {
+                return this.datak__BackingFieldField;
+            }
+            set {
+                this.datak__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<quantidadeHora>k__BackingField")]
+        public int quantidadeHorak__BackingField {
+            get {
+                return this.quantidadeHorak__BackingFieldField;
+            }
+            set {
+                this.quantidadeHorak__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<servico>k__BackingField", IsNullable=true)]
+        public Servico servicok__BackingField {
+            get {
+                return this.servicok__BackingFieldField;
+            }
+            set {
+                this.servicok__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<usuario>k__BackingField", IsNullable=true)]
+        public Usuario usuariok__BackingField {
+            get {
+                return this.usuariok__BackingFieldField;
+            }
+            set {
+                this.usuariok__BackingFieldField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas")]
+    public partial class Servico {
+        
+        private int idField;
+        
+        private bool idFieldSpecified;
+        
+        private string nomeField;
+        
+        private Situacao situacaoField;
+        
+        /// <remarks/>
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool BoolValueSpecified {
+        public bool idSpecified {
             get {
-                return this.boolValueFieldSpecified;
+                return this.idFieldSpecified;
             }
             set {
-                this.boolValueFieldSpecified = value;
+                this.idFieldSpecified = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string StringValue {
+        public string nome {
             get {
-                return this.stringValueField;
+                return this.nomeField;
             }
             set {
-                this.stringValueField = value;
+                this.nomeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Situacao situacao {
+            get {
+                return this.situacaoField;
+            }
+            set {
+                this.situacaoField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas")]
+    public partial class Situacao {
+        
+        private string descricaoField;
+        
+        private int idField;
+        
+        private bool idFieldSpecified;
+        
+        private string statusField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string descricao {
+            get {
+                return this.descricaoField;
+            }
+            set {
+                this.descricaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool idSpecified {
+            get {
+                return this.idFieldSpecified;
+            }
+            set {
+                this.idFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string status {
+            get {
+                return this.statusField;
+            }
+            set {
+                this.statusField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas")]
+    public partial class Usuario {
+        
+        private string bairrok__BackingFieldField;
+        
+        private string cidadek__BackingFieldField;
+        
+        private string cpf_cnpjk__BackingFieldField;
+        
+        private System.DateTime dataCadastrok__BackingFieldField;
+        
+        private string descricaok__BackingFieldField;
+        
+        private string emailk__BackingFieldField;
+        
+        private int idk__BackingFieldField;
+        
+        private string nomek__BackingFieldField;
+        
+        private int quantidadeHoraDisponivelk__BackingFieldField;
+        
+        private int quantidadeHoraTrabalhadak__BackingFieldField;
+        
+        private string senhak__BackingFieldField;
+        
+        private Situacao situacaok__BackingFieldField;
+        
+        private string telefoneCelulark__BackingFieldField;
+        
+        private string telefoneFixok__BackingFieldField;
+        
+        private TipoUsuario tipoUsuariok__BackingFieldField;
+        
+        private string ufk__BackingFieldField;
+        
+        private string userNamek__BackingFieldField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<bairro>k__BackingField", IsNullable=true)]
+        public string bairrok__BackingField {
+            get {
+                return this.bairrok__BackingFieldField;
+            }
+            set {
+                this.bairrok__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<cidade>k__BackingField", IsNullable=true)]
+        public string cidadek__BackingField {
+            get {
+                return this.cidadek__BackingFieldField;
+            }
+            set {
+                this.cidadek__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<cpf_cnpj>k__BackingField", IsNullable=true)]
+        public string cpf_cnpjk__BackingField {
+            get {
+                return this.cpf_cnpjk__BackingFieldField;
+            }
+            set {
+                this.cpf_cnpjk__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<dataCadastro>k__BackingField")]
+        public System.DateTime dataCadastrok__BackingField {
+            get {
+                return this.dataCadastrok__BackingFieldField;
+            }
+            set {
+                this.dataCadastrok__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<descricao>k__BackingField", IsNullable=true)]
+        public string descricaok__BackingField {
+            get {
+                return this.descricaok__BackingFieldField;
+            }
+            set {
+                this.descricaok__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<email>k__BackingField", IsNullable=true)]
+        public string emailk__BackingField {
+            get {
+                return this.emailk__BackingFieldField;
+            }
+            set {
+                this.emailk__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<id>k__BackingField")]
+        public int idk__BackingField {
+            get {
+                return this.idk__BackingFieldField;
+            }
+            set {
+                this.idk__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<nome>k__BackingField", IsNullable=true)]
+        public string nomek__BackingField {
+            get {
+                return this.nomek__BackingFieldField;
+            }
+            set {
+                this.nomek__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<quantidadeHoraDisponivel>k__BackingField")]
+        public int quantidadeHoraDisponivelk__BackingField {
+            get {
+                return this.quantidadeHoraDisponivelk__BackingFieldField;
+            }
+            set {
+                this.quantidadeHoraDisponivelk__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<quantidadeHoraTrabalhada>k__BackingField")]
+        public int quantidadeHoraTrabalhadak__BackingField {
+            get {
+                return this.quantidadeHoraTrabalhadak__BackingFieldField;
+            }
+            set {
+                this.quantidadeHoraTrabalhadak__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<senha>k__BackingField", IsNullable=true)]
+        public string senhak__BackingField {
+            get {
+                return this.senhak__BackingFieldField;
+            }
+            set {
+                this.senhak__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<situacao>k__BackingField", IsNullable=true)]
+        public Situacao situacaok__BackingField {
+            get {
+                return this.situacaok__BackingFieldField;
+            }
+            set {
+                this.situacaok__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<telefoneCelular>k__BackingField", IsNullable=true)]
+        public string telefoneCelulark__BackingField {
+            get {
+                return this.telefoneCelulark__BackingFieldField;
+            }
+            set {
+                this.telefoneCelulark__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<telefoneFixo>k__BackingField", IsNullable=true)]
+        public string telefoneFixok__BackingField {
+            get {
+                return this.telefoneFixok__BackingFieldField;
+            }
+            set {
+                this.telefoneFixok__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<tipoUsuario>k__BackingField", IsNullable=true)]
+        public TipoUsuario tipoUsuariok__BackingField {
+            get {
+                return this.tipoUsuariok__BackingFieldField;
+            }
+            set {
+                this.tipoUsuariok__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<uf>k__BackingField", IsNullable=true)]
+        public string ufk__BackingField {
+            get {
+                return this.ufk__BackingFieldField;
+            }
+            set {
+                this.ufk__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<userName>k__BackingField", IsNullable=true)]
+        public string userNamek__BackingField {
+            get {
+                return this.userNamek__BackingFieldField;
+            }
+            set {
+                this.userNamek__BackingFieldField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas")]
+    public partial class Presta {
+        
+        private double avaliacaok__BackingFieldField;
+        
+        private System.DateTime datak__BackingFieldField;
+        
+        private int quantidadeHorak__BackingFieldField;
+        
+        private Servico servicok__BackingFieldField;
+        
+        private Usuario usuariok__BackingFieldField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<avaliacao>k__BackingField")]
+        public double avaliacaok__BackingField {
+            get {
+                return this.avaliacaok__BackingFieldField;
+            }
+            set {
+                this.avaliacaok__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<data>k__BackingField")]
+        public System.DateTime datak__BackingField {
+            get {
+                return this.datak__BackingFieldField;
+            }
+            set {
+                this.datak__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<quantidadeHora>k__BackingField")]
+        public int quantidadeHorak__BackingField {
+            get {
+                return this.quantidadeHorak__BackingFieldField;
+            }
+            set {
+                this.quantidadeHorak__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<servico>k__BackingField", IsNullable=true)]
+        public Servico servicok__BackingField {
+            get {
+                return this.servicok__BackingFieldField;
+            }
+            set {
+                this.servicok__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<usuario>k__BackingField", IsNullable=true)]
+        public Usuario usuariok__BackingField {
+            get {
+                return this.usuariok__BackingFieldField;
+            }
+            set {
+                this.usuariok__BackingFieldField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas")]
+    public partial class Atividade {
+        
+        private string descricaok__BackingFieldField;
+        
+        private int idk__BackingFieldField;
+        
+        private string nomek__BackingFieldField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<descricao>k__BackingField", IsNullable=true)]
+        public string descricaok__BackingField {
+            get {
+                return this.descricaok__BackingFieldField;
+            }
+            set {
+                this.descricaok__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<id>k__BackingField")]
+        public int idk__BackingField {
+            get {
+                return this.idk__BackingFieldField;
+            }
+            set {
+                this.idk__BackingFieldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("<nome>k__BackingField", IsNullable=true)]
+        public string nomek__BackingField {
+            get {
+                return this.nomek__BackingFieldField;
+            }
+            set {
+                this.nomek__BackingFieldField = value;
             }
         }
     }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
-    public delegate void GetDataCompletedEventHandler(object sender, GetDataCompletedEventArgs e);
+    public delegate void TipoUsuarioInsertCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void TipoUsuarioUpdateCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void TipoUsuarioDeleteCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void TipoUsuarioSelectCompletedEventHandler(object sender, TipoUsuarioSelectCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class GetDataCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class TipoUsuarioSelectCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal GetDataCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal TipoUsuarioSelectCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public string Result {
+        public TipoUsuario[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((TipoUsuario[])(this.results[0]));
             }
         }
     }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
-    public delegate void GetDataUsingDataContractCompletedEventHandler(object sender, GetDataUsingDataContractCompletedEventArgs e);
+    public delegate void TipoUsuarioVerificaDuplicidadeCompletedEventHandler(object sender, TipoUsuarioVerificaDuplicidadeCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class GetDataUsingDataContractCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class TipoUsuarioVerificaDuplicidadeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal GetDataUsingDataContractCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal TipoUsuarioVerificaDuplicidadeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public CompositeType Result {
+        public bool TipoUsuarioVerificaDuplicidadeResult {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((CompositeType)(this.results[0]));
+                return ((bool)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool TipoUsuarioVerificaDuplicidadeResultSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void SituacaoInsertCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void SituacaoUpdateCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void SituacaoDeleteCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void SituacaoSelectCompletedEventHandler(object sender, SituacaoSelectCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SituacaoSelectCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SituacaoSelectCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Situacao[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Situacao[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void UsuarioInsertCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void UsuarioUpdateCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void UsuarioDeleteCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void UsuarioSelectCompletedEventHandler(object sender, UsuarioSelectCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UsuarioSelectCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UsuarioSelectCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Usuario[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Usuario[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void ServicoInsertCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void ServicoUpdateCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void ServicoDeleteCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void ServicoSelectCompletedEventHandler(object sender, ServicoSelectCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ServicoSelectCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ServicoSelectCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Servico[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Servico[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void AtividadeInsertCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void AtividadeUpdateCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void AtividadeDeleteCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void AtividadeSelectCompletedEventHandler(object sender, AtividadeSelectCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AtividadeSelectCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AtividadeSelectCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Atividade[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Atividade[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void AtividadeVerificaDuplicidadeCompletedEventHandler(object sender, AtividadeVerificaDuplicidadeCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AtividadeVerificaDuplicidadeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AtividadeVerificaDuplicidadeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool AtividadeVerificaDuplicidadeResult {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool AtividadeVerificaDuplicidadeResultSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void PrestaInsertCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void PrestaUpdateCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void PrestaDeleteCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void PrestaSelectCompletedEventHandler(object sender, PrestaSelectCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class PrestaSelectCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal PrestaSelectCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Presta[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Presta[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void PrestaVerificaDuplicidadeCompletedEventHandler(object sender, PrestaVerificaDuplicidadeCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class PrestaVerificaDuplicidadeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal PrestaVerificaDuplicidadeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool PrestaVerificaDuplicidadeResult {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool PrestaVerificaDuplicidadeResultSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void RecebeInsertCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void RecebeUpdateCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void RecebeDeleteCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void RecebeSelectCompletedEventHandler(object sender, RecebeSelectCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class RecebeSelectCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal RecebeSelectCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Recebe[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Recebe[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void RecebeVerificaDuplicidadeCompletedEventHandler(object sender, RecebeVerificaDuplicidadeCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class RecebeVerificaDuplicidadeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal RecebeVerificaDuplicidadeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool RecebeVerificaDuplicidadeResult {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool RecebeVerificaDuplicidadeResultSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
             }
         }
     }
