@@ -61,6 +61,7 @@
     <Compile Include="Interfaces\IUsuario.cs" />
     <Compile Include="Interfaces\IUsuarioAtividade.cs" />
     <Compile Include="Parametros\AtividadeSqlServer.cs" />
+    <Compile Include="Parametros\AnuncioSqlServer.cs" />
     <Compile Include="Parametros\UsuarioAtividadeSqlServer.cs" />
     <Compile Include="Parametros\PrestaSqlServer.cs" />
     <Compile Include="Parametros\RecebeSqlServer.cs" />

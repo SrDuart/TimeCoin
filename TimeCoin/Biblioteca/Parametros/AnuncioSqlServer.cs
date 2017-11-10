@@ -53,34 +53,7 @@ namespace Biblioteca.Parametros
         {
             try
             {
-                #region abrir conexão
-                this.abrirConexao();
-                string sql = "INSERT INTO Anuncio (Id_Usuario, Id_Atividade) VALUES (@id_usuario, @id_atividade)";
-                #endregion
-
-                #region instrução a ser passada
-                SqlCommand cmd = new SqlCommand(sql, this.sqlConexao);
-                #endregion
-
-                #region passando parametros
-                cmd.Parameters.Add("@id_usuario", SqlDbType.Int);
-                cmd.Parameters["@id_usuario"].Value = usuarioAtividade.usuario.id;
-
-                cmd.Parameters.Add("@id_atividade", SqlDbType.Int);
-                cmd.Parameters["@id_atividade"].Value = usuarioAtividade.atividade.id;
-                #endregion
-
-                #region executando a instrução
-                cmd.ExecuteNonQuery();
-                #endregion  
-
-                #region liberando a memoria 
-                cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
-                this.fecharConexao();
-                #endregion
+                
             }
             catch
             {
