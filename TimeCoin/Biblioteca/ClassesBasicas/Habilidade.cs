@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Biblioteca.ClassesBasicas
 {
     [Serializable]
-    public class Atividade
+    public class Habilidade
 	{
         [DataMember(IsRequired = true)]
         public int id { get; set; }
