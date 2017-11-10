@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Biblioteca.ClassesBasicas;
-
+// teste
 namespace Biblioteca.Interfaces
 {
     public interface ITipoUsuario
