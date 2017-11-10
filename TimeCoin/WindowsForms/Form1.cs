@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using WindowsForms.localhost;
 
 namespace WindowsForms
 {
@@ -12,13 +13,13 @@ namespace WindowsForms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            localhost.Usuario tipousuario = new localhost.Usuario();
+            /*+9 * localhost.Usuario; tipousuario = new localhost.Usuario();
             localhost.Service1 sv = new localhost.Service1();
 
-            tipousuario.nomek__BackingField = "Fernando";
+            TipoUsuario.nomek__BackingField = "Fernando";
             tipousuario.cpf_cnpjk__BackingField = "12345677897";
             tipousuario.userNamek__BackingField = "jf";
-            sv.UsuarioUpdate(tipousuario);
+            sv.UsuarioUpdate(tipousuario);*/
             
         }
     }

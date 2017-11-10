@@ -16,7 +16,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "insert into Atividade (nome, descricao) values (@nome, @descricao)";
+                string sql = "INSERT INTO Atividade (nome, descricao) VALUES (@nome, @descricao)";
                 #endregion
 
                 #region instrucao a ser executada
@@ -53,7 +53,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "update Atividade set nome = @nome and descricao = @descricao where id = @id";
+                string sql = "UPDATE Atividade SET nome = @nome, descricao = @descricao where id = @id";
                 #endregion
 
                 #region instrucao a ser executada
@@ -95,7 +95,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "delete from Atividade where nome = @nome and descricao = @descricao";
+                string sql = "DELETE FROM Atividade where id = @id";
                 #endregion
 
                 #region instrucao a ser executada
@@ -128,53 +128,6 @@ namespace Biblioteca.Parametros
             #endregion
         }
         
-        public bool VerificaDuplicidade(Atividade atividade)
-        {
-            bool retorno = false;
-            try
-            {
-                #region abrir a conexão
-                this.abrirConexao();
-                string sql = "SELECT nome, descricao from Atividade where nome = @nome and descricao = @descricao";
-                #endregion
-
-                #region instrucao a ser executada
-                SqlCommand cmd = new SqlCommand(sql, sqlConexao);
-                #endregion
-                
-                #region passar parametros
-                cmd.Parameters.Add("@nome", SqlDbType.VarChar);
-                cmd.Parameters["@nome"].Value = atividade.nome;
-
-                cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
-                cmd.Parameters["@descricao"].Value = atividade.descricao;
-                #endregion
-
-                #region instrucao a ser executada
-                SqlDataReader DbReader = cmd.ExecuteReader();
-                #endregion
-
-                #region executando a instrucao 
-                while (DbReader.Read())
-                {
-                    retorno = true;
-                    break;
-                }
-                DbReader.Close();
-                #endregion
-
-                #region liberando a memoria e fechando a conexao
-                cmd.Dispose();
-                this.fecharConexao();
-                #endregion
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Erro! Esta atividade já existe." + ex.Message);
-            }
-            return retorno;
-        }
-
         public List<Atividade> Select(Atividade filtro)
         {
             List<Atividade> retorno = new List<Atividade>();
@@ -182,7 +135,7 @@ namespace Biblioteca.Parametros
             {
                 #region instrucao a ser executada
                 this.abrirConexao();
-                string sql = "SELECT * from Atividade";
+                string sql = "SELECT * FROM Atividade";
                 #endregion
 
                 #region executando instrucao e colocando o resultado em um leitor e lendo o resultado da consulta
@@ -194,6 +147,7 @@ namespace Biblioteca.Parametros
                 {
                     #region acessando os valores das colunas do resultado
                     Atividade atividade = new Atividade();
+                    atividade.id = DbReader.GetInt32(DbReader.GetOrdinal("id"));
                     atividade.nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
                     atividade.descricao = DbReader.GetString(DbReader.GetOrdinal("descricao"));
                     retorno.Add(atividade);

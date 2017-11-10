@@ -151,12 +151,6 @@ namespace WcfService
             AtividadeRN regra = new AtividadeRN();
             return regra.Select(filtro);
         }
-
-        public bool AtividadeVerificaDuplicidade(Atividade atividade)
-        {
-            AtividadeRN regra = new AtividadeRN();
-            return regra.VerificaDuplicidade(atividade);
-        }
         #endregion
 
         //Presta
@@ -166,13 +160,7 @@ namespace WcfService
             PrestaRN regra = new PrestaRN();
             regra.Insert(presta);
         }
-
-        public void PrestaUpdate(Presta presta)
-        {
-            PrestaRN regra = new PrestaRN();
-            regra.Update(presta);
-        }
-
+        
         public void PrestaDelete(Presta presta)
         {
             PrestaRN regra = new PrestaRN();
@@ -183,13 +171,7 @@ namespace WcfService
         {
             PrestaRN regra = new PrestaRN();
             return regra.Select(filtro);
-        }
-
-        public bool PrestaVerificaDuplicidade(Presta presta)
-        {
-            PrestaRN regra = new PrestaRN();
-            return regra.VerificaDuplicidade(presta);
-        }
+        }        
         #endregion
 
         //Recebe
@@ -198,12 +180,6 @@ namespace WcfService
         {
             RecebeRN regra = new RecebeRN();
             regra.Insert(recebe);
-        }
-
-        public void RecebeUpdate(Recebe recebe)
-        {
-            RecebeRN regra = new RecebeRN();
-            regra.Update(recebe);
         }
 
         public void RecebeDelete(Recebe recebe)
@@ -216,13 +192,7 @@ namespace WcfService
         {
             RecebeRN regra = new RecebeRN();
             return regra.Select(filtro);
-        }
-
-        public bool RecebeVerificaDuplicidade(Recebe recebe)
-        {
-            RecebeRN regra = new RecebeRN();
-            return regra.VerificaDuplicidade(recebe);
-        }
+        }        
         #endregion  
     }
 }
