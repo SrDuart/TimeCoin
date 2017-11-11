@@ -231,7 +231,7 @@ namespace Biblioteca.Parametros
             return retorno;
         }
 
-        public List<UsuarioHabilidade> Select(UsuarioHabilidade filtro)
+        public List<UsuarioHabilidade> Select()
         {
             List<UsuarioHabilidade> retorno = new List<UsuarioHabilidade>();
             try

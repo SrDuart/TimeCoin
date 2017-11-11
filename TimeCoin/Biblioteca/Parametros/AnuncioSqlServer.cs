@@ -116,7 +116,7 @@ namespace Biblioteca.Parametros
             }
         }
 
-        public List<Anuncio> Select(Anuncio filtro)
+        public List<Anuncio> Select()
         {
             List<Anuncio> retorno = new List<Anuncio>();
             try
