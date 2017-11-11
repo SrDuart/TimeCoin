@@ -11,11 +11,7 @@ using System.Data;
 
 namespace Biblioteca.Parametros
 {
-<<<<<<< HEAD:TimeCoin/Biblioteca/Parametros/UsuarioHabilidadeSqlServer.cs
     public class UsuarioHabilidadeSqlServer : ConexaoSqlServer, IUsuarioHabilidade
-=======
-    class UsuarioAtividadeSqlServer : ConexaoSqlServer, IUsuarioHabilidade
->>>>>>> 948ad0333051563b7044f56038c2f35a8f9d5dc3:TimeCoin/Biblioteca/Parametros/UsuarioAtividadeSqlServer.cs
     {        
         public void Insert(UsuarioHabilidade usuarioHabilidade)
         {
@@ -125,11 +121,7 @@ namespace Biblioteca.Parametros
             }
             catch (Exception e)
             {
-<<<<<<< HEAD:TimeCoin/Biblioteca/Parametros/UsuarioHabilidadeSqlServer.cs
-                throw new Exception("Erro ao alterar usuarioHabilidade. " + e.Message);
-=======
                 throw new Exception("Erro ao alterar UsuarioHabilidade. " + e.Message);
->>>>>>> 948ad0333051563b7044f56038c2f35a8f9d5dc3:TimeCoin/Biblioteca/Parametros/UsuarioAtividadeSqlServer.cs
             }
         }
 
@@ -139,11 +131,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir conexão
                 this.abrirConexao();
-<<<<<<< HEAD:TimeCoin/Biblioteca/Parametros/UsuarioHabilidadeSqlServer.cs
-                string sql = "DELETE from UsuarioHabilidade where Id = @id";
-=======
                 string sql = "DELETE from UsuarioHabilidade where Id = @Id";
->>>>>>> 948ad0333051563b7044f56038c2f35a8f9d5dc3:TimeCoin/Biblioteca/Parametros/UsuarioAtividadeSqlServer.cs
                 #endregion
 
                 #region instrução a ser passada
