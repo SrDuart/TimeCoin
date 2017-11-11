@@ -97,10 +97,10 @@ namespace Biblioteca.RegraNegocio
             }            
         }
 
-        public List<Anuncio> Select(Anuncio filtro)
+        public List<Anuncio> Select()
         {
             AnuncioSqlServer dados = new AnuncioSqlServer();
-            return dados.Select(filtro);
+            return dados.Select();
         }
 
         public void Update(Anuncio anuncio)
