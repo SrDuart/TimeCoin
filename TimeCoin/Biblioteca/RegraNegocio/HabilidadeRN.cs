@@ -6,11 +6,7 @@ using System.Collections.Generic;
 
 namespace Biblioteca.RegraNegocio
 {
-<<<<<<< HEAD:TimeCoin/Biblioteca/RegraNegocio/HabilidadeRN.cs
     public class HabilidadeRN : IHabilidade
-=======
-    public class AtividadeRN : IHabilidade
->>>>>>> 948ad0333051563b7044f56038c2f35a8f9d5dc3:TimeCoin/Biblioteca/RegraNegocio/AtividadeRN.cs
     {
         private void ValidarDadosBasicos(Habilidade atividade)
         {
@@ -40,11 +36,7 @@ namespace Biblioteca.RegraNegocio
             }
         }
 
-<<<<<<< HEAD:TimeCoin/Biblioteca/RegraNegocio/HabilidadeRN.cs
         public void Delete(Habilidade atividade)
-=======
-        public void Insert(Habilidade atividade)
->>>>>>> 948ad0333051563b7044f56038c2f35a8f9d5dc3:TimeCoin/Biblioteca/RegraNegocio/AtividadeRN.cs
         {
             if (atividade == null)
             {
@@ -52,7 +44,6 @@ namespace Biblioteca.RegraNegocio
             }
 
             HabilidadeSqlServer dados = new HabilidadeSqlServer();
-<<<<<<< HEAD:TimeCoin/Biblioteca/RegraNegocio/HabilidadeRN.cs
             dados.Delete(atividade);
         }
 
@@ -69,17 +60,8 @@ namespace Biblioteca.RegraNegocio
             dados.Insert(atividade);
         }
 
-        public List<Habilidade> Select(Habilidade filtro)
-        {
-            HabilidadeSqlServer dados = new HabilidadeSqlServer();
-            return dados.Select(filtro);
-        }
-
-=======
-            dados.Insert(atividade);
-        }
         
->>>>>>> 948ad0333051563b7044f56038c2f35a8f9d5dc3:TimeCoin/Biblioteca/RegraNegocio/AtividadeRN.cs
+        
         public void Update(Habilidade atividade)
         {
             if (atividade == null)
@@ -91,11 +73,8 @@ namespace Biblioteca.RegraNegocio
             dados.Update(atividade);
         }
 
-<<<<<<< HEAD:TimeCoin/Biblioteca/RegraNegocio/HabilidadeRN.cs
         public bool VerificaDuplicidade(Habilidade atividade)
-=======
-        public void Delete(Habilidade atividade)
->>>>>>> 948ad0333051563b7044f56038c2f35a8f9d5dc3:TimeCoin/Biblioteca/RegraNegocio/AtividadeRN.cs
+
         {
             if (atividade == null)
             {
@@ -103,17 +82,13 @@ namespace Biblioteca.RegraNegocio
             }
 
             HabilidadeSqlServer dados = new HabilidadeSqlServer();
-<<<<<<< HEAD:TimeCoin/Biblioteca/RegraNegocio/HabilidadeRN.cs
             return dados.VerificaDuplicidade(atividade);
-=======
-            dados.Delete(atividade);
         }
 
         public List<Habilidade> Select(Habilidade filtro)
         {
             HabilidadeSqlServer dados = new HabilidadeSqlServer();
             return dados.Select(filtro);
->>>>>>> 948ad0333051563b7044f56038c2f35a8f9d5dc3:TimeCoin/Biblioteca/RegraNegocio/AtividadeRN.cs
         }
     }
 }

@@ -74,7 +74,7 @@
     <Compile Include="Parametros\UsuarioHabilidadeSqlServer.cs" />
     <Compile Include="Parametros\UsuarioSqlServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegraNegocio\AtividadeRN.cs" />
+    <Compile Include="RegraNegocio\HabilidadeRN.cs" />
     <Compile Include="RegraNegocio\PrestaRN.cs" />
     <Compile Include="RegraNegocio\RecebeRN.cs" />
     <Compile Include="RegraNegocio\ServicoRN.cs" />
