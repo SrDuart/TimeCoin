@@ -163,7 +163,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "SELECT * from Anuncio WHERE Descricao = @descricao ";
+                string sql = "SELECT * from tipoAnuncio WHERE Descricao = @descricao ";
                 #endregion
 
                 #region instrucao a ser executada
@@ -171,7 +171,7 @@ namespace Biblioteca.Parametros
 
                 #endregion
                 #region passar parametros
-                cmd.Parameters.Add("@descricao", SqlDbType.Date);
+                cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
                 cmd.Parameters["@descricao"].Value = tipoAnuncio.descricao;
                 #endregion
 
@@ -199,6 +199,53 @@ namespace Biblioteca.Parametros
             catch (Exception ex)
             {
                 throw new Exception("Erro ao verificar a duplicidade do tipo de anuncio. " + ex.Message);
+            }
+            return retorno;
+        }
+
+        public bool VerificaExistencia(TipoAnuncio tipoAnuncio)
+        {
+            bool retorno = false;
+            try
+            {
+                #region abrir a conexão
+                this.abrirConexao();
+                string sql = "SELECT * from tipoAnuncio WHERE Id = @id ";
+                #endregion
+
+                #region instrucao a ser executada
+                SqlCommand cmd = new SqlCommand(sql, sqlConexao);
+
+                #endregion
+                #region passar parametros
+                cmd.Parameters.Add("@id", SqlDbType.Int);
+                cmd.Parameters["@id"].Value = tipoAnuncio.id;
+                #endregion
+
+                #region instrucao a ser executada
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                #endregion
+
+                #region executando a instrucao 
+                while (DbReader.Read())
+                {
+                    retorno = true;
+                    break;
+                }
+                DbReader.Close();
+                #endregion
+
+                #region liberando a memoria 
+                cmd.Dispose();
+                #endregion
+
+                #region fechando a conexao
+                this.fecharConexao();
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao verificar a existencia do tipo de anuncio. " + ex.Message);
             }
             return retorno;
         }
