@@ -184,6 +184,53 @@ namespace Biblioteca.Parametros
             return retorno;
         }
 
+        public bool VerificaExistencia(UsuarioHabilidade usuarioHabilidade)
+        {
+            bool retorno = false;
+            try
+            {
+                #region abrir a conexão
+                this.abrirConexao();
+                string sql = "SELECT * from usuarioHabilidade where Id = @id";
+                #endregion
+
+                #region instrucao a ser executada
+                SqlCommand cmd = new SqlCommand(sql, sqlConexao);
+
+                #endregion
+                #region passar parametros
+                cmd.Parameters.Add("@id", SqlDbType.Int);
+                cmd.Parameters["@id"].Value = usuarioHabilidade.id;
+                #endregion
+
+                #region instrucao a ser executada
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                #endregion
+
+                #region executando a instrucao 
+                while (DbReader.Read())
+                {
+                    retorno = true;
+                    break;
+                }
+                DbReader.Close();
+                #endregion
+
+                #region liberando a memoria 
+                cmd.Dispose();
+                #endregion
+
+                #region fechando a conexao
+                this.fecharConexao();
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao verificar a existencia do UsuarioHabilidade. " + ex.Message);
+            }
+            return retorno;
+        }
+
         public List<UsuarioHabilidade> Select(UsuarioHabilidade filtro)
         {
             List<UsuarioHabilidade> retorno = new List<UsuarioHabilidade>();
