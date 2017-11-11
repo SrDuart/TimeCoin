@@ -19,11 +19,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir conexão
                 this.abrirConexao();
-<<<<<<< HEAD:TimeCoin/Biblioteca/Parametros/UsuarioHabilidadeSqlServer.cs
                 string sql = "INSERT INTO UsuarioHabilidade (Id_Usuario, Id_Habilidade) VALUES (@id_usuario, @id_habilidade)";
-=======
-                string sql = "INSERT INTO UsuarioHabilidade (Id_Usuario, Id_Habilidade) VALUES (@Id_Usuario, @Id_Habilidade)";
->>>>>>> 948ad0333051563b7044f56038c2f35a8f9d5dc3:TimeCoin/Biblioteca/Parametros/UsuarioAtividadeSqlServer.cs
                 #endregion
 
                 #region instrução a ser passada
@@ -31,19 +27,11 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passando parametros
-<<<<<<< HEAD:TimeCoin/Biblioteca/Parametros/UsuarioHabilidadeSqlServer.cs
                 cmd.Parameters.Add("@id_usuario", SqlDbType.Int);
                 cmd.Parameters["@id_usuario"].Value = usuarioHabilidade.usuario.id;
 
                 cmd.Parameters.Add("@id_habilidade", SqlDbType.Int);
                 cmd.Parameters["@id_habilidade"].Value = usuarioHabilidade.habilidade.id;
-=======
-                cmd.Parameters.Add("@Id_Usuario", SqlDbType.Int);
-                cmd.Parameters["@Id_Usuario"].Value = usuarioHabilidade.usuario.id;
-
-                cmd.Parameters.Add("@Id_Habilidade", SqlDbType.Int);
-                cmd.Parameters["@Id_Habilidade"].Value = usuarioHabilidade.atividade.id;
->>>>>>> 948ad0333051563b7044f56038c2f35a8f9d5dc3:TimeCoin/Biblioteca/Parametros/UsuarioAtividadeSqlServer.cs
                 #endregion
 
                 #region executando a instrução
@@ -74,11 +62,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir conexão
                 this.abrirConexao();
-<<<<<<< HEAD:TimeCoin/Biblioteca/Parametros/UsuarioHabilidadeSqlServer.cs
                 string sql = "UPDATE UsuarioHabilidade SET Id_Usuario = @id_usuario, Id_Habilidade = @id_habilidade where Id = @id";
-=======
-                string sql = "UPDATE UsuarioHabilidade SET Id_Usuario = @Id_Usuario, Id_Habilidade = @Id_Habilidade where Id = @Id";
->>>>>>> 948ad0333051563b7044f56038c2f35a8f9d5dc3:TimeCoin/Biblioteca/Parametros/UsuarioAtividadeSqlServer.cs
                 #endregion
 
                 #region instrução a ser passada
@@ -86,7 +70,6 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passando parametros
-<<<<<<< HEAD:TimeCoin/Biblioteca/Parametros/UsuarioHabilidadeSqlServer.cs
                 cmd.Parameters.Add("@id_usuario", SqlDbType.Int);
                 cmd.Parameters["@id_usuario"].Value = usuarioHabilidade.usuario.id;
 
@@ -95,16 +78,6 @@ namespace Biblioteca.Parametros
 
                 cmd.Parameters.Add("@id", SqlDbType.Int);
                 cmd.Parameters["@id"].Value = usuarioHabilidade.id;
-=======
-                cmd.Parameters.Add("@Id_Usuario", SqlDbType.Int);
-                cmd.Parameters["@id_usuario"].Value = usuarioHabilidade.usuario.id;
-
-                cmd.Parameters.Add("@Id_Habilidade", SqlDbType.Int);
-                cmd.Parameters["@Id_Habilidade"].Value = usuarioHabilidade.atividade.id;
-
-                cmd.Parameters.Add("@Id", SqlDbType.Int);
-                cmd.Parameters["@Id"].Value = usuarioHabilidade.id;
->>>>>>> 948ad0333051563b7044f56038c2f35a8f9d5dc3:TimeCoin/Biblioteca/Parametros/UsuarioAtividadeSqlServer.cs
                 #endregion
 
                 #region executando a instrução
@@ -131,7 +104,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir conexão
                 this.abrirConexao();
-                string sql = "DELETE from UsuarioHabilidade where Id = @Id";
+                string sql = "DELETE from UsuarioHabilidade where Id = @id";
                 #endregion
 
                 #region instrução a ser passada
@@ -139,13 +112,8 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passando parametros
-<<<<<<< HEAD:TimeCoin/Biblioteca/Parametros/UsuarioHabilidadeSqlServer.cs
                 cmd.Parameters.Add("@id", SqlDbType.Int);
                 cmd.Parameters["@id"].Value = usuarioHabilidade.id;
-=======
-                cmd.Parameters.Add("@Id", SqlDbType.Int);
-                cmd.Parameters["@Id"].Value = usuarioHabilidade.id;
->>>>>>> 948ad0333051563b7044f56038c2f35a8f9d5dc3:TimeCoin/Biblioteca/Parametros/UsuarioAtividadeSqlServer.cs
                 #endregion
 
                 #region executando a instrução
@@ -173,11 +141,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-<<<<<<< HEAD:TimeCoin/Biblioteca/Parametros/UsuarioHabilidadeSqlServer.cs
-                string sql = "SELECT Id_Usuario, Id_Habilidade from usuarioHabilidade where Id_Usuario = @id_usuario and Id_Habilidade = @id_Habilidade";
-=======
-                string sql = "SELECT Id_Usuario, Id_Habilidade from usuarioHabilidade where Id_Usuario = @Id_Usuario and Id_Habilidade = @Id_Habilidade";
->>>>>>> 948ad0333051563b7044f56038c2f35a8f9d5dc3:TimeCoin/Biblioteca/Parametros/UsuarioAtividadeSqlServer.cs
+                string sql = "SELECT Id_Usuario, Id_Habilidade from usuarioHabilidade where Id_Usuario = @id_usuario and Id_Habilidade = @id_habilidade";
                 #endregion
 
                 #region instrucao a ser executada
@@ -185,19 +149,11 @@ namespace Biblioteca.Parametros
 
                 #endregion
                 #region passar parametros
-<<<<<<< HEAD:TimeCoin/Biblioteca/Parametros/UsuarioHabilidadeSqlServer.cs
                 cmd.Parameters.Add("@id_usuario", SqlDbType.Int);
                 cmd.Parameters["@id_usuario"].Value = usuarioHabilidade.usuario.id;
 
                 cmd.Parameters.Add("@id_habilidade", SqlDbType.Int);
                 cmd.Parameters["@id_habilidade"].Value = usuarioHabilidade.habilidade.id;
-=======
-                cmd.Parameters.Add("@Id_Usuario", SqlDbType.Int);
-                cmd.Parameters["@Id_Usuario"].Value = usuarioHabilidade.usuario;
-
-                cmd.Parameters.Add("@Id_Habilidade", SqlDbType.Int);
-                cmd.Parameters["@Id_Habilidade"].Value = usuarioHabilidade.atividade;
->>>>>>> 948ad0333051563b7044f56038c2f35a8f9d5dc3:TimeCoin/Biblioteca/Parametros/UsuarioAtividadeSqlServer.cs
                 #endregion
 
                 #region instrucao a ser executada
