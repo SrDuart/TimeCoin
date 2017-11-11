@@ -79,8 +79,8 @@ namespace WcfService
         //bool ServicoVerificaDuplicidade(Servico servico);
         #endregion
 
-        //Atividade
-        #region Atividade
+        //Habilidade
+        #region Habilidade
         [OperationContract]
         void AtividadeInsert(Habilidade atividade);
 
@@ -156,9 +156,23 @@ namespace WcfService
         [OperationContract]
         void TipoAnuncioDelete(TipoAnuncio tipoAnuncio);
         [OperationContract]
-        List<TipoAnuncio> AnuncioSelect();
+        List<TipoAnuncio> TipoAnuncioSelect();
         [OperationContract]
         bool TipoAnuncioVerificaDuplicidade(TipoAnuncio tipoAnuncio);
+        #endregion 
+
+        //UsuarioHabilidade
+        #region UsuarioHabilidade
+        [OperationContract]
+        void UsuarioHabilidadeInsert(UsuarioHabilidade usuarioHabilidade);
+        [OperationContract]
+        void UsuarioHabilidadeUpdate(UsuarioHabilidade usuarioHabilidade);
+        [OperationContract]
+        void UsuarioHabilidadeDelete(UsuarioHabilidade usuarioHabilidade);
+        [OperationContract]
+        List<TipoAnuncio> UsuarioHabilidadeSelect();
+        [OperationContract]
+        bool UsuarioHabilidadeVerificaDuplicidade(UsuarioHabilidade usuarioHabilidade);
         #endregion 
     }
 }
