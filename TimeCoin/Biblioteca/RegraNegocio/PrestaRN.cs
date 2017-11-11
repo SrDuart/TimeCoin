@@ -56,10 +56,10 @@ namespace Biblioteca.RegraNegocio
                 throw new Exception("Erro! Serviço prestado pelo usuário já existente.");
             }
 
-            if (presta.quantidadeHora > 0)
-            {
-                throw new Exception("Erro! Valor de horas não depositado. Favor, depositar horas por serviço prestado pelo usuário.");
-            }
+            //if (presta.quantidadeHora > 0)
+            //{
+            //    throw new Exception("Erro! Valor de horas não depositado. Favor, depositar horas por serviço prestado pelo usuário.");
+            //}
 
             PrestaSqlServer dados = new PrestaSqlServer();
             dados.Insert(presta);
@@ -81,7 +81,7 @@ namespace Biblioteca.RegraNegocio
             }
             
             PrestaSqlServer dados = new PrestaSqlServer();
-            dados.Update(presta);
+           // dados.Update(presta);
         }
 
         public bool VerificaDuplicidade(Presta presta)
@@ -107,7 +107,7 @@ namespace Biblioteca.RegraNegocio
             }
 
             PrestaSqlServer dados = new PrestaSqlServer();
-            return dados.VerificaDuplicidade(presta);
+            return false; // dados. VerificaDuplicidade(presta);
         }
     }
 }
