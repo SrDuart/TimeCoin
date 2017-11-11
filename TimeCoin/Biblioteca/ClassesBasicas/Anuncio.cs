@@ -8,6 +8,7 @@ namespace Biblioteca.ClassesBasicas
 		public Usuario usuario { get; set; }
         public Situacao situacao { get; set; }
         public TipoAnuncio tipoAnuncio { get; set; }
+        public Servico servico { get; set; }
 		public string descricao { get; set; }
 		public DateTime data { get; set; }		
 		public string preRequisito { get; set; }
