@@ -172,7 +172,7 @@ namespace Biblioteca.Parametros
                 #endregion
                 #region passar parametros
                 cmd.Parameters.Add("@descricao", SqlDbType.Date);
-                cmd.Parameters["@descricao"].Value = tipoAnuncio.data;
+                cmd.Parameters["@descricao"].Value = tipoAnuncio.descricao;
                 #endregion
 
                 #region instrucao a ser executada
