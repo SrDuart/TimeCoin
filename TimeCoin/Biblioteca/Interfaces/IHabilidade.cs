@@ -5,10 +5,10 @@ namespace Biblioteca.Interfaces
 {
     public interface IHabilidade
 	{
-        void Insert(Habilidade atividade);
-        void Update(Habilidade atividade);
-        void Delete(Habilidade atividade);
-        bool VerificaDuplicidade(Habilidade atividade);
-        List<Habilidade> Select(Habilidade atividadeo);
+        void Insert(Habilidade habilidade);
+        void Update(Habilidade habilidade);
+        void Delete(Habilidade habilidade);
+        bool VerificaDuplicidade(Habilidade habilidade);
+        List<Habilidade> Select(Habilidade habilidade);
     }
 }
