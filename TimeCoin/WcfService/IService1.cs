@@ -131,6 +131,20 @@ namespace WcfService
 
         [OperationContract]
         bool RecebeVerificaDuplicidade(Recebe recebe);
-        #endregion       
+        #endregion
+
+        //Anuncio
+        #region Anuncio
+        [OperationContract]
+        void AnuncioInsert(Anuncio anuncio);
+        [OperationContract]
+        void AnuncioUpdate(Anuncio anuncio);
+        [OperationContract]
+        void AnuncioDelete(Anuncio anuncio);
+        [OperationContract]
+        List<Anuncio> AnuncioSelect();
+        [OperationContract]
+        bool AnuncioVerificaDuplicidade(Anuncio anuncio);
+        #endregion 
     }
 }
