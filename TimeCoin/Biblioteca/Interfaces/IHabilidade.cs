@@ -8,6 +8,7 @@ namespace Biblioteca.Interfaces
         void Insert(Habilidade habilidade);
         void Update(Habilidade habilidade);
         void Delete(Habilidade habilidade);
+        bool VerificaDuplicidade(Habilidade habilidade);
         List<Habilidade> Select(Habilidade habilidade);
     }
 }

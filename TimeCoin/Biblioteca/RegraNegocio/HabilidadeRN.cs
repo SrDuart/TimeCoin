@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Biblioteca.RegraNegocio
 {
-    public class AtividadeRN : IHabilidade
+    public class HabilidadeRN : IHabilidade
     {
         private void ValidarDadosBasicos(Habilidade atividade)
         {
@@ -36,7 +36,7 @@ namespace Biblioteca.RegraNegocio
             }
         }
 
-        public void Insert(Habilidade atividade)
+        public void Delete(Habilidade atividade)
         {
             if (atividade == null)
             {
@@ -44,8 +44,23 @@ namespace Biblioteca.RegraNegocio
             }
 
             HabilidadeSqlServer dados = new HabilidadeSqlServer();
+            dados.Delete(atividade);
+        }
+
+        public void Insert(Habilidade atividade)
+        {
+            ValidarDadosBasicos(atividade);
+
+            if (this.VerificaDuplicidade(atividade))
+            {
+                throw new Exception("Erro! Atividade do usuário já existente.");
+            }
+
+            HabilidadeSqlServer dados = new HabilidadeSqlServer();
             dados.Insert(atividade);
         }
+
+        
         
         public void Update(Habilidade atividade)
         {
@@ -58,7 +73,8 @@ namespace Biblioteca.RegraNegocio
             dados.Update(atividade);
         }
 
-        public void Delete(Habilidade atividade)
+        public bool VerificaDuplicidade(Habilidade atividade)
+
         {
             if (atividade == null)
             {
@@ -66,7 +82,7 @@ namespace Biblioteca.RegraNegocio
             }
 
             HabilidadeSqlServer dados = new HabilidadeSqlServer();
-            dados.Delete(atividade);
+            return dados.VerificaDuplicidade(atividade);
         }
 
         public List<Habilidade> Select(Habilidade filtro)
