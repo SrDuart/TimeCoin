@@ -4,6 +4,6 @@
 	{
 		public int id { get; set; }
 		public Usuario usuario { get; set; }
-		public Habilidade atividade { get; set; }
+		public Habilidade habilidade { get; set; }
 	}
 }
