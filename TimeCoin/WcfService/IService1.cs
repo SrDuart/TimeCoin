@@ -146,5 +146,19 @@ namespace WcfService
         [OperationContract]
         bool AnuncioVerificaDuplicidade(Anuncio anuncio);
         #endregion 
+
+        //TipoAnuncio
+        #region TipoAnuncio
+        [OperationContract]
+        void TipoAnuncioInsert(TipoAnuncio tipoAnuncio);
+        [OperationContract]
+        void TipoAnuncioUpdate(TipoAnuncio tipoAnuncio);
+        [OperationContract]
+        void TipoAnuncioDelete(TipoAnuncio tipoAnuncio);
+        [OperationContract]
+        List<TipoAnuncio> AnuncioSelect();
+        [OperationContract]
+        bool TipoAnuncioVerificaDuplicidade(TipoAnuncio tipoAnuncio);
+        #endregion 
     }
 }
