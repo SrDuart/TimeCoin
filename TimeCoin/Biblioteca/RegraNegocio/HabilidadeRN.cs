@@ -6,13 +6,17 @@ using System.Collections.Generic;
 
 namespace Biblioteca.RegraNegocio
 {
+<<<<<<< HEAD:TimeCoin/Biblioteca/RegraNegocio/HabilidadeRN.cs
     public class HabilidadeRN : IHabilidade
+=======
+    public class AtividadeRN : IHabilidade
+>>>>>>> 948ad0333051563b7044f56038c2f35a8f9d5dc3:TimeCoin/Biblioteca/RegraNegocio/AtividadeRN.cs
     {
         private void ValidarDadosBasicos(Habilidade atividade)
         {
             if (atividade == null)
             {
-                throw new Exception("Erro! Campo nulo. Favor, instanciar atividade do usuário.");
+                throw new Exception("Erro! Favor, instanciar atividade do usuário.");
             }
 
             if (String.IsNullOrEmpty(atividade.nome) == true || String.IsNullOrWhiteSpace(atividade.nome) == true)
@@ -20,9 +24,9 @@ namespace Biblioteca.RegraNegocio
                 throw new Exception("Erro! Campo vazio. Favor, informar nome da atividade do usuário.");
             }
 
-            if (atividade.nome.Trim().Length < 1 || atividade.nome.Trim().Length > 20)
+            if (atividade.nome.Trim().Length < 1 || atividade.nome.Trim().Length > 30)
             {
-                throw new Exception("Erro! Número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 20.");
+                throw new Exception("Erro! Número de caracteres não compatível. A descrição deve conter mais de 1 caracter e no máximo 30.");
             }
 
             if (String.IsNullOrEmpty(atividade.descricao) == true || String.IsNullOrWhiteSpace(atividade.descricao) == true)
@@ -36,14 +40,19 @@ namespace Biblioteca.RegraNegocio
             }
         }
 
+<<<<<<< HEAD:TimeCoin/Biblioteca/RegraNegocio/HabilidadeRN.cs
         public void Delete(Habilidade atividade)
+=======
+        public void Insert(Habilidade atividade)
+>>>>>>> 948ad0333051563b7044f56038c2f35a8f9d5dc3:TimeCoin/Biblioteca/RegraNegocio/AtividadeRN.cs
         {
             if (atividade == null)
             {
-                throw new Exception("Erro! Campo nulo. Favor, instanciar a atividade do usuário.");
+                throw new Exception("Erro! Atividade não criada.");
             }
 
             HabilidadeSqlServer dados = new HabilidadeSqlServer();
+<<<<<<< HEAD:TimeCoin/Biblioteca/RegraNegocio/HabilidadeRN.cs
             dados.Delete(atividade);
         }
 
@@ -66,36 +75,45 @@ namespace Biblioteca.RegraNegocio
             return dados.Select(filtro);
         }
 
+=======
+            dados.Insert(atividade);
+        }
+        
+>>>>>>> 948ad0333051563b7044f56038c2f35a8f9d5dc3:TimeCoin/Biblioteca/RegraNegocio/AtividadeRN.cs
         public void Update(Habilidade atividade)
         {
-            ValidarDadosBasicos(atividade);
-
-            if (this.VerificaDuplicidade(atividade) == true)
+            if (atividade == null)
             {
-                throw new Exception("Erro! Atividade do usuário já existente.");
+                throw new Exception("Erro! Tipo de usuário já existente.");
             }
 
             HabilidadeSqlServer dados = new HabilidadeSqlServer();
             dados.Update(atividade);
         }
 
+<<<<<<< HEAD:TimeCoin/Biblioteca/RegraNegocio/HabilidadeRN.cs
         public bool VerificaDuplicidade(Habilidade atividade)
+=======
+        public void Delete(Habilidade atividade)
+>>>>>>> 948ad0333051563b7044f56038c2f35a8f9d5dc3:TimeCoin/Biblioteca/RegraNegocio/AtividadeRN.cs
         {
             if (atividade == null)
             {
-                throw new Exception("Erro! Campo nulo. Favor, instanciar a atividade do usuário.");
-            }
-            if (atividade.nome == null)
-            {
-                throw new Exception("Erro! Campo nulo. Favor, informar o nome da atividade do usuário.");
-            }
-            if (atividade.descricao == null)
-            {
-                throw new Exception("Erro! Campo nulo. Favor, informar a descrição da atividade do usuário.");
+                throw new Exception("Erro! Favor, instanciar a atividade do usuário.");
             }
 
             HabilidadeSqlServer dados = new HabilidadeSqlServer();
+<<<<<<< HEAD:TimeCoin/Biblioteca/RegraNegocio/HabilidadeRN.cs
             return dados.VerificaDuplicidade(atividade);
+=======
+            dados.Delete(atividade);
+        }
+
+        public List<Habilidade> Select(Habilidade filtro)
+        {
+            HabilidadeSqlServer dados = new HabilidadeSqlServer();
+            return dados.Select(filtro);
+>>>>>>> 948ad0333051563b7044f56038c2f35a8f9d5dc3:TimeCoin/Biblioteca/RegraNegocio/AtividadeRN.cs
         }
     }
 }

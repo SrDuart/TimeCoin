@@ -10,13 +10,13 @@ namespace Biblioteca.Parametros
 {
     public class HabilidadeSqlServer : ConexaoSqlServer, IHabilidade
     {
-        public void Insert(Habilidade atividade)
+        public void Insert(Habilidade habilidade)
         {
             try
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "insert into Atividade (nome, descricao) values (@nome, @descricao)";
+                string sql = "INSERT INTO Habilidade (Nome, Descricao) VALUES (@nome, @Descricao)";
                 #endregion
 
                 #region instrucao a ser executada
@@ -24,11 +24,11 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passar parametros
-                cmd.Parameters.Add("@nome", SqlDbType.VarChar);
-                cmd.Parameters["@nome"].Value = atividade.nome;
+                cmd.Parameters.Add("@Nome", SqlDbType.VarChar);
+                cmd.Parameters["@Nome"].Value = habilidade.nome;
 
-                cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
-                cmd.Parameters["@descricao"].Value = atividade.descricao;
+                cmd.Parameters.Add("@Descricao", SqlDbType.VarChar);
+                cmd.Parameters["@Descricao"].Value = habilidade.descricao;
                 #endregion
 
                 #region executando a instrucao 
@@ -42,18 +42,17 @@ namespace Biblioteca.Parametros
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conectar e inserir atividade do usuário. " + ex.Message);
+                throw new Exception("Erro ao conectar e inserir habilidade do usuário. " + ex.Message);
             }
             
         }
-
-        public void Update(Habilidade atividade)
+        public void Update(Habilidade habilidade)
         {
             try
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "update Atividade set nome = @nome and descricao = @descricao where id = @id";
+                string sql = "UPDATE Habilidade SET Nome = @Nome, Descricao = @Descricao where Id = @Id";
                 #endregion
 
                 #region instrucao a ser executada
@@ -61,14 +60,14 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passar parametros
-                cmd.Parameters.Add("@id", SqlDbType.Int);
-                cmd.Parameters["@id"].Value = atividade.id;
+                cmd.Parameters.Add("@Id", SqlDbType.Int);
+                cmd.Parameters["@Id"].Value = habilidade.id;
 
-                cmd.Parameters.Add("@nome", SqlDbType.VarChar);
-                cmd.Parameters["@nome"].Value = atividade.nome;
+                cmd.Parameters.Add("@Nome", SqlDbType.VarChar);
+                cmd.Parameters["@Nome"].Value = habilidade.nome;
 
-                cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
-                cmd.Parameters["@descricao"].Value = atividade.descricao;
+                cmd.Parameters.Add("@Descricao", SqlDbType.VarChar);
+                cmd.Parameters["@Descricao"].Value = habilidade.descricao;
                 #endregion
 
                 #region executando a instrucao 
@@ -84,18 +83,18 @@ namespace Biblioteca.Parametros
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conectar e alterar atividade do usuário. " + ex.Message);
+                throw new Exception("Erro ao conectar e alterar habilidade do usuário. " + ex.Message);
             }
             #endregion
         }
 
-        public void Delete(Habilidade atividade)
+        public void Delete(Habilidade habilidade)
         {
             try
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "delete from Atividade where nome = @nome and descricao = @descricao";
+                string sql = "DELETE FROM Habilidade where Id = @Id";
                 #endregion
 
                 #region instrucao a ser executada
@@ -103,11 +102,11 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passar parametros
-                cmd.Parameters.Add("@nome", SqlDbType.VarChar);
-                cmd.Parameters["@nome"].Value = atividade.nome;
+                cmd.Parameters.Add("@Nome", SqlDbType.VarChar);
+                cmd.Parameters["@Nome"].Value = habilidade.nome;
 
-                cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
-                cmd.Parameters["@descricao"].Value = atividade.descricao;
+                cmd.Parameters.Add("@Descricao", SqlDbType.VarChar);
+                cmd.Parameters["@Descricao"].Value = habilidade.descricao;
                 #endregion
 
                 #region executando a instrucao 
@@ -123,7 +122,7 @@ namespace Biblioteca.Parametros
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conectar e excluir atividade do usuário. " + ex.Message);
+                throw new Exception("Erro ao conectar e excluir habilidade do usuário. " + ex.Message);
             }
             #endregion
         }
@@ -185,7 +184,7 @@ namespace Biblioteca.Parametros
             {
                 #region instrucao a ser executada
                 this.abrirConexao();
-                string sql = "SELECT * from Atividade";
+                string sql = "SELECT * FROM Habilidade";
                 #endregion
 
                 #region executando instrucao e colocando o resultado em um leitor e lendo o resultado da consulta
@@ -196,10 +195,11 @@ namespace Biblioteca.Parametros
 
                 {
                     #region acessando os valores das colunas do resultado
-                    Habilidade atividade = new Habilidade();
-                    atividade.nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
-                    atividade.descricao = DbReader.GetString(DbReader.GetOrdinal("descricao"));
-                    retorno.Add(atividade);
+                    Habilidade habilidade = new Habilidade();
+                    habilidade.id = DbReader.GetInt32(DbReader.GetOrdinal("Id"));
+                    habilidade.nome = DbReader.GetString(DbReader.GetOrdinal("Nome"));
+                    habilidade.descricao = DbReader.GetString(DbReader.GetOrdinal("Descricao"));
+                    retorno.Add(habilidade);
                     #endregion
                 }
 
@@ -214,7 +214,7 @@ namespace Biblioteca.Parametros
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conectar e selecionar atividade do usuário." + ex.Message);
+                throw new Exception("Erro ao conectar e selecionar habilidade do usuário." + ex.Message);
             }
             return retorno;
         }

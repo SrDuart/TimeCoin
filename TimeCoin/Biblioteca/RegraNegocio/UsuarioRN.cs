@@ -12,7 +12,7 @@ namespace Biblioteca.RegraNegocio
         {
             if (usuario == null)
             {
-                throw new Exception("Erro! Campo nulo. Favor instanciar um usuário.");
+                throw new Exception("Erro! Favor instanciar um usuário.");
             }
 
             if (String.IsNullOrEmpty(usuario.nome) == true || String.IsNullOrWhiteSpace(usuario.nome) == true)
@@ -35,7 +35,7 @@ namespace Biblioteca.RegraNegocio
                 throw new Exception("Erro! Campo vazio. Favor informar o telefone celular do usuário.");
             }
 
-            if (String.IsNullOrEmpty(usuario.estado) == true || String.IsNullOrWhiteSpace(usuario.estado) == true)
+            if (String.IsNullOrEmpty(usuario.uf) == true || String.IsNullOrWhiteSpace(usuario.uf) == true)
             {
                 throw new Exception("Erro! Campo vazio. Favor informar o Estado do usuário.");
             }
@@ -78,11 +78,6 @@ namespace Biblioteca.RegraNegocio
             if (usuario.cpf_cnpj.Trim().Length < 1 || usuario.cpf_cnpj.Trim().Length > 14)
             {
                 throw new Exception("Erro! número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 14.");
-            }            
-
-            if (usuario.telefoneCelular.Trim().Length < 1 || usuario.telefoneCelular.Trim().Length > 10)
-            {
-                throw new Exception("Erro! número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 10.");
             }
 
             if (usuario.telefoneCelular.Trim().Length < 1 || usuario.telefoneCelular.Trim().Length > 10)
@@ -90,7 +85,12 @@ namespace Biblioteca.RegraNegocio
                 throw new Exception("Erro! número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 10.");
             }
 
-            if (usuario.estado.Trim().Length < 1 || usuario.estado.Trim().Length > 25)
+            if (usuario.telefoneCelular.Trim().Length < 1 || usuario.telefoneCelular.Trim().Length > 10)
+            {
+                throw new Exception("Erro! número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 10.");
+            }
+
+            if (usuario.uf.Trim().Length < 1 || usuario.uf.Trim().Length > 25)
             {
                 throw new Exception("Erro! número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 25.");
             }
@@ -119,13 +119,13 @@ namespace Biblioteca.RegraNegocio
             {
                 throw new Exception("Erro! número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 144.");
             }
-        }
-
+        }           
+        
         public void Delete(Usuario usuario)
         {
             if (usuario == null)
             {
-                throw new Exception("Erro! Campo nulo. Favor instanciar um usuário.");
+                throw new Exception("Erro! Favor instanciar um usuário.");
             }
 
             UsuarioSqlServer dados = new UsuarioSqlServer();
@@ -157,11 +157,13 @@ namespace Biblioteca.RegraNegocio
 
             if (this.VerificaDuplicidade(usuario) == true)
             {
-                throw new Exception("Erro! Usuário já existente.");
+                UsuarioSqlServer dados = new UsuarioSqlServer();
+                dados.Update(usuario);
             }
-
-            UsuarioSqlServer dados = new UsuarioSqlServer();
-            dados.Update(usuario);
+            else
+            {
+                 throw new Exception("Erro! Usuário já existente.");
+            }                        
         }
 
         public bool VerificaDuplicidade(Usuario usuario)

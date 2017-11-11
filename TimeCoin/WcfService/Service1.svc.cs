@@ -128,34 +128,28 @@ namespace WcfService
 
         //Atividade
         #region Atividade
-        public void AtividadeInsert(Atividade atividade)
+        public void AtividadeInsert(Habilidade atividade)
         {
             AtividadeRN regra = new AtividadeRN();
             regra.Insert(atividade);
         }
 
-        public void AtividadeUpdate(Atividade atividade)
+        public void AtividadeUpdate(Habilidade atividade)
         {
             AtividadeRN regra = new AtividadeRN();
             regra.Update(atividade);
         }
 
-        public void AtividadeDelete(Atividade atividade)
+        public void AtividadeDelete(Habilidade atividade)
         {
             AtividadeRN regra = new AtividadeRN();
             regra.Delete(atividade);
         }
 
-        public List<Atividade> AtividadeSelect(Atividade filtro)
+        public List<Habilidade> AtividadeSelect(Habilidade filtro)
         {
             AtividadeRN regra = new AtividadeRN();
             return regra.Select(filtro);
-        }
-
-        public bool AtividadeVerificaDuplicidade(Atividade atividade)
-        {
-            AtividadeRN regra = new AtividadeRN();
-            return regra.VerificaDuplicidade(atividade);
         }
         #endregion
 
@@ -166,13 +160,7 @@ namespace WcfService
             PrestaRN regra = new PrestaRN();
             regra.Insert(presta);
         }
-
-        public void PrestaUpdate(Presta presta)
-        {
-            PrestaRN regra = new PrestaRN();
-            regra.Update(presta);
-        }
-
+        
         public void PrestaDelete(Presta presta)
         {
             PrestaRN regra = new PrestaRN();
@@ -183,13 +171,7 @@ namespace WcfService
         {
             PrestaRN regra = new PrestaRN();
             return regra.Select(filtro);
-        }
-
-        public bool PrestaVerificaDuplicidade(Presta presta)
-        {
-            PrestaRN regra = new PrestaRN();
-            return regra.VerificaDuplicidade(presta);
-        }
+        }        
         #endregion
 
         //Recebe
@@ -198,12 +180,6 @@ namespace WcfService
         {
             RecebeRN regra = new RecebeRN();
             regra.Insert(recebe);
-        }
-
-        public void RecebeUpdate(Recebe recebe)
-        {
-            RecebeRN regra = new RecebeRN();
-            regra.Update(recebe);
         }
 
         public void RecebeDelete(Recebe recebe)
@@ -216,13 +192,7 @@ namespace WcfService
         {
             RecebeRN regra = new RecebeRN();
             return regra.Select(filtro);
-        }
-
-        public bool RecebeVerificaDuplicidade(Recebe recebe)
-        {
-            RecebeRN regra = new RecebeRN();
-            return regra.VerificaDuplicidade(recebe);
-        }
+        }        
         #endregion  
     }
 }

@@ -82,19 +82,19 @@ namespace WcfService
         //Atividade
         #region Atividade
         [OperationContract]
-        void AtividadeInsert(Atividade atividade);
+        void AtividadeInsert(Habilidade atividade);
 
         [OperationContract]
-        void AtividadeUpdate(Atividade atividade);
+        void AtividadeUpdate(Habilidade atividade);
 
         [OperationContract]
-        void AtividadeDelete(Atividade atividade);
+        void AtividadeDelete(Habilidade atividade);
 
         [OperationContract]
-        List<Atividade> AtividadeSelect(Atividade atividade);
+        List<Habilidade> AtividadeSelect(Habilidade atividade);
 
         [OperationContract]
-        bool AtividadeVerificaDuplicidade(Atividade atividade);
+        bool AtividadeVerificaDuplicidade(Habilidade atividade);
         #endregion
 
         //Presta
