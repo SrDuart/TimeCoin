@@ -8,9 +8,9 @@ using System.Data.SqlClient;
 
 namespace Biblioteca.Parametros
 {
-    public class AtividadeSqlServer : ConexaoSqlServer, IAtividade
+    public class HabilidadeSqlServer : ConexaoSqlServer, IHabilidade
     {
-        public void Insert(Atividade atividade)
+        public void Insert(Habilidade atividade)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace Biblioteca.Parametros
             
         }
 
-        public void Update(Atividade atividade)
+        public void Update(Habilidade atividade)
         {
             try
             {
@@ -89,7 +89,7 @@ namespace Biblioteca.Parametros
             #endregion
         }
 
-        public void Delete(Atividade atividade)
+        public void Delete(Habilidade atividade)
         {
             try
             {
@@ -129,7 +129,7 @@ namespace Biblioteca.Parametros
         }
 
         //CONFIRMAR SE ISSO ESTÁ CORRETO
-        public bool VerificaDuplicidade(Atividade atividade)
+        public bool VerificaDuplicidade(Habilidade atividade)
         {
             bool retorno = false;
             try
@@ -178,9 +178,9 @@ namespace Biblioteca.Parametros
             return retorno;
         }
 
-        public List<Atividade> Select(Atividade filtro)
+        public List<Habilidade> Select(Habilidade filtro)
         {
-            List<Atividade> retorno = new List<Atividade>();
+            List<Habilidade> retorno = new List<Habilidade>();
             try
             {
                 #region instrucao a ser executada
@@ -196,7 +196,7 @@ namespace Biblioteca.Parametros
 
                 {
                     #region acessando os valores das colunas do resultado
-                    Atividade atividade = new Atividade();
+                    Habilidade atividade = new Habilidade();
                     atividade.nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
                     atividade.descricao = DbReader.GetString(DbReader.GetOrdinal("descricao"));
                     retorno.Add(atividade);

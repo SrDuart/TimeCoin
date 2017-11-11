@@ -6,9 +6,9 @@ using System.Collections.Generic;
 
 namespace Biblioteca.RegraNegocio
 {
-    public class AtividadeRN : IAtividade
+    public class HabilidadeRN : IHabilidade
     {
-        private void ValidarDadosBasicos(Atividade atividade)
+        private void ValidarDadosBasicos(Habilidade atividade)
         {
             if (atividade == null)
             {
@@ -36,18 +36,18 @@ namespace Biblioteca.RegraNegocio
             }
         }
 
-        public void Delete(Atividade atividade)
+        public void Delete(Habilidade atividade)
         {
             if (atividade == null)
             {
                 throw new Exception("Erro! Campo nulo. Favor, instanciar a atividade do usuário.");
             }
 
-            AtividadeSqlServer dados = new AtividadeSqlServer();
+            HabilidadeSqlServer dados = new HabilidadeSqlServer();
             dados.Delete(atividade);
         }
 
-        public void Insert(Atividade atividade)
+        public void Insert(Habilidade atividade)
         {
             ValidarDadosBasicos(atividade);
 
@@ -56,17 +56,17 @@ namespace Biblioteca.RegraNegocio
                 throw new Exception("Erro! Atividade do usuário já existente.");
             }
 
-            AtividadeSqlServer dados = new AtividadeSqlServer();
+            HabilidadeSqlServer dados = new HabilidadeSqlServer();
             dados.Insert(atividade);
         }
 
-        public List<Atividade> Select(Atividade filtro)
+        public List<Habilidade> Select(Habilidade filtro)
         {
-            AtividadeSqlServer dados = new AtividadeSqlServer();
+            HabilidadeSqlServer dados = new HabilidadeSqlServer();
             return dados.Select(filtro);
         }
 
-        public void Update(Atividade atividade)
+        public void Update(Habilidade atividade)
         {
             ValidarDadosBasicos(atividade);
 
@@ -75,11 +75,11 @@ namespace Biblioteca.RegraNegocio
                 throw new Exception("Erro! Atividade do usuário já existente.");
             }
 
-            AtividadeSqlServer dados = new AtividadeSqlServer();
+            HabilidadeSqlServer dados = new HabilidadeSqlServer();
             dados.Update(atividade);
         }
 
-        public bool VerificaDuplicidade(Atividade atividade)
+        public bool VerificaDuplicidade(Habilidade atividade)
         {
             if (atividade == null)
             {
@@ -94,7 +94,7 @@ namespace Biblioteca.RegraNegocio
                 throw new Exception("Erro! Campo nulo. Favor, informar a descrição da atividade do usuário.");
             }
 
-            AtividadeSqlServer dados = new AtividadeSqlServer();
+            HabilidadeSqlServer dados = new HabilidadeSqlServer();
             return dados.VerificaDuplicidade(atividade);
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace Biblioteca.ClassesBasicas
 {
-    public class Atividade
+    public class Habilidade
 	{
 		public int id { get; set; }
 		public string nome { get; set; }

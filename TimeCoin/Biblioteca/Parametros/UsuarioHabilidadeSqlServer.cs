@@ -11,9 +11,9 @@ using System.Data;
 
 namespace Biblioteca.Parametros
 {
-    class UsuarioAtividadeSqlServer : ConexaoSqlServer, IUsuarioAtividade
+    class UsuarioHabilidadeSqlServer : ConexaoSqlServer, IUsuarioHabilidade
     {        
-        public void Insert(UsuarioAtividade usuarioAtividade)
+        public void Insert(UsuarioHabilidade usuarioAtividade)
         {
             try
             {
@@ -51,7 +51,7 @@ namespace Biblioteca.Parametros
             }
         }
 
-        public void Update(UsuarioAtividade usuarioAtividade)
+        public void Update(UsuarioHabilidade usuarioAtividade)
         {
             try
             {
@@ -93,7 +93,7 @@ namespace Biblioteca.Parametros
             }
         }
 
-        public void Delete(UsuarioAtividade usuarioAtividade)
+        public void Delete(UsuarioHabilidade usuarioAtividade)
         {
             try
             {
@@ -129,7 +129,7 @@ namespace Biblioteca.Parametros
             }
         }
 
-        public bool VerificaDuplicidade(UsuarioAtividade usuarioAtividade)
+        public bool VerificaDuplicidade(UsuarioHabilidade usuarioAtividade)
         {
             bool retorno = false;
             try
@@ -179,9 +179,9 @@ namespace Biblioteca.Parametros
             return retorno;
         }
 
-        public List<UsuarioAtividade> Select(UsuarioAtividade filtro)
+        public List<UsuarioHabilidade> Select(UsuarioHabilidade filtro)
         {
-            List<UsuarioAtividade> retorno = new List<UsuarioAtividade>();
+            List<UsuarioHabilidade> retorno = new List<UsuarioHabilidade>();
             try
             {
                 this.abrirConexao();
@@ -191,7 +191,7 @@ namespace Biblioteca.Parametros
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 while (DbReader.Read())
                 {
-                    UsuarioAtividade usuarioAtividade = new UsuarioAtividade();
+                    UsuarioHabilidade usuarioAtividade = new UsuarioHabilidade();
                     usuarioAtividade.id = DbReader.GetInt32(DbReader.GetOrdinal("id"));
                     usuarioAtividade.usuario.id = DbReader.GetInt32(DbReader.GetOrdinal("usuario"));
                     usuarioAtividade.atividade.id = DbReader.GetInt32(DbReader.GetOrdinal("atividade"));
