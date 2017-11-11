@@ -35,6 +35,7 @@
       <xs:element name="_x003C_dataCadastro_x003E_k__BackingField" type="xs:dateTime" />
       <xs:element name="_x003C_descricao_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_email_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_estado_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_id_x003E_k__BackingField" type="xs:int" />
       <xs:element name="_x003C_nome_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_quantidadeHoraDisponivel_x003E_k__BackingField" type="xs:int" />
@@ -44,7 +45,6 @@
       <xs:element name="_x003C_telefoneCelular_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_telefoneFixo_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_tipoUsuario_x003E_k__BackingField" nillable="true" type="tns:TipoUsuario" />
-      <xs:element name="_x003C_uf_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_userName_x003E_k__BackingField" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -71,9 +71,9 @@
   <xs:element name="ArrayOfServico" nillable="true" type="tns:ArrayOfServico" />
   <xs:complexType name="Atividade">
     <xs:sequence>
-      <xs:element name="_x003C_descricao_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_id_x003E_k__BackingField" type="xs:int" />
-      <xs:element name="_x003C_nome_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="descricao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="nome" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Atividade" nillable="true" type="tns:Atividade" />
@@ -85,11 +85,11 @@
   <xs:element name="ArrayOfAtividade" nillable="true" type="tns:ArrayOfAtividade" />
   <xs:complexType name="Presta">
     <xs:sequence>
-      <xs:element name="_x003C_avaliacao_x003E_k__BackingField" type="xs:double" />
-      <xs:element name="_x003C_data_x003E_k__BackingField" type="xs:dateTime" />
-      <xs:element name="_x003C_quantidadeHora_x003E_k__BackingField" type="xs:int" />
-      <xs:element name="_x003C_servico_x003E_k__BackingField" nillable="true" type="tns:Servico" />
-      <xs:element name="_x003C_usuario_x003E_k__BackingField" nillable="true" type="tns:Usuario" />
+      <xs:element minOccurs="0" name="avaliacao" type="xs:double" />
+      <xs:element minOccurs="0" name="data" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="quantidadeHora" type="xs:int" />
+      <xs:element minOccurs="0" name="servico" nillable="true" type="tns:Servico" />
+      <xs:element minOccurs="0" name="usuario" nillable="true" type="tns:Usuario" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Presta" nillable="true" type="tns:Presta" />
@@ -101,11 +101,11 @@
   <xs:element name="ArrayOfPresta" nillable="true" type="tns:ArrayOfPresta" />
   <xs:complexType name="Recebe">
     <xs:sequence>
-      <xs:element name="_x003C_avaliacao_x003E_k__BackingField" type="xs:double" />
-      <xs:element name="_x003C_data_x003E_k__BackingField" type="xs:dateTime" />
-      <xs:element name="_x003C_quantidadeHora_x003E_k__BackingField" type="xs:int" />
-      <xs:element name="_x003C_servico_x003E_k__BackingField" nillable="true" type="tns:Servico" />
-      <xs:element name="_x003C_usuario_x003E_k__BackingField" nillable="true" type="tns:Usuario" />
+      <xs:element minOccurs="0" name="avaliacao" type="xs:double" />
+      <xs:element minOccurs="0" name="data" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="quantidadeHora" type="xs:int" />
+      <xs:element minOccurs="0" name="servico" nillable="true" type="tns:Servico" />
+      <xs:element minOccurs="0" name="usuario" nillable="true" type="tns:Usuario" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Recebe" nillable="true" type="tns:Recebe" />
