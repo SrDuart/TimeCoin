@@ -11,5 +11,8 @@ namespace Biblioteca.ClassesBasicas
 		public string descricao { get; set; }
 		public DateTime date { get; set; }		
 		public string preRequisito { get; set; }
+        public string uf { get; set; }
+        public string bairro { get; set; }
+        public string cidade { get; set; }
 	}
 }
