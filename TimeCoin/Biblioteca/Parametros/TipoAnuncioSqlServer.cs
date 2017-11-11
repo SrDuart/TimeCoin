@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Parametros
 {
-    class TipoAnuncioSqlServer
+    public class TipoAnuncioSqlServer
     {
     }
 }

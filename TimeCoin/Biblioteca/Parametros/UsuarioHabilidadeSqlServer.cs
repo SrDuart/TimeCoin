@@ -11,7 +11,7 @@ using System.Data;
 
 namespace Biblioteca.Parametros
 {
-    class UsuarioHabilidadeSqlServer : ConexaoSqlServer, IUsuarioHabilidade
+    public class UsuarioHabilidadeSqlServer : ConexaoSqlServer, IUsuarioHabilidade
     {        
         public void Insert(UsuarioHabilidade usuarioAtividade)
         {

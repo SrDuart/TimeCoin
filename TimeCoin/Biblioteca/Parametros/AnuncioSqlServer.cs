@@ -11,7 +11,7 @@ using System.Data;
 
 namespace Biblioteca.Parametros
 {
-    class AnuncioSqlServer : ConexaoSqlServer, IAnuncio
+    public class AnuncioSqlServer : ConexaoSqlServer, IAnuncio
     {
         public void Delete(Anuncio anuncio)
         {
