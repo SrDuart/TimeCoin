@@ -9,6 +9,6 @@ namespace Biblioteca.Interfaces
         void Update(Anuncio anuncio);
         void Delete(Anuncio anuncio);
         bool VerificaDuplicidade(Anuncio anuncio);
-        List<Anuncio> Select(Anuncio filtro);
+        List<Anuncio> Select();
     }
 }
