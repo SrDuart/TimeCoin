@@ -198,7 +198,7 @@ namespace Biblioteca.Parametros
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro! Este tipo de anúncio já existente. " + ex.Message);
+                throw new Exception("Erro ao verificar a duplicidade do tipo de anuncio. " + ex.Message);
             }
             return retorno;
         }

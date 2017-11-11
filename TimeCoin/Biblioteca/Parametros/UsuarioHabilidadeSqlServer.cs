@@ -174,7 +174,7 @@ namespace Biblioteca.Parametros
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro! Este tipo de usuário já existente. " + ex.Message);
+                throw new Exception("Erro ao verificar a duplicidade do UsuarioHabilidade. " + ex.Message);
             }
             return retorno;
         }
@@ -203,7 +203,7 @@ namespace Biblioteca.Parametros
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conectar e selecionar o serviço." + ex.Message);
+                throw new Exception("Erro ao listar os UsuariosHabilidade." + ex.Message);
             }
             return retorno;
         }

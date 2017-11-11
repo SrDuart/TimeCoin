@@ -291,7 +291,7 @@ namespace Biblioteca.Parametros
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro! Este anúncio já existente. " + ex.Message);
+                throw new Exception("Erro ao verificar duplicidade do Anuncio. " + ex.Message);
             }
             return retorno;
         }
