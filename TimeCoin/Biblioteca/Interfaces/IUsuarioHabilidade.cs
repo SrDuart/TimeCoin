@@ -7,8 +7,8 @@ namespace Biblioteca.Interfaces
 	{
         void Insert(UsuarioHabilidade usuarioHabilidade);
         void Update(UsuarioHabilidade usuarioHabilidade);
-        void Delete(UsuarioHabilidade usuarioAtividade);
+        void Delete(UsuarioHabilidade usuarioHabilidade);
         bool VerificaDuplicidade(UsuarioHabilidade usuarioHabilidade);
-        List<UsuarioHabilidade> Select(UsuarioHabilidade filtro);
+        List<UsuarioHabilidade> Select();
     }
 }

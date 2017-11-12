@@ -46,7 +46,6 @@ namespace Biblioteca.Parametros
             }
             
         }
-
         public void Update(Habilidade habilidade)
         {
             try
@@ -127,7 +126,57 @@ namespace Biblioteca.Parametros
             }
             #endregion
         }
-        
+
+        //CONFIRMAR SE ISSO ESTÁ CORRETO
+        public bool VerificaDuplicidade(Habilidade atividade)
+        {
+            bool retorno = false;
+            try
+            {
+                //CONFIRMAR SE ISSO ESTÁ CORRETO
+                #region abrir a conexão
+                this.abrirConexao();
+                string sql = "SELECT nome, descricao from Atividade where nome = @nome and descricao = @descricao";
+                #endregion
+
+                #region instrucao a ser executada
+                SqlCommand cmd = new SqlCommand(sql, sqlConexao);
+                #endregion
+
+                //CONFIRMAR SE ISSO ESTÁ CORRETO
+                #region passar parametros
+                cmd.Parameters.Add("@nome", SqlDbType.VarChar);
+                cmd.Parameters["@nome"].Value = atividade.nome;
+
+                cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
+                cmd.Parameters["@descricao"].Value = atividade.descricao;
+                #endregion
+
+                #region instrucao a ser executada
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                #endregion
+
+                #region executando a instrucao 
+                while (DbReader.Read())
+                {
+                    retorno = true;
+                    break;
+                }
+                DbReader.Close();
+                #endregion
+
+                #region liberando a memoria e fechando a conexao
+                cmd.Dispose();
+                this.fecharConexao();
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro! Esta atividade já existe." + ex.Message);
+            }
+            return retorno;
+        }
+
         public List<Habilidade> Select(Habilidade filtro)
         {
             List<Habilidade> retorno = new List<Habilidade>();

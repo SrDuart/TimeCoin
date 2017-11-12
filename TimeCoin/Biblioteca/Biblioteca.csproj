@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Biblioteca</RootNamespace>
     <AssemblyName>Biblioteca</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,6 +49,7 @@
     <Compile Include="ClassesBasicas\Recebe.cs" />
     <Compile Include="ClassesBasicas\Servico.cs" />
     <Compile Include="ClassesBasicas\Situacao.cs" />
+    <Compile Include="ClassesBasicas\TipoAnuncio.cs" />
     <Compile Include="ClassesBasicas\TipoUsuario.cs" />
     <Compile Include="ClassesBasicas\Usuario.cs" />
     <Compile Include="ClassesBasicas\UsuarioHabilidade.cs" />
@@ -58,24 +60,30 @@
     <Compile Include="Interfaces\IRecebe.cs" />
     <Compile Include="Interfaces\IServico.cs" />
     <Compile Include="Interfaces\ISituacao.cs" />
+    <Compile Include="Interfaces\ITipoAnuncio.cs" />
     <Compile Include="Interfaces\ITipoUsuario.cs" />
     <Compile Include="Interfaces\IUsuario.cs" />
     <Compile Include="Interfaces\IUsuarioHabilidade.cs" />
     <Compile Include="Parametros\HabilidadeSqlServer.cs" />
-    <Compile Include="Parametros\UsuarioAtividadeSqlServer.cs" />
+    <Compile Include="Parametros\AnuncioSqlServer.cs" />
     <Compile Include="Parametros\PrestaSqlServer.cs" />
     <Compile Include="Parametros\RecebeSqlServer.cs" />
     <Compile Include="Parametros\ServicoSqlServer.cs" />
     <Compile Include="Parametros\SituacaoSqlServer.cs" />
+    <Compile Include="Parametros\TipoAnuncioSqlServer.cs" />
     <Compile Include="Parametros\TipoUsuarioSqlServer.cs" />
+    <Compile Include="Parametros\UsuarioHabilidadeSqlServer.cs" />
     <Compile Include="Parametros\UsuarioSqlServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegraNegocio\AtividadeRN.cs" />
+    <Compile Include="RegraNegocio\AnuncioRN.cs" />
+    <Compile Include="RegraNegocio\HabilidadeRN.cs" />
     <Compile Include="RegraNegocio\PrestaRN.cs" />
     <Compile Include="RegraNegocio\RecebeRN.cs" />
     <Compile Include="RegraNegocio\ServicoRN.cs" />
     <Compile Include="RegraNegocio\SituacaoRN.cs" />
+    <Compile Include="RegraNegocio\TipoAnuncioRN.cs" />
     <Compile Include="RegraNegocio\TipoUsuarioRN.cs" />
+    <Compile Include="RegraNegocio\UsuarioHabilidadeRN.cs" />
     <Compile Include="RegraNegocio\UsuarioRN.cs" />
   </ItemGroup>
   <ItemGroup>

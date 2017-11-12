@@ -11,7 +11,7 @@ using System.Data;
 
 namespace Biblioteca.Parametros
 {
-    class UsuarioAtividadeSqlServer : ConexaoSqlServer, IUsuarioHabilidade
+    public class UsuarioHabilidadeSqlServer : ConexaoSqlServer, IUsuarioHabilidade
     {        
         public void Insert(UsuarioHabilidade usuarioHabilidade)
         {
@@ -19,7 +19,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir conexão
                 this.abrirConexao();
-                string sql = "INSERT INTO UsuarioHabilidade (Id_Usuario, Id_Habilidade) VALUES (@Id_Usuario, @Id_Habilidade)";
+                string sql = "INSERT INTO UsuarioHabilidade (Id_Usuario, Id_Habilidade) VALUES (@id_usuario, @id_habilidade)";
                 #endregion
 
                 #region instrução a ser passada
@@ -27,11 +27,11 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passando parametros
-                cmd.Parameters.Add("@Id_Usuario", SqlDbType.Int);
-                cmd.Parameters["@Id_Usuario"].Value = usuarioHabilidade.usuario.id;
+                cmd.Parameters.Add("@id_usuario", SqlDbType.Int);
+                cmd.Parameters["@id_usuario"].Value = usuarioHabilidade.usuario.id;
 
-                cmd.Parameters.Add("@Id_Habilidade", SqlDbType.Int);
-                cmd.Parameters["@Id_Habilidade"].Value = usuarioHabilidade.atividade.id;
+                cmd.Parameters.Add("@id_habilidade", SqlDbType.Int);
+                cmd.Parameters["@id_habilidade"].Value = usuarioHabilidade.habilidade.id;
                 #endregion
 
                 #region executando a instrução
@@ -62,7 +62,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir conexão
                 this.abrirConexao();
-                string sql = "UPDATE UsuarioHabilidade SET Id_Usuario = @Id_Usuario, Id_Habilidade = @Id_Habilidade where Id = @Id";
+                string sql = "UPDATE UsuarioHabilidade SET Id_Usuario = @id_usuario, Id_Habilidade = @id_habilidade where Id = @id";
                 #endregion
 
                 #region instrução a ser passada
@@ -70,14 +70,14 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passando parametros
-                cmd.Parameters.Add("@Id_Usuario", SqlDbType.Int);
+                cmd.Parameters.Add("@id_usuario", SqlDbType.Int);
                 cmd.Parameters["@id_usuario"].Value = usuarioHabilidade.usuario.id;
 
-                cmd.Parameters.Add("@Id_Habilidade", SqlDbType.Int);
-                cmd.Parameters["@Id_Habilidade"].Value = usuarioHabilidade.atividade.id;
+                cmd.Parameters.Add("@id_habilidade", SqlDbType.Int);
+                cmd.Parameters["@id_habilidade"].Value = usuarioHabilidade.habilidade.id;
 
-                cmd.Parameters.Add("@Id", SqlDbType.Int);
-                cmd.Parameters["@Id"].Value = usuarioHabilidade.id;
+                cmd.Parameters.Add("@id", SqlDbType.Int);
+                cmd.Parameters["@id"].Value = usuarioHabilidade.id;
                 #endregion
 
                 #region executando a instrução
@@ -104,7 +104,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir conexão
                 this.abrirConexao();
-                string sql = "DELETE from UsuarioHabilidade where Id = @Id";
+                string sql = "DELETE from UsuarioHabilidade where Id = @id";
                 #endregion
 
                 #region instrução a ser passada
@@ -112,8 +112,8 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passando parametros
-                cmd.Parameters.Add("@Id", SqlDbType.Int);
-                cmd.Parameters["@Id"].Value = usuarioHabilidade.id;
+                cmd.Parameters.Add("@id", SqlDbType.Int);
+                cmd.Parameters["@id"].Value = usuarioHabilidade.id;
                 #endregion
 
                 #region executando a instrução
@@ -141,7 +141,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "SELECT Id_Usuario, Id_Habilidade from usuarioHabilidade where Id_Usuario = @Id_Usuario and Id_Habilidade = @Id_Habilidade";
+                string sql = "SELECT Id_Usuario, Id_Habilidade from usuarioHabilidade where Id_Usuario = @id_usuario and Id_Habilidade = @id_habilidade";
                 #endregion
 
                 #region instrucao a ser executada
@@ -149,11 +149,11 @@ namespace Biblioteca.Parametros
 
                 #endregion
                 #region passar parametros
-                cmd.Parameters.Add("@Id_Usuario", SqlDbType.Int);
-                cmd.Parameters["@Id_Usuario"].Value = usuarioHabilidade.usuario;
+                cmd.Parameters.Add("@id_usuario", SqlDbType.Int);
+                cmd.Parameters["@id_usuario"].Value = usuarioHabilidade.usuario.id;
 
-                cmd.Parameters.Add("@Id_Habilidade", SqlDbType.Int);
-                cmd.Parameters["@Id_Habilidade"].Value = usuarioHabilidade.atividade;
+                cmd.Parameters.Add("@id_habilidade", SqlDbType.Int);
+                cmd.Parameters["@id_habilidade"].Value = usuarioHabilidade.habilidade.id;
                 #endregion
 
                 #region instrucao a ser executada
@@ -179,14 +179,85 @@ namespace Biblioteca.Parametros
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro! Este tipo de usuário já existente. " + ex.Message);
+                throw new Exception("Erro ao verificar a duplicidade do UsuarioHabilidade. " + ex.Message);
             }
             return retorno;
         }
 
-        public List<UsuarioHabilidade> Select(UsuarioHabilidade filtro)
+        public bool VerificaExistencia(UsuarioHabilidade usuarioHabilidade)
         {
-            throw new NotImplementedException();
+            bool retorno = false;
+            try
+            {
+                #region abrir a conexão
+                this.abrirConexao();
+                string sql = "SELECT * from usuarioHabilidade where Id = @id";
+                #endregion
+
+                #region instrucao a ser executada
+                SqlCommand cmd = new SqlCommand(sql, sqlConexao);
+
+                #endregion
+                #region passar parametros
+                cmd.Parameters.Add("@id", SqlDbType.Int);
+                cmd.Parameters["@id"].Value = usuarioHabilidade.id;
+                #endregion
+
+                #region instrucao a ser executada
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                #endregion
+
+                #region executando a instrucao 
+                while (DbReader.Read())
+                {
+                    retorno = true;
+                    break;
+                }
+                DbReader.Close();
+                #endregion
+
+                #region liberando a memoria 
+                cmd.Dispose();
+                #endregion
+
+                #region fechando a conexao
+                this.fecharConexao();
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao verificar a existencia do UsuarioHabilidade. " + ex.Message);
+            }
+            return retorno;
+        }
+
+        public List<UsuarioHabilidade> Select()
+        {
+            List<UsuarioHabilidade> retorno = new List<UsuarioHabilidade>();
+            try
+            {
+                this.abrirConexao();
+         
+                string sql = "SELECT id, usuario, habilidade from UsuarioHabilidade";
+                SqlCommand cmd = new SqlCommand(sql, sqlConexao);
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                while (DbReader.Read())
+                {
+                    UsuarioHabilidade usuarioHabilidade = new UsuarioHabilidade();
+                    usuarioHabilidade.id = DbReader.GetInt32(DbReader.GetOrdinal("id"));
+                    usuarioHabilidade.usuario.id = DbReader.GetInt32(DbReader.GetOrdinal("usuario"));
+                    usuarioHabilidade.habilidade.id = DbReader.GetInt32(DbReader.GetOrdinal("habilidade"));
+                    retorno.Add(usuarioHabilidade);
+                }
+                DbReader.Close();
+                cmd.Dispose();
+                this.fecharConexao();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao listar os UsuariosHabilidade." + ex.Message);
+            }
+            return retorno;
         }
     }
 }

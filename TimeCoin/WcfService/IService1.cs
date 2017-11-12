@@ -79,8 +79,8 @@ namespace WcfService
         //bool ServicoVerificaDuplicidade(Servico servico);
         #endregion
 
-        //Atividade
-        #region Atividade
+        //Habilidade
+        #region Habilidade
         [OperationContract]
         void AtividadeInsert(Habilidade atividade);
 
@@ -131,6 +131,48 @@ namespace WcfService
 
         [OperationContract]
         bool RecebeVerificaDuplicidade(Recebe recebe);
-        #endregion       
+        #endregion
+
+        //Anuncio
+        #region Anuncio
+        [OperationContract]
+        void AnuncioInsert(Anuncio anuncio);
+        [OperationContract]
+        void AnuncioUpdate(Anuncio anuncio);
+        [OperationContract]
+        void AnuncioDelete(Anuncio anuncio);
+        [OperationContract]
+        List<Anuncio> AnuncioSelect();
+        [OperationContract]
+        bool AnuncioVerificaDuplicidade(Anuncio anuncio);
+        #endregion 
+
+        //TipoAnuncio
+        #region TipoAnuncio
+        [OperationContract]
+        void TipoAnuncioInsert(TipoAnuncio tipoAnuncio);
+        [OperationContract]
+        void TipoAnuncioUpdate(TipoAnuncio tipoAnuncio);
+        [OperationContract]
+        void TipoAnuncioDelete(TipoAnuncio tipoAnuncio);
+        [OperationContract]
+        List<TipoAnuncio> TipoAnuncioSelect();
+        [OperationContract]
+        bool TipoAnuncioVerificaDuplicidade(TipoAnuncio tipoAnuncio);
+        #endregion 
+
+        //UsuarioHabilidade
+        #region UsuarioHabilidade
+        [OperationContract]
+        void UsuarioHabilidadeInsert(UsuarioHabilidade usuarioHabilidade);
+        [OperationContract]
+        void UsuarioHabilidadeUpdate(UsuarioHabilidade usuarioHabilidade);
+        [OperationContract]
+        void UsuarioHabilidadeDelete(UsuarioHabilidade usuarioHabilidade);
+        [OperationContract]
+        List<TipoAnuncio> UsuarioHabilidadeSelect();
+        [OperationContract]
+        bool UsuarioHabilidadeVerificaDuplicidade(UsuarioHabilidade usuarioHabilidade);
+        #endregion 
     }
 }

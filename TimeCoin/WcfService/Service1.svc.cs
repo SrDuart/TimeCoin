@@ -1,6 +1,7 @@
 ﻿using Biblioteca.ClassesBasicas;
 using Biblioteca.RegraNegocio;
 using System.Collections.Generic;
+using System;
 
 namespace WcfService
 {    
@@ -192,7 +193,32 @@ namespace WcfService
         {
             RecebeRN regra = new RecebeRN();
             return regra.Select(filtro);
-        }        
-        #endregion  
+        }
+
+        public bool AtividadeVerificaDuplicidade(Habilidade atividade)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PrestaUpdate(Presta presta)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool PrestaVerificaDuplicidade(Presta presta)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RecebeUpdate(Recebe recebe)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool RecebeVerificaDuplicidade(Recebe recebe)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }
