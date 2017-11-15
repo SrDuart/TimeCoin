@@ -16,7 +16,7 @@ namespace Biblioteca.Parametros
             { 
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "INSERT INTO TipoUsuario (descricao) VALUES (@descricao)";
+                string sql = "INSERT INTO TipoUsuario (Descricao) VALUES (@Descricao)";
                 #endregion
 
                 #region instrucao a ser executada
@@ -49,7 +49,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "UPDATE TipoUsuario SET descricao = @descricao WHERE id = @id";
+                string sql = "UPDATE TipoUsuario SET Descricao = @Descricao WHERE Id = @Id";
                 #endregion
 
                 #region instrucao a ser executada
@@ -57,11 +57,11 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passar parametros
-                cmd.Parameters.Add("@id", SqlDbType.Int);
-                cmd.Parameters["@id"].Value = tipoUsuario.id;
+                cmd.Parameters.Add("@Id", SqlDbType.Int);
+                cmd.Parameters["@Id"].Value = tipoUsuario.id;
 
-                cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
-                cmd.Parameters["@descricao"].Value = tipoUsuario.descricao;
+                cmd.Parameters.Add("@Descricao", SqlDbType.VarChar);
+                cmd.Parameters["@Descricao"].Value = tipoUsuario.descricao;
                 #endregion
 
                 #region executando a instrucao 
@@ -86,7 +86,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "DELETE FROM TipoUsuario WHERE id = @id";
+                string sql = "DELETE FROM TipoUsuario WHERE Id = @Id";
                 #endregion
 
                 #region instrucao a ser executada
@@ -94,8 +94,8 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passar parametros
-                cmd.Parameters.Add("@id", SqlDbType.Int);
-                cmd.Parameters["@id"].Value = tipoUsuario.id;
+                cmd.Parameters.Add("@Id", SqlDbType.Int);
+                cmd.Parameters["@Id"].Value = tipoUsuario.id;
                 #endregion
 
                 #region executando a instrucao 
@@ -123,7 +123,7 @@ namespace Biblioteca.Parametros
 			{
                 #region abrir a conexão
                 this.abrirConexao();				
-				string sql = "SELECT descricao FROM TipoUsuario WHERE id = @id";
+				string sql = "SELECT descricao FROM TipoUsuario WHERE Id = @Id";
                 #endregion
 
                 #region instrucao a ser executada
@@ -176,8 +176,8 @@ namespace Biblioteca.Parametros
                 while (DbReader.Read())
                 {
                     TipoUsuario tipoUsuario = new TipoUsuario();                    
-                    tipoUsuario.id = DbReader.GetInt32(DbReader.GetOrdinal("id"));
-                    tipoUsuario.descricao = DbReader.GetString(DbReader.GetOrdinal("descricao"));
+                    tipoUsuario.id = DbReader.GetInt32(DbReader.GetOrdinal("Id"));
+                    tipoUsuario.descricao = DbReader.GetString(DbReader.GetOrdinal("Descricao"));
                     retorno.Add(tipoUsuario);
                 }               
                 DbReader.Close();
@@ -188,6 +188,53 @@ namespace Biblioteca.Parametros
             catch (Exception ex)
             {
                 throw new Exception("Erro ao conectar e selecionar Tipo de usuário." + ex.Message);
+            }
+            return retorno;
+        }
+
+        public bool VerificaExistencia(TipoUsuario tipousuario)
+        {
+            bool retorno = false;
+            try
+            {
+                #region abrir a conexão
+                this.abrirConexao();
+                string sql = "SELECT * FROM TipoUsuario WHERE Id = @Id ";
+                #endregion
+
+                #region instrucao a ser executada
+                SqlCommand cmd = new SqlCommand(sql, sqlConexao);
+
+                #endregion
+                #region passar parametros
+                cmd.Parameters.Add("@id", SqlDbType.Int);
+                cmd.Parameters["@id"].Value = tipousuario.id;
+                #endregion
+
+                #region instrucao a ser executada
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                #endregion
+
+                #region executando a instrucao 
+                while (DbReader.Read())
+                {
+                    retorno = true;
+                    break;
+                }
+                DbReader.Close();
+                #endregion
+
+                #region liberando a memoria 
+                cmd.Dispose();
+                #endregion
+
+                #region fechando a conexao
+                this.fecharConexao();
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro! Esse tipo de usuario não existe. " + ex.Message);
             }
             return retorno;
         }

@@ -23,6 +23,9 @@ namespace WcfService
 
         [OperationContract]
         bool TipoUsuarioVerificaDuplicidade(TipoUsuario filtro);
+
+        [OperationContract]
+        bool TipoUsuarioVerificaExistencia(TipoUsuario filtro);
         #endregion
 
         //Situacao
@@ -82,55 +85,43 @@ namespace WcfService
         //Habilidade
         #region Habilidade
         [OperationContract]
-        void AtividadeInsert(Habilidade atividade);
+        void HabilidadeInsert(Habilidade habilidade);
 
         [OperationContract]
-        void AtividadeUpdate(Habilidade atividade);
+        void HabilidadeUpdate(Habilidade habilidade);
 
         [OperationContract]
-        void AtividadeDelete(Habilidade atividade);
+        void HabilidadeDelete(Habilidade habilidade);
 
         [OperationContract]
-        List<Habilidade> AtividadeSelect(Habilidade atividade);
+        List<Habilidade> HabilidadeSelect(Habilidade habilidade);
 
         [OperationContract]
-        bool AtividadeVerificaDuplicidade(Habilidade atividade);
+        bool HabilidadeVerificaDuplicidade(Habilidade habilidade);
         #endregion
 
         //Presta
         #region Presta
         [OperationContract]
-        void PrestaInsert(Presta presta);
-
-        [OperationContract]
-        void PrestaUpdate(Presta presta);
+        void PrestaInsert(Presta presta);        
 
         [OperationContract]
         void PrestaDelete(Presta presta);
 
         [OperationContract]
-        List<Presta> PrestaSelect(Presta presta);
-
-        [OperationContract]
-        bool PrestaVerificaDuplicidade(Presta presta);
+        List<Presta> PrestaSelect(Presta presta);        
         #endregion
 
         //Recebe
         #region Recebe
         [OperationContract]
-        void RecebeInsert(Recebe recebe);
-
-        [OperationContract]
-        void RecebeUpdate(Recebe recebe);
+        void RecebeInsert(Recebe recebe);        
 
         [OperationContract]
         void RecebeDelete(Recebe recebe);
 
         [OperationContract]
-        List<Recebe> RecebeSelect(Recebe recebe);
-
-        [OperationContract]
-        bool RecebeVerificaDuplicidade(Recebe recebe);
+        List<Recebe> RecebeSelect(Recebe recebe);        
         #endregion
 
         //Anuncio
@@ -170,7 +161,7 @@ namespace WcfService
         [OperationContract]
         void UsuarioHabilidadeDelete(UsuarioHabilidade usuarioHabilidade);
         [OperationContract]
-        List<TipoAnuncio> UsuarioHabilidadeSelect();
+        List<UsuarioHabilidade> UsuarioHabilidadeSelect();
         [OperationContract]
         bool UsuarioHabilidadeVerificaDuplicidade(UsuarioHabilidade usuarioHabilidade);
         #endregion 

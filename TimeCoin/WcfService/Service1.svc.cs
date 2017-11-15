@@ -38,6 +38,12 @@ namespace WcfService
             TipoUsuarioRN regra = new TipoUsuarioRN();
             return regra.VerificaDuplicidade(filtro);
         }
+
+        public bool TipoUsuarioVerificaExistencia(TipoUsuario filtro)
+        {
+            TipoUsuarioRN regra = new TipoUsuarioRN();
+            return regra.VerificaExistencia(filtro);
+        }
         #endregion
 
         //Situação
@@ -127,30 +133,69 @@ namespace WcfService
         //bool ServicoVerificaDuplicidade(Servico servico);
         #endregion
 
-        //Atividade
-        #region Atividade
-        public void AtividadeInsert(Habilidade atividade)
+        //Habilidade
+        #region Habilidade
+        public void HabilidadeInsert(Habilidade habilidade)
         {
-            AtividadeRN regra = new AtividadeRN();
-            regra.Insert(atividade);
+            HabilidadeRN regra = new HabilidadeRN();
+            regra.Insert(habilidade);
         }
 
-        public void AtividadeUpdate(Habilidade atividade)
+        public void HabilidadeUpdate(Habilidade habilidade)
         {
-            AtividadeRN regra = new AtividadeRN();
-            regra.Update(atividade);
+            HabilidadeRN regra = new HabilidadeRN();
+            regra.Update(habilidade);
         }
 
-        public void AtividadeDelete(Habilidade atividade)
+        public void HabilidadeDelete(Habilidade habilidade)
         {
-            AtividadeRN regra = new AtividadeRN();
-            regra.Delete(atividade);
+            HabilidadeRN regra = new HabilidadeRN();
+            regra.Delete(habilidade);
         }
 
-        public List<Habilidade> AtividadeSelect(Habilidade filtro)
+        public List<Habilidade> HabilidadeSelect(Habilidade filtro)
         {
-            AtividadeRN regra = new AtividadeRN();
+            HabilidadeRN regra = new HabilidadeRN();
             return regra.Select(filtro);
+        }
+
+        public bool HabilidadeVerificaDuplicidade(Habilidade filtro)
+        {
+            HabilidadeRN regra = new HabilidadeRN();
+            return regra.VerificaDuplicidade(filtro);
+        }
+        #endregion
+
+        //UsuarioHabilidade
+        #region UsuarioHabilidade
+        public void UsuarioHabilidadeInsert(UsuarioHabilidade usuariohabilidade)
+        {
+            UsuarioHabilidadeRN regra = new UsuarioHabilidadeRN();
+            regra.Insert(usuariohabilidade);
+        }
+
+        public void UsuarioHabilidadeUpdate(UsuarioHabilidade usuariohabilidade)
+        {
+            UsuarioHabilidadeRN regra = new UsuarioHabilidadeRN();
+            regra.Update(usuariohabilidade);
+        }
+
+        public void UsuarioHabilidadeDelete(UsuarioHabilidade usuariohabilidade)
+        {
+            UsuarioHabilidadeRN regra = new UsuarioHabilidadeRN();
+            regra.Delete(usuariohabilidade);
+        }
+
+        public List<UsuarioHabilidade> UsuarioHabilidadeSelect()
+        {
+            UsuarioHabilidadeRN regra = new UsuarioHabilidadeRN();
+            return regra.Select();
+        }
+
+        public bool UsuarioHabilidadeVerificaDuplicidade(UsuarioHabilidade filtro)
+        {
+            UsuarioHabilidadeRN regra = new UsuarioHabilidadeRN();
+            return regra.VerificaDuplicidade(filtro);
         }
         #endregion
 
@@ -181,7 +226,7 @@ namespace WcfService
         {
             RecebeRN regra = new RecebeRN();
             regra.Insert(recebe);
-        }
+        }        
 
         public void RecebeDelete(Recebe recebe)
         {
@@ -193,31 +238,72 @@ namespace WcfService
         {
             RecebeRN regra = new RecebeRN();
             return regra.Select(filtro);
+        }             
+        #endregion
+
+        //Anuncio
+        #region Anuncio
+        public void AnuncioInsert(Anuncio anuncio)
+        {
+            AnuncioRN regra = new AnuncioRN();
+            regra.Insert(anuncio);
         }
 
-        public bool AtividadeVerificaDuplicidade(Habilidade atividade)
+        public void AnuncioUpdate(Anuncio anuncio)
         {
-            throw new NotImplementedException();
+            AnuncioRN regra = new AnuncioRN();
+            regra.Update(anuncio);
         }
 
-        public void PrestaUpdate(Presta presta)
+        public void AnuncioDelete(Anuncio anuncio)
         {
-            throw new NotImplementedException();
+            AnuncioRN regra = new AnuncioRN();
+            regra.Delete(anuncio);
         }
 
-        public bool PrestaVerificaDuplicidade(Presta presta)
+        public List<Anuncio> AnuncioSelect()
         {
-            throw new NotImplementedException();
+            AnuncioRN regra = new AnuncioRN();
+            return regra.Select();
         }
 
-        public void RecebeUpdate(Recebe recebe)
+        public bool AnuncioVerificaDuplicidade(Anuncio anuncio)
         {
-            throw new NotImplementedException();
+            AnuncioRN regra = new AnuncioRN();
+            return regra.VerificaDuplicidade(anuncio);
+        }
+        #endregion
+
+        //TipoAnuncio
+        #region TipoAnuncio
+        public void TipoAnuncioInsert(TipoAnuncio tipoAnuncio)
+        {
+            TipoAnuncioRN regra = new TipoAnuncioRN();
+            regra.Insert(tipoAnuncio);
         }
 
-        public bool RecebeVerificaDuplicidade(Recebe recebe)
+        public void TipoAnuncioUpdate(TipoAnuncio tipoAnuncio)
         {
-            throw new NotImplementedException();
+            TipoAnuncioRN regra = new TipoAnuncioRN();
+            regra.Update(tipoAnuncio);
+        }
+
+        public void TipoAnuncioDelete(TipoAnuncio tipoAnuncio)
+        {
+            TipoAnuncioRN regra = new TipoAnuncioRN();
+            regra.Delete(tipoAnuncio);
+        }
+
+        public List<TipoAnuncio> TipoAnuncioSelect()
+        {
+            TipoAnuncioRN regra = new TipoAnuncioRN();
+            return regra.Select();
+        }
+
+        public bool TipoAnuncioVerificaDuplicidade(TipoAnuncio tipoAnuncio)
+        {
+            TipoAnuncioRN regra = new TipoAnuncioRN();
+            return regra.VerificaDuplicidade(tipoAnuncio);
         }
         #endregion
     }
