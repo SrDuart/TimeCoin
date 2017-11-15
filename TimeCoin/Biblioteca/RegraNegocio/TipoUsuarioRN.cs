@@ -34,7 +34,14 @@ namespace Biblioteca.RegraNegocio
             }
 
             TipoUsuarioSqlServer dados = new TipoUsuarioSqlServer();
-            dados.Delete(tipoUsuario);
+            if (dados.VerificaExistencia(tipoUsuario))
+            {
+                dados.Delete(tipoUsuario);
+            }
+            else
+            {
+                throw new Exception("Este tipo de usuário não existe ou já foi excluído");
+            }
         }
 
         public void Insert(TipoUsuario tipoUsuario)
@@ -43,11 +50,15 @@ namespace Biblioteca.RegraNegocio
 
             if (this.VerificaDuplicidade(tipoUsuario))
             {
+                TipoUsuarioSqlServer dados = new TipoUsuarioSqlServer();
+                dados.Insert(tipoUsuario);
+            }
+            else
+            {
                 throw new Exception("Erro! Tipo de usuário já existente.");
             }
-
-            TipoUsuarioSqlServer dados = new TipoUsuarioSqlServer();
-            dados.Insert(tipoUsuario);
+            
+            
         }
 
         public List<TipoUsuario> Select(TipoUsuario filtro)
@@ -59,14 +70,16 @@ namespace Biblioteca.RegraNegocio
         public void Update(TipoUsuario tipoUsuario)
         {
             ValidarDadosBasicos(tipoUsuario);
+            TipoUsuarioSqlServer dados = new TipoUsuarioSqlServer();
 
-            if (this.VerificaDuplicidade(tipoUsuario) == true)
+            if (dados.VerificaDuplicidade(tipoUsuario) == false)
+            {                
+                dados.Update(tipoUsuario);
+            }
+            else
             {
                 throw new Exception("Erro! Tipo de usuário já existente.");
-            }
-
-            TipoUsuarioSqlServer dados = new TipoUsuarioSqlServer();
-            dados.Update(tipoUsuario);
+            }            
         }
 
         public bool VerificaDuplicidade(TipoUsuario tipoUsuario)
@@ -83,6 +96,17 @@ namespace Biblioteca.RegraNegocio
 
             TipoUsuarioSqlServer dados = new TipoUsuarioSqlServer();
             return dados.VerificaDuplicidade(tipoUsuario);
+        }
+
+        public bool VerificaExistencia(TipoUsuario tipoUsuario)
+        {
+            if (tipoUsuario == null)
+            {
+                throw new Exception("Erro! Favor, instanciar um Tipo de usuário.");
+            }         
+
+            TipoUsuarioSqlServer dados = new TipoUsuarioSqlServer();
+            return dados.VerificaExistencia(tipoUsuario);
         }
     }
 }

@@ -49,12 +49,7 @@ namespace Biblioteca.RegraNegocio
 
         public void Insert(Presta presta)
         {
-            ValidarDadosBasicos(presta);
-
-            if (this.VerificaDuplicidade(presta))
-            {
-                throw new Exception("Erro! Serviço prestado pelo usuário já existente.");
-            }
+            ValidarDadosBasicos(presta);            
 
             //if (presta.quantidadeHora > 0)
             //{
@@ -70,44 +65,6 @@ namespace Biblioteca.RegraNegocio
             PrestaSqlServer dados = new PrestaSqlServer();
             return dados.Select(filtro);
         }
-
-        public void Update(Presta presta)
-        {
-            ValidarDadosBasicos(presta);
-
-            if (this.VerificaDuplicidade(presta) == true)
-            {
-                throw new Exception("Erro! Serviço prestado pelo usuário já existente.");
-            }
-            
-            PrestaSqlServer dados = new PrestaSqlServer();
-           // dados.Update(presta);
-        }
-
-        public bool VerificaDuplicidade(Presta presta)
-        {
-            if (presta == null)
-            {
-                throw new Exception("Erro! Favor, instanciar serviço prestado pelo usuário.");
-            }
-
-            if (presta.data == null)
-            {
-                throw new Exception("Erro! Campo nulo. Favor, preencher a data.");
-            }
-
-            if (presta.usuario.id < 1)
-            {
-                throw new Exception("Erro! Campo nulo. Favor, preencher o id do usuário.");
-            }
-
-            if (presta.servico.id < 1)
-            {
-                throw new Exception("Erro! Campo nulo. Favor, preencher o id de serviço.");
-            }
-
-            PrestaSqlServer dados = new PrestaSqlServer();
-            return false; // dados. VerificaDuplicidade(presta);
-        }
+        
     }
 }
