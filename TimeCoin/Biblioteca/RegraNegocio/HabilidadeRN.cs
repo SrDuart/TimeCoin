@@ -8,87 +8,85 @@ namespace Biblioteca.RegraNegocio
 {
     public class HabilidadeRN : IHabilidade
     {
-        private void ValidarDadosBasicos(Habilidade atividade)
+        public void Insert(Habilidade habilidade)
         {
-            if (atividade == null)
-            {
-                throw new Exception("Erro! Favor, instanciar atividade do usuário.");
-            }
+            ValidarDadosBasicos(habilidade);
 
-            if (String.IsNullOrEmpty(atividade.nome) == true || String.IsNullOrWhiteSpace(atividade.nome) == true)
+            if (this.VerificaDuplicidade(habilidade))
             {
-                throw new Exception("Erro! Campo vazio. Favor, informar nome da atividade do usuário.");
-            }
-
-            if (atividade.nome.Trim().Length < 1 || atividade.nome.Trim().Length > 30)
-            {
-                throw new Exception("Erro! Número de caracteres não compatível. A descrição deve conter mais de 1 caracter e no máximo 30.");
-            }
-
-            if (String.IsNullOrEmpty(atividade.descricao) == true || String.IsNullOrWhiteSpace(atividade.descricao) == true)
-            {
-                throw new Exception("Erro! Campo vazio. Favor, informar uma descrição da atividade do usuário.");
-            }
-
-            if (atividade.descricao.Trim().Length < 1 || atividade.descricao.Trim().Length > 144)
-            {
-                throw new Exception("Erro! Número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 144.");
-            }
-        }
-
-        public void Delete(Habilidade atividade)
-        {
-            if (atividade == null)
-            {
-                throw new Exception("Erro! Atividade não criada.");
+                throw new Exception("Erro! Habilidade do usuário já existente.");
             }
 
             HabilidadeSqlServer dados = new HabilidadeSqlServer();
-            dados.Delete(atividade);
+            dados.Insert(habilidade);
         }
 
-        public void Insert(Habilidade atividade)
+        public void Update(Habilidade habilidade)
         {
-            ValidarDadosBasicos(atividade);
-
-            if (this.VerificaDuplicidade(atividade))
+            if (habilidade == null)
             {
-                throw new Exception("Erro! Atividade do usuário já existente.");
+                throw new Exception("Erro! Habilidade já existente.");
             }
 
             HabilidadeSqlServer dados = new HabilidadeSqlServer();
-            dados.Insert(atividade);
+            dados.Update(habilidade);
         }
 
-        
-        
-        public void Update(Habilidade atividade)
+        public void Delete(Habilidade habilidade)
         {
-            if (atividade == null)
+            if (habilidade == null)
             {
-                throw new Exception("Erro! Tipo de usuário já existente.");
+                throw new Exception("Erro! Habilidade não criada.");
             }
 
             HabilidadeSqlServer dados = new HabilidadeSqlServer();
-            dados.Update(atividade);
+            dados.Delete(habilidade);
         }
 
-        public bool VerificaDuplicidade(Habilidade atividade)
+        public bool VerificaDuplicidade(Habilidade habilidade)
 
         {
-            if (atividade == null)
+            if (habilidade == null)
             {
-                throw new Exception("Erro! Favor, instanciar a atividade do usuário.");
+                throw new Exception("Erro! Favor, instanciar a habilidade do usuário.");
             }
 
             HabilidadeSqlServer dados = new HabilidadeSqlServer();
-            return dados.VerificaDuplicidade(atividade);
+            return dados.VerificaDuplicidade(habilidade);
         }
 
         public List<Habilidade> Select(Habilidade filtro)
         {
             HabilidadeSqlServer dados = new HabilidadeSqlServer();
             return dados.Select(filtro);
+        }
+
+        private void ValidarDadosBasicos(Habilidade habilidade)
+        {
+            if (habilidade == null)
+            {
+                throw new Exception("Erro! Favor, instanciar habilidade do usuário.");
+            }
+
+            if (String.IsNullOrEmpty(habilidade.nome) == true || String.IsNullOrWhiteSpace(habilidade.nome) == true)
+            {
+                throw new Exception("Erro! Campo vazio. Favor, informar nome da habilidade do usuário.");
+            }
+
+            if (habilidade.nome.Trim().Length < 1 || habilidade.nome.Trim().Length > 30)
+            {
+                throw new Exception("Erro! Número de caracteres não compatível. A descrição deve conter mais de 1 caracter e no máximo 30.");
+            }
+
+            if (String.IsNullOrEmpty(habilidade.descricao) == true || String.IsNullOrWhiteSpace(habilidade.descricao) == true)
+            {
+                throw new Exception("Erro! Campo vazio. Favor, informar uma descrição da atividade do usuário.");
+            }
+
+            if (habilidade.descricao.Trim().Length < 1 || habilidade.descricao.Trim().Length > 144)
+            {
+                throw new Exception("Erro! Número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 144.");
+            }
         }
     }
 }

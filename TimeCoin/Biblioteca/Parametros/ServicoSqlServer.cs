@@ -42,7 +42,7 @@ namespace Biblioteca.Parametros
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conectar e inserir um serviço. " + ex.Message);
+                throw new Exception("Erro ao conectar e inserir um serviço." + ex.Message);
             }
         }
 
@@ -81,7 +81,7 @@ namespace Biblioteca.Parametros
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conectar e alterar um serviço. " + ex.Message);
+                throw new Exception("Erro ao conectar e alterar um serviço." + ex.Message);
             }
         }
 
@@ -114,7 +114,7 @@ namespace Biblioteca.Parametros
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conectar e excluir um serviço. " + ex.Message);
+                throw new Exception("Erro ao conectar e excluir um serviço." + ex.Message);
             }
         }
 

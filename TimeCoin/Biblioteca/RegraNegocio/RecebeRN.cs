@@ -7,7 +7,35 @@ using System.Collections.Generic;
 namespace Biblioteca.RegraNegocio
 {
     public class RecebeRN : IRecebe
-    {
+    {        
+        public void Insert(Recebe recebe)   
+        {
+            if (recebe == null)
+            {
+                throw new Exception("Erro! Favor, instanciar serviço recebido pelo usuário.");
+            }
+
+            RecebeSqlServer dados = new RecebeSqlServer();
+            dados.Insert(recebe);
+        }
+
+        public void Delete(Recebe recebe)
+        {
+            if (recebe == null)
+            {
+                throw new Exception("Erro! Favor, instanciar serviço recebido pelo usuário.");
+            }
+
+            RecebeSqlServer dados = new RecebeSqlServer();
+            dados.Delete(recebe);
+        }
+
+        public List<Recebe> Select(Recebe filtro)
+        {
+            RecebeSqlServer dados = new RecebeSqlServer();
+            return dados.Select(filtro);
+        }
+
         private void ValidarDadosBasicos(Recebe recebe)
         {
             if (recebe == null)
@@ -35,33 +63,5 @@ namespace Biblioteca.RegraNegocio
                 throw new Exception("Erro! Campo nulo. Favor, preencher a data.");
             }
         }
-        
-        public void Insert(Recebe recebe)   
-        {
-            if (recebe == null)
-            {
-                throw new Exception("Erro! Favor, instanciar serviço recebido pelo usuário.");
-            }
-
-            RecebeSqlServer dados = new RecebeSqlServer();
-            dados.Insert(recebe);
-        }
-
-        public void Delete(Recebe recebe)
-        {
-            if (recebe == null)
-            {
-                throw new Exception("Erro! Favor, instanciar serviço recebido pelo usuário.");
-            }
-
-            RecebeSqlServer dados = new RecebeSqlServer();
-            dados.Delete(recebe);
-        }
-
-        public List<Recebe> Select(Recebe filtro)
-        {
-            RecebeSqlServer dados = new RecebeSqlServer();
-            return dados.Select(filtro);
-        }        
     }
 }

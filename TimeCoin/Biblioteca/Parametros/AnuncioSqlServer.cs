@@ -10,42 +10,6 @@ namespace Biblioteca.Parametros
 {
     public class AnuncioSqlServer : ConexaoSqlServer, IAnuncio
     {
-        public void Delete(Anuncio anuncio)
-        {
-            try
-            {
-                #region abrir conexao
-                this.abrirConexao();
-                string sql = "DELETE from Anuncio where Id = @id";
-                #endregion
-
-                #region instrucao a ser passada
-                SqlCommand cmd = new SqlCommand(sql, this.sqlConexao);
-                #endregion
-
-                #region passando parametros
-                cmd.Parameters.Add("@id", SqlDbType.Int);
-                cmd.Parameters["@id"].Value = anuncio.id;
-                #endregion
-
-                #region executando instrucao
-                cmd.ExecuteNonQuery();
-                #endregion
-
-                #region liberando a memoria 
-                cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
-                this.fecharConexao();
-                #endregion
-            }
-            catch(Exception e)
-            {
-                throw new Exception("Erro ao excluir o Anuncio. " + e.Message);
-            }
-        }
-
         public void Insert(Anuncio anuncio)
         {
             try
@@ -99,11 +63,8 @@ namespace Biblioteca.Parametros
                 cmd.ExecuteNonQuery();
                 #endregion  
 
-                #region liberando a memoria 
+                #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
                 this.fecharConexao();
                 #endregion
             }
@@ -113,6 +74,39 @@ namespace Biblioteca.Parametros
             }
         }
 
+        public void Delete(Anuncio anuncio)
+        {
+            try
+            {
+                #region abrir conexao
+                this.abrirConexao();
+                string sql = "DELETE from Anuncio where Id = @id";
+                #endregion
+
+                #region instrucao a ser passada
+                SqlCommand cmd = new SqlCommand(sql, this.sqlConexao);
+                #endregion
+
+                #region passando parametros
+                cmd.Parameters.Add("@id", SqlDbType.Int);
+                cmd.Parameters["@id"].Value = anuncio.id;
+                #endregion
+
+                #region executando instrucao
+                cmd.ExecuteNonQuery();
+                #endregion
+
+                #region liberando a memoria e fechando a conexao
+                cmd.Dispose();
+                this.fecharConexao();
+                #endregion
+            }
+            catch(Exception e)
+            {
+                throw new Exception("Erro ao excluir o Anúncio. " + e.Message);
+            }
+        }
+           
         public List<Anuncio> Select()
         {
             List<Anuncio> retorno = new List<Anuncio>();
@@ -141,12 +135,15 @@ namespace Biblioteca.Parametros
                     retorno.Add(anuncio);
                 }
                 DbReader.Close();
+
+                #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
                 this.fecharConexao();
+                #endregion
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao criar a listagem de Anuncios." + ex.Message);
+                throw new Exception("Erro ao criar a listagem de Anúncios." + ex.Message);
             }
             return retorno;
         }
@@ -207,11 +204,8 @@ namespace Biblioteca.Parametros
                 cmd.ExecuteNonQuery();
                 #endregion  
 
-                #region liberando a memoria 
+                #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
                 this.fecharConexao();
                 #endregion
             }
@@ -238,8 +232,8 @@ namespace Biblioteca.Parametros
                 SqlCommand cmd = new SqlCommand(sql, sqlConexao);
 
                 #endregion
-                #region passar parametros
 
+                #region passar parametros
                 cmd.Parameters.Add("@data", SqlDbType.Date);
                 cmd.Parameters["@data"].Value = anuncio.data;
 
@@ -278,11 +272,8 @@ namespace Biblioteca.Parametros
                 DbReader.Close();
                 #endregion
 
-                #region liberando a memoria 
+                #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
                 this.fecharConexao();
                 #endregion
             }
@@ -306,10 +297,9 @@ namespace Biblioteca.Parametros
 
                 #region instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, sqlConexao);
-
                 #endregion
-                #region passar parametros
 
+                #region passar parametros
                 cmd.Parameters.Add("@id", SqlDbType.Int);
                 cmd.Parameters["@id"].Value = anuncio.id;
                 #endregion
@@ -327,17 +317,14 @@ namespace Biblioteca.Parametros
                 DbReader.Close();
                 #endregion
 
-                #region liberando a memoria 
+                #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
-                #endregion
-
-                #region fechando a conexao
                 this.fecharConexao();
                 #endregion
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao verificar a existência do Anuncio. " + ex.Message);
+                throw new Exception("Erro ao verificar a existência do Anúncio." + ex.Message);
             }
             return retorno;
         }

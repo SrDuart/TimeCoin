@@ -8,17 +8,6 @@ namespace Biblioteca.RegraNegocio
 {
     public class ServicoRN : IServico
     {
-        public void Delete(Servico servico)
-        {
-            if (servico == null)
-            {
-                throw new Exception("Favor, instanciar o serviço.");
-            }
-
-            ServicoSqlServer dados = new ServicoSqlServer();
-            dados.Delete(servico);
-        }
-
         public void Insert(Servico servico)
         {
             if (servico == null)
@@ -30,7 +19,7 @@ namespace Biblioteca.RegraNegocio
             {
                 throw new Exception("Favor, informar o descrição do serviço.");
             }
-            
+
             if (this.VerificaDuplicidade(servico))
             {
                 throw new Exception("Tipo de serviço já existente.");
@@ -38,12 +27,6 @@ namespace Biblioteca.RegraNegocio
 
             ServicoSqlServer dados = new ServicoSqlServer();
             dados.Insert(servico);
-        }
-
-        public List<Servico> Select(Servico filtro)
-        {
-            ServicoSqlServer dados = new ServicoSqlServer();
-            return dados.Select(filtro);
         }
 
         public void Update(Servico servico)
@@ -67,6 +50,17 @@ namespace Biblioteca.RegraNegocio
             dados.Update(servico);
         }
 
+        public void Delete(Servico servico)
+        {
+            if (servico == null)
+            {
+                throw new Exception("Favor, instanciar o serviço.");
+            }
+
+            ServicoSqlServer dados = new ServicoSqlServer();
+            dados.Delete(servico);
+        }
+
         public bool VerificaDuplicidade(Servico servico)
         {
             if (servico == null)
@@ -81,5 +75,11 @@ namespace Biblioteca.RegraNegocio
             ServicoSqlServer dados = new ServicoSqlServer();
             return dados.VerificaDuplicidade(servico);
         }
+
+        public List<Servico> Select(Servico filtro)
+        {
+            ServicoSqlServer dados = new ServicoSqlServer();
+            return dados.Select(filtro);
+        }        
     }
 }

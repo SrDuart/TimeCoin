@@ -9,6 +9,6 @@ namespace Biblioteca.Interfaces
         void Update(Habilidade habilidade);
         void Delete(Habilidade habilidade);
         bool VerificaDuplicidade(Habilidade habilidade);
-        List<Habilidade> Select(Habilidade habilidade);
+        List<Habilidade> Select(Habilidade filtro);
     }
 }
