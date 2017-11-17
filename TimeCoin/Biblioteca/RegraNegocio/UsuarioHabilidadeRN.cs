@@ -8,21 +8,39 @@ namespace Biblioteca.RegraNegocio
 {
     public class UsuarioHabilidadeRN : IUsuarioHabilidade
     {
-        public void VerificaDadosBasicos(UsuarioHabilidade usuarioHabilidade)
+        public void Insert(UsuarioHabilidade usuarioHabilidade)
         {
-            if (usuarioHabilidade == null)
+            VerificaDadosBasicos(usuarioHabilidade);
+            if (!this.VerificaDuplicidade(usuarioHabilidade))
             {
-                throw new Exception("Erro! usuarioHabilidade vazio.");
+                UsuarioHabilidadeSqlServer dados = new UsuarioHabilidadeSqlServer();
+                dados.Insert(usuarioHabilidade);
             }
-            if(usuarioHabilidade.usuario.id <= 0)
+            else
             {
-                throw new Exception("Erro! Favor informar um usuario.");
+                throw new Exception("Esta habilidade já está associada a este usuário");
             }
-            if (usuarioHabilidade.habilidade.id <= 0)
+
+        }
+
+        public void Update(UsuarioHabilidade usuarioHabilidade)
+        {
+            if (usuarioHabilidade.id <= 0)
             {
-                throw new Exception("Erro! Favor informar um habilidade.");
+                throw new Exception("Erro! ID de UsuarioHabilidade inválido");
+            }
+            this.VerificaDadosBasicos(usuarioHabilidade);
+            UsuarioHabilidadeSqlServer dados = new UsuarioHabilidadeSqlServer();
+            if (dados.VerificaExistencia(usuarioHabilidade))
+            {
+                dados.Update(usuarioHabilidade);
+            }
+            else
+            {
+                throw new Exception("Erro ao atualizar. ID não existe na base de dados");
             }
         }
+
         public void Delete(UsuarioHabilidade usuarioHabilidade)
         {
             if (usuarioHabilidade.id <= 0)
@@ -33,25 +51,19 @@ namespace Biblioteca.RegraNegocio
             if (dados.VerificaExistencia(usuarioHabilidade))
             {
                 dados.Delete(usuarioHabilidade);
-            } else
+            }
+            else
             {
                 throw new Exception("Este usuário não existe ou já foi excluído");
             }
 
         }
 
-        public void Insert(UsuarioHabilidade usuarioHabilidade)
+        public bool VerificaDuplicidade(UsuarioHabilidade usuarioHabilidade)
         {
-            VerificaDadosBasicos(usuarioHabilidade);            
-            if (!this.VerificaDuplicidade(usuarioHabilidade))
-            {
-                UsuarioHabilidadeSqlServer dados = new UsuarioHabilidadeSqlServer();
-                dados.Insert(usuarioHabilidade);
-            } else
-            {
-                throw new Exception("Esta habilidade já está associada a este usuário");
-            }
-
+            VerificaDadosBasicos(usuarioHabilidade);
+            UsuarioHabilidadeSqlServer dados = new UsuarioHabilidadeSqlServer();
+            return dados.VerificaDuplicidade(usuarioHabilidade);
         }
 
         public List<UsuarioHabilidade> Select()
@@ -60,28 +72,20 @@ namespace Biblioteca.RegraNegocio
             return dados.Select();
         }
 
-        public void Update(UsuarioHabilidade usuarioHabilidade)
+        public void VerificaDadosBasicos(UsuarioHabilidade usuarioHabilidade)
         {
-            if(usuarioHabilidade.id <= 0)
+            if (usuarioHabilidade == null)
             {
-                throw new Exception("Erro! ID de UsuarioHabilidade inválido");
+                throw new Exception("Erro! usuarioHabilidade vazio.");
             }
-            this.VerificaDadosBasicos(usuarioHabilidade);
-            UsuarioHabilidadeSqlServer dados = new UsuarioHabilidadeSqlServer();
-            if (dados.VerificaExistencia(usuarioHabilidade))
+            if (usuarioHabilidade.usuario.id <= 0)
             {
-                dados.Update(usuarioHabilidade);
-            } else
-            {
-                throw new Exception("Erro ao atualizar. ID não existe na base de dados");
+                throw new Exception("Erro! Favor informar um usuario.");
             }
-        }
-
-        public bool VerificaDuplicidade(UsuarioHabilidade usuarioHabilidade)
-        {
-            VerificaDadosBasicos(usuarioHabilidade);
-            UsuarioHabilidadeSqlServer dados = new UsuarioHabilidadeSqlServer();
-            return dados.VerificaDuplicidade(usuarioHabilidade);
+            if (usuarioHabilidade.habilidade.id <= 0)
+            {
+                throw new Exception("Erro! Favor informar um habilidade.");
+            }
         }
     }
 }

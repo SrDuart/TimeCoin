@@ -8,6 +8,77 @@ namespace Biblioteca.RegraNegocio
 {
     public class UsuarioRN : IUsuario
     {
+        public void Insert(Usuario usuario)
+        {
+            ValidarDadosBasicos(usuario);
+
+            if (this.VerificaDuplicidade(usuario))
+            {
+                throw new Exception("Erro! Usuário já existente.");
+            }
+
+            UsuarioSqlServer dados = new UsuarioSqlServer();
+            dados.Insert(usuario);
+        }
+
+        public void Update(Usuario usuario)
+        {
+            ValidarDadosBasicos(usuario);
+
+            if (this.VerificaDuplicidade(usuario) == true)
+            {
+                UsuarioSqlServer dados = new UsuarioSqlServer();
+                dados.Update(usuario);
+            }
+            else
+            {
+                throw new Exception("Erro! Usuário já existente.");
+            }
+        }
+
+        public void Delete(Usuario usuario)
+        {
+            if (usuario == null)
+            {
+                throw new Exception("Erro! Favor instanciar um usuário.");
+            }
+
+            UsuarioSqlServer dados = new UsuarioSqlServer();
+            dados.Delete(usuario);
+        }
+
+        public bool VerificaDuplicidade(Usuario usuario)
+        {
+            if (usuario == null)
+            {
+                throw new Exception("Erro! Campo nulo. Favor instanciar um usuário.");
+            }
+
+            if (usuario.userName == null)
+            {
+                throw new Exception("Erro! Campo nulo. Favor instanciar um userName do usuário.");
+            }
+
+            if (usuario.telefoneCelular == null)
+            {
+                throw new Exception("Erro! Campo nulo. Favor instanciar um telefone celular do usuário.");
+            }
+
+            if (usuario.email == null)
+            {
+                throw new Exception("Erro! Campo nulo. Favor instanciar um email do usuário.");
+            }
+
+            UsuarioSqlServer dados = new UsuarioSqlServer();
+            return dados.VerificaDuplicidade(usuario);
+        }        
+        
+        public List<Usuario> Select(Usuario filtro)
+        {
+            UsuarioSqlServer dados = new UsuarioSqlServer();
+            return dados.Select(filtro);
+        }
+
         private void ValidarDadosBasicos(Usuario usuario)
         {
             if (usuario == null)
@@ -119,77 +190,6 @@ namespace Biblioteca.RegraNegocio
             {
                 throw new Exception("Erro! número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 144.");
             }
-        }           
-        
-        public void Delete(Usuario usuario)
-        {
-            if (usuario == null)
-            {
-                throw new Exception("Erro! Favor instanciar um usuário.");
-            }
-
-            UsuarioSqlServer dados = new UsuarioSqlServer();
-            dados.Delete(usuario);
-        }
-
-        public void Insert(Usuario usuario)
-        {
-            ValidarDadosBasicos(usuario);
-
-            if (this.VerificaDuplicidade(usuario))
-            {
-                throw new Exception("Erro! Usuário já existente.");
-            }
-
-            UsuarioSqlServer dados = new UsuarioSqlServer();
-            dados.Insert(usuario);
-        }
-
-        public List<Usuario> Select(Usuario filtro)
-        {
-            UsuarioSqlServer dados = new UsuarioSqlServer();
-            return dados.Select(filtro);
-        }
-
-        public void Update(Usuario usuario)
-        {
-            ValidarDadosBasicos(usuario);
-
-            if (this.VerificaDuplicidade(usuario) == true)
-            {
-                UsuarioSqlServer dados = new UsuarioSqlServer();
-                dados.Update(usuario);
-            }
-            else
-            {
-                 throw new Exception("Erro! Usuário já existente.");
-            }                        
-        }
-
-        public bool VerificaDuplicidade(Usuario usuario)
-        {
-            if (usuario == null)
-            {
-                throw new Exception("Erro! Campo nulo. Favor instanciar um usuário.");
-            }
-
-            if (usuario.userName == null)
-            {
-                throw new Exception("Erro! Campo nulo. Favor instanciar um userName do usuário.");
-            }            
-
-            if (usuario.telefoneCelular == null)
-            {
-                throw new Exception("Erro! Campo nulo. Favor instanciar um telefone celular do usuário.");
-            }
-
-            if (usuario.email == null)
-            {
-                throw new Exception("Erro! Campo nulo. Favor instanciar um email do usuário.");
-            }
-
-            UsuarioSqlServer dados = new UsuarioSqlServer();
-            return dados.VerificaDuplicidade(usuario);
         }
     }
 }

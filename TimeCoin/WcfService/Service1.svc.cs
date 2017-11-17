@@ -72,7 +72,11 @@ namespace WcfService
             return regra.Select(filtro);
         }
 
-        //bool SituacaoVerificaDuplicidade(Situacao tipoUsuario);
+        public bool SituacaoVerificaDuplicidade(Situacao situacao)
+        {
+            SituacaoRN regra = new SituacaoRN();
+            return regra.VerificaDuplicidade(situacao);
+        }
         #endregion
 
         //Usuário
@@ -101,7 +105,11 @@ namespace WcfService
             return regra.Select(filtro);
         }
 
-        //bool UsuarioVerificaDuplicidade(Usuario usuario);
+        public bool UsuarioVerificaDuplicidade(Usuario usuario)
+        {
+            UsuarioRN regra = new UsuarioRN();
+            return regra.VerificaDuplicidade(usuario);
+        }
         #endregion
 
         //Serviço
@@ -130,7 +138,11 @@ namespace WcfService
             return regra.Select(filtro);
         }
 
-        //bool ServicoVerificaDuplicidade(Servico servico);
+        public bool ServicoVerificaDuplicidade(Servico servico)
+        {
+            ServicoRN regra = new ServicoRN();
+            return regra.VerificaDuplicidade(servico);
+        }
         #endregion
 
         //Habilidade
