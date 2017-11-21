@@ -1,6 +1,6 @@
 ﻿namespace WindowsForms
 {
-    partial class FormTipoUsuario
+    partial class FrmTipoUsuario
     {
         /// <summary>
         /// Required designer variable.

@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsForms.TelasAdm
+namespace WindowsForms
 {
-    public partial class Principal : Form
+    public partial class FrmHabilidade : Form
     {
-        public Principal()
+        public FrmHabilidade()
         {
             InitializeComponent();
-        }
-
-        private void buttonTipoUsuario_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
