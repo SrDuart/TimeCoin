@@ -8,17 +8,6 @@ namespace Biblioteca.RegraNegocio
 {
     public class SituacaoRN : ISituacao
     {
-        public void Delete(Situacao situacao)
-        {
-            if (situacao == null)
-            {
-                throw new Exception("Favor, instanciar a situação.");
-            }
-
-            SituacaoSqlServer dados = new SituacaoSqlServer();
-            dados.Delete(situacao);
-        }
-
         public void Insert(Situacao situacao)
         {
             if (situacao == null)
@@ -53,12 +42,6 @@ namespace Biblioteca.RegraNegocio
 
             SituacaoSqlServer dados = new SituacaoSqlServer();
             dados.Insert(situacao);
-        }
-
-        public List<Situacao> Select(Situacao filtro)
-        {
-            SituacaoSqlServer dados = new SituacaoSqlServer();
-            return dados.Select(filtro);
         }
 
         public void Update(Situacao situacao)
@@ -97,6 +80,17 @@ namespace Biblioteca.RegraNegocio
             dados.Update(situacao);
         }
 
+        public void Delete(Situacao situacao)
+        {
+            if (situacao == null)
+            {
+                throw new Exception("Favor, instanciar a situação.");
+            }
+
+            SituacaoSqlServer dados = new SituacaoSqlServer();
+            dados.Delete(situacao);
+        }
+
         public bool VerificaDuplicidade(Situacao situacao)
         {
             if (situacao == null)
@@ -116,6 +110,12 @@ namespace Biblioteca.RegraNegocio
 
             SituacaoSqlServer dados = new SituacaoSqlServer();
             return dados.VerificaDuplicidade(situacao);
+        }
+
+        public List<Situacao> Select(Situacao filtro)
+        {
+            SituacaoSqlServer dados = new SituacaoSqlServer();
+            return dados.Select(filtro);
         }
     }
 }

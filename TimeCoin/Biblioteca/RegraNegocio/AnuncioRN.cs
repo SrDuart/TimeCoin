@@ -8,14 +8,72 @@ namespace Biblioteca.RegraNegocio
 {
     public class AnuncioRN : IAnuncio
     {
+        public void Insert(Anuncio anuncio)
+        {
+            if (!this.VerificaDuplicidade(anuncio))
+            {
+                AnuncioSqlServer dados = new AnuncioSqlServer();
+                dados.Insert(anuncio);
+            }
+            else
+            {
+                throw new Exception("Este anúncio já existe!");
+            }
+        }
+
+        public void Update(Anuncio anuncio)
+        {
+            ValidarDadosBasicos(anuncio);
+            AnuncioSqlServer dados = new AnuncioSqlServer();
+            if (dados.VerificaExistencia(anuncio))
+            {
+                dados.Update(anuncio);
+            }
+            else
+            {
+                throw new Exception("Este anúncio não existe!");
+            }
+        }
+
+        public void Delete(Anuncio anuncio)
+        {
+            if (anuncio.id <= 0)
+            {
+                throw new Exception("Informe um ID válido para exclusão");
+            }
+            AnuncioSqlServer dados = new AnuncioSqlServer();
+            if (dados.VerificaExistencia(anuncio))
+            {
+                dados.Delete(anuncio);
+            }
+            else
+            {
+                throw new Exception("Este anuncio não existe");
+            }
+
+        }
+
+        public bool VerificaDuplicidade(Anuncio anuncio)
+        {
+            ValidarDadosBasicos(anuncio);
+            AnuncioSqlServer dados = new AnuncioSqlServer();
+            return dados.VerificaDuplicidade(anuncio);
+        }
+
+        public List<Anuncio> Select()
+        {
+            AnuncioSqlServer dados = new AnuncioSqlServer();
+            return dados.Select();
+        }
+
         private void ValidarDadosBasicos(Anuncio anuncio)
         {
             if (anuncio == null)
             {
                 throw new Exception("Erro! Favor informar um anúncio.");
             }
-            
-            if(anuncio.descricao.Length > 144 || anuncio.descricao.Trim().Length == 0)
+
+            if (anuncio.descricao.Length > 144 || anuncio.descricao.Trim().Length == 0)
             {
                 throw new Exception("Informa uma descrição válida");
             }
@@ -63,62 +121,6 @@ namespace Biblioteca.RegraNegocio
             {
                 throw new Exception("Anuncio precisa ter um tipo!");
             }
-        }
-        public void Delete(Anuncio anuncio)
-        {
-            if (anuncio.id <= 0)
-            {
-                throw new Exception("Informe um ID válido para exclusão");
-            }
-            AnuncioSqlServer dados = new AnuncioSqlServer();
-            if (dados.VerificaExistencia(anuncio))
-            {
-                dados.Delete(anuncio);
-            }
-            else
-            {
-                throw new Exception("Este anuncio não existe");
-            }
-            
-        }
-
-        public void Insert(Anuncio anuncio)
-        {            
-            if (!this.VerificaDuplicidade(anuncio))
-            {
-                AnuncioSqlServer dados = new AnuncioSqlServer();
-                dados.Insert(anuncio);
-            } else
-            {
-                throw new Exception("Este anúncio já existe!");
-            }            
-        }
-
-        public List<Anuncio> Select()
-        {
-            AnuncioSqlServer dados = new AnuncioSqlServer();
-            return dados.Select();
-        }
-
-        public void Update(Anuncio anuncio)
-        {
-            ValidarDadosBasicos(anuncio);
-            AnuncioSqlServer dados = new AnuncioSqlServer();
-            if (dados.VerificaExistencia(anuncio))
-            {
-                dados.Update(anuncio);
-            }
-            else
-            {
-                throw new Exception("Este anúncio não existe!");
-            }
-        }
-
-        public bool VerificaDuplicidade(Anuncio anuncio)
-        {
-            ValidarDadosBasicos(anuncio);
-            AnuncioSqlServer dados = new AnuncioSqlServer();
-            return dados.VerificaDuplicidade(anuncio);
         }
     }
 }

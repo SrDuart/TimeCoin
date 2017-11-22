@@ -8,21 +8,33 @@ namespace Biblioteca.RegraNegocio
 {
     public class TipoUsuarioRN : ITipoUsuario
     {
-        private void ValidarDadosBasicos(TipoUsuario tipoUsuario)
+        public void Insert(TipoUsuario tipoUsuario)
         {
-            if (tipoUsuario == null)
-            {
-                throw new Exception("Erro! Favor informar um Tipo de usuário.");
-            }
+            ValidarDadosBasicos(tipoUsuario);
 
-            if (String.IsNullOrEmpty(tipoUsuario.descricao) == true || String.IsNullOrWhiteSpace(tipoUsuario.descricao) == true)
+            if (this.VerificaDuplicidade(tipoUsuario))
             {
-                throw new Exception("Erro! Campo vazio. Favor informar uma descrição do Tipo do usuário.");
+                TipoUsuarioSqlServer dados = new TipoUsuarioSqlServer();
+                dados.Insert(tipoUsuario);
             }
-
-            if (tipoUsuario.descricao.Trim().Length < 1 || tipoUsuario.descricao.Trim().Length > 15)
+            else
             {
-                throw new Exception("Erro! Número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 15.");
+                throw new Exception("Erro! Tipo de usuário já existente.");
+            }
+        }
+
+        public void Update(TipoUsuario tipoUsuario)
+        {
+            ValidarDadosBasicos(tipoUsuario);
+            TipoUsuarioSqlServer dados = new TipoUsuarioSqlServer();
+
+            if (dados.VerificaDuplicidade(tipoUsuario) == false)
+            {
+                dados.Update(tipoUsuario);
+            }
+            else
+            {
+                throw new Exception("Erro! Tipo de usuário já existente.");
             }
         }
 
@@ -42,45 +54,7 @@ namespace Biblioteca.RegraNegocio
             {
                 throw new Exception("Este tipo de usuário não existe ou já foi excluído");
             }
-        }
-
-        public void Insert(TipoUsuario tipoUsuario)
-        {
-            ValidarDadosBasicos(tipoUsuario);
-
-            if (this.VerificaDuplicidade(tipoUsuario))
-            {
-                TipoUsuarioSqlServer dados = new TipoUsuarioSqlServer();
-                dados.Insert(tipoUsuario);
-            }
-            else
-            {
-                throw new Exception("Erro! Tipo de usuário já existente.");
-            }
-            
-            
-        }
-
-        public List<TipoUsuario> Select(TipoUsuario filtro)
-        {
-            TipoUsuarioSqlServer dados = new TipoUsuarioSqlServer();
-            return dados.Select(filtro);
-        }
-
-        public void Update(TipoUsuario tipoUsuario)
-        {
-            ValidarDadosBasicos(tipoUsuario);
-            TipoUsuarioSqlServer dados = new TipoUsuarioSqlServer();
-
-            if (dados.VerificaDuplicidade(tipoUsuario) == false)
-            {                
-                dados.Update(tipoUsuario);
-            }
-            else
-            {
-                throw new Exception("Erro! Tipo de usuário já existente.");
-            }            
-        }
+        }        
 
         public bool VerificaDuplicidade(TipoUsuario tipoUsuario)
         {
@@ -98,6 +72,12 @@ namespace Biblioteca.RegraNegocio
             return dados.VerificaDuplicidade(tipoUsuario);
         }
 
+        public List<TipoUsuario> Select(TipoUsuario filtro)
+        {
+            TipoUsuarioSqlServer dados = new TipoUsuarioSqlServer();
+            return dados.Select(filtro);
+        }
+        
         public bool VerificaExistencia(TipoUsuario tipoUsuario)
         {
             if (tipoUsuario == null)
@@ -107,6 +87,24 @@ namespace Biblioteca.RegraNegocio
 
             TipoUsuarioSqlServer dados = new TipoUsuarioSqlServer();
             return dados.VerificaExistencia(tipoUsuario);
+        }
+
+        private void ValidarDadosBasicos(TipoUsuario tipoUsuario)
+        {
+            if (tipoUsuario == null)
+            {
+                throw new Exception("Erro! Favor informar um Tipo de usuário.");
+            }
+
+            if (String.IsNullOrEmpty(tipoUsuario.descricao) == true || String.IsNullOrWhiteSpace(tipoUsuario.descricao) == true)
+            {
+                throw new Exception("Erro! Campo vazio. Favor informar uma descrição do Tipo do usuário.");
+            }
+
+            if (tipoUsuario.descricao.Trim().Length < 1 || tipoUsuario.descricao.Trim().Length > 15)
+            {
+                throw new Exception("Erro! Número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 15.");
+            }
         }
     }
 }

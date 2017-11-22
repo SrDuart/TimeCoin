@@ -11,12 +11,12 @@ using WindowsForms.localhost;
 
 namespace WindowsForms
 {
-    public partial class FormTipoUsuario : Form
+    public partial class FrmTipoUsuario : Form
     {
 
         public List<TipoUsuario> lista = null;
 
-        public FormTipoUsuario()
+        public FrmTipoUsuario()
         {
             InitializeComponent();
         }
@@ -27,14 +27,14 @@ namespace WindowsForms
             {
                 Service1 serv = new Service1();
                 TipoUsuario tipo = new TipoUsuario();
-                tipo.descricao = txtDescricao.Text;
+                tipo.descricaok__BackingField = txtDescricao.Text;
                 lista = serv.TipoUsuarioSelect(tipo).ToList();
 
                 listView1.Items.Clear();
                 foreach (TipoUsuario tipousuario in lista)
                 {
-                    ListViewItem iv = listView1.Items.Add(tipousuario.id.ToString());
-                    iv.SubItems.Add(tipousuario.descricao);
+                    ListViewItem iv = listView1.Items.Add(tipousuario.idk__BackingField.ToString());
+                    iv.SubItems.Add(tipousuario.descricaok__BackingField);
                 }
 
             }
@@ -53,7 +53,7 @@ namespace WindowsForms
         {
             if (listView1.SelectedIndices != null)
             {
-                FormTipoUsuarioManter form = new FormTipoUsuarioManter();
+                FrmTipoUsuario form = new FrmTipoUsuario();
                 form.operacao = Operacao.CONSULTAR;
                 form.tipousuario = lista.ElementAt(listView1.SelectedIndices[0]);
                 form.Inicialize();
@@ -69,7 +69,7 @@ namespace WindowsForms
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            FormTipoUsuarioManter form = new FormTipoUsuarioManter();
+            FrmTipoUsuario form = new FrmTipoUsuario();
             form.operacao = Operacao.INCLUIR;
             form.Inicialize();
             form.ShowDialog(this);
