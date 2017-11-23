@@ -51,7 +51,7 @@ namespace WindowsForms
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listView1.SelectedIndices != null)
+            /*if (listView1.SelectedIndices != null)
             {
                 FrmTipoUsuario form = new FrmTipoUsuario();
                 form.operacao = Operacao.CONSULTAR;
@@ -59,7 +59,7 @@ namespace WindowsForms
                 form.Inicialize();
                 form.ShowDialog(this);
                 Atualizar();
-            }
+            }*/
         }
 
         private void txtDescricao_TextChanged(object sender, EventArgs e)
@@ -69,11 +69,11 @@ namespace WindowsForms
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            FrmTipoUsuario form = new FrmTipoUsuario();
+            /*FrmTipoUsuario form = new FrmTipoUsuario();
             form.operacao = Operacao.INCLUIR;
             form.Inicialize();
             form.ShowDialog(this);
-            Atualizar();
+            Atualizar();*/
         }
     }
 }
