@@ -78,6 +78,7 @@ namespace WindowsForms.TelasFrmPrincipal
         {
             CadastrarUsuario();
             FrmPrincipal principal = new FrmPrincipal();
+            principal.ShowDialog();
         }
     }
 }

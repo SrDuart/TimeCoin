@@ -106,7 +106,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ContextMenuStrip Menu;
+        private new System.Windows.Forms.ContextMenuStrip Menu;
         private System.Windows.Forms.ToolStripMenuItem MenuHabilidade;
         private System.Windows.Forms.ToolStripMenuItem MenuAnuncio;
         private System.Windows.Forms.ToolStripMenuItem MenuServiçoPrestado;
