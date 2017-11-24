@@ -72,10 +72,10 @@ namespace Biblioteca.RegraNegocio
             return dados.VerificaDuplicidade(tipoUsuario);
         }
 
-        public List<TipoUsuario> Select(TipoUsuario filtro)
+        public List<TipoUsuario> Select()
         {
             TipoUsuarioSqlServer dados = new TipoUsuarioSqlServer();
-            return dados.Select(filtro);
+            return dados.Select();
         }
         
         public bool VerificaExistencia(TipoUsuario tipoUsuario)

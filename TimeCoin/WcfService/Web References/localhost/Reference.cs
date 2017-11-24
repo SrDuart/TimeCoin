@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace WindowsForms.localhost {
+namespace WcfService.localhost {
     using System;
     using System.Web.Services;
     using System.Diagnostics;
@@ -129,7 +129,7 @@ namespace WindowsForms.localhost {
         
         /// <remarks/>
         public Service1() {
-            this.Url = global::WindowsForms.Properties.Settings.Default.WindowsForms_localhost_Service1;
+            this.Url = global::WcfService.Properties.Settings.Default.WcfService_localhost_Service1;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
