@@ -37,6 +37,12 @@
   <wsdl:message name="IService1_TipoUsuarioVerificaDuplicidade_OutputMessage">
     <wsdl:part name="parameters" element="tns:TipoUsuarioVerificaDuplicidadeResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_TipoUsuarioVerificaExistencia_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipoUsuarioVerificaExistencia" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TipoUsuarioVerificaExistencia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipoUsuarioVerificaExistenciaResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_SituacaoInsert_InputMessage">
     <wsdl:part name="parameters" element="tns:SituacaoInsert" />
   </wsdl:message>
@@ -61,6 +67,12 @@
   <wsdl:message name="IService1_SituacaoSelect_OutputMessage">
     <wsdl:part name="parameters" element="tns:SituacaoSelectResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_SituacaoVerificaDuplicidade_InputMessage">
+    <wsdl:part name="parameters" element="tns:SituacaoVerificaDuplicidade" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SituacaoVerificaDuplicidade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SituacaoVerificaDuplicidadeResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_UsuarioInsert_InputMessage">
     <wsdl:part name="parameters" element="tns:UsuarioInsert" />
   </wsdl:message>
@@ -79,11 +91,23 @@
   <wsdl:message name="IService1_UsuarioDelete_OutputMessage">
     <wsdl:part name="parameters" element="tns:UsuarioDeleteResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_UsuarioVerificaLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioVerificaLogin" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioVerificaLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioVerificaLoginResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_UsuarioSelect_InputMessage">
     <wsdl:part name="parameters" element="tns:UsuarioSelect" />
   </wsdl:message>
   <wsdl:message name="IService1_UsuarioSelect_OutputMessage">
     <wsdl:part name="parameters" element="tns:UsuarioSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioVerificaDuplicidade_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioVerificaDuplicidade" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioVerificaDuplicidade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioVerificaDuplicidadeResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_ServicoInsert_InputMessage">
     <wsdl:part name="parameters" element="tns:ServicoInsert" />
@@ -109,47 +133,47 @@
   <wsdl:message name="IService1_ServicoSelect_OutputMessage">
     <wsdl:part name="parameters" element="tns:ServicoSelectResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_AtividadeInsert_InputMessage">
-    <wsdl:part name="parameters" element="tns:AtividadeInsert" />
+  <wsdl:message name="IService1_ServicoVerificaDuplicidade_InputMessage">
+    <wsdl:part name="parameters" element="tns:ServicoVerificaDuplicidade" />
   </wsdl:message>
-  <wsdl:message name="IService1_AtividadeInsert_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AtividadeInsertResponse" />
+  <wsdl:message name="IService1_ServicoVerificaDuplicidade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ServicoVerificaDuplicidadeResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_AtividadeUpdate_InputMessage">
-    <wsdl:part name="parameters" element="tns:AtividadeUpdate" />
+  <wsdl:message name="IService1_HabilidadeInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:HabilidadeInsert" />
   </wsdl:message>
-  <wsdl:message name="IService1_AtividadeUpdate_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AtividadeUpdateResponse" />
+  <wsdl:message name="IService1_HabilidadeInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HabilidadeInsertResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_AtividadeDelete_InputMessage">
-    <wsdl:part name="parameters" element="tns:AtividadeDelete" />
+  <wsdl:message name="IService1_HabilidadeUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:HabilidadeUpdate" />
   </wsdl:message>
-  <wsdl:message name="IService1_AtividadeDelete_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AtividadeDeleteResponse" />
+  <wsdl:message name="IService1_HabilidadeUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HabilidadeUpdateResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_AtividadeSelect_InputMessage">
-    <wsdl:part name="parameters" element="tns:AtividadeSelect" />
+  <wsdl:message name="IService1_HabilidadeDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:HabilidadeDelete" />
   </wsdl:message>
-  <wsdl:message name="IService1_AtividadeSelect_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AtividadeSelectResponse" />
+  <wsdl:message name="IService1_HabilidadeDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HabilidadeDeleteResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_AtividadeVerificaDuplicidade_InputMessage">
-    <wsdl:part name="parameters" element="tns:AtividadeVerificaDuplicidade" />
+  <wsdl:message name="IService1_HabilidadeSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:HabilidadeSelect" />
   </wsdl:message>
-  <wsdl:message name="IService1_AtividadeVerificaDuplicidade_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AtividadeVerificaDuplicidadeResponse" />
+  <wsdl:message name="IService1_HabilidadeSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HabilidadeSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_HabilidadeVerificaDuplicidade_InputMessage">
+    <wsdl:part name="parameters" element="tns:HabilidadeVerificaDuplicidade" />
+  </wsdl:message>
+  <wsdl:message name="IService1_HabilidadeVerificaDuplicidade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HabilidadeVerificaDuplicidadeResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_PrestaInsert_InputMessage">
     <wsdl:part name="parameters" element="tns:PrestaInsert" />
   </wsdl:message>
   <wsdl:message name="IService1_PrestaInsert_OutputMessage">
     <wsdl:part name="parameters" element="tns:PrestaInsertResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_PrestaUpdate_InputMessage">
-    <wsdl:part name="parameters" element="tns:PrestaUpdate" />
-  </wsdl:message>
-  <wsdl:message name="IService1_PrestaUpdate_OutputMessage">
-    <wsdl:part name="parameters" element="tns:PrestaUpdateResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_PrestaDelete_InputMessage">
     <wsdl:part name="parameters" element="tns:PrestaDelete" />
@@ -163,23 +187,11 @@
   <wsdl:message name="IService1_PrestaSelect_OutputMessage">
     <wsdl:part name="parameters" element="tns:PrestaSelectResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_PrestaVerificaDuplicidade_InputMessage">
-    <wsdl:part name="parameters" element="tns:PrestaVerificaDuplicidade" />
-  </wsdl:message>
-  <wsdl:message name="IService1_PrestaVerificaDuplicidade_OutputMessage">
-    <wsdl:part name="parameters" element="tns:PrestaVerificaDuplicidadeResponse" />
-  </wsdl:message>
   <wsdl:message name="IService1_RecebeInsert_InputMessage">
     <wsdl:part name="parameters" element="tns:RecebeInsert" />
   </wsdl:message>
   <wsdl:message name="IService1_RecebeInsert_OutputMessage">
     <wsdl:part name="parameters" element="tns:RecebeInsertResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_RecebeUpdate_InputMessage">
-    <wsdl:part name="parameters" element="tns:RecebeUpdate" />
-  </wsdl:message>
-  <wsdl:message name="IService1_RecebeUpdate_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RecebeUpdateResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_RecebeDelete_InputMessage">
     <wsdl:part name="parameters" element="tns:RecebeDelete" />
@@ -193,11 +205,95 @@
   <wsdl:message name="IService1_RecebeSelect_OutputMessage">
     <wsdl:part name="parameters" element="tns:RecebeSelectResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_RecebeVerificaDuplicidade_InputMessage">
-    <wsdl:part name="parameters" element="tns:RecebeVerificaDuplicidade" />
+  <wsdl:message name="IService1_AnuncioInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:AnuncioInsert" />
   </wsdl:message>
-  <wsdl:message name="IService1_RecebeVerificaDuplicidade_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RecebeVerificaDuplicidadeResponse" />
+  <wsdl:message name="IService1_AnuncioInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AnuncioInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AnuncioUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:AnuncioUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AnuncioUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AnuncioUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AnuncioDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:AnuncioDelete" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AnuncioDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AnuncioDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AnuncioSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:AnuncioSelect" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AnuncioSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AnuncioSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AnuncioVerificaDuplicidade_InputMessage">
+    <wsdl:part name="parameters" element="tns:AnuncioVerificaDuplicidade" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AnuncioVerificaDuplicidade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AnuncioVerificaDuplicidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TipoAnuncioInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipoAnuncioInsert" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TipoAnuncioInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipoAnuncioInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TipoAnuncioUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipoAnuncioUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TipoAnuncioUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipoAnuncioUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TipoAnuncioDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipoAnuncioDelete" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TipoAnuncioDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipoAnuncioDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TipoAnuncioSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipoAnuncioSelect" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TipoAnuncioSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipoAnuncioSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TipoAnuncioVerificaDuplicidade_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipoAnuncioVerificaDuplicidade" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TipoAnuncioVerificaDuplicidade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipoAnuncioVerificaDuplicidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioHabilidadeInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioHabilidadeInsert" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioHabilidadeInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioHabilidadeInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioHabilidadeUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioHabilidadeUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioHabilidadeUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioHabilidadeUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioHabilidadeDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioHabilidadeDelete" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioHabilidadeDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioHabilidadeDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioHabilidadeSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioHabilidadeSelect" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioHabilidadeSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioHabilidadeSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioHabilidadeVerificaDuplicidade_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioHabilidadeVerificaDuplicidade" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioHabilidadeVerificaDuplicidade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioHabilidadeVerificaDuplicidadeResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="TipoUsuarioInsert">
@@ -220,6 +316,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/TipoUsuarioVerificaDuplicidade" message="tns:IService1_TipoUsuarioVerificaDuplicidade_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/TipoUsuarioVerificaDuplicidadeResponse" message="tns:IService1_TipoUsuarioVerificaDuplicidade_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="TipoUsuarioVerificaExistencia">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/TipoUsuarioVerificaExistencia" message="tns:IService1_TipoUsuarioVerificaExistencia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TipoUsuarioVerificaExistenciaResponse" message="tns:IService1_TipoUsuarioVerificaExistencia_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="SituacaoInsert">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SituacaoInsert" message="tns:IService1_SituacaoInsert_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SituacaoInsertResponse" message="tns:IService1_SituacaoInsert_OutputMessage" />
@@ -236,6 +336,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SituacaoSelect" message="tns:IService1_SituacaoSelect_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SituacaoSelectResponse" message="tns:IService1_SituacaoSelect_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="SituacaoVerificaDuplicidade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SituacaoVerificaDuplicidade" message="tns:IService1_SituacaoVerificaDuplicidade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SituacaoVerificaDuplicidadeResponse" message="tns:IService1_SituacaoVerificaDuplicidade_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="UsuarioInsert">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioInsert" message="tns:IService1_UsuarioInsert_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsuarioInsertResponse" message="tns:IService1_UsuarioInsert_OutputMessage" />
@@ -248,9 +352,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioDelete" message="tns:IService1_UsuarioDelete_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsuarioDeleteResponse" message="tns:IService1_UsuarioDelete_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UsuarioVerificaLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioVerificaLogin" message="tns:IService1_UsuarioVerificaLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsuarioVerificaLoginResponse" message="tns:IService1_UsuarioVerificaLogin_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="UsuarioSelect">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioSelect" message="tns:IService1_UsuarioSelect_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsuarioSelectResponse" message="tns:IService1_UsuarioSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioVerificaDuplicidade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioVerificaDuplicidade" message="tns:IService1_UsuarioVerificaDuplicidade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsuarioVerificaDuplicidadeResponse" message="tns:IService1_UsuarioVerificaDuplicidade_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ServicoInsert">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ServicoInsert" message="tns:IService1_ServicoInsert_InputMessage" />
@@ -268,33 +380,33 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ServicoSelect" message="tns:IService1_ServicoSelect_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ServicoSelectResponse" message="tns:IService1_ServicoSelect_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AtividadeInsert">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AtividadeInsert" message="tns:IService1_AtividadeInsert_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AtividadeInsertResponse" message="tns:IService1_AtividadeInsert_OutputMessage" />
+    <wsdl:operation name="ServicoVerificaDuplicidade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ServicoVerificaDuplicidade" message="tns:IService1_ServicoVerificaDuplicidade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ServicoVerificaDuplicidadeResponse" message="tns:IService1_ServicoVerificaDuplicidade_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AtividadeUpdate">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AtividadeUpdate" message="tns:IService1_AtividadeUpdate_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AtividadeUpdateResponse" message="tns:IService1_AtividadeUpdate_OutputMessage" />
+    <wsdl:operation name="HabilidadeInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/HabilidadeInsert" message="tns:IService1_HabilidadeInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/HabilidadeInsertResponse" message="tns:IService1_HabilidadeInsert_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AtividadeDelete">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AtividadeDelete" message="tns:IService1_AtividadeDelete_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AtividadeDeleteResponse" message="tns:IService1_AtividadeDelete_OutputMessage" />
+    <wsdl:operation name="HabilidadeUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/HabilidadeUpdate" message="tns:IService1_HabilidadeUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/HabilidadeUpdateResponse" message="tns:IService1_HabilidadeUpdate_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AtividadeSelect">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AtividadeSelect" message="tns:IService1_AtividadeSelect_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AtividadeSelectResponse" message="tns:IService1_AtividadeSelect_OutputMessage" />
+    <wsdl:operation name="HabilidadeDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/HabilidadeDelete" message="tns:IService1_HabilidadeDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/HabilidadeDeleteResponse" message="tns:IService1_HabilidadeDelete_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AtividadeVerificaDuplicidade">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AtividadeVerificaDuplicidade" message="tns:IService1_AtividadeVerificaDuplicidade_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AtividadeVerificaDuplicidadeResponse" message="tns:IService1_AtividadeVerificaDuplicidade_OutputMessage" />
+    <wsdl:operation name="HabilidadeSelect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/HabilidadeSelect" message="tns:IService1_HabilidadeSelect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/HabilidadeSelectResponse" message="tns:IService1_HabilidadeSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HabilidadeVerificaDuplicidade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/HabilidadeVerificaDuplicidade" message="tns:IService1_HabilidadeVerificaDuplicidade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/HabilidadeVerificaDuplicidadeResponse" message="tns:IService1_HabilidadeVerificaDuplicidade_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="PrestaInsert">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/PrestaInsert" message="tns:IService1_PrestaInsert_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/PrestaInsertResponse" message="tns:IService1_PrestaInsert_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="PrestaUpdate">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PrestaUpdate" message="tns:IService1_PrestaUpdate_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PrestaUpdateResponse" message="tns:IService1_PrestaUpdate_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="PrestaDelete">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/PrestaDelete" message="tns:IService1_PrestaDelete_InputMessage" />
@@ -304,17 +416,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/PrestaSelect" message="tns:IService1_PrestaSelect_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/PrestaSelectResponse" message="tns:IService1_PrestaSelect_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="PrestaVerificaDuplicidade">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PrestaVerificaDuplicidade" message="tns:IService1_PrestaVerificaDuplicidade_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PrestaVerificaDuplicidadeResponse" message="tns:IService1_PrestaVerificaDuplicidade_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="RecebeInsert">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RecebeInsert" message="tns:IService1_RecebeInsert_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/RecebeInsertResponse" message="tns:IService1_RecebeInsert_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RecebeUpdate">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RecebeUpdate" message="tns:IService1_RecebeUpdate_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RecebeUpdateResponse" message="tns:IService1_RecebeUpdate_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RecebeDelete">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RecebeDelete" message="tns:IService1_RecebeDelete_InputMessage" />
@@ -324,9 +428,65 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RecebeSelect" message="tns:IService1_RecebeSelect_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/RecebeSelectResponse" message="tns:IService1_RecebeSelect_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="RecebeVerificaDuplicidade">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RecebeVerificaDuplicidade" message="tns:IService1_RecebeVerificaDuplicidade_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RecebeVerificaDuplicidadeResponse" message="tns:IService1_RecebeVerificaDuplicidade_OutputMessage" />
+    <wsdl:operation name="AnuncioInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AnuncioInsert" message="tns:IService1_AnuncioInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AnuncioInsertResponse" message="tns:IService1_AnuncioInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AnuncioUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AnuncioUpdate" message="tns:IService1_AnuncioUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AnuncioUpdateResponse" message="tns:IService1_AnuncioUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AnuncioDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AnuncioDelete" message="tns:IService1_AnuncioDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AnuncioDeleteResponse" message="tns:IService1_AnuncioDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AnuncioSelect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AnuncioSelect" message="tns:IService1_AnuncioSelect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AnuncioSelectResponse" message="tns:IService1_AnuncioSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AnuncioVerificaDuplicidade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AnuncioVerificaDuplicidade" message="tns:IService1_AnuncioVerificaDuplicidade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AnuncioVerificaDuplicidadeResponse" message="tns:IService1_AnuncioVerificaDuplicidade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoAnuncioInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/TipoAnuncioInsert" message="tns:IService1_TipoAnuncioInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TipoAnuncioInsertResponse" message="tns:IService1_TipoAnuncioInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoAnuncioUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/TipoAnuncioUpdate" message="tns:IService1_TipoAnuncioUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TipoAnuncioUpdateResponse" message="tns:IService1_TipoAnuncioUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoAnuncioDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/TipoAnuncioDelete" message="tns:IService1_TipoAnuncioDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TipoAnuncioDeleteResponse" message="tns:IService1_TipoAnuncioDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoAnuncioSelect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/TipoAnuncioSelect" message="tns:IService1_TipoAnuncioSelect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TipoAnuncioSelectResponse" message="tns:IService1_TipoAnuncioSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoAnuncioVerificaDuplicidade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/TipoAnuncioVerificaDuplicidade" message="tns:IService1_TipoAnuncioVerificaDuplicidade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TipoAnuncioVerificaDuplicidadeResponse" message="tns:IService1_TipoAnuncioVerificaDuplicidade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioHabilidadeInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioHabilidadeInsert" message="tns:IService1_UsuarioHabilidadeInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsuarioHabilidadeInsertResponse" message="tns:IService1_UsuarioHabilidadeInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioHabilidadeUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioHabilidadeUpdate" message="tns:IService1_UsuarioHabilidadeUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsuarioHabilidadeUpdateResponse" message="tns:IService1_UsuarioHabilidadeUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioHabilidadeDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioHabilidadeDelete" message="tns:IService1_UsuarioHabilidadeDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsuarioHabilidadeDeleteResponse" message="tns:IService1_UsuarioHabilidadeDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioHabilidadeSelect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioHabilidadeSelect" message="tns:IService1_UsuarioHabilidadeSelect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsuarioHabilidadeSelectResponse" message="tns:IService1_UsuarioHabilidadeSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioHabilidadeVerificaDuplicidade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioHabilidadeVerificaDuplicidade" message="tns:IService1_UsuarioHabilidadeVerificaDuplicidade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsuarioHabilidadeVerificaDuplicidadeResponse" message="tns:IService1_UsuarioHabilidadeVerificaDuplicidade_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -376,6 +536,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="TipoUsuarioVerificaExistencia">
+      <soap:operation soapAction="http://tempuri.org/IService1/TipoUsuarioVerificaExistencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SituacaoInsert">
       <soap:operation soapAction="http://tempuri.org/IService1/SituacaoInsert" style="document" />
       <wsdl:input>
@@ -412,6 +581,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SituacaoVerificaDuplicidade">
+      <soap:operation soapAction="http://tempuri.org/IService1/SituacaoVerificaDuplicidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="UsuarioInsert">
       <soap:operation soapAction="http://tempuri.org/IService1/UsuarioInsert" style="document" />
       <wsdl:input>
@@ -439,8 +617,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UsuarioVerificaLogin">
+      <soap:operation soapAction="http://tempuri.org/IService1/UsuarioVerificaLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="UsuarioSelect">
       <soap:operation soapAction="http://tempuri.org/IService1/UsuarioSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioVerificaDuplicidade">
+      <soap:operation soapAction="http://tempuri.org/IService1/UsuarioVerificaDuplicidade" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -484,8 +680,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AtividadeInsert">
-      <soap:operation soapAction="http://tempuri.org/IService1/AtividadeInsert" style="document" />
+    <wsdl:operation name="ServicoVerificaDuplicidade">
+      <soap:operation soapAction="http://tempuri.org/IService1/ServicoVerificaDuplicidade" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -493,8 +689,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AtividadeUpdate">
-      <soap:operation soapAction="http://tempuri.org/IService1/AtividadeUpdate" style="document" />
+    <wsdl:operation name="HabilidadeInsert">
+      <soap:operation soapAction="http://tempuri.org/IService1/HabilidadeInsert" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -502,8 +698,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AtividadeDelete">
-      <soap:operation soapAction="http://tempuri.org/IService1/AtividadeDelete" style="document" />
+    <wsdl:operation name="HabilidadeUpdate">
+      <soap:operation soapAction="http://tempuri.org/IService1/HabilidadeUpdate" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -511,8 +707,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AtividadeSelect">
-      <soap:operation soapAction="http://tempuri.org/IService1/AtividadeSelect" style="document" />
+    <wsdl:operation name="HabilidadeDelete">
+      <soap:operation soapAction="http://tempuri.org/IService1/HabilidadeDelete" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -520,8 +716,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AtividadeVerificaDuplicidade">
-      <soap:operation soapAction="http://tempuri.org/IService1/AtividadeVerificaDuplicidade" style="document" />
+    <wsdl:operation name="HabilidadeSelect">
+      <soap:operation soapAction="http://tempuri.org/IService1/HabilidadeSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HabilidadeVerificaDuplicidade">
+      <soap:operation soapAction="http://tempuri.org/IService1/HabilidadeVerificaDuplicidade" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -531,15 +736,6 @@
     </wsdl:operation>
     <wsdl:operation name="PrestaInsert">
       <soap:operation soapAction="http://tempuri.org/IService1/PrestaInsert" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PrestaUpdate">
-      <soap:operation soapAction="http://tempuri.org/IService1/PrestaUpdate" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -565,26 +761,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="PrestaVerificaDuplicidade">
-      <soap:operation soapAction="http://tempuri.org/IService1/PrestaVerificaDuplicidade" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="RecebeInsert">
       <soap:operation soapAction="http://tempuri.org/IService1/RecebeInsert" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RecebeUpdate">
-      <soap:operation soapAction="http://tempuri.org/IService1/RecebeUpdate" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -610,8 +788,134 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="RecebeVerificaDuplicidade">
-      <soap:operation soapAction="http://tempuri.org/IService1/RecebeVerificaDuplicidade" style="document" />
+    <wsdl:operation name="AnuncioInsert">
+      <soap:operation soapAction="http://tempuri.org/IService1/AnuncioInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnuncioUpdate">
+      <soap:operation soapAction="http://tempuri.org/IService1/AnuncioUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnuncioDelete">
+      <soap:operation soapAction="http://tempuri.org/IService1/AnuncioDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnuncioSelect">
+      <soap:operation soapAction="http://tempuri.org/IService1/AnuncioSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnuncioVerificaDuplicidade">
+      <soap:operation soapAction="http://tempuri.org/IService1/AnuncioVerificaDuplicidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoAnuncioInsert">
+      <soap:operation soapAction="http://tempuri.org/IService1/TipoAnuncioInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoAnuncioUpdate">
+      <soap:operation soapAction="http://tempuri.org/IService1/TipoAnuncioUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoAnuncioDelete">
+      <soap:operation soapAction="http://tempuri.org/IService1/TipoAnuncioDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoAnuncioSelect">
+      <soap:operation soapAction="http://tempuri.org/IService1/TipoAnuncioSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoAnuncioVerificaDuplicidade">
+      <soap:operation soapAction="http://tempuri.org/IService1/TipoAnuncioVerificaDuplicidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioHabilidadeInsert">
+      <soap:operation soapAction="http://tempuri.org/IService1/UsuarioHabilidadeInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioHabilidadeUpdate">
+      <soap:operation soapAction="http://tempuri.org/IService1/UsuarioHabilidadeUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioHabilidadeDelete">
+      <soap:operation soapAction="http://tempuri.org/IService1/UsuarioHabilidadeDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioHabilidadeSelect">
+      <soap:operation soapAction="http://tempuri.org/IService1/UsuarioHabilidadeSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioHabilidadeVerificaDuplicidade">
+      <soap:operation soapAction="http://tempuri.org/IService1/UsuarioHabilidadeVerificaDuplicidade" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

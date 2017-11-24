@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsForms
+namespace WindowsForms.TelasFrmAdm
 {
-    public partial class FrmHabilidade : Form
+    public partial class FrmPrincipalAdm : Form
     {
-        public FrmHabilidade()
+        public FrmPrincipalAdm()
         {
             InitializeComponent();
         }

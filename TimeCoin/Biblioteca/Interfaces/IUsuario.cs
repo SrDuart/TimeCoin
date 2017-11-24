@@ -8,7 +8,8 @@ namespace Biblioteca.Interfaces
 		void Insert(Usuario usuario);
 		void Update(Usuario usuario);
 		void Delete(Usuario usuario);
-		bool VerificaDuplicidade(Usuario usuario);       
+        void VerificaLogin(Usuario usuario);
+        bool VerificaDuplicidade(Usuario usuario);
         List<Usuario> Select(Usuario filtro);
 	}
 }
