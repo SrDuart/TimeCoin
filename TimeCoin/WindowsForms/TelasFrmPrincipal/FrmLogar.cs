@@ -58,5 +58,10 @@ namespace WindowsForms.TelasFrmPrincipal
         {
 
         }
+
+        private void txtSenha_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
