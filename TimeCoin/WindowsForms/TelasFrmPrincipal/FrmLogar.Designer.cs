@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.btnCadastrar = new System.Windows.Forms.Button();
-            this.btnMudarSenha = new System.Windows.Forms.Button();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.lbSenha = new System.Windows.Forms.Label();
@@ -42,7 +41,7 @@
             // btnCadastrar
             // 
             this.btnCadastrar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(363, 512);
+            this.btnCadastrar.Location = new System.Drawing.Point(426, 486);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(110, 30);
             this.btnCadastrar.TabIndex = 16;
@@ -104,7 +103,7 @@
             // btnLogar
             // 
             this.btnLogar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogar.Location = new System.Drawing.Point(227, 511);
+            this.btnLogar.Location = new System.Drawing.Point(290, 485);
             this.btnLogar.Name = "btnLogar";
             this.btnLogar.Size = new System.Drawing.Size(110, 30);
             this.btnLogar.TabIndex = 18;
@@ -130,7 +129,6 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLogar);
             this.Controls.Add(this.btnCadastrar);
-            this.Controls.Add(this.btnMudarSenha);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lbSenha);
@@ -147,7 +145,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.Button btnMudarSenha;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label lbSenha;
