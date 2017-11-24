@@ -48,7 +48,7 @@
             this.txtUf = new System.Windows.Forms.TextBox();
             this.lblCidade = new System.Windows.Forms.Label();
             this.txtCidade = new System.Windows.Forms.TextBox();
-            this.richTextBoxDescricao = new System.Windows.Forms.RichTextBox();
+            this.richTxtBoxDescricao = new System.Windows.Forms.RichTextBox();
             this.lblDescricao = new System.Windows.Forms.Label();
             this.lblTipoUsuario = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
@@ -225,13 +225,13 @@
             this.txtCidade.Size = new System.Drawing.Size(92, 20);
             this.txtCidade.TabIndex = 18;
             // 
-            // richTextBoxDescricao
+            // richTxtBoxDescricao
             // 
-            this.richTextBoxDescricao.Location = new System.Drawing.Point(21, 205);
-            this.richTextBoxDescricao.Name = "richTextBoxDescricao";
-            this.richTextBoxDescricao.Size = new System.Drawing.Size(229, 74);
-            this.richTextBoxDescricao.TabIndex = 20;
-            this.richTextBoxDescricao.Text = "";
+            this.richTxtBoxDescricao.Location = new System.Drawing.Point(21, 205);
+            this.richTxtBoxDescricao.Name = "richTxtBoxDescricao";
+            this.richTxtBoxDescricao.Size = new System.Drawing.Size(229, 74);
+            this.richTxtBoxDescricao.TabIndex = 20;
+            this.richTxtBoxDescricao.Text = "";
             // 
             // lblDescricao
             // 
@@ -261,6 +261,7 @@
             this.btnCadastrar.TabIndex = 24;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // comboBox1
             // 
@@ -279,7 +280,7 @@
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.lblTipoUsuario);
             this.Controls.Add(this.lblDescricao);
-            this.Controls.Add(this.richTextBoxDescricao);
+            this.Controls.Add(this.richTxtBoxDescricao);
             this.Controls.Add(this.lblCidade);
             this.Controls.Add(this.txtCidade);
             this.Controls.Add(this.label2);
@@ -330,7 +331,7 @@
         private System.Windows.Forms.TextBox txtUf;
         private System.Windows.Forms.Label lblCidade;
         private System.Windows.Forms.TextBox txtCidade;
-        private System.Windows.Forms.RichTextBox richTextBoxDescricao;
+        private System.Windows.Forms.RichTextBox richTxtBoxDescricao;
         private System.Windows.Forms.Label lblDescricao;
         private System.Windows.Forms.Label lblTipoUsuario;
         private System.Windows.Forms.Button btnCadastrar;

@@ -58,6 +58,9 @@ namespace WcfService
         void UsuarioDelete(Usuario usuario);
 
         [OperationContract]
+        void UsuarioVerificaLogin(Usuario usuario);
+
+        [OperationContract]
         List<Usuario> UsuarioSelect(Usuario filtro);
 
         [OperationContract]
