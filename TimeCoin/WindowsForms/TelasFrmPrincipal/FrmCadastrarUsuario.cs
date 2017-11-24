@@ -13,15 +13,18 @@ namespace WindowsForms.TelasFrmPrincipal
 {
     public partial class FrmCadastrarUsuario : Form
     {
+        int[] idTipoUsuario;
         public FrmCadastrarUsuario()
         {
             InitializeComponent();
             Service1 sv = new Service1();
-            TipoUsuario[] list = new TipoUsuario[sv.TipoUsuarioSelect().Length];
-            list = sv.TipoUsuarioSelect();
-            for (int i = 0; i < list.Length; i++)
+            TipoUsuario[] listTipoUsuario = new TipoUsuario[sv.TipoUsuarioSelect().Length];
+            listTipoUsuario = sv.TipoUsuarioSelect();
+            idTipoUsuario = new int[sv.TipoUsuarioSelect().Length];
+            for (int i = 0; i < listTipoUsuario.Length; i++)
             {
-                comboBox1.Items.Add(list[i].descricao);
+                comboBox1.Items.Add(listTipoUsuario[i].descricao);
+                idTipoUsuario[i] = listTipoUsuario[i].id;
             }
         }
 
@@ -37,7 +40,7 @@ namespace WindowsForms.TelasFrmPrincipal
                 usuario.tipoUsuario = new TipoUsuario();
                 usuario.situacao = new Situacao();
 
-                usuario.tipoUsuario.id = Convert.ToInt32(1);
+                usuario.tipoUsuario.id = Convert.ToInt32(idTipoUsuario[comboBox1.SelectedIndex]);
                 usuario.situacao.id = Convert.ToInt32(1);
 
                 usuario.nome = txtNome.Text;
@@ -54,13 +57,16 @@ namespace WindowsForms.TelasFrmPrincipal
                 #endregion
 
                 sv.UsuarioInsert(usuario);
+
                 MessageBox.Show("Usuario cadastrado com sucesso");
+
+                this.Close();
             }
             catch(Exception ex) {
-               throw ex;
+                MessageBox.Show(ex.Message);
             }
             
-            this.Close();
+            
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
