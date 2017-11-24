@@ -48,7 +48,7 @@
             this.btnCadastrar.Text = "Cadastrar-se";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
-            // 
+            /*
             // btnMudarSenha
             // 
             this.btnMudarSenha.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -59,6 +59,7 @@
             this.btnMudarSenha.Text = "Mudar Senha";
             this.btnMudarSenha.UseVisualStyleBackColor = true;
             this.btnMudarSenha.Click += new System.EventHandler(this.btnMudarSenha_Click);
+            */
             // 
             // txtSenha
             // 
