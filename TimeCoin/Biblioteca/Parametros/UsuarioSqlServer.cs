@@ -19,7 +19,7 @@ namespace Biblioteca.Parametros
                 string sql = "INSERT INTO Usuario (nome, userName, cpf_cnpj, telefoneFixo, telefoneCelular, ";
                 sql += "uf, cidade, bairro, email, senha, descricao, dataCadastro, qtdHoraTrabalhada, qtdHoraDisponivel, Id_Situacao, Id_TipoUsuario) VALUES ";
                 sql += "(@nome , @userName, @cpf_cnpj, @telefoneFixo, @telefoneCelular, @uf, @cidade, @bairro, @email, @senha, @descricao, @dataCadastro,";
-                sql += "@qtdHoraTrabalhada, @qtdHoraDisponivel, @Id_Situacao, @Id_TipoUsuario) ";
+                sql += "@qtdHoraTrabalhada, @qtdHoraDisponivel, @Id_Situacao, @Id_TipoUsuario);";
 
                 #endregion
 
@@ -69,12 +69,12 @@ namespace Biblioteca.Parametros
 
                 /*Procurar uma solução parar usar a descrição do tipo usuario*/
 
-                if (usuario.tipoUsuario.descricao == "Voluntário")
+                if (usuario.tipoUsuario.id == 1)
                 {
                     cmd.Parameters.Add("@qtdHoraDisponivel", SqlDbType.Int);
                     cmd.Parameters["@qtdHoraDisponivel"].Value = 0;
                 }
-                else
+                else if(usuario.tipoUsuario.id == 2)
                 {
                     cmd.Parameters.Add("@qtdHoraDisponivel", SqlDbType.Int);
                     cmd.Parameters["@qtdHoraDisponivel"].Value = 1000;
