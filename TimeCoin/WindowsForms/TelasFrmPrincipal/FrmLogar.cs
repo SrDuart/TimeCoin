@@ -63,5 +63,10 @@ namespace WindowsForms.TelasFrmPrincipal
         {
             
         }
+
+        private void btnAlterarSenha_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
