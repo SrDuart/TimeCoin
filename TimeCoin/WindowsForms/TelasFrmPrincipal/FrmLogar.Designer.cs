@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.btnCadastrar = new System.Windows.Forms.Button();
-            this.btnMudarSenha = new System.Windows.Forms.Button();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.lbSenha = new System.Windows.Forms.Label();
@@ -41,24 +40,13 @@
             // btnCadastrar
             // 
             this.btnCadastrar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(329, 474);
+            this.btnCadastrar.Location = new System.Drawing.Point(426, 486);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(110, 30);
             this.btnCadastrar.TabIndex = 16;
             this.btnCadastrar.Text = "Cadastrar-se";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
-            // 
-            // btnMudarSenha
-            // 
-            this.btnMudarSenha.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMudarSenha.Location = new System.Drawing.Point(465, 473);
-            this.btnMudarSenha.Name = "btnMudarSenha";
-            this.btnMudarSenha.Size = new System.Drawing.Size(110, 30);
-            this.btnMudarSenha.TabIndex = 15;
-            this.btnMudarSenha.Text = "Mudar Senha";
-            this.btnMudarSenha.UseVisualStyleBackColor = true;
-            this.btnMudarSenha.Click += new System.EventHandler(this.btnMudarSenha_Click);
             // 
             // txtSenha
             // 
@@ -100,7 +88,7 @@
             // btnLogar
             // 
             this.btnLogar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogar.Location = new System.Drawing.Point(193, 473);
+            this.btnLogar.Location = new System.Drawing.Point(290, 485);
             this.btnLogar.Name = "btnLogar";
             this.btnLogar.Size = new System.Drawing.Size(110, 30);
             this.btnLogar.TabIndex = 18;
@@ -123,7 +111,6 @@
             this.ClientSize = new System.Drawing.Size(824, 701);
             this.Controls.Add(this.btnLogar);
             this.Controls.Add(this.btnCadastrar);
-            this.Controls.Add(this.btnMudarSenha);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lbSenha);
@@ -140,7 +127,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.Button btnMudarSenha;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label lbSenha;
