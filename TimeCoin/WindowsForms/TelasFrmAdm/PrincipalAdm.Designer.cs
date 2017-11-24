@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnAnuncio = new System.Windows.Forms.Button();
             this.btnHabilidade = new System.Windows.Forms.Button();
             this.btnPresta = new System.Windows.Forms.Button();
@@ -40,14 +39,6 @@
             this.btnTipoAnuncio = new System.Windows.Forms.Button();
             this.btnUsuario = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(824, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // btnAnuncio
             // 
@@ -164,19 +155,14 @@
             this.Controls.Add(this.btnPresta);
             this.Controls.Add(this.btnHabilidade);
             this.Controls.Add(this.btnAnuncio);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmPrincipalAdm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela Administrador";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Button btnAnuncio;
         private System.Windows.Forms.Button btnHabilidade;
         private System.Windows.Forms.Button btnPresta;
