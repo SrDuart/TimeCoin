@@ -4,6 +4,7 @@ using System.Runtime.Serialization;
 namespace Biblioteca.ClassesBasicas
 {
     [Serializable]
+    [DataContract]
     public class TipoAnuncio
     {
         [DataMember(IsRequired = true)]

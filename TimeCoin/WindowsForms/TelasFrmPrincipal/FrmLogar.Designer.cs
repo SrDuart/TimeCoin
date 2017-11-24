@@ -34,8 +34,8 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.lbSenha = new System.Windows.Forms.Label();
             this.lbUsuario = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnLogar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCadastrar
@@ -95,14 +95,7 @@
             this.lbUsuario.Size = new System.Drawing.Size(64, 23);
             this.lbUsuario.TabIndex = 10;
             this.lbUsuario.Text = "Usuário";
-            // 
-            // label1
-            // 
-            this.label1.Image = global::WindowsForms.Properties.Resources.Logo_400;
-            this.label1.Location = new System.Drawing.Point(221, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(381, 339);
-            this.label1.TabIndex = 17;
+            this.lbUsuario.Click += new System.EventHandler(this.lbUsuario_Click);
             // 
             // btnLogar
             // 
@@ -113,6 +106,15 @@
             this.btnLogar.TabIndex = 18;
             this.btnLogar.Text = "Logar";
             this.btnLogar.UseVisualStyleBackColor = true;
+            this.btnLogar.Click += new System.EventHandler(this.btnLogar_Click);
+            // 
+            // label1
+            // 
+            this.label1.Image = global::WindowsForms.Properties.Resources.Logo_400;
+            this.label1.Location = new System.Drawing.Point(221, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(381, 339);
+            this.label1.TabIndex = 17;
             // 
             // FrmLogar
             // 

@@ -1,6 +1,6 @@
-﻿namespace WindowsForms
+﻿namespace WindowsForms.TelasFrmPrincipal
 {
-    partial class FrmHabilidade
+    partial class FrmSenha
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "FrmHabilidade";
+            this.Text = "FrmSenha";
         }
 
         #endregion

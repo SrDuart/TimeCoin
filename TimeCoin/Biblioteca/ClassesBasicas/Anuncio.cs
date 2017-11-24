@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace Biblioteca.ClassesBasicas
 {
-    [Serializable]
+    [DataContract]
     public class Anuncio
 	{
         [DataMember(IsRequired = true)]
