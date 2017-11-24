@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsForms.localhost;
+using WindowsForms.TelasFrmUsuario;
 
 namespace WindowsForms.TelasFrmPrincipal
 {
@@ -61,11 +62,12 @@ namespace WindowsForms.TelasFrmPrincipal
 
                 sv.UsuarioInsert(usuario);
 
-                MessageBox.Show("Usuario cadastrado com sucesso");
+                MessageBox.Show("Usuário cadastrado com sucesso");
 
                 this.Close();
             }
-            catch(Exception ex) {
+            catch(Exception ex)
+            {
                 MessageBox.Show(ex.Message);
             }
             
@@ -75,6 +77,7 @@ namespace WindowsForms.TelasFrmPrincipal
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             CadastrarUsuario();
+            FrmPrincipal principal = new FrmPrincipal();
         }
     }
 }
