@@ -15,9 +15,14 @@ namespace WindowsForms.TelasFrmPrincipal
     {
         public FrmCadastrarUsuario()
         {
-            Service1 sv = new Service1();
-            List<TipoUsuario> list = sv.TipoUsuarioSelect(); 
             InitializeComponent();
+            Service1 sv = new Service1();
+            TipoUsuario[] list = new TipoUsuario[sv.TipoUsuarioSelect().Length];
+            list = sv.TipoUsuarioSelect();
+            for (int i = 0; i < list.Length; i++)
+            {
+                comboBox1.Items.Add(list[i].descricao);
+            }
         }
 
         public void CadastrarUsuario()
