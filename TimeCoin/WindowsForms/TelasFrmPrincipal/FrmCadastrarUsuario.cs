@@ -16,6 +16,7 @@ namespace WindowsForms.TelasFrmPrincipal
         public FrmCadastrarUsuario()
         {
             Service1 sv = new Service1();
+            List<TipoUsuario> list = sv.TipoUsuarioSelect(); 
             InitializeComponent();
         }
 
