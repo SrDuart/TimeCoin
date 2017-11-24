@@ -34,6 +34,7 @@
             this.lbSenha = new System.Windows.Forms.Label();
             this.lbUsuario = new System.Windows.Forms.Label();
             this.btnLogar = new System.Windows.Forms.Button();
+            this.btnAlterarSenha = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -41,24 +42,13 @@
             // btnCadastrar
             // 
             this.btnCadastrar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(426, 486);
+            this.btnCadastrar.Location = new System.Drawing.Point(363, 509);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(110, 30);
             this.btnCadastrar.TabIndex = 16;
             this.btnCadastrar.Text = "Cadastrar-se";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
-            // 
-            // btnMudarSenha
-            // 
-            this.btnMudarSenha.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMudarSenha.Location = new System.Drawing.Point(499, 511);
-            this.btnMudarSenha.Name = "btnMudarSenha";
-            this.btnMudarSenha.Size = new System.Drawing.Size(110, 30);
-            this.btnMudarSenha.TabIndex = 15;
-            this.btnMudarSenha.Text = "Mudar Senha";
-            this.btnMudarSenha.UseVisualStyleBackColor = true;
-            this.btnMudarSenha.Click += new System.EventHandler(this.btnMudarSenha_Click);
             // 
             // txtSenha
             // 
@@ -103,13 +93,24 @@
             // btnLogar
             // 
             this.btnLogar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogar.Location = new System.Drawing.Point(290, 485);
+            this.btnLogar.Location = new System.Drawing.Point(227, 509);
             this.btnLogar.Name = "btnLogar";
             this.btnLogar.Size = new System.Drawing.Size(110, 30);
             this.btnLogar.TabIndex = 18;
-            this.btnLogar.Text = "Logar";
+            this.btnLogar.Text = "Entrar";
             this.btnLogar.UseVisualStyleBackColor = true;
             this.btnLogar.Click += new System.EventHandler(this.btnLogar_Click);
+            // 
+            // btnAlterarSenha
+            // 
+            this.btnAlterarSenha.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlterarSenha.Location = new System.Drawing.Point(498, 509);
+            this.btnAlterarSenha.Name = "btnAlterarSenha";
+            this.btnAlterarSenha.Size = new System.Drawing.Size(110, 30);
+            this.btnAlterarSenha.TabIndex = 20;
+            this.btnAlterarSenha.Text = "Alterar Senha";
+            this.btnAlterarSenha.UseVisualStyleBackColor = true;
+            this.btnAlterarSenha.Click += new System.EventHandler(this.btnAlterarSenha_Click);
             // 
             // pictureBox1
             // 
@@ -126,6 +127,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 701);
+            this.Controls.Add(this.btnAlterarSenha);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLogar);
             this.Controls.Add(this.btnCadastrar);
@@ -151,5 +153,6 @@
         private System.Windows.Forms.Label lbUsuario;
         private System.Windows.Forms.Button btnLogar;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnAlterarSenha;
     }
 }
