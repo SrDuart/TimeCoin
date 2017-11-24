@@ -1,4 +1,4 @@
-﻿namespace WindowsForms.TelasGerais
+﻿namespace WindowsForms.TelasFrmUsuario
 {
     partial class FrmHabilidade
     {
@@ -46,6 +46,7 @@
             this.comboBoxNomeHabilidade.Name = "comboBoxNomeHabilidade";
             this.comboBoxNomeHabilidade.Size = new System.Drawing.Size(283, 28);
             this.comboBoxNomeHabilidade.TabIndex = 29;
+            this.comboBoxNomeHabilidade.SelectedIndexChanged += new System.EventHandler(this.comboBoxNomeHabilidade_SelectedIndexChanged);
             // 
             // btnCadastrar
             // 
@@ -56,6 +57,7 @@
             this.btnCadastrar.TabIndex = 28;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // lblTipoUsuario
             // 

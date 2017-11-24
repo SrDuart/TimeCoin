@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsForms.localhost;
+using WindowsForms.TelasFrmUsuario;
 
 namespace WindowsForms.TelasFrmPrincipal
 {
@@ -26,7 +27,7 @@ namespace WindowsForms.TelasFrmPrincipal
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             FrmCadastrarUsuario frmCu = new FrmCadastrarUsuario();
-            frmCu.ShowDialog();
+            frmCu.ShowDialog();                       
         }
 
         private void btnLogar_Click(object sender, EventArgs e)
