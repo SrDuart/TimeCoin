@@ -37,13 +37,9 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblCpf_Cnpj = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.txtCpf_Cnpj = new System.Windows.Forms.TextBox();
             this.lblTelFixo = new System.Windows.Forms.Label();
-            this.txtTelFixo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTelCel = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtBairro = new System.Windows.Forms.TextBox();
             this.lblUf = new System.Windows.Forms.Label();
             this.txtUf = new System.Windows.Forms.TextBox();
             this.lblCidade = new System.Windows.Forms.Label();
@@ -53,6 +49,10 @@
             this.lblTipoUsuario = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.maskedTxtBoxCpf_Cnpj = new System.Windows.Forms.MaskedTextBox();
+            this.txtBairro = new System.Windows.Forms.TextBox();
+            this.maskedTxtBoxTelFixo = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTxtBoxTelCel = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // lblNome
@@ -92,7 +92,9 @@
             // txtSenha
             // 
             this.txtSenha.Location = new System.Drawing.Point(284, 59);
+            this.txtSenha.MaxLength = 25;
             this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(162, 20);
             this.txtSenha.TabIndex = 5;
             // 
@@ -133,13 +135,6 @@
             this.lblEmail.TabIndex = 8;
             this.lblEmail.Text = "Email";
             // 
-            // txtCpf_Cnpj
-            // 
-            this.txtCpf_Cnpj.Location = new System.Drawing.Point(312, 89);
-            this.txtCpf_Cnpj.Name = "txtCpf_Cnpj";
-            this.txtCpf_Cnpj.Size = new System.Drawing.Size(134, 20);
-            this.txtCpf_Cnpj.TabIndex = 9;
-            // 
             // lblTelFixo
             // 
             this.lblTelFixo.AutoSize = true;
@@ -149,13 +144,6 @@
             this.lblTelFixo.Size = new System.Drawing.Size(73, 16);
             this.lblTelFixo.TabIndex = 11;
             this.lblTelFixo.Text = "Telefone Fixo";
-            // 
-            // txtTelFixo
-            // 
-            this.txtTelFixo.Location = new System.Drawing.Point(97, 119);
-            this.txtTelFixo.Name = "txtTelFixo";
-            this.txtTelFixo.Size = new System.Drawing.Size(136, 20);
-            this.txtTelFixo.TabIndex = 10;
             // 
             // label1
             // 
@@ -167,13 +155,6 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Telefone Celular";
             // 
-            // txtTelCel
-            // 
-            this.txtTelCel.Location = new System.Drawing.Point(327, 119);
-            this.txtTelCel.Name = "txtTelCel";
-            this.txtTelCel.Size = new System.Drawing.Size(119, 20);
-            this.txtTelCel.TabIndex = 12;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -183,13 +164,6 @@
             this.label2.Size = new System.Drawing.Size(37, 16);
             this.label2.TabIndex = 17;
             this.label2.Text = "Bairro";
-            // 
-            // txtBairro
-            // 
-            this.txtBairro.Location = new System.Drawing.Point(295, 149);
-            this.txtBairro.Name = "txtBairro";
-            this.txtBairro.Size = new System.Drawing.Size(151, 20);
-            this.txtBairro.TabIndex = 16;
             // 
             // lblUf
             // 
@@ -255,7 +229,8 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(196, 306);
+            this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrar.Location = new System.Drawing.Point(178, 308);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(100, 30);
             this.btnCadastrar.TabIndex = 24;
@@ -271,11 +246,45 @@
             this.comboBox1.Size = new System.Drawing.Size(187, 21);
             this.comboBox1.TabIndex = 25;
             // 
+            // maskedTxtBoxCpf_Cnpj
+            // 
+            this.maskedTxtBoxCpf_Cnpj.Location = new System.Drawing.Point(312, 92);
+            this.maskedTxtBoxCpf_Cnpj.Mask = "00000000000000";
+            this.maskedTxtBoxCpf_Cnpj.Name = "maskedTxtBoxCpf_Cnpj";
+            this.maskedTxtBoxCpf_Cnpj.Size = new System.Drawing.Size(134, 20);
+            this.maskedTxtBoxCpf_Cnpj.TabIndex = 26;
+            // 
+            // txtBairro
+            // 
+            this.txtBairro.Location = new System.Drawing.Point(295, 149);
+            this.txtBairro.Name = "txtBairro";
+            this.txtBairro.Size = new System.Drawing.Size(151, 20);
+            this.txtBairro.TabIndex = 16;
+            // 
+            // maskedTxtBoxTelFixo
+            // 
+            this.maskedTxtBoxTelFixo.Location = new System.Drawing.Point(97, 121);
+            this.maskedTxtBoxTelFixo.Mask = "0000000000";
+            this.maskedTxtBoxTelFixo.Name = "maskedTxtBoxTelFixo";
+            this.maskedTxtBoxTelFixo.Size = new System.Drawing.Size(134, 20);
+            this.maskedTxtBoxTelFixo.TabIndex = 27;
+            // 
+            // maskedTxtBoxTelCel
+            // 
+            this.maskedTxtBoxTelCel.Location = new System.Drawing.Point(331, 121);
+            this.maskedTxtBoxTelCel.Mask = "0000000000";
+            this.maskedTxtBoxTelCel.Name = "maskedTxtBoxTelCel";
+            this.maskedTxtBoxTelCel.Size = new System.Drawing.Size(115, 20);
+            this.maskedTxtBoxTelCel.TabIndex = 28;
+            // 
             // FrmCadastrarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 361);
+            this.Controls.Add(this.maskedTxtBoxTelCel);
+            this.Controls.Add(this.maskedTxtBoxTelFixo);
+            this.Controls.Add(this.maskedTxtBoxCpf_Cnpj);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.lblTipoUsuario);
@@ -288,10 +297,7 @@
             this.Controls.Add(this.lblUf);
             this.Controls.Add(this.txtUf);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtTelCel);
             this.Controls.Add(this.lblTelFixo);
-            this.Controls.Add(this.txtTelFixo);
-            this.Controls.Add(this.txtCpf_Cnpj);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lblCpf_Cnpj);
@@ -304,6 +310,7 @@
             this.Name = "FrmCadastrarUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Usuario";
+            this.Load += new System.EventHandler(this.FrmCadastrarUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,13 +327,9 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lblCpf_Cnpj;
         private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.TextBox txtCpf_Cnpj;
         private System.Windows.Forms.Label lblTelFixo;
-        private System.Windows.Forms.TextBox txtTelFixo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtTelCel;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtBairro;
         private System.Windows.Forms.Label lblUf;
         private System.Windows.Forms.TextBox txtUf;
         private System.Windows.Forms.Label lblCidade;
@@ -336,5 +339,9 @@
         private System.Windows.Forms.Label lblTipoUsuario;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.MaskedTextBox maskedTxtBoxCpf_Cnpj;
+        private System.Windows.Forms.TextBox txtBairro;
+        private System.Windows.Forms.MaskedTextBox maskedTxtBoxTelFixo;
+        private System.Windows.Forms.MaskedTextBox maskedTxtBoxTelCel;
     }
 }

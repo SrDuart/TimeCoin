@@ -75,6 +75,24 @@
     <Compile Include="TelasFrmPrincipal\FrmSenha.Designer.cs">
       <DependentUpon>FrmSenha.cs</DependentUpon>
     </Compile>
+    <Compile Include="TelasFrmUsuario\FrmAnuncio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasFrmUsuario\FrmAnuncio.Designer.cs">
+      <DependentUpon>FrmAnuncio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasFrmUsuario\FrmHabilidade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasFrmUsuario\FrmHabilidade.Designer.cs">
+      <DependentUpon>FrmHabilidade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasFrmUsuario\FrmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasFrmUsuario\FrmPrincipal.Designer.cs">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Web References\localhost\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -101,6 +119,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TelasFrmPrincipal\FrmSenha.resx">
       <DependentUpon>FrmSenha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasFrmUsuario\FrmAnuncio.resx">
+      <DependentUpon>FrmAnuncio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasFrmUsuario\FrmHabilidade.resx">
+      <DependentUpon>FrmHabilidade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasFrmUsuario\FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

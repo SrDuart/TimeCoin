@@ -41,31 +41,19 @@
             // btnCadastrar
             // 
             this.btnCadastrar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(426, 486);
+            this.btnCadastrar.Location = new System.Drawing.Point(475, 509);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(110, 30);
             this.btnCadastrar.TabIndex = 16;
             this.btnCadastrar.Text = "Cadastrar-se";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
-            /*
-            // btnMudarSenha
-            // 
-            this.btnMudarSenha.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMudarSenha.Location = new System.Drawing.Point(499, 511);
-            this.btnMudarSenha.Name = "btnMudarSenha";
-            this.btnMudarSenha.Size = new System.Drawing.Size(110, 30);
-            this.btnMudarSenha.TabIndex = 15;
-            this.btnMudarSenha.Text = "Mudar Senha";
-            this.btnMudarSenha.UseVisualStyleBackColor = true;
-            this.btnMudarSenha.Click += new System.EventHandler(this.btnMudarSenha_Click);
-            */
             // 
             // txtSenha
             // 
             this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenha.Location = new System.Drawing.Point(306, 460);
-            this.txtSenha.MaxLength = 40;
+            this.txtSenha.MaxLength = 25;
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(302, 26);
@@ -104,11 +92,11 @@
             // btnLogar
             // 
             this.btnLogar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogar.Location = new System.Drawing.Point(290, 485);
+            this.btnLogar.Location = new System.Drawing.Point(330, 509);
             this.btnLogar.Name = "btnLogar";
             this.btnLogar.Size = new System.Drawing.Size(110, 30);
             this.btnLogar.TabIndex = 18;
-            this.btnLogar.Text = "Logar";
+            this.btnLogar.Text = "Entrar";
             this.btnLogar.UseVisualStyleBackColor = true;
             this.btnLogar.Click += new System.EventHandler(this.btnLogar_Click);
             // 

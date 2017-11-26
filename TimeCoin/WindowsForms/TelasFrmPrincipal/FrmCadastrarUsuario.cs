@@ -1,26 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;  
 using System.Windows.Forms;
 using WindowsForms.localhost;
+using WindowsForms.TelasFrmUsuario;
 
 namespace WindowsForms.TelasFrmPrincipal
 {
     public partial class FrmCadastrarUsuario : Form
     {
         int[] idTipoUsuario;
+            
         public FrmCadastrarUsuario()
         {
             InitializeComponent();
+
             Service1 sv = new Service1();
             TipoUsuario[] listTipoUsuario = new TipoUsuario[sv.TipoUsuarioSelect().Length];
             listTipoUsuario = sv.TipoUsuarioSelect();
             idTipoUsuario = new int[sv.TipoUsuarioSelect().Length];
+
             for (int i = 0; i < listTipoUsuario.Length; i++)
             {
                 comboBox1.Items.Add(listTipoUsuario[i].descricao);
@@ -45,9 +42,9 @@ namespace WindowsForms.TelasFrmPrincipal
 
                 usuario.nome = txtNome.Text;
                 usuario.userName = txtUserName.Text;
-                usuario.cpf_cnpj = txtCpf_Cnpj.Text;
-                usuario.telefoneFixo = txtTelFixo.Text;
-                usuario.telefoneCelular = txtTelCel.Text;
+                usuario.cpf_cnpj = maskedTxtBoxCpf_Cnpj.Text;
+                usuario.telefoneFixo = maskedTxtBoxTelFixo.Text;
+                usuario.telefoneCelular = maskedTxtBoxTelCel.Text;
                 usuario.uf = txtUf.Text;
                 usuario.cidade = txtCidade.Text;
                 usuario.bairro = txtBairro.Text;
@@ -58,12 +55,13 @@ namespace WindowsForms.TelasFrmPrincipal
 
                 sv.UsuarioInsert(usuario);
 
-                MessageBox.Show("Usuario cadastrado com sucesso");
+                MessageBox.Show("Usuário cadastrado com sucesso");
 
                 this.Close();
             }
-            catch(Exception ex) {
-                MessageBox.Show(ex.Message);
+            catch(Exception ex)
+            {
+                throw ex;
             }
             
             
@@ -72,6 +70,28 @@ namespace WindowsForms.TelasFrmPrincipal
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             CadastrarUsuario();
+            FrmPrincipal principal = new FrmPrincipal();
+            principal.ShowDialog();
+        }
+
+        private void txtCpf_Cnpj_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelCel_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelFixo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmCadastrarUsuario_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
