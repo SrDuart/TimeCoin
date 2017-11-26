@@ -32,15 +32,19 @@ namespace WindowsForms.TelasFrmUsuario
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show("Por favor, preencher campo vazio.");
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             CadastrarHabilidade();
+            this.Hide();
             FrmPrincipal principal = new FrmPrincipal();
             principal.ShowDialog();
+            
+            FrmHabilidade habilidade = new FrmHabilidade();
+            this.Close();
         }
     }
 }

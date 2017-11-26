@@ -6,11 +6,26 @@ namespace WindowsForms.TelasFrmUsuario
 {
     public partial class FrmAnuncio : Form
     {
+        //int[] idUsuario;
+
         public FrmAnuncio()
         {
             InitializeComponent();
-        }
 
+            InitializeComponent();
+
+            /*Service1 sv = new Service1();
+            Usuario[] listUsuario = new Usuario[sv.UsuarioSelect().Length];
+            listUsuario = sv.UsuarioSelect();
+            idUsuario = new int[sv.UsuarioSelect().Length];
+
+            for (int i = 0; i < listUsuario.Length; i++)
+            {
+                richTxtBoxServico.Select(listUsuario[i].id);
+                idUsuario[i] = listUsuario[i].id;
+            }*/
+        }
+        
         public void CadastrarAnuncio()
         {
             Service1 sv = new Service1();
@@ -24,7 +39,8 @@ namespace WindowsForms.TelasFrmUsuario
                 anuncio.usuario = new Usuario();
 
                 #region Atribuição de valores
-                anuncio.data = Convert.ToDateTime(txtData.Text);
+                anuncio.data = Convert.ToDateTime(maskedTxtBoxData.Text);
+                anuncio.usuario.id = Convert.ToInt32(richTxtBoxServico.Text);
                 anuncio.descricao = richTxtBoxDescricao.Text;
                 anuncio.bairro = txtBairro.Text;
                 anuncio.cidade = txtCidade.Text;
@@ -73,8 +89,17 @@ namespace WindowsForms.TelasFrmUsuario
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             CadastrarAnuncio();
+            this.Hide();
             FrmPrincipal principal = new FrmPrincipal();
             principal.ShowDialog();
+
+            FrmAnuncio anuncio = new FrmAnuncio();
+            this.Close();
+        }
+
+        private void lblUf_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
