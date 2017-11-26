@@ -35,13 +35,19 @@ namespace WindowsForms.TelasFrmUsuario
 
         private void MenuHabilidade_Click(object sender, EventArgs e)
         {
-            Service1 sv = new Service1();
-            FrmHabilidade hab = new FrmHabilidade();            
+                     
         }
 
         private void Menu_Opening_1(object sender, CancelEventArgs e)
         {
-            Menu.Visible = true;
+
+        }
+
+        private void btnHabilidade_Click(object sender, EventArgs e)
+        {
+            Service1 sv = new Service1();
+            FrmHabilidade hab = new FrmHabilidade();
+            hab.ShowDialog();
         }
     }
 }

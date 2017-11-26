@@ -28,90 +28,86 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.MenuHabilidade = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuAnuncio = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuServiçoPrestado = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuServiçoRecebido = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuReclameAqui = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuLogout = new System.Windows.Forms.ToolStripMenuItem();
-            this.Menu.SuspendLayout();
+            this.btnSituacao = new System.Windows.Forms.Button();
+            this.btnRecebe = new System.Windows.Forms.Button();
+            this.btnPresta = new System.Windows.Forms.Button();
+            this.btnHabilidade = new System.Windows.Forms.Button();
+            this.btnAnuncio = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // Menu
+            // btnSituacao
             // 
-            this.Menu.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
-            this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuHabilidade,
-            this.MenuAnuncio,
-            this.MenuServiçoPrestado,
-            this.MenuServiçoRecebido,
-            this.MenuReclameAqui,
-            this.MenuLogout});
-            this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(165, 158);
-            this.Menu.Text = "Menu";
-            this.Menu.Opening += new System.ComponentModel.CancelEventHandler(this.Menu_Opening_1);
+            this.btnSituacao.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSituacao.Location = new System.Drawing.Point(470, 222);
+            this.btnSituacao.Name = "btnSituacao";
+            this.btnSituacao.Size = new System.Drawing.Size(180, 100);
+            this.btnSituacao.TabIndex = 16;
+            this.btnSituacao.Text = "Situação";
+            this.btnSituacao.UseVisualStyleBackColor = true;
             // 
-            // MenuHabilidade
+            // btnRecebe
             // 
-            this.MenuHabilidade.Name = "MenuHabilidade";
-            this.MenuHabilidade.Size = new System.Drawing.Size(164, 22);
-            this.MenuHabilidade.Text = "Habilidades";
-            this.MenuHabilidade.Click += new System.EventHandler(this.MenuHabilidade_Click);
+            this.btnRecebe.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecebe.Location = new System.Drawing.Point(185, 222);
+            this.btnRecebe.Name = "btnRecebe";
+            this.btnRecebe.Size = new System.Drawing.Size(180, 100);
+            this.btnRecebe.TabIndex = 14;
+            this.btnRecebe.Text = "Serviço Recebido";
+            this.btnRecebe.UseVisualStyleBackColor = true;
             // 
-            // MenuAnuncio
+            // btnPresta
             // 
-            this.MenuAnuncio.Name = "MenuAnuncio";
-            this.MenuAnuncio.Size = new System.Drawing.Size(164, 22);
-            this.MenuAnuncio.Text = "Anúncios";
+            this.btnPresta.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPresta.Location = new System.Drawing.Point(570, 67);
+            this.btnPresta.Name = "btnPresta";
+            this.btnPresta.Size = new System.Drawing.Size(180, 100);
+            this.btnPresta.TabIndex = 13;
+            this.btnPresta.Text = "Serviço Prestado";
+            this.btnPresta.UseVisualStyleBackColor = true;
             // 
-            // MenuServiçoPrestado
+            // btnHabilidade
             // 
-            this.MenuServiçoPrestado.Name = "MenuServiçoPrestado";
-            this.MenuServiçoPrestado.Size = new System.Drawing.Size(164, 22);
-            this.MenuServiçoPrestado.Text = "Serviço Prestado";
+            this.btnHabilidade.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHabilidade.Location = new System.Drawing.Point(326, 67);
+            this.btnHabilidade.Name = "btnHabilidade";
+            this.btnHabilidade.Size = new System.Drawing.Size(180, 100);
+            this.btnHabilidade.TabIndex = 12;
+            this.btnHabilidade.Text = "Habilidade";
+            this.btnHabilidade.UseVisualStyleBackColor = true;
+            this.btnHabilidade.Click += new System.EventHandler(this.btnHabilidade_Click);
             // 
-            // MenuServiçoRecebido
+            // btnAnuncio
             // 
-            this.MenuServiçoRecebido.Name = "MenuServiçoRecebido";
-            this.MenuServiçoRecebido.Size = new System.Drawing.Size(164, 22);
-            this.MenuServiçoRecebido.Text = "Serviço Recebido";
-            // 
-            // MenuReclameAqui
-            // 
-            this.MenuReclameAqui.Name = "MenuReclameAqui";
-            this.MenuReclameAqui.Size = new System.Drawing.Size(164, 22);
-            this.MenuReclameAqui.Text = "Reclame Aqui";
-            // 
-            // MenuLogout
-            // 
-            this.MenuLogout.Name = "MenuLogout";
-            this.MenuLogout.Size = new System.Drawing.Size(164, 22);
-            this.MenuLogout.Text = "Logout";
+            this.btnAnuncio.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnuncio.Location = new System.Drawing.Point(75, 67);
+            this.btnAnuncio.Name = "btnAnuncio";
+            this.btnAnuncio.Size = new System.Drawing.Size(180, 100);
+            this.btnAnuncio.TabIndex = 11;
+            this.btnAnuncio.Text = "Anúncio";
+            this.btnAnuncio.UseVisualStyleBackColor = true;
             // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 701);
+            this.ClientSize = new System.Drawing.Size(824, 373);
+            this.Controls.Add(this.btnSituacao);
+            this.Controls.Add(this.btnRecebe);
+            this.Controls.Add(this.btnPresta);
+            this.Controls.Add(this.btnHabilidade);
+            this.Controls.Add(this.btnAnuncio);
             this.Name = "FrmPrincipal";
             this.Text = "TimeCoin";
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
-            this.Menu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private new System.Windows.Forms.ContextMenuStrip Menu;
-        private System.Windows.Forms.ToolStripMenuItem MenuHabilidade;
-        private System.Windows.Forms.ToolStripMenuItem MenuAnuncio;
-        private System.Windows.Forms.ToolStripMenuItem MenuServiçoPrestado;
-        private System.Windows.Forms.ToolStripMenuItem MenuServiçoRecebido;
-        private System.Windows.Forms.ToolStripMenuItem MenuReclameAqui;
-        private System.Windows.Forms.ToolStripMenuItem MenuLogout;
+        private System.Windows.Forms.Button btnSituacao;
+        private System.Windows.Forms.Button btnRecebe;
+        private System.Windows.Forms.Button btnPresta;
+        private System.Windows.Forms.Button btnHabilidade;
+        private System.Windows.Forms.Button btnAnuncio;
     }
 }

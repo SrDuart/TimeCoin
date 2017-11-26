@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;  
 using System.Windows.Forms;
 using WindowsForms.localhost;
 using WindowsForms.TelasFrmUsuario;
@@ -15,7 +8,7 @@ namespace WindowsForms.TelasFrmPrincipal
     public partial class FrmCadastrarUsuario : Form
     {
         int[] idTipoUsuario;
-
+            
         public FrmCadastrarUsuario()
         {
             InitializeComponent();
