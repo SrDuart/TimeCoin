@@ -138,6 +138,7 @@
             // txtCpf_Cnpj
             // 
             this.txtCpf_Cnpj.Location = new System.Drawing.Point(312, 89);
+            this.txtCpf_Cnpj.MaxLength = 14;
             this.txtCpf_Cnpj.Name = "txtCpf_Cnpj";
             this.txtCpf_Cnpj.Size = new System.Drawing.Size(134, 20);
             this.txtCpf_Cnpj.TabIndex = 9;
@@ -155,6 +156,7 @@
             // txtTelFixo
             // 
             this.txtTelFixo.Location = new System.Drawing.Point(97, 119);
+            this.txtTelFixo.MaxLength = 10;
             this.txtTelFixo.Name = "txtTelFixo";
             this.txtTelFixo.Size = new System.Drawing.Size(136, 20);
             this.txtTelFixo.TabIndex = 10;
@@ -172,6 +174,7 @@
             // txtTelCel
             // 
             this.txtTelCel.Location = new System.Drawing.Point(327, 119);
+            this.txtTelCel.MaxLength = 11;
             this.txtTelCel.Name = "txtTelCel";
             this.txtTelCel.Size = new System.Drawing.Size(119, 20);
             this.txtTelCel.TabIndex = 12;

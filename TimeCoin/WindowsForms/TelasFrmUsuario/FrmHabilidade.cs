@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using WcfService.localhost;
+using WindowsForms.localhost;
 
 namespace WindowsForms.TelasFrmUsuario
 {
@@ -19,9 +19,8 @@ namespace WindowsForms.TelasFrmUsuario
             try
             {
                 #region Atribuição de valores
-                habilidade.nome = comboBoxNomeHabilidade.Text;
-                habilidade.nome = richTxtBoxOutras.Text;
-                habilidade.descricao = richTxtBoxDescricao.Text;
+                habilidade.nome = txtNomeHabilidade.Text;
+                habilidade.descricao = richTxtBoxDescricaoHabilidade.Text;
                 #endregion
 
                 sv.HabilidadeInsert(habilidade);
@@ -30,26 +29,18 @@ namespace WindowsForms.TelasFrmUsuario
 
                 this.Close();
 
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show(ex.Message);
             }
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCadastrar_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             CadastrarHabilidade();
             FrmPrincipal principal = new FrmPrincipal();
-        }
-
-        private void comboBoxNomeHabilidade_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            principal.ShowDialog();
         }
     }
 }
