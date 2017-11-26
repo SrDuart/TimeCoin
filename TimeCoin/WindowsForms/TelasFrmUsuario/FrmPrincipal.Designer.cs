@@ -85,6 +85,7 @@
             this.btnAnuncio.TabIndex = 11;
             this.btnAnuncio.Text = "Anúncio";
             this.btnAnuncio.UseVisualStyleBackColor = true;
+            this.btnAnuncio.Click += new System.EventHandler(this.btnAnuncio_Click);
             // 
             // FrmPrincipal
             // 

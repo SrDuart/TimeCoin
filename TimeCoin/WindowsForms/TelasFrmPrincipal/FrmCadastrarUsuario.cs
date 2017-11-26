@@ -42,9 +42,9 @@ namespace WindowsForms.TelasFrmPrincipal
 
                 usuario.nome = txtNome.Text;
                 usuario.userName = txtUserName.Text;
-                usuario.cpf_cnpj = txtCpf_Cnpj.Text;
-                usuario.telefoneFixo = txtTelFixo.Text;
-                usuario.telefoneCelular = txtTelCel.Text;
+                usuario.cpf_cnpj = maskedTxtBoxCpf_Cnpj.Text;
+                usuario.telefoneFixo = maskedTxtBoxTelFixo.Text;
+                usuario.telefoneCelular = maskedTxtBoxTelCel.Text;
                 usuario.uf = txtUf.Text;
                 usuario.cidade = txtCidade.Text;
                 usuario.bairro = txtBairro.Text;
@@ -61,7 +61,7 @@ namespace WindowsForms.TelasFrmPrincipal
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                throw ex;
             }
             
             
@@ -72,6 +72,26 @@ namespace WindowsForms.TelasFrmPrincipal
             CadastrarUsuario();
             FrmPrincipal principal = new FrmPrincipal();
             principal.ShowDialog();
+        }
+
+        private void txtCpf_Cnpj_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelCel_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelFixo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmCadastrarUsuario_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

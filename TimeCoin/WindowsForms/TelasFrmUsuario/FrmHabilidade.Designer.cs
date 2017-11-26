@@ -31,7 +31,7 @@
             this.lblNomeHabilidade = new System.Windows.Forms.Label();
             this.richTxtBoxDescricaoHabilidade = new System.Windows.Forms.RichTextBox();
             this.txtNomeHabilidade = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCadastrar = new System.Windows.Forms.Button();
             this.lblDescricaoHabilidade = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -62,16 +62,16 @@
             this.txtNomeHabilidade.Size = new System.Drawing.Size(260, 26);
             this.txtNomeHabilidade.TabIndex = 2;
             // 
-            // button1
+            // btnCadastrar
             // 
-            this.button1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(179, 299);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 30);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Cadastrar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCadastrar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrar.Location = new System.Drawing.Point(179, 299);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(100, 30);
+            this.btnCadastrar.TabIndex = 3;
+            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblDescricaoHabilidade
             // 
@@ -89,7 +89,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 361);
             this.Controls.Add(this.lblDescricaoHabilidade);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.txtNomeHabilidade);
             this.Controls.Add(this.richTxtBoxDescricaoHabilidade);
             this.Controls.Add(this.lblNomeHabilidade);
@@ -106,7 +106,7 @@
         private System.Windows.Forms.Label lblNomeHabilidade;
         private System.Windows.Forms.RichTextBox richTxtBoxDescricaoHabilidade;
         private System.Windows.Forms.TextBox txtNomeHabilidade;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Label lblDescricaoHabilidade;
     }
 }

@@ -32,7 +32,7 @@ namespace WindowsForms.TelasFrmUsuario
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                throw ex;
             }
         }
 
