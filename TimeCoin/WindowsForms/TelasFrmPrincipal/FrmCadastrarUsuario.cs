@@ -88,5 +88,10 @@ namespace WindowsForms.TelasFrmPrincipal
         {
 
         }
+
+        private void FrmCadastrarUsuario_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

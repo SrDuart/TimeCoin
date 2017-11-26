@@ -310,6 +310,7 @@
             this.Name = "FrmCadastrarUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Usuario";
+            this.Load += new System.EventHandler(this.FrmCadastrarUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

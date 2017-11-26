@@ -49,5 +49,12 @@ namespace WindowsForms.TelasFrmUsuario
             FrmHabilidade hab = new FrmHabilidade();
             hab.ShowDialog();
         }
+
+        private void btnAnuncio_Click(object sender, EventArgs e)
+        {
+            Service1 sv = new Service1();
+            FrmAnuncio anun = new FrmAnuncio();
+            anun.ShowDialog();
+        }
     }
 }
