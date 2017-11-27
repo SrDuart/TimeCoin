@@ -31,7 +31,6 @@
             this.lblDescricao = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.richTxtBoxDescricao = new System.Windows.Forms.RichTextBox();
-            this.lblData = new System.Windows.Forms.Label();
             this.lblPreRequisito = new System.Windows.Forms.Label();
             this.txtPreRequisito = new System.Windows.Forms.TextBox();
             this.lblUf = new System.Windows.Forms.Label();
@@ -40,7 +39,6 @@
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.lblBairro = new System.Windows.Forms.Label();
             this.txtBairro = new System.Windows.Forms.TextBox();
-            this.maskedTxtBoxData = new System.Windows.Forms.MaskedTextBox();
             this.txtSituacao = new System.Windows.Forms.TextBox();
             this.lblSituacao = new System.Windows.Forms.Label();
             this.txtTipoAnuncio = new System.Windows.Forms.TextBox();
@@ -80,21 +78,11 @@
             this.richTxtBoxDescricao.TabIndex = 3;
             this.richTxtBoxDescricao.Text = "";
             // 
-            // lblData
-            // 
-            this.lblData.AutoSize = true;
-            this.lblData.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblData.Location = new System.Drawing.Point(18, 27);
-            this.lblData.Name = "lblData";
-            this.lblData.Size = new System.Drawing.Size(35, 20);
-            this.lblData.TabIndex = 4;
-            this.lblData.Text = "Data";
-            // 
             // lblPreRequisito
             // 
             this.lblPreRequisito.AutoSize = true;
             this.lblPreRequisito.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPreRequisito.Location = new System.Drawing.Point(140, 27);
+            this.lblPreRequisito.Location = new System.Drawing.Point(18, 27);
             this.lblPreRequisito.Name = "lblPreRequisito";
             this.lblPreRequisito.Size = new System.Drawing.Size(84, 20);
             this.lblPreRequisito.TabIndex = 6;
@@ -104,9 +92,9 @@
             // txtPreRequisito
             // 
             this.txtPreRequisito.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPreRequisito.Location = new System.Drawing.Point(230, 27);
+            this.txtPreRequisito.Location = new System.Drawing.Point(108, 27);
             this.txtPreRequisito.Name = "txtPreRequisito";
-            this.txtPreRequisito.Size = new System.Drawing.Size(210, 21);
+            this.txtPreRequisito.Size = new System.Drawing.Size(332, 21);
             this.txtPreRequisito.TabIndex = 5;
             this.txtPreRequisito.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -167,16 +155,6 @@
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(120, 21);
             this.txtBairro.TabIndex = 11;
-            // 
-            // maskedTxtBoxData
-            // 
-            this.maskedTxtBoxData.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTxtBoxData.Location = new System.Drawing.Point(59, 27);
-            this.maskedTxtBoxData.Mask = "00/00/0000";
-            this.maskedTxtBoxData.Name = "maskedTxtBoxData";
-            this.maskedTxtBoxData.Size = new System.Drawing.Size(60, 21);
-            this.maskedTxtBoxData.TabIndex = 13;
-            this.maskedTxtBoxData.ValidatingType = typeof(System.DateTime);
             // 
             // txtSituacao
             // 
@@ -244,7 +222,6 @@
             this.Controls.Add(this.lblTipoAnuncio);
             this.Controls.Add(this.txtSituacao);
             this.Controls.Add(this.lblSituacao);
-            this.Controls.Add(this.maskedTxtBoxData);
             this.Controls.Add(this.lblBairro);
             this.Controls.Add(this.txtBairro);
             this.Controls.Add(this.lblCidade);
@@ -253,7 +230,6 @@
             this.Controls.Add(this.txtUf);
             this.Controls.Add(this.lblPreRequisito);
             this.Controls.Add(this.txtPreRequisito);
-            this.Controls.Add(this.lblData);
             this.Controls.Add(this.richTxtBoxDescricao);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.lblDescricao);
@@ -270,7 +246,6 @@
         private System.Windows.Forms.Label lblDescricao;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.RichTextBox richTxtBoxDescricao;
-        private System.Windows.Forms.Label lblData;
         private System.Windows.Forms.Label lblPreRequisito;
         private System.Windows.Forms.TextBox txtPreRequisito;
         private System.Windows.Forms.Label lblUf;
@@ -279,7 +254,6 @@
         private System.Windows.Forms.TextBox txtCidade;
         private System.Windows.Forms.Label lblBairro;
         private System.Windows.Forms.TextBox txtBairro;
-        private System.Windows.Forms.MaskedTextBox maskedTxtBoxData;
         private System.Windows.Forms.TextBox txtSituacao;
         private System.Windows.Forms.Label lblSituacao;
         private System.Windows.Forms.TextBox txtTipoAnuncio;
