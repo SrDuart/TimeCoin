@@ -33,7 +33,7 @@
             this.btnPresta = new System.Windows.Forms.Button();
             this.btnHabilidade = new System.Windows.Forms.Button();
             this.btnAnuncio = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnConsultaAnuncio = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSituacao
@@ -88,21 +88,22 @@
             this.btnAnuncio.UseVisualStyleBackColor = true;
             this.btnAnuncio.Click += new System.EventHandler(this.btnAnuncio_Click);
             // 
-            // label1
+            // btnConsultaAnuncio
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(557, 234);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "label1";
+            this.btnConsultaAnuncio.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultaAnuncio.Location = new System.Drawing.Point(570, 222);
+            this.btnConsultaAnuncio.Name = "btnConsultaAnuncio";
+            this.btnConsultaAnuncio.Size = new System.Drawing.Size(180, 100);
+            this.btnConsultaAnuncio.TabIndex = 17;
+            this.btnConsultaAnuncio.Text = "Consultar Anúncios";
+            this.btnConsultaAnuncio.UseVisualStyleBackColor = true;
             // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 373);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnConsultaAnuncio);
             this.Controls.Add(this.btnSituacao);
             this.Controls.Add(this.btnRecebe);
             this.Controls.Add(this.btnPresta);
@@ -112,7 +113,6 @@
             this.Text = "TimeCoin";
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -122,6 +122,6 @@
         private System.Windows.Forms.Button btnPresta;
         private System.Windows.Forms.Button btnHabilidade;
         private System.Windows.Forms.Button btnAnuncio;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnConsultaAnuncio;
     }
 }

@@ -125,6 +125,7 @@
             // 
             this.txtUf.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUf.Location = new System.Drawing.Point(50, 70);
+            this.txtUf.MaxLength = 2;
             this.txtUf.Name = "txtUf";
             this.txtUf.Size = new System.Drawing.Size(27, 21);
             this.txtUf.TabIndex = 7;

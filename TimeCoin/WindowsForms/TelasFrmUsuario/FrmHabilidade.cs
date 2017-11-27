@@ -32,7 +32,7 @@ namespace WindowsForms.TelasFrmUsuario
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Por favor, preencher campo vazio.");
+                throw ex;
             }
         }
 

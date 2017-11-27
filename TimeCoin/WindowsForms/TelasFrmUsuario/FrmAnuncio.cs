@@ -39,6 +39,7 @@ namespace WindowsForms.TelasFrmUsuario
                 anuncio.usuario = new Usuario();
 
                 #region Atribuição de valores
+                anuncio.tipoAnuncio.id = Convert.ToInt32(txtTipoAnuncio.Text);
                 anuncio.data = Convert.ToDateTime(maskedTxtBoxData.Text);
                 anuncio.usuario.id = Convert.ToInt32(richTxtBoxServico.Text);
                 anuncio.descricao = richTxtBoxDescricao.Text;

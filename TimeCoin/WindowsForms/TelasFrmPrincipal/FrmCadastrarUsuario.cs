@@ -20,7 +20,7 @@ namespace WindowsForms.TelasFrmPrincipal
 
             for (int i = 0; i < listTipoUsuario.Length; i++)
             {
-                comboBox1.Items.Add(listTipoUsuario[i].descricao);
+                comboBoxTipoUsuario.Items.Add(listTipoUsuario[i].descricao);
                 idTipoUsuario[i] = listTipoUsuario[i].id;
             }
         }
@@ -37,7 +37,7 @@ namespace WindowsForms.TelasFrmPrincipal
                 usuario.tipoUsuario = new TipoUsuario();
                 usuario.situacao = new Situacao();
 
-                usuario.tipoUsuario.id = Convert.ToInt32(idTipoUsuario[comboBox1.SelectedIndex]);
+                usuario.tipoUsuario.id = Convert.ToInt32(idTipoUsuario[comboBoxTipoUsuario.SelectedIndex]);
                 usuario.situacao.id = Convert.ToInt32(1);
 
                 usuario.nome = txtNome.Text;
@@ -63,15 +63,16 @@ namespace WindowsForms.TelasFrmPrincipal
             {
                 throw ex;
             }
-            
-            
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
-        {
+        {            
             CadastrarUsuario();
+            this.Hide();
             FrmPrincipal principal = new FrmPrincipal();
             principal.ShowDialog();
+
+            this.Close();
         }
 
         private void txtCpf_Cnpj_TextChanged(object sender, EventArgs e)
@@ -90,6 +91,11 @@ namespace WindowsForms.TelasFrmPrincipal
         }
 
         private void FrmCadastrarUsuario_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxTipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
