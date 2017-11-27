@@ -48,7 +48,7 @@
             this.lblDescricao = new System.Windows.Forms.Label();
             this.lblTipoUsuario = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxTipoUsuario = new System.Windows.Forms.ComboBox();
             this.maskedTxtBoxCpf_Cnpj = new System.Windows.Forms.MaskedTextBox();
             this.txtBairro = new System.Windows.Forms.TextBox();
             this.maskedTxtBoxTelFixo = new System.Windows.Forms.MaskedTextBox();
@@ -178,6 +178,7 @@
             // txtUf
             // 
             this.txtUf.Location = new System.Drawing.Point(45, 148);
+            this.txtUf.MaxLength = 2;
             this.txtUf.Name = "txtUf";
             this.txtUf.Size = new System.Drawing.Size(37, 20);
             this.txtUf.TabIndex = 14;
@@ -238,13 +239,14 @@
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
-            // comboBox1
+            // comboBoxTipoUsuario
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(259, 205);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(187, 21);
-            this.comboBox1.TabIndex = 25;
+            this.comboBoxTipoUsuario.FormattingEnabled = true;
+            this.comboBoxTipoUsuario.Location = new System.Drawing.Point(259, 205);
+            this.comboBoxTipoUsuario.Name = "comboBoxTipoUsuario";
+            this.comboBoxTipoUsuario.Size = new System.Drawing.Size(187, 21);
+            this.comboBoxTipoUsuario.TabIndex = 25;
+            this.comboBoxTipoUsuario.SelectedIndexChanged += new System.EventHandler(this.comboBoxTipoUsuario_SelectedIndexChanged);
             // 
             // maskedTxtBoxCpf_Cnpj
             // 
@@ -285,7 +287,7 @@
             this.Controls.Add(this.maskedTxtBoxTelCel);
             this.Controls.Add(this.maskedTxtBoxTelFixo);
             this.Controls.Add(this.maskedTxtBoxCpf_Cnpj);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxTipoUsuario);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.lblTipoUsuario);
             this.Controls.Add(this.lblDescricao);
@@ -338,7 +340,7 @@
         private System.Windows.Forms.Label lblDescricao;
         private System.Windows.Forms.Label lblTipoUsuario;
         private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxTipoUsuario;
         private System.Windows.Forms.MaskedTextBox maskedTxtBoxCpf_Cnpj;
         private System.Windows.Forms.TextBox txtBairro;
         private System.Windows.Forms.MaskedTextBox maskedTxtBoxTelFixo;

@@ -75,6 +75,12 @@
     <Compile Include="TelasFrmPrincipal\FrmSenha.Designer.cs">
       <DependentUpon>FrmSenha.cs</DependentUpon>
     </Compile>
+    <Compile Include="TelasFrmUsuario\FrmConsultarAnuncio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasFrmUsuario\FrmConsultarAnuncio.Designer.cs">
+      <DependentUpon>FrmConsultarAnuncio.cs</DependentUpon>
+    </Compile>
     <Compile Include="TelasFrmUsuario\FrmAnuncio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TelasFrmPrincipal\FrmSenha.resx">
       <DependentUpon>FrmSenha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasFrmUsuario\FrmConsultarAnuncio.resx">
+      <DependentUpon>FrmConsultarAnuncio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelasFrmUsuario\FrmAnuncio.resx">
       <DependentUpon>FrmAnuncio.cs</DependentUpon>
