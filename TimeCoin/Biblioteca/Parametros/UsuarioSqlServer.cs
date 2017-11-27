@@ -258,6 +258,7 @@ namespace Biblioteca.Parametros
 
         public void VerificaLogin(Usuario usuario)
         {
+            bool condicao = false;
             try
             {
                 #region abrir a conexão
@@ -283,9 +284,9 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region executando a instrucao 
-                while (DbReader.Read())
+                if (DbReader.Read())
                 {
-                    break;
+                    condicao = true;
                 }
                 DbReader.Close();
                 #endregion
@@ -297,7 +298,11 @@ namespace Biblioteca.Parametros
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro! Login ou senha inválido. Caso não seja Cadastrado click no botão 'Cadastra-se' " + ex.Message);
+                throw new Exception("Não foi possível efetuar a conexão com o banco de dados." + ex.Message);
+            }
+            if (!condicao)
+            {
+                throw new Exception("Login ou senha inválido! Se você não é cadastrado clique no botão cadastrar!");
             }
         }
 
