@@ -53,6 +53,11 @@
             this.txtBairro = new System.Windows.Forms.TextBox();
             this.maskedTxtBoxTelFixo = new System.Windows.Forms.MaskedTextBox();
             this.maskedTxtBoxTelCel = new System.Windows.Forms.MaskedTextBox();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.listView2 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // lblNome
@@ -279,11 +284,60 @@
             this.maskedTxtBoxTelCel.Size = new System.Drawing.Size(115, 20);
             this.maskedTxtBoxTelCel.TabIndex = 28;
             // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(464, 48);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(194, 97);
+            this.listView1.TabIndex = 29;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(463, 29);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(121, 13);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Habilidades Disponíveis";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(464, 161);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(90, 23);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "Adicionar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(570, 161);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(88, 23);
+            this.button2.TabIndex = 32;
+            this.button2.Text = "Remover";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // listView2
+            // 
+            this.listView2.Location = new System.Drawing.Point(464, 203);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(194, 97);
+            this.listView2.TabIndex = 33;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
+            // 
             // FrmCadastrarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 361);
+            this.ClientSize = new System.Drawing.Size(675, 361);
+            this.Controls.Add(this.listView2);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.maskedTxtBoxTelCel);
             this.Controls.Add(this.maskedTxtBoxTelFixo);
             this.Controls.Add(this.maskedTxtBoxCpf_Cnpj);
@@ -312,7 +366,6 @@
             this.Name = "FrmCadastrarUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Usuario";
-            this.Load += new System.EventHandler(this.FrmCadastrarUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,5 +398,10 @@
         private System.Windows.Forms.TextBox txtBairro;
         private System.Windows.Forms.MaskedTextBox maskedTxtBoxTelFixo;
         private System.Windows.Forms.MaskedTextBox maskedTxtBoxTelCel;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListView listView2;
     }
 }

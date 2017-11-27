@@ -6,22 +6,19 @@ using WindowsForms.TelasFrmUsuario;
 namespace WindowsForms.TelasFrmPrincipal
 {
     public partial class FrmCadastrarUsuario : Form
+
     {
-        int[] idTipoUsuario;
-            
+        TipoUsuario[] listTipoUsuario;
         public FrmCadastrarUsuario()
         {
             InitializeComponent();
 
             Service1 sv = new Service1();
-            TipoUsuario[] listTipoUsuario = new TipoUsuario[sv.TipoUsuarioSelect().Length];
             listTipoUsuario = sv.TipoUsuarioSelect();
-            idTipoUsuario = new int[sv.TipoUsuarioSelect().Length];
 
-            for (int i = 0; i < listTipoUsuario.Length; i++)
+            foreach (TipoUsuario t in listTipoUsuario)
             {
-                comboBoxTipoUsuario.Items.Add(listTipoUsuario[i].descricao);
-                idTipoUsuario[i] = listTipoUsuario[i].id;
+                comboBoxTipoUsuario.Items.Add(t.descricao);
             }
         }
 
@@ -37,7 +34,7 @@ namespace WindowsForms.TelasFrmPrincipal
                 usuario.tipoUsuario = new TipoUsuario();
                 usuario.situacao = new Situacao();
 
-                usuario.tipoUsuario.id = Convert.ToInt32(idTipoUsuario[comboBoxTipoUsuario.SelectedIndex]);
+                usuario.tipoUsuario.id = Convert.ToInt32(listTipoUsuario[comboBoxTipoUsuario.SelectedIndex].id);
                 usuario.situacao.id = Convert.ToInt32(1);
 
                 usuario.nome = txtNome.Text;
@@ -69,8 +66,6 @@ namespace WindowsForms.TelasFrmPrincipal
         {            
             CadastrarUsuario();
             this.Hide();
-            FrmPrincipal principal = new FrmPrincipal();
-            principal.ShowDialog();
         }
 
         private void txtCpf_Cnpj_TextChanged(object sender, EventArgs e)
@@ -88,12 +83,13 @@ namespace WindowsForms.TelasFrmPrincipal
 
         }
 
-        private void FrmCadastrarUsuario_Load(object sender, EventArgs e)
+
+        private void comboBoxTipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void comboBoxTipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
