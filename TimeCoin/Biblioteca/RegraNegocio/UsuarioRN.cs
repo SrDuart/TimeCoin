@@ -154,12 +154,12 @@ namespace Biblioteca.RegraNegocio
                 throw new Exception("Erro! número de caracteres não compatível. O nome deve conter mais de um caracter e no máximo 50.");
             }
 
-            if (usuario.email.Trim().Length < 10 || usuario.email.Trim().Length > 20)
+            if (usuario.email.Trim().Length < 10 || usuario.email.Trim().Length > 25)
             {
                 throw new Exception("Erro! número de caracteres não compatível. O email deve conter mais de um caracter e no máximo 20.");
             }
 
-            if (usuario.userName.Trim().Length < 5 || usuario.userName.Trim().Length > 10)
+            if (usuario.userName.Trim().Length < 5 || usuario.userName.Trim().Length > 15)
             {
                 throw new Exception("Erro! número de caracteres não compatível. O Nome de Usuário deve conter mais de um caracter e no máximo 40.");
             }
