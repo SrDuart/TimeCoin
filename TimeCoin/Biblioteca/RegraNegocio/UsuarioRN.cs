@@ -80,7 +80,7 @@ namespace Biblioteca.RegraNegocio
                 UsuarioSqlServer dados = new UsuarioSqlServer();
                 dados.VerificaLogin(usuario);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }  
