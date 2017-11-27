@@ -50,8 +50,11 @@ namespace WindowsForms.TelasFrmPrincipal
 
                 sv.UsuarioVerificaLogin(usuario);
 
+                this.Hide();
                 FrmPrincipal principal = new FrmPrincipal();
                 principal.ShowDialog();
+
+                this.Close();
             }
             catch(Exception ex)
             {
