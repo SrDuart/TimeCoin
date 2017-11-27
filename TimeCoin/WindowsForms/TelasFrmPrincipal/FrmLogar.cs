@@ -54,7 +54,7 @@ namespace WindowsForms.TelasFrmPrincipal
                 FrmPrincipal principal = new FrmPrincipal();
                 principal.ShowDialog();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }            
