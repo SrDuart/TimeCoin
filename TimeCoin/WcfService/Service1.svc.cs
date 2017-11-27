@@ -279,10 +279,10 @@ namespace WcfService
             regra.Delete(anuncio);
         }
 
-        public List<Anuncio> AnuncioSelect()
+        public List<Anuncio> AnuncioSelect(Anuncio filtro)
         {
             AnuncioRN regra = new AnuncioRN();
-            return regra.Select();
+            return regra.Select(filtro);
         }
 
         public bool AnuncioVerificaDuplicidade(Anuncio anuncio)

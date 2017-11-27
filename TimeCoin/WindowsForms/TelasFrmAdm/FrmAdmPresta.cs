@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace WindowsForms.TelasFrmAdm
 {
-    public partial class FrmPrincipalAdm : Form
+    public partial class FrmAdmPresta : Form
     {
-        public FrmPrincipalAdm()
+        public FrmAdmPresta()
         {
             InitializeComponent();
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
         }
     }
 }

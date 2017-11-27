@@ -139,7 +139,7 @@ namespace WcfService
         void AnuncioDelete(Anuncio anuncio);
 
         [OperationContract]
-        List<Anuncio> AnuncioSelect();
+        List<Anuncio> AnuncioSelect(Anuncio filtro);
 
         [OperationContract]
         bool AnuncioVerificaDuplicidade(Anuncio anuncio);

@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsForms.localhost;
 using WindowsForms.TelasFrmUsuario;
+using WindowsForms.TelasFrmAdm;
 
 namespace WindowsForms.TelasFrmPrincipal
 {
@@ -44,6 +38,12 @@ namespace WindowsForms.TelasFrmPrincipal
                 else
                 {
                     usuario.email = txtUsuario.Text;
+                }
+
+                if (txtUsuario.Text == "Admin" && txtSenha.Text == "admin")
+                {
+                    FrmAdmPrincipal p = new FrmAdmPrincipal();
+                    p.ShowDialog();
                 }
 
                 usuario.senha = txtSenha.Text;
