@@ -160,7 +160,7 @@ namespace Biblioteca.Parametros
 			return retorno;
         }
 
-        public List<TipoUsuario> Select(TipoUsuario filtro)
+        public List<TipoUsuario> Select()
         {
             List<TipoUsuario> retorno = new List<TipoUsuario>();
             try

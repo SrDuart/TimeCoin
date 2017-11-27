@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsForms.localhost;
+using WindowsForms.TelasFrmUsuario;
 
 namespace WindowsForms.TelasFrmPrincipal
 {
@@ -25,7 +27,51 @@ namespace WindowsForms.TelasFrmPrincipal
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             FrmCadastrarUsuario frmCu = new FrmCadastrarUsuario();
-            frmCu.ShowDialog();
+            frmCu.ShowDialog();                       
+        }
+
+        private void btnLogar_Click(object sender, EventArgs e)
+        {
+            /*try
+            {
+                Service1 sv = new Service1();
+                Usuario usuario = new Usuario();
+
+                if (txtUsuario.TextLength > 20)
+                {
+                    usuario.userName = txtUsuario.Text;
+                }
+                else
+                {
+                    usuario.email = txtUsuario.Text;
+                }
+
+                usuario.senha = txtSenha.Text;
+
+                sv.UsuarioVerificaLogin(usuario);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }*/
+
+            FrmPrincipal principal = new FrmPrincipal();
+            principal.ShowDialog();
+        }
+
+        private void lbUsuario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSenha_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnAlterarSenha_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

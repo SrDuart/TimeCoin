@@ -19,7 +19,7 @@ namespace Biblioteca.Parametros
                 string sql = "INSERT INTO Usuario (nome, userName, cpf_cnpj, telefoneFixo, telefoneCelular, ";
                 sql += "uf, cidade, bairro, email, senha, descricao, dataCadastro, qtdHoraTrabalhada, qtdHoraDisponivel, Id_Situacao, Id_TipoUsuario) VALUES ";
                 sql += "(@nome , @userName, @cpf_cnpj, @telefoneFixo, @telefoneCelular, @uf, @cidade, @bairro, @email, @senha, @descricao, @dataCadastro,";
-                sql += "@qtdHoraTrabalhada, @qtdHoraDisponivel, @Id_Situacao, @Id_TipoUsuario) ";
+                sql += "@qtdHoraTrabalhada, @qtdHoraDisponivel, @Id_Situacao, @Id_TipoUsuario);";
 
                 #endregion
 
@@ -67,12 +67,14 @@ namespace Biblioteca.Parametros
                 cmd.Parameters.Add("@qtdHoraTrabalhada", SqlDbType.Int);
                 cmd.Parameters["@qtdHoraTrabalhada"].Value = 0;
 
-                if (usuario.tipoUsuario.descricao == "Voluntário")
+                /*Procurar uma solução parar usar a descrição do tipo usuario*/
+
+                if (usuario.tipoUsuario.id == 1)
                 {
                     cmd.Parameters.Add("@qtdHoraDisponivel", SqlDbType.Int);
                     cmd.Parameters["@qtdHoraDisponivel"].Value = 0;
                 }
-                else
+                else if(usuario.tipoUsuario.id == 2)
                 {
                     cmd.Parameters.Add("@qtdHoraDisponivel", SqlDbType.Int);
                     cmd.Parameters["@qtdHoraDisponivel"].Value = 1000;
@@ -211,7 +213,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "SELECT userName, cpf_cnpj, email FROM Usuario WHERE id = @id";
+                string sql = "SELECT userName, cpf_cnpj, email FROM Usuario WHERE userName = @userName AND cpf_cnpj =  @cpf_cnpj AND email = @email";
                 #endregion
 
                 #region instrucao a ser executada
@@ -252,6 +254,51 @@ namespace Biblioteca.Parametros
                 throw new Exception("Erro! Este usuário já existente. " + ex.Message);
             }
             return retorno;
+        }
+
+        public void VerificaLogin(Usuario usuario)
+        {
+            try
+            {
+                #region abrir a conexão
+                this.abrirConexao();
+                string sql = "SELECT userName, senha FROM Usuario WHERE userName = @userName AND senha =  @senha";
+                #endregion
+
+                #region instrucao a ser executada
+                SqlCommand cmd = new SqlCommand(sql, sqlConexao);
+                #endregion
+
+                #region passar parametros
+                cmd.Parameters.Add("@userName", SqlDbType.VarChar);
+                cmd.Parameters["@userName"].Value = usuario.userName;
+
+                cmd.Parameters.Add("@senha", SqlDbType.VarChar);
+                cmd.Parameters["@senha"].Value = usuario.senha;
+                
+                #endregion
+
+                #region instrucao a ser executada
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                #endregion
+
+                #region executando a instrucao 
+                while (DbReader.Read())
+                {
+                    break;
+                }
+                DbReader.Close();
+                #endregion
+
+                #region liberando a memoria e fechando conexão
+                cmd.Dispose();
+                this.fecharConexao();
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro! Login ou senha inválido. Caso não seja Cadastrado click no botão 'Cadastra-se' " + ex.Message);
+            }
         }
 
         public List<Usuario> Select(Usuario filtro)
@@ -295,5 +342,6 @@ namespace Biblioteca.Parametros
             }
             return retorno;
         }
+        
     }
 }

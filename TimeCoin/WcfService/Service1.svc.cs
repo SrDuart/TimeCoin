@@ -27,10 +27,10 @@ namespace WcfService
             regra.Delete(tipoUsuario);
         }
 
-        public List<TipoUsuario> TipoUsuarioSelect(TipoUsuario filtro)
+        public List<TipoUsuario> TipoUsuarioSelect()
         {
             TipoUsuarioRN regra = new TipoUsuarioRN();
-            return regra.Select(filtro);
+            return regra.Select();
         }
 
         public bool TipoUsuarioVerificaDuplicidade(TipoUsuario filtro)
@@ -97,6 +97,12 @@ namespace WcfService
         {
             UsuarioRN regra = new UsuarioRN();
             regra.Delete(usuario);
+        }
+
+        public void UsuarioVerificaLogin(Usuario usuario)
+        {
+            UsuarioRN regra = new UsuarioRN();
+            regra.VerificaLogin(usuario);
         }
 
         public List<Usuario> UsuarioSelect(Usuario filtro)

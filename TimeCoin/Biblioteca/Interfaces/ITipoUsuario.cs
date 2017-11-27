@@ -9,7 +9,7 @@ namespace Biblioteca.Interfaces
 		void Update(TipoUsuario tipoUsuario);
 		void Delete(TipoUsuario tipoUsuario);
 		bool VerificaDuplicidade(TipoUsuario tipoUsuario);
-		List<TipoUsuario> Select(TipoUsuario filtro);
+		List<TipoUsuario> Select();
         bool VerificaExistencia(TipoUsuario tipoUsuario);
 
     }

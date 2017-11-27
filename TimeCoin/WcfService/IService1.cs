@@ -19,7 +19,7 @@ namespace WcfService
         void TipoUsuarioDelete(TipoUsuario tipoUsuario);
 
         [OperationContract]
-        List<TipoUsuario> TipoUsuarioSelect(TipoUsuario filtro);
+        List<TipoUsuario> TipoUsuarioSelect();
 
         [OperationContract]
         bool TipoUsuarioVerificaDuplicidade(TipoUsuario filtro);
@@ -56,6 +56,9 @@ namespace WcfService
 
         [OperationContract]
         void UsuarioDelete(Usuario usuario);
+
+        [OperationContract]
+        void UsuarioVerificaLogin(Usuario usuario);
 
         [OperationContract]
         List<Usuario> UsuarioSelect(Usuario filtro);

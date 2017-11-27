@@ -73,6 +73,20 @@ namespace Biblioteca.RegraNegocio
             return dados.VerificaDuplicidade(usuario);
         }        
         
+        public void VerificaLogin(Usuario usuario)
+        {
+            try
+            {
+                VerificaLogin(usuario);
+                UsuarioSqlServer dados = new UsuarioSqlServer();
+                dados.VerificaLogin(usuario);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }  
+        }
+
         public List<Usuario> Select(Usuario filtro)
         {
             UsuarioSqlServer dados = new UsuarioSqlServer();
@@ -138,32 +152,32 @@ namespace Biblioteca.RegraNegocio
 
             if (usuario.nome.Trim().Length < 1 || usuario.nome.Trim().Length > 50)
             {
-                throw new Exception("Erro! número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 50.");
+                throw new Exception("Erro! número de caracteres não compatível. O nome deve conter mais de um caracter e no máximo 50.");
             }
 
             if (usuario.userName.Trim().Length < 1 || usuario.userName.Trim().Length > 40)
             {
-                throw new Exception("Erro! número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 40.");
+                throw new Exception("Erro! número de caracteres não compatível. A Nome de Usuário deve conter mais de um caracter e no máximo 40.");
             }
 
             if (usuario.cpf_cnpj.Trim().Length < 1 || usuario.cpf_cnpj.Trim().Length > 14)
             {
-                throw new Exception("Erro! número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 14.");
+                throw new Exception("Erro! número de caracteres não compatível. A CPF/CNPJ deve conter mais de um caracter e no máximo 14.");
             }
 
-            if (usuario.telefoneCelular.Trim().Length < 1 || usuario.telefoneCelular.Trim().Length > 10)
+            if (usuario.telefoneFixo.Trim().Length < 1 || usuario.telefoneFixo.Trim().Length > 10)
             {
-                throw new Exception("Erro! número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 10.");
+                throw new Exception("Erro! número de caracteres não compatível. A Telefone Fixo deve conter mais de um caracter e no máximo 10.");
             }
 
-            if (usuario.telefoneCelular.Trim().Length < 1 || usuario.telefoneCelular.Trim().Length > 10)
+            if (usuario.telefoneCelular.Trim().Length < 1 || usuario.telefoneCelular.Trim().Length > 11)
             {
-                throw new Exception("Erro! número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 10.");
+                throw new Exception("Erro! número de caracteres não compatível. O Celular deve conter mais de um caracter e no máximo 11.");
             }
 
-            if (usuario.uf.Trim().Length < 1 || usuario.uf.Trim().Length > 25)
+            if (usuario.uf.Trim().Length < 1 || usuario.uf.Trim().Length > 3)
             {
-                throw new Exception("Erro! número de caracteres não compatível. A descrição deve conter mais de um caracter e no máximo 25.");
+                throw new Exception("Erro! número de caracteres não compatível. A UF deve conter mais de um caracter e no máximo 25.");
             }
 
             if (usuario.cidade.Trim().Length < 1 || usuario.cidade.Trim().Length > 25)
