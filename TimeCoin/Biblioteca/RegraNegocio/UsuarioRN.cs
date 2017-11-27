@@ -77,7 +77,6 @@ namespace Biblioteca.RegraNegocio
         {
             try
             {
-                VerificaLogin(usuario);
                 UsuarioSqlServer dados = new UsuarioSqlServer();
                 dados.VerificaLogin(usuario);
             }

@@ -32,12 +32,12 @@ namespace WindowsForms.TelasFrmPrincipal
 
         private void btnLogar_Click(object sender, EventArgs e)
         {
-            /*try
+            try
             {
                 Service1 sv = new Service1();
                 Usuario usuario = new Usuario();
 
-                if (txtUsuario.TextLength > 20)
+                if (!(txtUsuario.Text.Contains("@") && txtUsuario.Text.Contains(".com")))
                 {
                     usuario.userName = txtUsuario.Text;
                 }
@@ -49,14 +49,14 @@ namespace WindowsForms.TelasFrmPrincipal
                 usuario.senha = txtSenha.Text;
 
                 sv.UsuarioVerificaLogin(usuario);
+
+                FrmPrincipal principal = new FrmPrincipal();
+                principal.ShowDialog();
             }
             catch(Exception ex)
             {
-                throw ex;
-            }*/
-
-            FrmPrincipal principal = new FrmPrincipal();
-            principal.ShowDialog();
+                MessageBox.Show(ex.Message);
+            }            
         }
 
         private void lbUsuario_Click(object sender, EventArgs e)
