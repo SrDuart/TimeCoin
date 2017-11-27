@@ -34,6 +34,9 @@ namespace WindowsForms.TelasFrmUsuario
             {
                 throw ex;
             }
+
+            FrmHabilidade hab = new FrmHabilidade();
+            hab.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -42,9 +45,6 @@ namespace WindowsForms.TelasFrmUsuario
             this.Hide();
             FrmPrincipal principal = new FrmPrincipal();
             principal.ShowDialog();
-            
-            FrmHabilidade habilidade = new FrmHabilidade();
-            this.Close();
         }
     }
 }

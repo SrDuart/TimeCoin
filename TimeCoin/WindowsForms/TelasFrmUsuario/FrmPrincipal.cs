@@ -1,12 +1,14 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
-using WcfService.localhost;
+using WindowsForms.localhost;
 
 namespace WindowsForms.TelasFrmUsuario
 {
     public partial class FrmPrincipal : Form
     {
+        Service1 sv = new Service1();
+
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -38,21 +40,17 @@ namespace WindowsForms.TelasFrmUsuario
         }
 
         private void btnHabilidade_Click(object sender, EventArgs e)
-        {
-            Service1 sv = new Service1();
+        {            
             this.Hide();
             FrmHabilidade habilidade = new FrmHabilidade();
             habilidade.ShowDialog();
-            this.Close();
         }
 
         private void btnAnuncio_Click(object sender, EventArgs e)
         {
-            Service1 sv = new Service1();
             this.Hide();
             FrmAnuncio anuncio = new FrmAnuncio();
             anuncio.ShowDialog();
-            this.Close();
         }
     }
 }
