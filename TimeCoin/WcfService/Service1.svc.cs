@@ -101,15 +101,8 @@ namespace WcfService
 
         public void UsuarioVerificaLogin(Usuario usuario)
         {
-            try
-            {
-                UsuarioRN regra = new UsuarioRN();
-                regra.VerificaLogin(usuario);
-            }
-            catch(Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            UsuarioRN regra = new UsuarioRN();
+            regra.VerificaLogin(usuario);            
         }
 
         public List<Usuario> UsuarioSelect(Usuario filtro)
