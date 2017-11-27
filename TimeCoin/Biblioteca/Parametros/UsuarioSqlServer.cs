@@ -263,7 +263,7 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "SELECT userName, senha FROM Usuario WHERE userName = @userName AND senha =  @senha";
+                string sql = "SELECT userName, senha FROM Usuario WHERE userName = @userName AND senha = @senha";
                 #endregion
 
                 #region instrucao a ser executada
