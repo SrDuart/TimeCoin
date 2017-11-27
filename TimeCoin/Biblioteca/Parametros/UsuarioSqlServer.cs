@@ -263,7 +263,16 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "SELECT userName, senha FROM Usuario WHERE userName = @userName AND senha = @senha";
+                string sql = "";
+                
+                if (usuario.userName != null)
+                {
+                    sql = "SELECT userName, senha FROM Usuario WHERE userName = @userName collate sql_latin1_general_cp1_cs_as AND senha = @senha collate sql_latin1_general_cp1_cs_as";
+                }
+                else
+                {
+                    sql = "SELECT email, senha FROM Usuario WHERE email = @email AND senha = @senha collate sql_latin1_general_cp1_cs_as";
+                }
                 #endregion
 
                 #region instrucao a ser executada
@@ -271,8 +280,16 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passar parametros
-                cmd.Parameters.Add("@userName", SqlDbType.VarChar);
-                cmd.Parameters["@userName"].Value = usuario.userName;
+                if (usuario.userName != null)
+                {
+                    cmd.Parameters.Add("@userName", SqlDbType.VarChar);
+                    cmd.Parameters["@userName"].Value = usuario.userName;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@email", SqlDbType.VarChar);
+                    cmd.Parameters["@email"].Value = usuario.email;
+                }                
 
                 cmd.Parameters.Add("@senha", SqlDbType.VarChar);
                 cmd.Parameters["@senha"].Value = usuario.senha;

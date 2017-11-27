@@ -102,7 +102,7 @@ namespace WcfService
         public void UsuarioVerificaLogin(Usuario usuario)
         {
             UsuarioRN regra = new UsuarioRN();
-            regra.VerificaLogin(usuario);            
+            regra.VerificaLogin(usuario);
         }
 
         public List<Usuario> UsuarioSelect(Usuario filtro)
