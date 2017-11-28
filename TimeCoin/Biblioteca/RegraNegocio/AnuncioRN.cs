@@ -60,10 +60,10 @@ namespace Biblioteca.RegraNegocio
             return dados.VerificaDuplicidade(anuncio);
         }
 
-        public List<Anuncio> Select()
+        public List<Anuncio> Select(Anuncio filtro)
         {
             AnuncioSqlServer dados = new AnuncioSqlServer();
-            return dados.Select();
+            return dados.Select(filtro);
         }
 
         private void ValidarDadosBasicos(Anuncio anuncio)

@@ -459,20 +459,22 @@
   </xs:element>
   <xs:element name="AnuncioSelect">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="filtro" nillable="true" type="q43:Anuncio" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AnuncioSelectResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="AnuncioSelectResult" nillable="true" type="q43:ArrayOfAnuncio" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="AnuncioSelectResult" nillable="true" type="q44:ArrayOfAnuncio" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AnuncioVerificaDuplicidade">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="anuncio" nillable="true" type="q44:Anuncio" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="anuncio" nillable="true" type="q45:Anuncio" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -486,7 +488,7 @@
   <xs:element name="TipoAnuncioInsert">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="tipoAnuncio" nillable="true" type="q45:TipoAnuncio" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="tipoAnuncio" nillable="true" type="q46:TipoAnuncio" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -498,7 +500,7 @@
   <xs:element name="TipoAnuncioUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="tipoAnuncio" nillable="true" type="q46:TipoAnuncio" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="tipoAnuncio" nillable="true" type="q47:TipoAnuncio" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -510,7 +512,7 @@
   <xs:element name="TipoAnuncioDelete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="tipoAnuncio" nillable="true" type="q47:TipoAnuncio" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="tipoAnuncio" nillable="true" type="q48:TipoAnuncio" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -527,14 +529,14 @@
   <xs:element name="TipoAnuncioSelectResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="TipoAnuncioSelectResult" nillable="true" type="q48:ArrayOfTipoAnuncio" />
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="TipoAnuncioSelectResult" nillable="true" type="q49:ArrayOfTipoAnuncio" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="TipoAnuncioVerificaDuplicidade">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="tipoAnuncio" nillable="true" type="q49:TipoAnuncio" />
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="tipoAnuncio" nillable="true" type="q50:TipoAnuncio" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -548,7 +550,7 @@
   <xs:element name="UsuarioHabilidadeInsert">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="usuarioHabilidade" nillable="true" type="q50:UsuarioHabilidade" />
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="usuarioHabilidade" nillable="true" type="q51:UsuarioHabilidade" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -560,7 +562,7 @@
   <xs:element name="UsuarioHabilidadeUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="usuarioHabilidade" nillable="true" type="q51:UsuarioHabilidade" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="usuarioHabilidade" nillable="true" type="q52:UsuarioHabilidade" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -572,7 +574,7 @@
   <xs:element name="UsuarioHabilidadeDelete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="usuarioHabilidade" nillable="true" type="q52:UsuarioHabilidade" />
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="usuarioHabilidade" nillable="true" type="q53:UsuarioHabilidade" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -589,14 +591,14 @@
   <xs:element name="UsuarioHabilidadeSelectResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="UsuarioHabilidadeSelectResult" nillable="true" type="q53:ArrayOfUsuarioHabilidade" />
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="UsuarioHabilidadeSelectResult" nillable="true" type="q54:ArrayOfUsuarioHabilidade" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UsuarioHabilidadeVerificaDuplicidade">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="usuarioHabilidade" nillable="true" type="q54:UsuarioHabilidade" />
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas" minOccurs="0" name="usuarioHabilidade" nillable="true" type="q55:UsuarioHabilidade" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -33,12 +33,13 @@
             this.btnPresta = new System.Windows.Forms.Button();
             this.btnHabilidade = new System.Windows.Forms.Button();
             this.btnAnuncio = new System.Windows.Forms.Button();
+            this.btnConsultaAnuncio = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSituacao
             // 
             this.btnSituacao.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSituacao.Location = new System.Drawing.Point(470, 222);
+            this.btnSituacao.Location = new System.Drawing.Point(326, 222);
             this.btnSituacao.Name = "btnSituacao";
             this.btnSituacao.Size = new System.Drawing.Size(180, 100);
             this.btnSituacao.TabIndex = 16;
@@ -48,7 +49,7 @@
             // btnRecebe
             // 
             this.btnRecebe.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRecebe.Location = new System.Drawing.Point(185, 222);
+            this.btnRecebe.Location = new System.Drawing.Point(75, 222);
             this.btnRecebe.Name = "btnRecebe";
             this.btnRecebe.Size = new System.Drawing.Size(180, 100);
             this.btnRecebe.TabIndex = 14;
@@ -87,11 +88,22 @@
             this.btnAnuncio.UseVisualStyleBackColor = true;
             this.btnAnuncio.Click += new System.EventHandler(this.btnAnuncio_Click);
             // 
+            // btnConsultaAnuncio
+            // 
+            this.btnConsultaAnuncio.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultaAnuncio.Location = new System.Drawing.Point(570, 222);
+            this.btnConsultaAnuncio.Name = "btnConsultaAnuncio";
+            this.btnConsultaAnuncio.Size = new System.Drawing.Size(180, 100);
+            this.btnConsultaAnuncio.TabIndex = 17;
+            this.btnConsultaAnuncio.Text = "Consultar Anúncios";
+            this.btnConsultaAnuncio.UseVisualStyleBackColor = true;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 373);
+            this.Controls.Add(this.btnConsultaAnuncio);
             this.Controls.Add(this.btnSituacao);
             this.Controls.Add(this.btnRecebe);
             this.Controls.Add(this.btnPresta);
@@ -110,5 +122,6 @@
         private System.Windows.Forms.Button btnPresta;
         private System.Windows.Forms.Button btnHabilidade;
         private System.Windows.Forms.Button btnAnuncio;
+        private System.Windows.Forms.Button btnConsultaAnuncio;
     }
 }

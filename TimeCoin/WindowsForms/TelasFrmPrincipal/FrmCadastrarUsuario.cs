@@ -1,4 +1,5 @@
-﻿using System;  
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using WindowsForms.localhost;
 using WindowsForms.TelasFrmUsuario;
@@ -6,22 +7,32 @@ using WindowsForms.TelasFrmUsuario;
 namespace WindowsForms.TelasFrmPrincipal
 {
     public partial class FrmCadastrarUsuario : Form
+
     {
-        int[] idTipoUsuario;
-            
+        TipoUsuario[] listTipoUsuario;
+        Habilidade[] listHabilidade;
         public FrmCadastrarUsuario()
         {
             InitializeComponent();
 
             Service1 sv = new Service1();
-            TipoUsuario[] listTipoUsuario = new TipoUsuario[sv.TipoUsuarioSelect().Length];
             listTipoUsuario = sv.TipoUsuarioSelect();
-            idTipoUsuario = new int[sv.TipoUsuarioSelect().Length];
 
-            for (int i = 0; i < listTipoUsuario.Length; i++)
+            comboBoxTipoUsuario.DisplayMember = "descricao";
+
+            foreach (TipoUsuario t in listTipoUsuario)
             {
-                comboBox1.Items.Add(listTipoUsuario[i].descricao);
-                idTipoUsuario[i] = listTipoUsuario[i].id;
+                comboBoxTipoUsuario.Items.Add(t);
+            }
+
+            Habilidade habilidade = new Habilidade();
+            listHabilidade = sv.HabilidadeSelect(habilidade);
+
+            listBoxHabilidadesDisponiveis.DisplayMember = "nome";
+
+            foreach (Habilidade h in listHabilidade)
+            {
+                listBoxHabilidadesDisponiveis.Items.Add(h);
             }
         }
 
@@ -37,7 +48,8 @@ namespace WindowsForms.TelasFrmPrincipal
                 usuario.tipoUsuario = new TipoUsuario();
                 usuario.situacao = new Situacao();
 
-                usuario.tipoUsuario.id = Convert.ToInt32(idTipoUsuario[comboBox1.SelectedIndex]);
+                TipoUsuario tipoUsuario = (TipoUsuario) comboBoxTipoUsuario.SelectedItem;
+                usuario.tipoUsuario.id = Convert.ToInt32(tipoUsuario.id);
                 usuario.situacao.id = Convert.ToInt32(1);
 
                 usuario.nome = txtNome.Text;
@@ -55,6 +67,19 @@ namespace WindowsForms.TelasFrmPrincipal
 
                 sv.UsuarioInsert(usuario);
 
+                usuario = sv.SelecionaUsuario(usuario);
+
+                UsuarioHabilidade usuarioHabilidade = new UsuarioHabilidade();
+                usuarioHabilidade.usuario = new Usuario();
+                usuarioHabilidade.habilidade = new Habilidade();
+
+                foreach(Habilidade h in listBoxHabilidadeSelecionadas.Items)
+                {
+                    usuarioHabilidade.usuario = usuario;
+                    usuarioHabilidade.habilidade = h;
+                    sv.UsuarioHabilidadeInsert(usuarioHabilidade);
+                }
+
                 MessageBox.Show("Usuário cadastrado com sucesso");
 
                 this.Close();
@@ -63,35 +88,24 @@ namespace WindowsForms.TelasFrmPrincipal
             {
                 throw ex;
             }
-            
-            
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
-        {
+        {            
             CadastrarUsuario();
-            FrmPrincipal principal = new FrmPrincipal();
-            principal.ShowDialog();
+            this.Close();
         }
 
-        private void txtCpf_Cnpj_TextChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            int index = listBoxHabilidadesDisponiveis.SelectedIndex;
+            listBoxHabilidadeSelecionadas.DisplayMember = "nome";
+            listBoxHabilidadeSelecionadas.Items.Add(listHabilidade[index]);
         }
 
-        private void txtTelCel_TextChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void txtTelFixo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FrmCadastrarUsuario_Load(object sender, EventArgs e)
-        {
-
+            listBoxHabilidadeSelecionadas.Items.Remove(listBoxHabilidadeSelecionadas.SelectedItem);
         }
     }
 }

@@ -111,6 +111,12 @@ namespace WcfService
             return regra.Select(filtro);
         }
 
+        public Usuario SelecionaUsuario(Usuario usuario)
+        {
+            UsuarioRN regra = new UsuarioRN();
+            return regra.SelecionaUsuario(usuario);
+        }
+
         public bool UsuarioVerificaDuplicidade(Usuario usuario)
         {
             UsuarioRN regra = new UsuarioRN();
@@ -279,10 +285,10 @@ namespace WcfService
             regra.Delete(anuncio);
         }
 
-        public List<Anuncio> AnuncioSelect()
+        public List<Anuncio> AnuncioSelect(Anuncio filtro)
         {
             AnuncioRN regra = new AnuncioRN();
-            return regra.Select();
+            return regra.Select(filtro);
         }
 
         public bool AnuncioVerificaDuplicidade(Anuncio anuncio)

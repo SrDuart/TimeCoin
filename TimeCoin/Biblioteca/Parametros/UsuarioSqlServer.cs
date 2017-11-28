@@ -258,11 +258,21 @@ namespace Biblioteca.Parametros
 
         public void VerificaLogin(Usuario usuario)
         {
+            bool condicao = false;
             try
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "SELECT userName, senha FROM Usuario WHERE userName = @userName AND senha =  @senha";
+                string sql = "";
+                
+                if (usuario.userName != null)
+                {
+                    sql = "SELECT userName, senha FROM Usuario WHERE userName = @userName collate sql_latin1_general_cp1_cs_as AND senha = @senha collate sql_latin1_general_cp1_cs_as";
+                }
+                else
+                {
+                    sql = "SELECT email, senha FROM Usuario WHERE email = @email AND senha = @senha collate sql_latin1_general_cp1_cs_as";
+                }
                 #endregion
 
                 #region instrucao a ser executada
@@ -270,8 +280,16 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passar parametros
-                cmd.Parameters.Add("@userName", SqlDbType.VarChar);
-                cmd.Parameters["@userName"].Value = usuario.userName;
+                if (usuario.userName != null)
+                {
+                    cmd.Parameters.Add("@userName", SqlDbType.VarChar);
+                    cmd.Parameters["@userName"].Value = usuario.userName;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@email", SqlDbType.VarChar);
+                    cmd.Parameters["@email"].Value = usuario.email;
+                }                
 
                 cmd.Parameters.Add("@senha", SqlDbType.VarChar);
                 cmd.Parameters["@senha"].Value = usuario.senha;
@@ -283,9 +301,9 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region executando a instrucao 
-                while (DbReader.Read())
+                if (DbReader.Read())
                 {
-                    break;
+                    condicao = true;
                 }
                 DbReader.Close();
                 #endregion
@@ -297,7 +315,11 @@ namespace Biblioteca.Parametros
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro! Login ou senha inválido. Caso não seja Cadastrado click no botão 'Cadastra-se' " + ex.Message);
+                throw new Exception("Não foi possível efetuar a conexão com o banco de dados." + ex.Message);
+            }
+            if (!condicao)
+            {
+                throw new Exception("Login ou senha inválido! Se você não é cadastrado clique no botão cadastrar!");
             }
         }
 
@@ -342,6 +364,37 @@ namespace Biblioteca.Parametros
             }
             return retorno;
         }
-        
+
+        public Usuario SelecionaUsuario(Usuario usuario)
+        {
+            try
+            {
+                this.abrirConexao();
+                string sql = "SELECT * FROM usuario where Nome = @nome and userName = @username";
+
+                SqlCommand cmd = new SqlCommand(sql, sqlConexao);
+
+                cmd.Parameters.Add("@nome", SqlDbType.VarChar);
+                cmd.Parameters["@nome"].Value = usuario.nome;
+
+                cmd.Parameters.Add("@userName", SqlDbType.VarChar);
+                cmd.Parameters["@userName"].Value = usuario.userName;
+
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                while (DbReader.Read())
+                {
+                    usuario.id = DbReader.GetInt32(DbReader.GetOrdinal("id"));
+                }
+                DbReader.Close();
+                cmd.Dispose();
+                this.fecharConexao();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao conectar e selecionar um usuário " + ex.Message);
+            }
+            return usuario;
+        }
+
     }
 }

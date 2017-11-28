@@ -34,13 +34,19 @@ namespace WindowsForms.TelasFrmUsuario
             {
                 throw ex;
             }
+
+            FrmHabilidade hab = new FrmHabilidade();
+            hab.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             CadastrarHabilidade();
+            this.Hide();
             FrmPrincipal principal = new FrmPrincipal();
             principal.ShowDialog();
+
+            this.Close();
         }
     }
 }

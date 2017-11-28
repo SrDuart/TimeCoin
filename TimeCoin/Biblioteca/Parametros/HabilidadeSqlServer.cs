@@ -46,6 +46,7 @@ namespace Biblioteca.Parametros
             }
             
         }
+
         public void Update(Habilidade habilidade)
         {
             try
@@ -127,26 +128,26 @@ namespace Biblioteca.Parametros
             #endregion
         }
         
-        public bool VerificaDuplicidade(Habilidade atividade)
+        public bool VerificaDuplicidade(Habilidade habilidade)
         {
             bool retorno = false;
             try
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "SELECT nome, descricao FROM Habilidade WHERE nome = @nome AND descricao = @descricao";
+                string sql = "SELECT Id, Nome, Descricao FROM Habilidade WHERE Nome = @Nome OR Descricao = @Descricao";
                 #endregion
 
                 #region instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, sqlConexao);
                 #endregion
-                
-                #region passar parametros
-                cmd.Parameters.Add("@nome", SqlDbType.VarChar);
-                cmd.Parameters["@nome"].Value = atividade.nome;
 
-                cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
-                cmd.Parameters["@descricao"].Value = atividade.descricao;
+                #region passar parametros
+                cmd.Parameters.Add("@Nome", SqlDbType.VarChar);
+                cmd.Parameters["@Nome"].Value = habilidade.nome;
+
+                cmd.Parameters.Add("@Descricao", SqlDbType.VarChar);
+                cmd.Parameters["@Descricao"].Value = habilidade.descricao;
                 #endregion
 
                 #region instrucao a ser executada
@@ -154,22 +155,25 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region executando a instrucao 
-                while (DbReader.Read())
+                if (DbReader.Read())
                 {
-                    retorno = true;
-                    break;
+                    if (habilidade.id != DbReader.GetInt32(DbReader.GetOrdinal("Id")))
+                    {
+                        retorno = true;
+                    }
+
+                    DbReader.Close();
                 }
-                DbReader.Close();
                 #endregion
 
                 #region liberando a memoria e fechando a conexao
                 cmd.Dispose();
                 this.fecharConexao();
-                #endregion
+                #endregion                
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro! Esta atividade já existe." + ex.Message);
+                throw new Exception("Erro! Esta habilidade já existe." + ex.Message);
             }
             return retorno;
         }

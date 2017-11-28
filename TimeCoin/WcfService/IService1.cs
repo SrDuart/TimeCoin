@@ -83,6 +83,9 @@ namespace WcfService
 
         [OperationContract]
         bool ServicoVerificaDuplicidade(Servico servico);
+
+        [OperationContract]
+        Usuario SelecionaUsuario(Usuario usuario);
         #endregion
 
         //Habilidade
@@ -139,7 +142,7 @@ namespace WcfService
         void AnuncioDelete(Anuncio anuncio);
 
         [OperationContract]
-        List<Anuncio> AnuncioSelect();
+        List<Anuncio> AnuncioSelect(Anuncio filtro);
 
         [OperationContract]
         bool AnuncioVerificaDuplicidade(Anuncio anuncio);

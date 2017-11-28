@@ -14,7 +14,7 @@ namespace Biblioteca.RegraNegocio
 
             if (this.VerificaDuplicidade(habilidade))
             {
-                throw new Exception("Erro! Habilidade do usuário já existente.");
+                throw new Exception("Erro! Habilidade do usuário já cadastrada.");
             }
 
             HabilidadeSqlServer dados = new HabilidadeSqlServer();

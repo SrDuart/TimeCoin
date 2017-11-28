@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsForms.localhost;
 using WindowsForms.TelasFrmUsuario;
+using WindowsForms.TelasFrmAdm;
 
 namespace WindowsForms.TelasFrmPrincipal
 {
@@ -32,12 +26,12 @@ namespace WindowsForms.TelasFrmPrincipal
 
         private void btnLogar_Click(object sender, EventArgs e)
         {
-            /*try
+            try
             {
                 Service1 sv = new Service1();
                 Usuario usuario = new Usuario();
 
-                if (txtUsuario.TextLength > 20)
+                if (!(txtUsuario.Text.Contains("@") && txtUsuario.Text.Contains(".com")))
                 {
                     usuario.userName = txtUsuario.Text;
                 }
@@ -46,17 +40,27 @@ namespace WindowsForms.TelasFrmPrincipal
                     usuario.email = txtUsuario.Text;
                 }
 
+                if (txtUsuario.Text == "Admin" && txtSenha.Text == "admin")
+                {
+                    FrmAdmPrincipal p = new FrmAdmPrincipal();
+                    p.ShowDialog();
+                    return;
+                }
+
                 usuario.senha = txtSenha.Text;
 
                 sv.UsuarioVerificaLogin(usuario);
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }*/
 
-            FrmPrincipal principal = new FrmPrincipal();
-            principal.ShowDialog();
+                this.Hide();
+                FrmPrincipal principal = new FrmPrincipal();
+                principal.ShowDialog();
+
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }            
         }
 
         private void lbUsuario_Click(object sender, EventArgs e)
