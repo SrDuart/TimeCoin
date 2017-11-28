@@ -93,6 +93,8 @@ namespace WindowsForms.TelasFrmUsuario
             FrmPrincipal principal = new FrmPrincipal();
             principal.ShowDialog();
 
+            this.Close();
+
             FrmAnuncio anuncio = new FrmAnuncio();
             this.Close();
         }

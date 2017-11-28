@@ -44,6 +44,8 @@ namespace WindowsForms.TelasFrmUsuario
             this.Hide();
             FrmHabilidade habilidade = new FrmHabilidade();
             habilidade.ShowDialog();
+
+            this.Close();
         }
 
         private void btnAnuncio_Click(object sender, EventArgs e)
@@ -51,6 +53,8 @@ namespace WindowsForms.TelasFrmUsuario
             this.Hide();
             FrmAnuncio anuncio = new FrmAnuncio();
             anuncio.ShowDialog();
+
+            this.Close();
         }
     }
 }

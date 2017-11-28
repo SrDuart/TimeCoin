@@ -44,7 +44,7 @@
             this.btnCadastrar.Location = new System.Drawing.Point(475, 509);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(110, 30);
-            this.btnCadastrar.TabIndex = 16;
+            this.btnCadastrar.TabIndex = 4;
             this.btnCadastrar.Text = "Cadastrar-se";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -57,7 +57,7 @@
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(302, 26);
-            this.txtSenha.TabIndex = 13;
+            this.txtSenha.TabIndex = 2;
             this.txtSenha.TextChanged += new System.EventHandler(this.txtSenha_TextChanged);
             // 
             // txtUsuario
@@ -66,7 +66,7 @@
             this.txtUsuario.Location = new System.Drawing.Point(306, 423);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(302, 26);
-            this.txtUsuario.TabIndex = 12;
+            this.txtUsuario.TabIndex = 1;
             // 
             // lbSenha
             // 
@@ -95,7 +95,7 @@
             this.btnLogar.Location = new System.Drawing.Point(330, 509);
             this.btnLogar.Name = "btnLogar";
             this.btnLogar.Size = new System.Drawing.Size(110, 30);
-            this.btnLogar.TabIndex = 18;
+            this.btnLogar.TabIndex = 3;
             this.btnLogar.Text = "Entrar";
             this.btnLogar.UseVisualStyleBackColor = true;
             this.btnLogar.Click += new System.EventHandler(this.btnLogar_Click);

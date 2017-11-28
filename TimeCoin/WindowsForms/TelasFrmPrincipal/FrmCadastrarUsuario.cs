@@ -93,7 +93,7 @@ namespace WindowsForms.TelasFrmPrincipal
         private void btnCadastrar_Click(object sender, EventArgs e)
         {            
             CadastrarUsuario();
-            this.Hide();
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)

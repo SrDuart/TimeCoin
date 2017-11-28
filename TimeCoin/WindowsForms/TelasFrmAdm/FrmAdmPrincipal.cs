@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using WindowsForms.TelasFrmPrincipal;
 using WindowsForms.localhost;
 
 namespace WindowsForms.TelasFrmAdm
@@ -16,8 +17,11 @@ namespace WindowsForms.TelasFrmAdm
         private void btnAnuncio_Click(object sender, EventArgs e)
         {            
             this.Hide();
+
             FrmAdmAnuncio admAnuncio = new FrmAdmAnuncio();
             admAnuncio.ShowDialog();
+
+            this.Close();
         }
 
         private void btnHabilidade_Click(object sender, EventArgs e)
@@ -25,6 +29,14 @@ namespace WindowsForms.TelasFrmAdm
             this.Hide();
             FrmAdmHabilidade admHabilidade = new FrmAdmHabilidade();
             admHabilidade.ShowDialog();
+            this.Close();
+            FrmLogar logar = new FrmLogar();
+            logar.ShowDialog();
+        }
+
+        private void FrmAdmPrincipal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

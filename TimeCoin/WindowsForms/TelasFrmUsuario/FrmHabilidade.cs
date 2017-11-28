@@ -45,6 +45,8 @@ namespace WindowsForms.TelasFrmUsuario
             this.Hide();
             FrmPrincipal principal = new FrmPrincipal();
             principal.ShowDialog();
+
+            this.Close();
         }
     }
 }
