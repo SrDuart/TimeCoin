@@ -111,6 +111,12 @@ namespace WcfService
             return regra.Select(filtro);
         }
 
+        public Usuario SelecioanUsuario(Usuario usuario)
+        {
+            UsuarioRN regra = new UsuarioRN();
+            return regra.SelecionaUsuario(usuario);
+        }
+
         public bool UsuarioVerificaDuplicidade(Usuario usuario)
         {
             UsuarioRN regra = new UsuarioRN();
