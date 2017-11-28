@@ -95,7 +95,9 @@ namespace Biblioteca.Parametros
             {
                 #region abrir a conexão
                 this.abrirConexao();
-                string sql = "DELETE FROM Habilidade where Id = @Id";
+                string sql = "BEGIN DELETE FROM Habilidade WHERE Id = @Id ";
+                sql += "DECLARE @MaxId INT = (SELECT MAX(Id) FROM Habilidade) ";
+                sql += "DBCC CHECKIDENT('Habilidade', RESEED, @MaxId) END";
                 #endregion
 
                 #region instrucao a ser executada
@@ -103,11 +105,8 @@ namespace Biblioteca.Parametros
                 #endregion
 
                 #region passar parametros
-                cmd.Parameters.Add("@Nome", SqlDbType.VarChar);
-                cmd.Parameters["@Nome"].Value = habilidade.nome;
-
-                cmd.Parameters.Add("@Descricao", SqlDbType.VarChar);
-                cmd.Parameters["@Descricao"].Value = habilidade.descricao;
+                cmd.Parameters.Add("@Id", SqlDbType.VarChar);
+                cmd.Parameters["@Id"].Value = habilidade.id;
                 #endregion
 
                 #region executando a instrucao 
@@ -120,12 +119,12 @@ namespace Biblioteca.Parametros
 
                 #region fechando a conexao
                 this.fecharConexao();
+                #endregion
             }
             catch (Exception ex)
             {
                 throw new Exception("Erro ao conectar e excluir habilidade do usuário. " + ex.Message);
-            }
-            #endregion
+            }            
         }
         
         public bool VerificaDuplicidade(Habilidade habilidade)

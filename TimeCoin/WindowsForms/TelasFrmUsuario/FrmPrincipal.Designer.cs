@@ -110,6 +110,7 @@
             this.Controls.Add(this.btnHabilidade);
             this.Controls.Add(this.btnAnuncio);
             this.Name = "FrmPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TimeCoin";
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.ResumeLayout(false);

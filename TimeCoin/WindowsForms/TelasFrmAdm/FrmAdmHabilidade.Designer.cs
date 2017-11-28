@@ -87,6 +87,7 @@
             this.btnAlterar.TabIndex = 6;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // txtDescricao
             // 
@@ -148,7 +149,6 @@
             this.listViewHabilidade.TabIndex = 8;
             this.listViewHabilidade.UseCompatibleStateImageBehavior = false;
             this.listViewHabilidade.View = System.Windows.Forms.View.Details;
-            this.listViewHabilidade.SelectedIndexChanged += new System.EventHandler(this.listViewHabilidade_SelectedIndexChanged);
             // 
             // ID
             // 
