@@ -44,6 +44,7 @@ namespace WindowsForms.TelasFrmPrincipal
                 {
                     FrmAdmPrincipal p = new FrmAdmPrincipal();
                     p.ShowDialog();
+                    return;
                 }
 
                 usuario.senha = txtSenha.Text;

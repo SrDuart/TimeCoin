@@ -1350,22 +1350,24 @@ namespace WcfService.localhost {
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AnuncioSelect", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas")]
-        public Anuncio[] AnuncioSelect() {
-            object[] results = this.Invoke("AnuncioSelect", new object[0]);
+        public Anuncio[] AnuncioSelect([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Anuncio filtro) {
+            object[] results = this.Invoke("AnuncioSelect", new object[] {
+                        filtro});
             return ((Anuncio[])(results[0]));
         }
         
         /// <remarks/>
-        public void AnuncioSelectAsync() {
-            this.AnuncioSelectAsync(null);
+        public void AnuncioSelectAsync(Anuncio filtro) {
+            this.AnuncioSelectAsync(filtro, null);
         }
         
         /// <remarks/>
-        public void AnuncioSelectAsync(object userState) {
+        public void AnuncioSelectAsync(Anuncio filtro, object userState) {
             if ((this.AnuncioSelectOperationCompleted == null)) {
                 this.AnuncioSelectOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAnuncioSelectOperationCompleted);
             }
-            this.InvokeAsync("AnuncioSelect", new object[0], this.AnuncioSelectOperationCompleted, userState);
+            this.InvokeAsync("AnuncioSelect", new object[] {
+                        filtro}, this.AnuncioSelectOperationCompleted, userState);
         }
         
         private void OnAnuncioSelectOperationCompleted(object arg) {

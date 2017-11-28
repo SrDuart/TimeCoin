@@ -63,6 +63,23 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Properties\DataSources\Biblioteca.ClassesBasicas.Anuncio.datasource" />
+    <Content Include="Properties\DataSources\Biblioteca.ClassesBasicas.Habilidade.datasource" />
+    <Content Include="Properties\DataSources\Biblioteca.ClassesBasicas.Presta.datasource" />
+    <Content Include="Properties\DataSources\Biblioteca.ClassesBasicas.Recebe.datasource" />
+    <Content Include="Properties\DataSources\Biblioteca.ClassesBasicas.Servico.datasource" />
+    <Content Include="Properties\DataSources\Biblioteca.ClassesBasicas.Situacao.datasource" />
+    <Content Include="Properties\DataSources\Biblioteca.ClassesBasicas.TipoAnuncio.datasource" />
+    <Content Include="Properties\DataSources\Biblioteca.ClassesBasicas.TipoUsuario.datasource" />
+    <Content Include="Properties\DataSources\Biblioteca.ClassesBasicas.Usuario.datasource" />
+    <Content Include="Properties\DataSources\Biblioteca.ClassesBasicas.UsuarioHabilidade.datasource" />
+    <None Include="Service References\ServiceReference1\Service1.disco" />
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Service1.svc" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -80,10 +97,20 @@
     <Content Include="Web References\localhost\Recebe.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
-    <Content Include="Web References\localhost\Reference.map">
+    <None Include="Service References\ServiceReference1\Service1.wsdl" />
+    <None Include="Service References\ServiceReference1\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\Service11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\Service12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\localhost\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <None Include="Web References\localhost\Service1.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -92,6 +119,11 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
@@ -150,12 +182,6 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Biblioteca\Biblioteca.csproj">
-      <Project>{80ea9b59-3f49-4239-a636-997c92f210ab}</Project>
-      <Name>Biblioteca</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <WebReferenceUrl Include="http://localhost:26254/Service1.svc">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\localhost\</RelPath>
@@ -167,6 +193,15 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>WcfService_localhost_Service1</CachedSettingsPropName>
     </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Biblioteca\Biblioteca.csproj">
+      <Project>{80ea9b59-3f49-4239-a636-997c92f210ab}</Project>
+      <Name>Biblioteca</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

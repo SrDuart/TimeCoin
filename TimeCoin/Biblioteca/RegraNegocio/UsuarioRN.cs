@@ -92,6 +92,13 @@ namespace Biblioteca.RegraNegocio
             return dados.Select(filtro);
         }
 
+        public Usuario SelecionaUsuario(Usuario usuario)
+        {
+            // não precisa validar dados básicos pois este usuario já vai ter passado pelo Insert
+            UsuarioSqlServer dados = new UsuarioSqlServer();
+            return dados.SelecionaUsuario(usuario);
+        }
+
         private void ValidarDadosBasicos(Usuario usuario)
         {
             if (usuario == null)

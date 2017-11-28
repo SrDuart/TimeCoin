@@ -83,6 +83,9 @@ namespace WcfService
 
         [OperationContract]
         bool ServicoVerificaDuplicidade(Servico servico);
+
+        [OperationContract]
+        Usuario SelecionaUsuario(Usuario usuario);
         #endregion
 
         //Habilidade
