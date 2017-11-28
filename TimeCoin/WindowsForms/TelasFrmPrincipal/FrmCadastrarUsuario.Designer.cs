@@ -53,11 +53,11 @@
             this.txtBairro = new System.Windows.Forms.TextBox();
             this.maskedTxtBoxTelFixo = new System.Windows.Forms.MaskedTextBox();
             this.maskedTxtBoxTelCel = new System.Windows.Forms.MaskedTextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.listBoxHabilidadesDisponiveis = new System.Windows.Forms.ListBox();
+            this.listBoxHabilidadeSelecionadas = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // lblNome
@@ -251,7 +251,6 @@
             this.comboBoxTipoUsuario.Name = "comboBoxTipoUsuario";
             this.comboBoxTipoUsuario.Size = new System.Drawing.Size(187, 21);
             this.comboBoxTipoUsuario.TabIndex = 25;
-            this.comboBoxTipoUsuario.SelectedIndexChanged += new System.EventHandler(this.comboBoxTipoUsuario_SelectedIndexChanged);
             // 
             // maskedTxtBoxCpf_Cnpj
             // 
@@ -279,18 +278,10 @@
             // maskedTxtBoxTelCel
             // 
             this.maskedTxtBoxTelCel.Location = new System.Drawing.Point(331, 121);
-            this.maskedTxtBoxTelCel.Mask = "0000000000";
+            this.maskedTxtBoxTelCel.Mask = "00000000000";
             this.maskedTxtBoxTelCel.Name = "maskedTxtBoxTelCel";
             this.maskedTxtBoxTelCel.Size = new System.Drawing.Size(115, 20);
             this.maskedTxtBoxTelCel.TabIndex = 28;
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(464, 48);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(194, 97);
-            this.listView1.TabIndex = 29;
-            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // label3
             // 
@@ -309,6 +300,7 @@
             this.button1.TabIndex = 31;
             this.button1.Text = "Adicionar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -318,26 +310,34 @@
             this.button2.TabIndex = 32;
             this.button2.Text = "Remover";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // listView2
+            // listBoxHabilidadesDisponiveis
             // 
-            this.listView2.Location = new System.Drawing.Point(464, 203);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(194, 97);
-            this.listView2.TabIndex = 33;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
+            this.listBoxHabilidadesDisponiveis.FormattingEnabled = true;
+            this.listBoxHabilidadesDisponiveis.Location = new System.Drawing.Point(464, 46);
+            this.listBoxHabilidadesDisponiveis.Name = "listBoxHabilidadesDisponiveis";
+            this.listBoxHabilidadesDisponiveis.Size = new System.Drawing.Size(194, 95);
+            this.listBoxHabilidadesDisponiveis.TabIndex = 34;
+            // 
+            // listBoxHabilidadeSelecionadas
+            // 
+            this.listBoxHabilidadeSelecionadas.FormattingEnabled = true;
+            this.listBoxHabilidadeSelecionadas.Location = new System.Drawing.Point(464, 205);
+            this.listBoxHabilidadeSelecionadas.Name = "listBoxHabilidadeSelecionadas";
+            this.listBoxHabilidadeSelecionadas.Size = new System.Drawing.Size(194, 95);
+            this.listBoxHabilidadeSelecionadas.TabIndex = 35;
             // 
             // FrmCadastrarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(675, 361);
-            this.Controls.Add(this.listView2);
+            this.Controls.Add(this.listBoxHabilidadeSelecionadas);
+            this.Controls.Add(this.listBoxHabilidadesDisponiveis);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.listView1);
             this.Controls.Add(this.maskedTxtBoxTelCel);
             this.Controls.Add(this.maskedTxtBoxTelFixo);
             this.Controls.Add(this.maskedTxtBoxCpf_Cnpj);
@@ -398,10 +398,10 @@
         private System.Windows.Forms.TextBox txtBairro;
         private System.Windows.Forms.MaskedTextBox maskedTxtBoxTelFixo;
         private System.Windows.Forms.MaskedTextBox maskedTxtBoxTelCel;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListBox listBoxHabilidadesDisponiveis;
+        private System.Windows.Forms.ListBox listBoxHabilidadeSelecionadas;
     }
 }

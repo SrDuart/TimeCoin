@@ -9,6 +9,7 @@ namespace WindowsForms.TelasFrmPrincipal
 
     {
         TipoUsuario[] listTipoUsuario;
+        Habilidade[] listHabilidade;
         public FrmCadastrarUsuario()
         {
             InitializeComponent();
@@ -19,6 +20,14 @@ namespace WindowsForms.TelasFrmPrincipal
             foreach (TipoUsuario t in listTipoUsuario)
             {
                 comboBoxTipoUsuario.Items.Add(t.descricao);
+            }
+
+            Habilidade habilidade = new Habilidade();
+            listHabilidade = sv.HabilidadeSelect(habilidade);
+
+            foreach (Habilidade h in listHabilidade)
+            {
+                listBoxHabilidadesDisponiveis.Items.Add(h.nome);
             }
         }
 
@@ -52,6 +61,12 @@ namespace WindowsForms.TelasFrmPrincipal
 
                 sv.UsuarioInsert(usuario);
 
+                
+
+                UsuarioHabilidade usuarioHabilidade = new UsuarioHabilidade();
+
+
+
                 MessageBox.Show("Usuário cadastrado com sucesso");
 
                 this.Close();
@@ -68,30 +83,15 @@ namespace WindowsForms.TelasFrmPrincipal
             this.Hide();
         }
 
-        private void txtCpf_Cnpj_TextChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            int index = listBoxHabilidadesDisponiveis.SelectedIndex;
+            listBoxHabilidadeSelecionadas.Items.Add(listHabilidade[index].nome);
         }
 
-        private void txtTelCel_TextChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void txtTelFixo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void comboBoxTipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            listBoxHabilidadeSelecionadas.Items.Remove(listBoxHabilidadeSelecionadas.SelectedItem);
         }
     }
 }
