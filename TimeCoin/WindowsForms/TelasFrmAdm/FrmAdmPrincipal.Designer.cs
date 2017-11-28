@@ -146,7 +146,9 @@
             this.Controls.Add(this.btnHabilidade);
             this.Controls.Add(this.btnAnuncio);
             this.Name = "FrmAdmPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulário Administração";
+            this.Load += new System.EventHandler(this.FrmAdmPrincipal_Load);
             this.ResumeLayout(false);
 
         }

@@ -71,6 +71,8 @@ namespace WindowsForms.TelasFrmPrincipal
             this.Hide();
             FrmPrincipal principal = new FrmPrincipal();
             principal.ShowDialog();
+
+            this.Close();
         }
 
         private void txtCpf_Cnpj_TextChanged(object sender, EventArgs e)
