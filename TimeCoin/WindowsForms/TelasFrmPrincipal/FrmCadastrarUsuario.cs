@@ -1,4 +1,5 @@
-﻿using System;  
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using WindowsForms.localhost;
 using WindowsForms.TelasFrmUsuario;
@@ -17,17 +18,21 @@ namespace WindowsForms.TelasFrmPrincipal
             Service1 sv = new Service1();
             listTipoUsuario = sv.TipoUsuarioSelect();
 
+            comboBoxTipoUsuario.DisplayMember = "descricao";
+
             foreach (TipoUsuario t in listTipoUsuario)
             {
-                comboBoxTipoUsuario.Items.Add(t.descricao);
+                comboBoxTipoUsuario.Items.Add(t);
             }
 
             Habilidade habilidade = new Habilidade();
             listHabilidade = sv.HabilidadeSelect(habilidade);
 
+            listBoxHabilidadesDisponiveis.DisplayMember = "nome";
+
             foreach (Habilidade h in listHabilidade)
             {
-                listBoxHabilidadesDisponiveis.Items.Add(h.nome);
+                listBoxHabilidadesDisponiveis.Items.Add(h);
             }
         }
 
@@ -43,7 +48,8 @@ namespace WindowsForms.TelasFrmPrincipal
                 usuario.tipoUsuario = new TipoUsuario();
                 usuario.situacao = new Situacao();
 
-                usuario.tipoUsuario.id = Convert.ToInt32(listTipoUsuario[comboBoxTipoUsuario.SelectedIndex].id);
+                TipoUsuario tipoUsuario = (TipoUsuario) comboBoxTipoUsuario.SelectedItem;
+                usuario.tipoUsuario.id = Convert.ToInt32(tipoUsuario.id);
                 usuario.situacao.id = Convert.ToInt32(1);
 
                 usuario.nome = txtNome.Text;
@@ -64,8 +70,15 @@ namespace WindowsForms.TelasFrmPrincipal
                 usuario = sv.SelecionaUsuario(usuario);
 
                 UsuarioHabilidade usuarioHabilidade = new UsuarioHabilidade();
+                usuarioHabilidade.usuario = new Usuario();
+                usuarioHabilidade.habilidade = new Habilidade();
 
-
+                foreach(Habilidade h in listBoxHabilidadeSelecionadas.Items)
+                {
+                    usuarioHabilidade.usuario = usuario;
+                    usuarioHabilidade.habilidade = h;
+                    sv.UsuarioHabilidadeInsert(usuarioHabilidade);
+                }
 
                 MessageBox.Show("Usuário cadastrado com sucesso");
 
@@ -86,7 +99,8 @@ namespace WindowsForms.TelasFrmPrincipal
         private void button1_Click(object sender, EventArgs e)
         {
             int index = listBoxHabilidadesDisponiveis.SelectedIndex;
-            listBoxHabilidadeSelecionadas.Items.Add(listHabilidade[index].nome);
+            listBoxHabilidadeSelecionadas.DisplayMember = "nome";
+            listBoxHabilidadeSelecionadas.Items.Add(listHabilidade[index]);
         }
 
         private void button2_Click(object sender, EventArgs e)
