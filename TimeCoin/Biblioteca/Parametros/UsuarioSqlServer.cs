@@ -65,9 +65,7 @@ namespace Biblioteca.Parametros
                 cmd.Parameters["@dataCadastro"].Value = DateTime.Now;
 
                 cmd.Parameters.Add("@qtdHoraTrabalhada", SqlDbType.Int);
-                cmd.Parameters["@qtdHoraTrabalhada"].Value = 0;
-
-                /*Procurar uma solução parar usar a descrição do tipo usuario*/
+                cmd.Parameters["@qtdHoraTrabalhada"].Value = 0;                
 
                 if (usuario.tipoUsuario.id == 1)
                 {

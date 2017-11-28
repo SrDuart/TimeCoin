@@ -3,20 +3,27 @@ using System.Windows.Forms;
 using WindowsForms.localhost;
 using WindowsForms.TelasFrmUsuario;
 using WindowsForms.TelasFrmAdm;
+using System.Threading;
 
 namespace WindowsForms.TelasFrmPrincipal
 {
     public partial class FrmLogar : Form
     {
+        Thread th;
         public FrmLogar()
         {
             InitializeComponent();
         }
 
-        private void btnMudarSenha_Click(object sender, EventArgs e)
+        public void FrmEntrar()
         {
-
+            Application.Run(new FrmPrincipal());
         }
+
+        public void FrmAdm()
+        {
+            Application.Run(new FrmAdmPrincipal());
+        }        
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
@@ -42,19 +49,19 @@ namespace WindowsForms.TelasFrmPrincipal
 
                 if (txtUsuario.Text == "Admin" && txtSenha.Text == "admin")
                 {
-                    FrmAdmPrincipal p = new FrmAdmPrincipal();
-                    p.ShowDialog();
-                    return;
+                    th = new Thread(FrmAdm);
+                    th.SetApartmentState(ApartmentState.STA);
+                    th.Start();
+                    this.Close();
                 }
 
                 usuario.senha = txtSenha.Text;
 
                 sv.UsuarioVerificaLogin(usuario);
 
-                this.Hide();
-                FrmPrincipal principal = new FrmPrincipal();
-                principal.ShowDialog();
-
+                th = new Thread(FrmEntrar);
+                th.SetApartmentState(ApartmentState.STA);
+                th.Start();
                 this.Close();
             }
             catch (Exception ex)
