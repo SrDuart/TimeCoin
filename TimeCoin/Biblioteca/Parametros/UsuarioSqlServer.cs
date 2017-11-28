@@ -364,6 +364,30 @@ namespace Biblioteca.Parametros
             }
             return retorno;
         }
-        
+
+        public Usuario SelecionaUsuario(Usuario usuario)
+        {
+            try
+            {
+                this.abrirConexao();
+                string sql = "SELECT * FROM usuario where Nome = @nome and userName = @username";
+
+                SqlCommand cmd = new SqlCommand(sql, sqlConexao);
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                while (DbReader.Read())
+                {
+                    usuario.id = DbReader.GetInt32(DbReader.GetOrdinal("id"));
+                }
+                DbReader.Close();
+                cmd.Dispose();
+                this.fecharConexao();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao conectar e selecionar um usuário " + ex.Message);
+            }
+            return usuario;
+        }
+
     }
 }
