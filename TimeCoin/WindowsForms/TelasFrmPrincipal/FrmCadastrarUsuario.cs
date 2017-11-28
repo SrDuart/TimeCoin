@@ -61,7 +61,7 @@ namespace WindowsForms.TelasFrmPrincipal
 
                 sv.UsuarioInsert(usuario);
 
-                
+                usuario = sv.SelecionaUsuario(usuario);
 
                 UsuarioHabilidade usuarioHabilidade = new UsuarioHabilidade();
 

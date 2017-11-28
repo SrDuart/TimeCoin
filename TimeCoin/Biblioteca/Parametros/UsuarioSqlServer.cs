@@ -373,6 +373,13 @@ namespace Biblioteca.Parametros
                 string sql = "SELECT * FROM usuario where Nome = @nome and userName = @username";
 
                 SqlCommand cmd = new SqlCommand(sql, sqlConexao);
+
+                cmd.Parameters.Add("@nome", SqlDbType.VarChar);
+                cmd.Parameters["@nome"].Value = usuario.nome;
+
+                cmd.Parameters.Add("@userName", SqlDbType.VarChar);
+                cmd.Parameters["@userName"].Value = usuario.userName;
+
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 while (DbReader.Read())
                 {
