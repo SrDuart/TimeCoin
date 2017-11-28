@@ -62,7 +62,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(429, 20);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(100, 30);
-            this.btnPesquisar.TabIndex = 18;
+            this.btnPesquisar.TabIndex = 4;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
@@ -73,7 +73,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(323, 56);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 30);
-            this.btnExcluir.TabIndex = 17;
+            this.btnExcluir.TabIndex = 5;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -84,7 +84,7 @@
             this.btnAlterar.Location = new System.Drawing.Point(429, 56);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(100, 30);
-            this.btnAlterar.TabIndex = 16;
+            this.btnAlterar.TabIndex = 6;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
             // 
@@ -94,7 +94,7 @@
             this.txtDescricao.Location = new System.Drawing.Point(12, 84);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(233, 21);
-            this.txtDescricao.TabIndex = 15;
+            this.txtDescricao.TabIndex = 2;
             // 
             // lblDescricao
             // 
@@ -112,7 +112,7 @@
             this.txtNome.Location = new System.Drawing.Point(69, 29);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(176, 21);
-            this.txtNome.TabIndex = 12;
+            this.txtNome.TabIndex = 1;
             // 
             // lblNome
             // 
@@ -130,7 +130,7 @@
             this.btnAdicionar.Location = new System.Drawing.Point(323, 20);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(100, 30);
-            this.btnAdicionar.TabIndex = 10;
+            this.btnAdicionar.TabIndex = 3;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
@@ -145,7 +145,7 @@
             this.listViewHabilidade.Location = new System.Drawing.Point(4, 140);
             this.listViewHabilidade.Name = "listViewHabilidade";
             this.listViewHabilidade.Size = new System.Drawing.Size(555, 236);
-            this.listViewHabilidade.TabIndex = 13;
+            this.listViewHabilidade.TabIndex = 8;
             this.listViewHabilidade.UseCompatibleStateImageBehavior = false;
             this.listViewHabilidade.View = System.Windows.Forms.View.Details;
             this.listViewHabilidade.SelectedIndexChanged += new System.EventHandler(this.listViewHabilidade_SelectedIndexChanged);
@@ -189,7 +189,7 @@
             this.btnConfirmar.Location = new System.Drawing.Point(323, 92);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(206, 30);
-            this.btnConfirmar.TabIndex = 22;
+            this.btnConfirmar.TabIndex = 7;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
