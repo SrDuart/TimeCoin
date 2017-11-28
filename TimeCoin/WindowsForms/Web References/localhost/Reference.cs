@@ -73,6 +73,8 @@ namespace WindowsForms.localhost {
         
         private System.Threading.SendOrPostCallback ServicoVerificaDuplicidadeOperationCompleted;
         
+        private System.Threading.SendOrPostCallback SelecionaUsuarioOperationCompleted;
+        
         private System.Threading.SendOrPostCallback HabilidadeInsertOperationCompleted;
         
         private System.Threading.SendOrPostCallback HabilidadeUpdateOperationCompleted;
@@ -228,6 +230,9 @@ namespace WindowsForms.localhost {
         
         /// <remarks/>
         public event ServicoVerificaDuplicidadeCompletedEventHandler ServicoVerificaDuplicidadeCompleted;
+        
+        /// <remarks/>
+        public event SelecionaUsuarioCompletedEventHandler SelecionaUsuarioCompleted;
         
         /// <remarks/>
         public event HabilidadeInsertCompletedEventHandler HabilidadeInsertCompleted;
@@ -944,6 +949,36 @@ namespace WindowsForms.localhost {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/SelecionaUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Usuario SelecionaUsuario([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Usuario usuario) {
+            object[] results = this.Invoke("SelecionaUsuario", new object[] {
+                        usuario});
+            return ((Usuario)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SelecionaUsuarioAsync(Usuario usuario) {
+            this.SelecionaUsuarioAsync(usuario, null);
+        }
+        
+        /// <remarks/>
+        public void SelecionaUsuarioAsync(Usuario usuario, object userState) {
+            if ((this.SelecionaUsuarioOperationCompleted == null)) {
+                this.SelecionaUsuarioOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSelecionaUsuarioOperationCompleted);
+            }
+            this.InvokeAsync("SelecionaUsuario", new object[] {
+                        usuario}, this.SelecionaUsuarioOperationCompleted, userState);
+        }
+        
+        private void OnSelecionaUsuarioOperationCompleted(object arg) {
+            if ((this.SelecionaUsuarioCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SelecionaUsuarioCompleted(this, new SelecionaUsuarioCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/HabilidadeInsert", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public void HabilidadeInsert([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Habilidade habilidade) {
             this.Invoke("HabilidadeInsert", new object[] {
@@ -1350,22 +1385,24 @@ namespace WindowsForms.localhost {
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AnuncioSelect", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.ClassesBasicas")]
-        public Anuncio[] AnuncioSelect() {
-            object[] results = this.Invoke("AnuncioSelect", new object[0]);
+        public Anuncio[] AnuncioSelect([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Anuncio filtro) {
+            object[] results = this.Invoke("AnuncioSelect", new object[] {
+                        filtro});
             return ((Anuncio[])(results[0]));
         }
         
         /// <remarks/>
-        public void AnuncioSelectAsync() {
-            this.AnuncioSelectAsync(null);
+        public void AnuncioSelectAsync(Anuncio filtro) {
+            this.AnuncioSelectAsync(filtro, null);
         }
         
         /// <remarks/>
-        public void AnuncioSelectAsync(object userState) {
+        public void AnuncioSelectAsync(Anuncio filtro, object userState) {
             if ((this.AnuncioSelectOperationCompleted == null)) {
                 this.AnuncioSelectOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAnuncioSelectOperationCompleted);
             }
-            this.InvokeAsync("AnuncioSelect", new object[0], this.AnuncioSelectOperationCompleted, userState);
+            this.InvokeAsync("AnuncioSelect", new object[] {
+                        filtro}, this.AnuncioSelectOperationCompleted, userState);
         }
         
         private void OnAnuncioSelectOperationCompleted(object arg) {
@@ -2806,6 +2843,32 @@ namespace WindowsForms.localhost {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    public delegate void SelecionaUsuarioCompletedEventHandler(object sender, SelecionaUsuarioCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SelecionaUsuarioCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SelecionaUsuarioCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Usuario Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Usuario)(this.results[0]));
             }
         }
     }
